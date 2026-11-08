@@ -14,7 +14,6 @@
     { id: 'sudjelovanje', label: 'Glas mladih' },
     { id: 'odgovornost', label: 'Javni novac i prava' }
   ];
-  const categoryLabel = Object.fromEntries(categories.map(item => [item.id, item.label]));
   const filters = document.getElementById('learningFilters');
   const moreButton = document.getElementById('learningShowMore');
   let activeCategory = 'sve';
