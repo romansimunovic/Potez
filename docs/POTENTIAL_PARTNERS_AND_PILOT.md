@@ -29,15 +29,17 @@ Ne traži se da organizacija podrži politički stav, stranku ili pojedinačnu j
 **2. DKolektiv — Volonterski centar Osijek**
 - Službena stranica: https://dkolektiv.hr/hr/volonterski-centar-osijek
 - Projekt „Osijek to GOO”: https://dkolektiv.hr/hr/osijek-to-goo
-- Kontakt: dkolektiv@dkolektiv.hr
+- Kontakti: dkolektiv@dkolektiv.hr; program Osijek to GOO: osijektogoo@gmail.com; koordinator programa: nikica.torbica@dkolektiv.hr
 - Zašto: lokalno iskustvo u volontiranju, demokratskoj kulturi, građanskom odgoju i suradnji sa školama.
+- Program Osijek to GOO zajednički su razvijali Grad Osijek i četiri lokalne organizacije, a uključuje političku, medijsku, ljudskopravašku i financijsku pismenost te podršku nastavnicima. Više: https://dkolektiv.hr/hr/osijek-to-goo
 - Prvi prijedlog: pregled radionice „Jedan sat. Jedan stvarni problem. Jedan POTEZ” i zajedničko testiranje s edukatorima.
 
 **3. PRONI Centar za socijalno podučavanje — Osijek**
 - Tim i kontakti: https://proni.hr/proni-tim/
 - Kontakt: osijek@proni.hr
 - Zašto: rad s mladima, neformalno obrazovanje, digitalne kompetencije i participacija.
-- Prvi prijedlog: testiranje razumljivosti aplikacije i scenarija iz perspektive mladih koji nisu nužno uključeni u udruge.
+- Posebno relevantna poveznica: PRONI je partner Mreže mladih Hrvatske u projektu **TikTalking Youth Policy**, započetom 1. rujna 2026. i planiranom do studenoga 2027. Projekt s mladima istražuje koliko su javne politike koje utječu na njihove živote razumljive, dostupne i prilagođene mladima. Aktivnosti povezuju Vukovar, Ozalj, Pazin i Split. Službena najava: https://www.mmh.hr/vijesti/pocinjemo-s-projektom-tiktalking-youth-policy-politike-na-jeziku-mladih
+- Prvi prijedlog: predložiti PRONI-ju testiranje POTEZA kao interaktivnog edukativnog alata uz postojeći rad na razumljivosti javnih politika — ne kao zamjenu za TikTalking Youth Policy, nego kao mogući komplement za scenarije, simulacije i samostalno učenje.
 
 ### Nacionalni sadržajni i metodološki suradnici
 
@@ -51,14 +53,17 @@ Ne traži se da organizacija podrži politički stav, stranku ili pojedinačnu j
 - Programi i aktivnosti: https://mmh.hr/sto-radimo
 - Kako sudjelovati: https://mmh.hr/clanstvo/kako_postati_clanica_mreze_mladih_hrvatske
 - Kontakt: info@mmh.hr
-- Zašto: nacionalna mreža organizacija mladih; teme uključuju sudjelovanje, digitalnu transformaciju i politike za mlade.
-- Prvi prijedlog: savjetovanje o temama, povezivanje s organizacijama članicama i testiranje kako aplikacija predstavlja stvarne kanale participacije.
+- Aktualna poveznica 1 — **TikTalking Youth Policy (2026.–2027.)**: projekt se bavi razumljivošću i dostupnošću javnih politika mladima, uz PRONI i druge partnerske organizacije. Najava: https://www.mmh.hr/vijesti/pocinjemo-s-projektom-tiktalking-youth-policy-politike-na-jeziku-mladih
+- Aktualna poveznica 2 — **MREŽAPOiNT**: MMH je 2026. razvijao digitalnu info-platformu za mlade o obrazovanju, smještaju, radu, participaciji, pravima i uslugama. U travnju i svibnju 2026. proveo je beta-testiranja sa srednjoškolcima i studentima radi provjere funkcionalnosti, navigacije, preglednosti i relevantnosti informacija. Projekt: https://www.mmh.hr/projekti/mrezapoint-info-tocka-za-mlade-u-gradu-zagrebu; izvještaj o testiranju: https://www.mmh.hr/vijesti/testiranje-nove-platforme-za-mlade-mrezapoint
+- Zašto: nacionalna mreža s aktualnim iskustvom u razumljivosti javnih politika, participaciji mladih i testiranju digitalnih alata.
+- Prvi prijedlog: ponuditi POTEZ kao komplementarni, igrificirani sloj za učenje — naročito simulacije javnih odluka i kratke scenarije — te tražiti razmjenu metodologije testiranja, ne ponavljanje razvoja opće info-platforme.
 
 **6. Gong**
 - Što žele i rade: https://gong.hr/sto-zelimo/
 - Kontakt: gong@gong.hr; edukativni upiti: edu@gong.hr
 - Zašto: građansko obrazovanje, demokratska kultura, sudjelovanje građana i razumijevanje institucija.
-- Prvi prijedlog: stručni osvrt na neutralnost, razumljivost i točnost modula o javnim odlukama i participaciji.
+- Aktualna poveznica: u 2026. Gong je pozivao nastavnike na edukacije iz medijske pismenosti, EU pismenosti i antikorupcije, uz teme populizma i suvremenog političkog procesa. Najava: https://gong.hr/2026/01/09/poziv-uciteljima-i-nastavnicama-za-gongove-edukacije/
+- Prvi prijedlog: tražiti stručni osvrt na neutralnost, razumljivost i točnost modula o javnim odlukama, provjeri informacija i korupciji te mogućnost da se aplikacija testira kao dodatni alat uz edukacije.
 
 **7. Faktograf**
 - Kontakt: https://faktograf.hr/kontakt/
