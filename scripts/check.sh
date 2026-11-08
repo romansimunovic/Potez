@@ -113,7 +113,7 @@ for page in ("privacy.html","uvjeti.html"):
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
 assert 'Odaberi stvarni problem' in html and 'budgetCity' in html and 'budgetDistrict' in html
 data = Path("assets/budget-data.js").read_text(encoding="utf-8")
-for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "zagreb", "vinkovci", "belisce", "nova-gradiska"):
+for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "zagreb", "vinkovci", "belisce", "djakovo", "nova-gradiska"):
     assert city in data, city
 assert "budgetDistrictLabel" in html and "budgetEnvelopeLabel" in html
 assert 'value="virovitica"' in html and 'value="virovitica" disabled' not in html
@@ -121,6 +121,9 @@ assert 'value="valpovo"' in html and 'value="valpovo" disabled' not in html
 assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
 assert 'value="vinkovci"' in html and 'value="vinkovci" disabled' not in html
 assert 'value="belisce"' in html and 'value="belisce" disabled' not in html
+assert 'value="djakovo"' in html and 'value="djakovo" disabled' not in html
+assert "total: 47574000" in data
+assert "amount: 6258000" in data
 assert "total: 31641383.4" in data
 assert "amount: 17150400" in data
 assert "total: 94845254.82" in data
