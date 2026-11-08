@@ -105,18 +105,23 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v14" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v15" in sw and "'/assets/budget-data.js'" in sw
 for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
 assert 'Odaberi stvarni problem' in html and 'budgetCity' in html and 'budgetDistrict' in html
 data = Path("assets/budget-data.js").read_text(encoding="utf-8")
-for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "nova-gradiska", "zagreb"):
+for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "zagreb", "nova-gradiska"):
     assert city in data, city
 assert "budgetDistrictLabel" in html and "budgetEnvelopeLabel" in html
 assert 'value="virovitica"' in html and 'value="virovitica" disabled' not in html
 assert 'value="valpovo"' in html and 'value="valpovo" disabled' not in html
+assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
+assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
+assert "total: 2484265290" in data
+assert "amount: 354781100" in data
+
 assert "id: 'virovitica'" not in data
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
 assert "budgetCityImage" not in Path("assets/app.js").read_text(encoding="utf-8")

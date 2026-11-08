@@ -14,6 +14,11 @@ Ovaj registar služi uredničkoj provjeri podataka u proračunskom izazovu POTEZ
 | Vukovar | Proračun 2026.–2028. | Odabrane funkcijske klasifikacije |
 | Virovitica | II. izmjene i dopune proračuna 2026., usvojene 25. 6. 2026. | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 73.329.364 EUR, nije ukupni proračun |
 | Valpovo | Posljednji dokumentirani plan prije prijedloga III. izmjena za 2026. | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 14.375.354,05 EUR. Vrijednosti su preuzete iz stupca „Planirano” u službenom prijedlogu III. izmjena; novi predloženi iznosi nisu tretirani kao usvojeni plan |
+| Zagreb | Početni usvojeni proračun 2026.; funkcijska tablica iz službenog PDF-a | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 2.484.265.290 EUR. Ovo je početni plan prije naknadnih izmjena; službena XLS funkcijska tablica uz izmjene još nije obrađena |
+
+## Napomena o Zagrebu
+
+U igru je uključen **početni usvojeni plan za 2026.**, iz službenog PDF-a „Proračun Grada Zagreba za 2026. i projekcije za 2027. i 2028. godinu”. Šest funkcija 04, 05, 06, 08, 09 i 10 zbrajaju se na 2.484.265.290 EUR. Ukupni rashodi početnog plana iznose 3.077.158.730 EUR; odabrani funkcijski subtotal nije ukupni proračun. Gradska stranica objavljuje i kasnije izmjene za 2026., uključujući novu XLS tablicu „Rashodi prema funkcijskoj klasifikaciji”. Ta XLS tablica još nije pročitana i usklađena, pa se scenarij namjerno označava kao početni plan prije izmjena, a ne kao najnoviji rebalans. Službeni dokumenti: https://www.zagreb.hr/proracun/113894 ; početna funkcijska tablica: https://www.zagreb.hr/UserDocsImages/arhiva/financije/proracun%202026/Prora%C4%8Dun%20Grada%20Zagreba%20za%202026.%20i%20projekcije%20za%202027.%20i%202028.%20godinu%20-%20za%20potpis.pdf.
 
 ## Napomena o Valpovu
 
@@ -23,7 +28,6 @@ Službena stranica Grada Valpova objavljuje plan proračuna za 2026. i I. izmjen
 
 | Grad | Posljednji pronađeni službeni materijal | Što još treba učiniti | Službeni izvor |
 |---|---|---|---|
-| Zagreb | Izmjene i dopune proračuna 2026.; XLS rashoda prema funkcijskoj klasifikaciji i programskoj klasifikaciji; polugodišnje izvršenje 2026. | Preuzeti baš XLS uz izmjene (ne početni plan), provjeriti sve funkcije i zbrojeve; odvojiti plan od izvršenja | https://www.zagreb.hr/proracun/113894 |
 | Nova Gradiška | Službeni arhiv s kategorijama proračuna, izmjena i dopuna te izvještaja o izvršenju za 2026. | Utvrditi posljednju važeću odluku i preuzeti posebni dio/funkcijsku klasifikaciju; ne koristiti starije projekcije za 2026. | https://novagradiska.hr/wp-file-download-search/ |
 | Vinkovci | I. izmjene i dopune proračuna 2026., objavljene 27. 5. 2026.; PDF 36,5 MB | Izvući tablice iz izmijenjenog proračuna; XLS koji je objavljen uz njega odnosi se na plan nabave, ne na cijeli proračun | https://www.vinkovci.hr/dokumenti/proracun |
 | Požega | I. izmjene i dopune 2026., objavljene 26. 6. 2026.; tablice u XLS formatu | Obraditi važeći XLS i obrazloženje; uskladiti stavke s odabranim funkcijama/programima | https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine |
@@ -41,4 +45,4 @@ Službena stranica Grada Valpova objavljuje plan proračuna za 2026. i I. izmjen
 6. U sučelju jasno navesti „zbroj odabranih funkcija/programa” i da klizači mijenjaju samo edukativni scenarij.
 7. Zadržati službenu poveznicu izravno uz scenarij.
 
-**Status 8. 11. 2026.:** Aktivni su Osijek, Slavonski Brod, Slatina, Vukovar, Virovitica i Valpovo. Valpovo koristi plan prije predloženih III. izmjena. Zagreb, Nova Gradiška, Vinkovci, Požega, Belišće i Đakovo ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
+**Status 8. 11. 2026.:** Aktivni su Osijek, Slavonski Brod, Slatina, Vukovar, Virovitica, Valpovo i Zagreb. Zagreb koristi jasno označen početni usvojeni plan prije naknadnih izmjena. Nova Gradiška, Vinkovci, Požega, Belišće i Đakovo ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
