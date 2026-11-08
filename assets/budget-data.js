@@ -191,5 +191,5 @@ window.POTEZ_BUDGET_DATA = {
     { id: 'požega', label: 'Požega', note: 'I. izmjene objavljene 26. 6. 2026.; službene XLS tablice treba obraditi', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
     { id: 'valpovo', label: 'Valpovo', note: 'I. izmjene i obrazloženje dostupni su kao XLS; potrebno izdvojiti i provjeriti funkcije', source: 'https://valpovo.hr/proracun/' },
     { id: 'belisce', label: 'Belišće', note: 'II. izmjene i izvješće izvršenja do 30. 9. 2026.; veliki PDF treba obraditi', source: 'https://belisce.hr/proracun/' },
-    { id: 'djakovo', label: 'Đakovo', note: 'II. rebalans i obrazloženje za 2026. objavljeni; potrebno izdvojiti važeće funkcijske iznose', source: 'https://www.djakovo.hr/index.php/grad/sluzbena-obiljezja/item/2910-proracun-grada-dakova.html' }
+    { id: 'djakovo', label: 'Đakovo', note: 'II. rebalans i obrazloženje za 2026. objavljeni; potrebno izdvojiti važeće funkcijske iznose', source: 'https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html' }
   ]};
