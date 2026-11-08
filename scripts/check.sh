@@ -91,5 +91,8 @@ assert "'/assets/accessibility.js'" in sw and "potez-pilot-v8" in sw
 for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
-print("POTEZ accessibility and visual-system checks passed")
+assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
+assert 'Odaberi stvarni problem' in html and 'Osijek_VP01.jpg' in html
+assert 'HAKOM' in html and 'članak 33.' in html
+print("POTEZ accessibility, problem-path and visual-system checks passed")
 PY
