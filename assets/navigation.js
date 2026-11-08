@@ -75,8 +75,8 @@
     try{saved=JSON.parse(window.localStorage.getItem(STORAGE_KEY)||'{}')||{};}catch{}
     const xp=Math.max(0,Number(saved.xp)||0);
     score.textContent=xp+' XP';
-    if(xp>0){title.textContent='Već si napravio/la prvi korak.';description.textContent='Skupio/la si '+xp+' XP. Odaberi sljedeći stvarni problem ili nastavi modul koji još nisi prošao/la.';}
-    else{title.textContent='Tvoj put počinje jednim pitanjem.';description.textContent='Isprobaj prvi izazov i prati vještine koje gradiš. Ne trebaš otvarati račun.';}
+    if(xp>0){title.textContent='Već si istražio/la dio sadržaja.';description.textContent='Skupio/la si '+xp+' XP. Nastavi istraživati teme i izazove koji te zanimaju.';}
+    else{title.textContent='Tvoj put počinje jednim pitanjem.';description.textContent='Isprobaj kratki izazov i prati vlastiti napredak. Ne trebaš otvarati račun.';}
   }
   window.addEventListener('potez:progress',updateHomeProgress);
   window.addEventListener('storage',updateHomeProgress);
