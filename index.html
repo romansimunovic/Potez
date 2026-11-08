@@ -4,11 +4,21 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#f7f4ec" />
-<meta name="description" content="POTEZ je mobilna platforma građanske pismenosti. Nauči tko odlučuje, provjeri tvrdnje i pronađi konkretan način sudjelovanja." />
+<meta name="description" content="POTEZ je besplatna interaktivna platforma građanske i medijske pismenosti. Otkrij tko odlučuje o stvarima koje te se tiču, provjeri informacije i pronađi svoj prvi potez." />
+<meta name="author" content="Roman Šimunović" />
+<meta name="keywords" content="građanska pismenost, građanski odgoj, participacija mladih, medijska pismenost, digitalna pismenost, javne politike, građansko sudjelovanje, Hrvatska" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://potez.pages.dev/" />
 <meta name="color-scheme" content="light dark" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="POTEZ — politika prevedena na tvoj život" />
-<meta property="og:description" content="Kratki izazovi, provjerljive informacije i konkretni načini sudjelovanja. Bez stranačkih preporuka." />
+<meta property="og:description" content="Besplatni interaktivni vodiči o školama, prijevozu, javnom novcu, društvenim mrežama i sudjelovanju. Bez registracije i stranačkih preporuka." />
+<meta property="og:url" content="https://potez.pages.dev/" />
+<meta property="og:site_name" content="POTEZ" />
+<meta property="og:locale" content="hr_HR" />
+<meta name="twitter:title" content="POTEZ — građanska pismenost i sudjelovanje" />
+<meta name="twitter:description" content="Otkrij tko odlučuje, provjeri informacije i pronađi svoj prvi građanski potez." />
+<meta name="twitter:image" content="https://potez.pages.dev/og-image.png" />
 <meta property="og:image" content="/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -19,9 +29,11 @@
 <script src="/assets/navigation.js" defer></script>
 <script src="/assets/rewards.js" defer></script>
 <script src="/assets/budget-data.js" defer></script>
+<script src="/assets/learning-data.js" defer></script>
 <script src="/assets/app.js" defer></script>
+<script src="/assets/learning.js" defer></script>
 <script src="/assets/civic.js" defer></script>
-<title>POTEZ — politika prevedena na tvoj život</title>
+<title>POTEZ — građanska pismenost i sudjelovanje mladih</title>
 
 </head>
 <body>
@@ -109,7 +121,29 @@
 </section>
 <section class="app-view" data-app-view="learn" id="ucenje" hidden>
 <header class="view-intro"><div><div class="section-kicker">UČI · RAZUMIJ · PROVJERI</div><h1>Razumij kako odluke i informacije funkcioniraju</h1><p>Saznaj tko donosi odluke i kako prepoznati pouzdanu informaciju</p></div><span class="view-meta">3 kratka modula</span></header>
-<section class="section issue-paths" id="teme" aria-labelledby="issuePathsTitle">
+<section class="section learning-daily-section" aria-labelledby="dailyFactHeading">
+  <div id="dailyFact" class="daily-fact-card" aria-live="polite">
+    <div class="daily-fact-header"><span class="daily-fact-kicker" id="dailyFactHeading">Zanimljivost dana</span></div>
+    <h2>Činjenica s izvorom. Jedan novi kut gledanja.</h2>
+    <p class="daily-fact-text">Svakog dana izdvajamo jedan podatak iz istraživanja ili službenog dokumenta.</p>
+  </div>
+</section>
+<section class="section learning-explorer" id="odaberi-temu" aria-labelledby="learningExplorerTitle">
+  <div class="section-head">
+    <div><div class="section-kicker">Uči prema onome što te zanima</div><h2 id="learningExplorerTitle">Odaberi temu. Otkrij što stoji iza nje.</h2></div>
+    <p class="section-intro">Od svakodnevnih problema do društvenih mreža i javnog novca. Kratko objašnjenje, provjerljiv izvor i jedan konkretan potez.</p>
+  </div>
+  <div class="learning-explorer-toolbar">
+    <div id="learningFilters" class="learning-filters" role="group" aria-label="Filtriraj teme"></div>
+    <span id="learningCount" class="learning-count" aria-live="polite">10 tema</span>
+  </div>
+  <div id="learningTopics" class="learning-grid" aria-live="polite"></div>
+  <button type="button" id="learningShowMore" class="btn btn-light learning-show-more" hidden>Prikaži sve teme</button>
+  <p class="learning-footnote">Bodove dobivaš za istražene teme, ne za političke stavove. Odabir kategorije služi samo za trenutačni prikaz i ne sprema se kao profil interesa.</p>
+</section>
+<details class="learning-guides" id="teme">
+  <summary><span class="section-kicker">Detaljniji praktični vodiči</span><strong>Prijevoz, školski obroci, učenje i školska pravila</strong><span>Otvori vodiče korak po korak ↓</span></summary>
+<section class="section issue-paths" id="practicalIssuePaths" aria-labelledby="issuePathsTitle">
   <div class="section-head">
     <div><div class="section-kicker">Kreni od onoga što te se tiče</div><h2 id="issuePathsTitle">Stvarni problemi, konkretni putevi</h2></div>
     <p class="section-intro">Ne moraš prvo riješiti kviz. Odaberi problem, otkrij tko je nadležan, pronađi dokaz i složi potez koji ima smisla</p>
@@ -168,6 +202,7 @@
     <p class="issue-caution">Vijeće učenika može zastupati interese učenika i predlagati poboljšanja, ali formalna odluka o pravilima pripada nadležnim tijelima škole</p>
   </article>
 </section>
+</details>
 <section class="stat-strip learning-stat-strip" aria-label="Nalazi istraživanja političke kompetencije učenika 2026">
       <div class="stat"><strong>44,7 %</strong><span>učenika volontiralo je</span><small>Hrvatska · završni razredi SŠ · 2026.</small></div>
       <div class="stat"><strong>63,1 %</strong><span>doniralo je pomoć</span><small>Financijsku ili materijalnu · 2026.</small></div>
@@ -273,36 +308,40 @@
 <section class="app-view" data-app-view="play" id="igraj" hidden>
 <header class="view-intro"><div><div class="section-kicker">IGRAJ · NAPREDUJ · PONOVI</div><h1>Građanske vještine, pretvorene u igru</h1><p>Kratki izazovi o stvarnim temama. Bodovi nagrađuju učenje, ne političke stavove</p></div><span class="view-meta">Brzi izazovi</span></header>
 <section class="section passport-section" id="putovnica" aria-labelledby="passportTitle">
-      <div class="section-head">
-        <div><div class="section-kicker"><span class="number">00</span> Tvoja putovnica</div><h2 id="passportTitle">Od znatiželje do stvarnog poteza</h2></div>
-        <p class="section-intro">Riješi izazove, otključaj nove vještine i isprobaj ih na stvarnim situacijama</p>
+  <div class="section-head">
+    <div><div class="section-kicker"><span class="number">00</span> Tvoja putovnica</div><h2 id="passportTitle">Napreduj kroz znanje, ne kroz stavove</h2></div>
+    <p class="section-intro">Svaka istražena tema i dovršen izazov otvara novu razinu. Napredak ostaje na tvom uređaju.</p>
+  </div>
+  <div class="passport-main panel dark passport-compact">
+    <div class="passport-compact-top">
+      <div><div class="mini-tag">Tvoja trenutačna razina</div><div class="passport-rank" id="passportRank">Radoznalac</div></div>
+      <span class="xp" id="passportPoints">0 XP</span>
+    </div>
+    <p id="passportDescription">Kreni od jednog pitanja. Svaki izazov otvara novu vještinu.</p>
+    <div class="passport-track" id="passportTrack" role="progressbar" aria-label="Napredak prema sljedećoj razini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="passportFill"></span></div>
+    <div class="passport-compact-bottom"><div class="passport-next" id="passportNext">Prvi korak: završi jedan izazov</div><button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true">♪ Zvuk: uključen</button></div>
+    <div class="passport-compact-actions">
+      <a class="btn btn-green" href="#odaberi-temu">Odaberi temu ↓</a>
+      <button class="btn btn-light" id="shareProgress" type="button">Podijeli napredak ↗</button>
+    </div>
+  </div>
+  <details class="passport-more">
+    <summary>Prikaži značke, istražene teme i cijeli put napretka</summary>
+    <div class="passport-more-content">
+      <div class="passport-stat-grid">
+        <div class="passport-stat"><strong id="passportCompleted">0/4</strong><span>glavnih izazova</span></div>
+        <div class="passport-stat"><strong id="passportBadgesCount">0</strong><span>osvojenih znački</span></div>
+        <div class="passport-stat"><strong id="passportTopics">0</strong><span>istraženih tema</span></div>
       </div>
-      <div class="passport-layout">
-        <div class="passport-main panel dark">
-          <div class="passport-topline"><span class="mini-tag">Tvoj put kroz POTEZ</span><span class="xp" id="passportPoints">0 XP</span><button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true">♪ Zvuk: uključen</button></div>
-          <div class="passport-rank" id="passportRank">Radoznalac</div>
-          <p id="passportDescription">Kreni od jednog pitanja. Svaki izazov otvara novu vještinu</p>
-          <div class="passport-track" id="passportTrack" role="progressbar" aria-label="Napredak prema sljedećoj razini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="passportFill"></span></div>
-          <div class="passport-next" id="passportNext">Prvi korak: završi jedan izazov</div>
-          <div class="passport-actions">
-            <a class="btn btn-green" href="#teme">Odaberi stvarni problem ↓</a>
-            <button class="btn btn-light" id="shareProgress" type="button">Podijeli napredak ↗</button>
-          </div>
-        </div>
-        <div class="passport-side">
-          <div class="passport-stat-grid">
-            <div class="passport-stat"><strong id="passportCompleted">0/4</strong><span>glavnih izazova</span></div>
-            <div class="passport-stat"><strong id="passportBadgesCount">0</strong><span>osvojenih znački</span></div>
-          </div>
-          <div class="passport-badge-panel">
-            <div class="mini-tag">Vještine koje gradiš</div>
-            <div class="passport-badges" id="passportBadges" aria-live="polite"></div>
-          </div>
-        </div>
+      <div class="passport-badge-panel">
+        <div class="mini-tag">Vještine koje gradiš</div>
+        <div class="passport-badges" id="passportBadges" aria-live="polite"></div>
       </div>
       <div class="passport-path" id="passportPath" aria-label="Put kroz izazove"></div>
-      <p class="source-note">Bodovi prate dovršene izazove — ne političke stavove</p>
-    </section>
+    </div>
+  </details>
+  <p class="source-note">XP je osobni lokalni napredak. Ne rangira ljude i ne mjeri njihove političke stavove.</p>
+</section>
 <section class="section weekly-section" aria-labelledby="weeklyTitle">
       <div class="panel mint weekly-panel">
         <div>
