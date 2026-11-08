@@ -230,13 +230,34 @@
     factRoot.append(footer);
   }
 
+  function syncTopicProgress() {
+    const saved = readProgress();
+    root.querySelectorAll('.learning-card[data-topic-id]').forEach(card => {
+      const button = card.querySelector('.learning-award');
+      const done = saved['lesson-' + card.dataset.topicId] === true;
+      if (button) {
+        button.disabled = done;
+        button.textContent = done ? 'Naučeno ✓' : 'Zabilježi naučeno · +4 XP';
+      }
+      card.classList.toggle('is-complete', done);
+    });
+  }
+
+  function syncDailyFactProgress() {
+    const button = factRoot.querySelector('.daily-fact-award');
+    if (!button) return;
+    const done = readProgress().dailyFactStamp === localDateKey(new Date());
+    button.disabled = done;
+    button.textContent = done ? 'Današnja zanimljivost pročitana ✓' : 'Pročitao/la sam · +2 XP';
+  }
+
   renderFilters();
   renderTopics();
   renderDailyFact();
 
+  // Update completion indicators in place so open explanations and keyboard focus survive.
   window.addEventListener('potez:progress', () => {
-    // Keep the current card UI in sync when progress is reset elsewhere.
-    renderTopics();
-    renderDailyFact();
+    syncTopicProgress();
+    syncDailyFactProgress();
   });
 })();
