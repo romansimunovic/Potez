@@ -207,6 +207,30 @@ window.POTEZ_BUDGET_DATA = {
         }
       }
     },
+    vinkovci: {
+      label: 'Vinkovci',
+      selectionLabel: 'Odaberi prikaz',
+      districts: {
+        'pocetni-plan': {
+          label: 'Početni usvojeni plan · prije I. izmjena',
+          year: 2026,
+          total: 94845254.82,
+          envelopeLabel: 'Zbroj odabranih funkcija',
+          scopeNote: 'Funkcijska klasifikacija · početni plan 2026.',
+          intro: 'Prikazan je početni usvojeni plan. I. izmjene od 27. 5. 2026. nisu uključene jer njihove detaljne tablice još nisu usklađene.',
+          source: 'https://vinkovci.hr/preuzmi/dokumenti/proracun/Proracun%20u%20malom%202026.pdf',
+          sourceLabel: 'Proračun u malom 2026. · početni plan',
+          items: [
+            { name: 'Promet i gospodarstvo', amount: 18581614.85, detail: 'Funkcija 04 · ekonomski poslovi' },
+            { name: 'Zaštita okoliša', amount: 1686046.14, detail: 'Funkcija 05 · zaštita okoliša' },
+            { name: 'Stanovanje i zajednica', amount: 20552696.90, detail: 'Funkcija 06 · stanovanje i unapređenje zajednice' },
+            { name: 'Sport i kultura', amount: 6800879.85, detail: 'Funkcija 08 · rekreacija, kultura i religija' },
+            { name: 'Obrazovanje', amount: 44987797.59, detail: 'Funkcija 09 · obrazovanje' },
+            { name: 'Socijalna zaštita', amount: 2236219.49, detail: 'Funkcija 10 · socijalna zaštita' }
+          ]
+        }
+      }
+    },
     virovitica: {
       label: 'Virovitica',
       selectionLabel: 'Odaberi prikaz',
@@ -234,7 +258,6 @@ window.POTEZ_BUDGET_DATA = {
   },
   upcoming: [
     { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Službeni arhiv sadrži proračun i izmjene za 2026.; utvrđivanje posljednje važeće tablice i obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
-    { id: 'vinkovci', label: 'Vinkovci', note: 'I. izmjene objavljene 27. 5. 2026.; PDF posebnog dijela treba izvući i uskladiti', source: 'https://vinkovci.hr/dokumenti/proracun' },
     { id: 'požega', label: 'Požega', note: 'I. izmjene objavljene 26. 6. 2026.; službene XLS tablice treba obraditi', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
     { id: 'belisce', label: 'Belišće', note: 'II. izmjene i izvješće izvršenja do 30. 9. 2026.; veliki PDF treba obraditi', source: 'https://belisce.hr/proracun/' },
     { id: 'djakovo', label: 'Đakovo', note: 'II. rebalans i obrazloženje za 2026. objavljeni; potrebno izdvojiti važeće funkcijske iznose', source: 'https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html' }
