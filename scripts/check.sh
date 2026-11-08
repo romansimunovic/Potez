@@ -124,6 +124,8 @@ assert 'value="belisce"' in html and 'value="belisce" disabled' not in html
 assert 'value="djakovo"' in html and 'value="djakovo" disabled' not in html
 assert "total: 47574000" in data
 assert "amount: 6258000" in data
+assert "11. 11. 2026." in data
+assert "najavljen rebalans krajem listopada" in data
 assert "total: 31641383.4" in data
 assert "amount: 17150400" in data
 assert "total: 94845254.82" in data
