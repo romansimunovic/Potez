@@ -39,8 +39,8 @@ Uporaba AI-ja navodi se radi transparentnosti o načinu nastanka projekta, a ne 
 | Područje | Tehnologija / platforma | Uloga |
 |---|---|---|
 | Struktura | HTML5 | Semantička struktura stranica |
-| Dizajn | CSS3 | Responzivni prikaz, animacije i pristupačnost |
-| Logika | JavaScript (vanilla) | Kvizovi, XP, misije, simulacije i navigacija |
+| Dizajn | CSS3 | Responzivni prikaz, animacije, tamni način rada, visoki kontrast i skaliranje teksta |
+| Logika | JavaScript (vanilla) | Kvizovi, XP, misije, simulacije, navigacija i lokalne postavke pristupačnosti |
 | Zvuk | Web Audio API | Kratki lokalni zvuk nagrade, bez audio datoteka |
 | Dijeljenje | Web Share API / Clipboard API | Dijeljenje napretka na izričit zahtjev korisnika |
 | Lokalna pohrana | localStorage / Cache Storage | Napredak, postavke zvuka i statičke datoteke na uređaju |

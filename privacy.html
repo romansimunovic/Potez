@@ -4,11 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f7f4ec" />
+  <meta name="color-scheme" content="light dark" />
   <meta name="description" content="Jasne informacije o privatnosti u POTEZ pilot-aplikaciji." />
   <title>Privatnost — POTEZ</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="stylesheet" href="/assets/styles.css" />
+  <script src="/assets/accessibility.js" defer></script>
 </head>
 <body class="legal-page">
   <a class="skip-link" href="#content">Preskoči na sadržaj</a>
@@ -19,6 +21,7 @@
         <a href="/">Početna</a>
         <a href="/uvjeti.html">Uvjeti korištenja</a>
       </nav>
+      <details class="accessibility-menu" id="accessibilityMenu"><summary aria-label="Otvori postavke pristupačnosti">◐ Pristupačnost</summary><div class="accessibility-panel" aria-label="Postavke prikaza"><div class="accessibility-panel-heading"><strong>Prilagodi prikaz</strong><span>Postavke se čuvaju na ovom uređaju</span></div><section class="accessibility-control"><div><strong>Izgled</strong><small>Odaberi svijetli ili tamni prikaz</small></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section><section class="accessibility-control"><div><strong>Veličina teksta</strong><small id="fontScaleValue">100 %</small></div><div class="accessibility-actions"><button type="button" data-font-step="-1" aria-label="Smanji tekst">A−</button><button type="button" data-font-step="1" aria-label="Povećaj tekst">A+</button></div></section><section class="accessibility-control"><div><strong>Visoki kontrast</strong><small>Izraženije razlike teksta i pozadine</small></div><button type="button" class="accessibility-toggle" data-setting="contrast" aria-pressed="false">Isključeno</button></section><section class="accessibility-control"><div><strong>Smanji animacije</strong><small>Manje kretanja i prijelaza</small></div><button type="button" class="accessibility-toggle" data-setting="motion" aria-pressed="false">Isključeno</button></section><button type="button" class="accessibility-reset" id="resetAccessibility">Vrati početne postavke</button></div></details>
     </header>
 
     <main id="content" class="legal-content" tabindex="-1">

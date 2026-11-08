@@ -3,6 +3,7 @@ set -euo pipefail
 node --check assets/rewards.js
 node --check assets/app.js
 node --check assets/civic.js
+node --check assets/accessibility.js
 node --check sw.js
 python - <<'PY'
 import json
@@ -73,4 +74,22 @@ assert "Otvori gotov raspored radionice" in html
 assert "mobile-nav-icon" in html
 assert ".facilitator-kit" in css and "prefers-reduced-motion:reduce" in css
 print("POTEZ facilitator and mobile navigation checks passed")
+PY
+
+python - <<'PY'
+from pathlib import Path
+html=Path("index.html").read_text(encoding="utf-8")
+css=Path("assets/styles.css").read_text(encoding="utf-8")
+js=Path("assets/accessibility.js").read_text(encoding="utf-8")
+sw=Path("sw.js").read_text(encoding="utf-8")
+for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-step="1"','data-setting="contrast"','data-setting="motion"'):
+    assert token in html, token
+for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
+    assert token in css, token
+assert "localStorage" in js and "prefers-color-scheme: dark" in js
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v8" in sw
+for page in ("privacy.html","uvjeti.html"):
+    page_html=Path(page).read_text(encoding="utf-8")
+    assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
+print("POTEZ accessibility and visual-system checks passed")
 PY
