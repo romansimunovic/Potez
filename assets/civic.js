@@ -12,15 +12,15 @@
     { min: 25, title: 'Provjeravatelj', description: 'Pitaš tko nešto tvrdi, na temelju čega i što još nedostaje.' },
     { min: 45, title: 'Poznavatelj sustava', description: 'Razumiješ tko odlučuje, tko plaća i tko provodi odluku.' },
     { min: 70, title: 'Promišljeni sudionik', description: 'Povezuješ dokaze, javne prioritete i mogućnosti djelovanja.' },
-    { min: 100, title: 'Pokretač promjene', description: 'Znanje pretvaraš u argumentiran i izvediv potez.' },
+    { min: 100, title: 'Poznavatelj sustava', description: 'Svoje razumijevanje pretvaraš u argumentirane prijedloge.' },
     { min: 140, title: 'Građanski istraživač', description: 'Samostalno istražuješ probleme i pomažeš drugima da se snađu.' }
   ];
 
   const mainMissions = [
-    { key: 'quizDone', title: 'Razumi kontekst', desc: 'Odvoji mitove o mladima od onoga što podaci stvarno pokazuju.', href: '#izazov', badge: 'Čitač podataka', points: 15 },
-    { key: 'factDone', title: 'Provjeri prije dijeljenja', desc: 'Razlikuj činjenicu, mišljenje i tvrdnju koju tek treba potvrditi.', href: '#provjera', badge: 'Tragač za dokazima', points: 10 },
-    { key: 'budgetDone', title: 'Vagaj javne prioritete', desc: 'Rasporedi ograničen novac i promisli tko dobiva, a tko čeka.', href: '#budzet', badge: 'Čuvar javnog novca', points: 15 },
-    { key: 'actionDone', title: 'Pronađi put do odluke', desc: 'Pretvori problem u konkretan upit, prijedlog ili inicijativu.', href: '#akcija', badge: 'Prvi potez', points: 5 }
+    { key: 'quizDone', title: 'Razumi podatke', desc: 'Poveži istraživačke nalaze s uzorkom i kontekstom.', href: '#izazov', badge: 'Čitač podataka', points: 15 },
+    { key: 'factDone', title: 'Provjeri informaciju', desc: 'Razlikuj činjenicu, mišljenje i nepotvrđenu tvrdnju.', href: '#provjera', badge: 'Tragač za dokazima', points: 10 },
+    { key: 'budgetDone', title: 'Razmotri javne prioritete', desc: 'Usporedi potrebe, troškove i posljedice raspodjele.', href: '#budzet', badge: 'Čuvar javnog novca', points: 15 },
+    { key: 'actionDone', title: 'Upoznaj nadležnosti', desc: 'Poveži temu s institucijama, dokumentima i službenim informacijama.', href: '#akcija', badge: 'Poznavatelj sustava', points: 5 }
   ];
 
   const weeklyTasks = [
@@ -130,14 +130,14 @@
         card.className = 'path-card' + (done ? ' done' : '');
         card.href = mission.href;
         const step = document.createElement('span');
-        step.textContent = 'KORAK ' + String(index + 1).padStart(2, '0') + ' · ' + mission.points + ' XP';
+        step.textContent = 'IZAZOV ' + String(index + 1).padStart(2, '0') + ' · ' + mission.points + ' XP';
         const heading = document.createElement('strong');
         heading.textContent = mission.title;
         const detail = document.createElement('span');
         detail.textContent = mission.desc;
         const state = document.createElement('span');
         state.className = 'path-state';
-        state.textContent = done ? 'Završeno ✓' : 'Otvori misiju →';
+        state.textContent = done ? 'Pregledano ✓' : 'Pogledaj temu →';
         card.append(step, heading, detail, state);
         path.appendChild(card);
       });
@@ -146,14 +146,14 @@
       weekly.className = 'path-card' + (weekDone ? ' done' : '');
       weekly.href = '#weeklyTitle';
       const weeklyStep = document.createElement('span');
-      weeklyStep.textContent = 'PONAVLJA SE SVAKI TJEDAN · 8 XP';
+      weeklyStep.textContent = 'TJEDNI PREGLED · 8 XP';
       const weeklyHeading = document.createElement('strong');
-      weeklyHeading.textContent = 'Izađi iz aplikacije';
+      weeklyHeading.textContent = 'Istraži izvor izvan POTEZA';
       const weeklyDetail = document.createElement('span');
-      weeklyDetail.textContent = 'Napravi jedan mali korak u stvarnom svijetu — pregledaj odluku, pitaj instituciju ili provjeri izvor.';
+      weeklyDetail.textContent = 'Otvori javni dokument, usporedi podatke ili pogledaj kako institucija objašnjava svoju odluku.';
       const weeklyState = document.createElement('span');
       weeklyState.className = 'path-state';
-      weeklyState.textContent = weekDone ? 'Tjedna misija završena ✓' : 'Otvori tjednu misiju →';
+      weeklyState.textContent = weekDone ? 'Pregledano ✓' : 'Pogledaj tjedni izvor →';
       weekly.append(weeklyStep, weeklyHeading, weeklyDetail, weeklyState);
       path.appendChild(weekly);
     }
@@ -203,7 +203,7 @@
       label: 'Javni natječaj · poštena pravila',
       title: 'Tko dobiva ugovor za novi skate-park?',
       story: 'Tvoja ekipa godinama traži siguran prostor za skejtanje. Grad napokon objavljuje natječaj za uređenje skate-parka. U dokumentima primijetiš da je osoba povezana s jednim ponuditeljem sudjelovala u povjerenstvu. Ne znaš je li to prijavljeno ni kako je ponuda ocijenjena.',
-      question: 'Koji je tvoj najbolji prvi potez?',
+      question: 'Koji je postupak najprimjereniji?',
       options: [
         { text: 'Zamoliti poznanika da pogura ponudu.', best: false, feedback: 'Poznanstvo nije kriterij. Pritisak narušava jednaka pravila i može ugroziti postupak.' },
         { text: 'Zatražiti kriterije, zapisnik bodovanja i obrazloženu odluku.', best: true, feedback: 'Zatraži kriterije, bodovanje i obrazloženje. Provjeri je li mogući sukob interesa prijavljen i riješen.' },
@@ -229,7 +229,7 @@
       label: 'Grupni chat · provjeri prije dijeljenja',
       title: 'Ukida li se od ponedjeljka učenički prijevoz?',
       story: 'U razrednoj grupi netko pošalje screenshot s dramatičnom porukom: „Od ponedjeljka nema više besplatnog prijevoza!” Nema datuma, poveznice ni naziva institucije. Svi počinju paničariti.',
-      question: 'Koji potez najviše pomaže ekipi?',
+      question: 'Koji odgovor najviše pomaže ekipi?',
       options: [
         { text: 'Proslijediti screenshot svim razredima da budu spremni.', best: false, feedback: 'Screenshot može biti star ili izrezan. Zaustavi dijeljenje dok ne pronađeš izvor.' },
         { text: 'Pronaći izvornu odluku i provjeriti datum i nadležno tijelo.', best: true, feedback: 'Provjeri službenu obavijest, datum i na koga se odnosi. Bez izvora je tvrdnja nepotvrđena — ne automatski lažna.' },
@@ -281,7 +281,7 @@
       label: 'Javna informacija · pronađi dokument',
       title: 'Obećali su obnovu igrališta. Gdje je zapelo?',
       story: 'Prije pola godine objavljeno je da će igralište biti obnovljeno. Radovi nisu počeli, a na mrežama se šire nagađanja. Ne znaš je li problem u novcu, natječaju ili dozvoli.',
-      question: 'Koji je prvi korak prije zaključka?',
+      question: 'Što treba provjeriti prije zaključka?',
       options: [
         { text: 'Zatražiti postojeće dokumente: odluku, ugovor, rokove i status radova.', best: true, feedback: 'Zatraži odluku, ugovor i rokove. Provjeri tko je odgovoran za provedbu.' },
         { text: 'Objaviti da je novac ukraden jer radovi kasne.', best: false, feedback: 'Kašnjenje nije dokaz krađe. Provjeri ugovor, plaćanja i status radova.' },
@@ -347,8 +347,8 @@
     function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved));}catch{}window.dispatchEvent(new CustomEvent('potez:progress'));}
     function progress(){bar.style.width=(completed.length/dailyQuestions.length*100)+'%';progressLabel.textContent=completed.length+' / '+dailyQuestions.length+' izazova';}
     function shareText(message){if(navigator.share){navigator.share({title:'POTEZ — izazov',text:message}).catch(e=>{if(e&&e.name!=='AbortError')notify('Dijeljenje nije dostupno.');});return;}const t=document.createElement('textarea');t.value=message;document.body.appendChild(t);t.select();try{document.execCommand('copy');notify('Tekst je kopiran. Podijeli ga s ekipom.');}catch{notify('Kopiranje nije dostupno.');}t.remove();}
-    function complete(){label.textContent='RUTA ZAVRŠENA';title.textContent='Sve situacije su riješene.';story.textContent='Sad znaš gdje tražiti izvor, kako postaviti pitanje i kome se obratiti.';q.textContent='Što dalje?';choices.replaceChildren();const p=document.createElement('p');p.textContent='Ponovi rutu ili je podijeli s ekipom.';feedback.replaceChildren(p);next.textContent='Odigraj ponovno ↻';next.hidden=false;next.onclick=()=>{saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed^(Date.now()%65535));saved.dailyRunIndex=0;persist();render();};share.hidden=false;share.onclick=()=>shareText('Odigrao/la sam POTEZ — '+dailyQuestions.length+' kratkih situacija o javnim odlukama i građanskom sudjelovanju. Probaj i ti: https://potez.pages.dev/#igraj');progress();}
-    function feedbackFor(option,earned){const h=document.createElement('strong');h.className='daily-feedback-title';h.textContent=option.best?'Dobar smjer.':'Ovaj potez nosi rizik.';const ex=document.createElement('p');ex.textContent=option.feedback;const l=document.createElement('span');l.className='daily-outcome-label';l.textContent='Ishod';const out=document.createElement('p');out.textContent=item.outcome;const take=document.createElement('p');take.className='daily-takeaway';take.textContent=item.takeaway;const xp=document.createElement('small');xp.textContent=earned?'+3 XP':'Bodovi su već osvojeni';const nodes=[h,ex,l,out,take];if(item.sourceUrl){const source=document.createElement('small');source.className='daily-source';source.textContent='Izvor: '+item.source+' ';const link=document.createElement('a');link.href=item.sourceUrl;link.target='_blank';link.rel='noopener';link.textContent='Istraži ↗';source.appendChild(link);nodes.push(source);}nodes.push(xp);feedback.replaceChildren(...nodes);next.textContent=index+1===order.length?'Završi rutu →':'Sljedeća situacija →';next.hidden=false;next.onclick=()=>{saved.dailyRunIndex=index+1;persist();render();};share.hidden=false;share.onclick=()=>shareText('POTEZ izazov: '+item.title+'\n'+item.takeaway+'\nOdigraj i ti: https://potez.pages.dev/#igraj');}
+    function complete(){label.textContent='RUTA ZAVRŠENA';title.textContent='Sve situacije su riješene.';story.textContent='Sad znaš gdje tražiti izvor, kako postaviti pitanje i kome se obratiti.';q.textContent='Što dalje?';choices.replaceChildren();const p=document.createElement('p');p.textContent='Pregledao/la si sve situacije. Možeš ih ponoviti ili podijeliti s drugima.';feedback.replaceChildren(p);next.textContent='Ponovi situacije ↻';next.hidden=false;next.onclick=()=>{saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed^(Date.now()%65535));saved.dailyRunIndex=0;persist();render();};share.hidden=false;share.onclick=()=>shareText('Pregledao/la sam POTEZ — '+dailyQuestions.length+' kratkih situacija o javnim odlukama i građanskom sudjelovanju. Pogledaj i ti: https://potez.pages.dev/#igraj');progress();}
+    function feedbackFor(option,earned){const h=document.createElement('strong');h.className='daily-feedback-title';h.textContent=option.best?'To je dobro potkrijepljen odgovor.':'Ovaj odgovor zanemaruje važan dio postupka.';const ex=document.createElement('p');ex.textContent=option.feedback;const l=document.createElement('span');l.className='daily-outcome-label';l.textContent='Ishod';const out=document.createElement('p');out.textContent=item.outcome;const take=document.createElement('p');take.className='daily-takeaway';take.textContent=item.takeaway;const xp=document.createElement('small');xp.textContent=earned?'+3 XP':'Bodovi su već osvojeni';const nodes=[h,ex,l,out,take];if(item.sourceUrl){const source=document.createElement('small');source.className='daily-source';source.textContent='Izvor: '+item.source+' ';const link=document.createElement('a');link.href=item.sourceUrl;link.target='_blank';link.rel='noopener';link.textContent='Istraži ↗';source.appendChild(link);nodes.push(source);}nodes.push(xp);feedback.replaceChildren(...nodes);next.textContent=index+1===order.length?'Završi rutu →':'Sljedeća situacija →';next.hidden=false;next.onclick=()=>{saved.dailyRunIndex=index+1;persist();render();};share.hidden=false;share.onclick=()=>shareText('POTEZ izazov: '+item.title+'\n'+item.takeaway+'\nOdigraj i ti: https://potez.pages.dev/#igraj');}
     function render(){index=Math.max(0,Math.min(Number(saved.dailyRunIndex)||0,order.length));progress();if(index>=order.length){complete();return;}item=dailyQuestions[order[index]];options=shuffle(item.options,hash(today+':'+order[index]));answered=false;choices.replaceChildren();feedback.replaceChildren();next.hidden=true;share.hidden=true;label.textContent=item.label;title.textContent=item.title;story.textContent=item.story;q.textContent=item.question;options.forEach((option,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='daily-choice';btn.dataset.letter=String.fromCharCode(65+i);btn.textContent=option.text;btn.addEventListener('click',()=>{if(answered)return;answered=true;const earned=!completed.includes(item.title);choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(i===j){el.classList.add('chosen');if(!option.best)el.classList.add('wrong');}});if(earned){completed.push(item.title);saved.dailyCompletedIds=completed;saved.dailyChoiceById=saved.dailyChoiceById||{};saved.dailyChoiceById[item.title]=option.text;saved.xp=Math.max(0,Number(saved.xp)||0)+3;persist();window.POTEZ_FEEDBACK?.success();}progress();feedbackFor(option,earned);notify(earned?'+3 XP':'Već riješeno.');});choices.appendChild(btn);});const previous=(saved.dailyChoiceById||{})[item.title];if(previous){const chosen=options.findIndex(o=>o.text===previous);if(chosen>=0){answered=true;choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(j===chosen){el.classList.add('chosen');if(!options[j].best)el.classList.add('wrong');}});feedbackFor(options[chosen],false);}}}
     render();
     window.addEventListener('potez:reset', () => {

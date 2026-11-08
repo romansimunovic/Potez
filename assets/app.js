@@ -23,24 +23,24 @@
       return true;
     }
   });
-  function updateActionXp(){$('#actionXp').textContent='Tvoj napredak: '+(saved.xp||0)+' bodova'}
+  function updateActionXp(){$('#actionXp').textContent='Tvoj napredak: '+(saved.xp||0)+' XP'}
   const weeklyMissions=[
-    {title:'Pogledaj kako zastupnici stvarno glasaju.',desc:'Na Parlametru usporedi kako su zastupnici glasali o temi koja te zanima.',url:'https://parlametar.hr/',label:'Istraži glasanja',icon:'🏛️'},
-    {title:'Pronađi jednu otvorenu javnu raspravu.',desc:'Pročitaj prijedlog na e-Savjetovanjima i zapiši jedno pitanje.',url:'https://savjetovanja.gov.hr/',label:'Pregledaj savjetovanja',icon:'🗣️'},
-    {title:'Prijavi jednu stvar koju svi zaobilaze.',desc:'Zabilježi problem u kvartu i provjeri kome ga prijaviti.',url:'https://popravi.to/',label:'Pogledaj Popravi.to',icon:'🛠️'},
-    {title:'Provjeri tvrdnju koju si vidio/la na feedu.',desc:'Pronađi izvor objave i usporedi ga s neovisnom provjerom.',url:'https://tocnotako.hr/',label:'Otvori Točno tako',icon:'🧭'},
-    {title:'Pronađi jedan javni podatak o svojoj zajednici.',desc:'Pronađi podatak o prometu, okolišu ili javnim uslugama.',url:'https://data.gov.hr/',label:'Istraži otvorene podatke',icon:'📊'},
-    {title:'Pretvori prigovor u dobro pitanje.',desc:'Pošalji instituciji jasno pitanje: tko je odgovoran i koji je rok?',url:'https://www.imamopravoznati.org/',label:'Saznaj kako tražiti informaciju',icon:'🔎'}
+    {title:'Kako zastupnici glasaju?',desc:'Usporedi glasanja o jednoj temi na Parlametru.',url:'https://parlametar.hr/',label:'Pregledaj glasanja'},
+    {title:'Što je trenutačno na javnom savjetovanju?',desc:'Otvori jedan prijedlog i pogledaj što se njime mijenja.',url:'https://savjetovanja.gov.hr/',label:'Otvori savjetovanja'},
+    {title:'Kako se prijavljuje komunalni problem?',desc:'Pogledaj koje podatke treba navesti i tko zaprima prijavu.',url:'https://popravi.to/',label:'Upoznaj postupak'},
+    {title:'Kako provjeriti tvrdnju s društvenih mreža?',desc:'Usporedi objavu s izvorom i neovisnom provjerom.',url:'https://tocnotako.hr/',label:'Pogledaj provjere'},
+    {title:'Koji podaci opisuju tvoj grad?',desc:'Istraži javne podatke o prometu, okolišu ili uslugama.',url:'https://data.gov.hr/',label:'Istraži podatke'},
+    {title:'Koje dokumente možeš zatražiti?',desc:'Pogledaj kako građani traže postojeće informacije od javnih tijela.',url:'https://www.imamopravoznati.org/',label:'Saznaj više'}
   ];
   function getWeekStamp(){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+4-(d.getDay()||7));const y=d.getFullYear();const start=new Date(y,0,1);const w=Math.ceil((((d-start)/86400000)+1)/7);return y+'-'+String(w).padStart(2,'0')}
-  function renderWeekly(){const stamp=getWeekStamp();const index=(Number(stamp.slice(-2))-1)%weeklyMissions.length;const m=weeklyMissions[index];$('#weeklyTitle').textContent=m.icon+' '+m.title;$('#weeklyDescription').textContent=m.desc;$('#weeklyLink').href=m.url;$('#weeklyLink').textContent=m.label+' ↗';const done=saved.weeklyDoneKey===stamp;$('#weeklyDone').textContent=done?'Misija odrađena ✓':'Napravio/la sam to +8';$('#weeklyDone').disabled=done;$('#weeklyDone').style.opacity=done?'.65':'1';$('#weeklyDone').addEventListener('click',()=>{if(saved.weeklyDoneKey===stamp)return;saved.weeklyDoneKey=stamp;saved.xp=(saved.xp||0)+8;persist();window.POTEZ_FEEDBACK?.success();renderWeekly();toast('+8 POTEZ bodova · tjedna misija')},{once:true})}
+  function renderWeekly(){const stamp=getWeekStamp();const index=(Number(stamp.slice(-2))-1)%weeklyMissions.length;const m=weeklyMissions[index];$('#weeklyTitle').textContent=m.title;$('#weeklyDescription').textContent=m.desc;$('#weeklyLink').href=m.url;$('#weeklyLink').textContent=m.label+' ↗';const done=saved.weeklyDoneKey===stamp;$('#weeklyDone').textContent=done?'Pročitano ✓':'Pročitao/la sam +8 XP';$('#weeklyDone').disabled=done;$('#weeklyDone').style.opacity=done?'.65':'1';$('#weeklyDone').addEventListener('click',()=>{if(saved.weeklyDoneKey===stamp)return;saved.weeklyDoneKey=stamp;saved.xp=(saved.xp||0)+8;persist();window.POTEZ_FEEDBACK?.success();renderWeekly();toast('+8 XP · tjedni pregled')},{once:true})}
 
   // Research quiz: precise population and source scope are repeated in the feedback.
   const qs=[
-    {q:'Koliki je udio učenika završnih razreda srednjih škola u Hrvatskoj koji su volontirali?',a:['18,4 %','44,7 %','71,2 %'],correct:1,why:'44,7 % ispitanih učenika izjavilo je da je volontiralo. To je neformalni oblik društvenog angažmana — ne znači da su svi politički aktivisti, ali je važan dio slike o sudjelovanju mladih.'},
-    {q:'Koliki je udio učenika donirao financijsku ili materijalnu pomoć?',a:['13,1 %','36,8 %','63,1 %'],correct:2,why:'63,1 % učenika doniralo je financijsku ili materijalnu pomoć. Solidarnost nije automatski politička participacija, ali pokazuje da angažman ne počinje i ne završava u stranačkoj politici.'},
-    {q:'Koliki je udio učenika potpisao peticiju?',a:['28,1 %','48,8 %','52,6 %'],correct:0,why:'Peticiju je potpisalo 28,1 % učenika. Dodatnih 50,2 % nije to učinilo, ali može zamisliti da bi sudjelovalo — razlika između sadašnjeg ponašanja i potencijalne spremnosti važna je za razumijevanje participacije.'},
-    {q:'Koliki je udio učenika sudjelovao u prosvjedu?',a:['11,1 %','31,1 %','48,8 %'],correct:0,why:'11,1 % sudjelovalo je u prosvjedu. Zato nije dobro izjednačiti volontiranje, doniranje, peticije i prosvjede: radi se o različitim praksama, s različitim pragovima uključivanja i mogućnostima.'}
+    {q:'Koliki je udio učenika završnih razreda srednjih škola u Hrvatskoj koji su volontirali?',a:['18,4 %','44,7 %','71,2 %'],correct:1,why:'44,7 % učenika završnih razreda navelo je volontiranje. To je jedan oblik angažmana, ali ne opisuje sve mlade.'},
+    {q:'Koliki je udio učenika donirao financijsku ili materijalnu pomoć?',a:['13,1 %','36,8 %','63,1 %'],correct:2,why:'63,1 % navelo je doniranje pomoći. Doniranje je oblik solidarnosti, ali nije isto što i političko sudjelovanje.'},
+    {q:'Koliki je udio učenika potpisao peticiju?',a:['28,1 %','48,8 %','52,6 %'],correct:0,why:'Peticiju je potpisalo 28,1 % učenika. Još 50,2 % reklo je da bi to moglo učiniti; namjera i ponašanje nisu isto.'},
+    {q:'Koliki je udio učenika sudjelovao u prosvjedu?',a:['11,1 %','31,1 %','48,8 %'],correct:0,why:'11,1 % učenika sudjelovalo je u prosvjedu. Prosvjed je samo jedan od različitih oblika sudjelovanja.'}
   ];
   let qi=0,score=0,answered=false,quizOptions=[];
   function renderQuiz(){
@@ -50,7 +50,7 @@
     $('#quizQuestion').textContent=q.q;$('#quizProgressLabel').textContent='Pitanje '+(qi+1)+' / '+qs.length;$('#quizProgress').style.width=((qi+1)/qs.length*100)+'%';$('#quizScore').textContent=score+' / '+qs.length+' točno';$('#quizFeedback').className='feedback';$('#quizFeedback').textContent='';$('#quizNext').style.display='none';$('#quizRestart').style.display='none';
     const box=$('#quizChoices');box.replaceChildren();quizOptions.forEach((option,i)=>{const b=document.createElement('button');b.className='choice';b.type='button';const label=document.createElement('span');label.textContent=option.text;const key=document.createElement('span');key.className='key';key.textContent=String.fromCharCode(65+i);b.append(label,key);b.addEventListener('click',()=>answerQuiz(i));box.appendChild(b)});answered=false;
   }
-  function answerQuiz(i){if(answered)return;answered=true;const q=qs[qi];const correct=Boolean(quizOptions[i]?.correct);const buttons=$('#quizChoices .choice');buttons.forEach((b,j)=>{b.disabled=true;if(quizOptions[j]?.correct)b.classList.add('correct');if(j===i&&!quizOptions[j]?.correct)b.classList.add('wrong')});if(correct)score++;$('#quizScore').textContent=score+' / '+qs.length+' točno';const f=$('#quizFeedback');f.innerHTML='<strong>'+(correct?'Točno. Dobar ulov.':'Nije točan odgovor — ali sad znaš zašto.')+'</strong>'+q.why;f.classList.add('show');if(qi<qs.length-1){$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Sljedeće pitanje →'}else{$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Završi izazov';}}
+  function answerQuiz(i){if(answered)return;answered=true;const q=qs[qi];const correct=Boolean(quizOptions[i]?.correct);const buttons=$('#quizChoices .choice');buttons.forEach((b,j)=>{b.disabled=true;if(quizOptions[j]?.correct)b.classList.add('correct');if(j===i&&!quizOptions[j]?.correct)b.classList.add('wrong')});if(correct)score++;$('#quizScore').textContent=score+' / '+qs.length+' točno';const f=$('#quizFeedback');f.innerHTML='<strong>'+(correct?'Točno.':'Nije točno — pogledaj objašnjenje.')+'</strong>'+q.why;f.classList.add('show');if(qi<qs.length-1){$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Sljedeće pitanje →'}else{$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Završi izazov';}}
   $('#quizNext').addEventListener('click',()=>{if(qi<qs.length-1){qi++;renderQuiz()}else{award('quizDone',15,'istraživački izazov');$('#quizNext').style.display='none';$('#quizRestart').style.display='inline-flex';$('#quizFeedback').innerHTML+='<br><strong>Rezultat: '+score+'/4.</strong> Najvažniji dio nije rezultat nego kontekst: ovo je uzorak učenika završnih razreda, a ne svih mladih.';}});
   $('#quizRestart').addEventListener('click',()=>{qi=0;score=0;renderQuiz()});renderQuiz();
 
@@ -206,16 +206,78 @@
 
   // Topic-to-action navigator. Advice stays practical and flags jurisdiction uncertainty.
   const actionData={
-    public:{title:'Javni prostor, promet i kvart',text:'Rupa na pločniku, neispravna rasvjeta ili autobusna stanica bez klupe? Kreni od tijela koje održava prostor — često je to grad ili općina, ali prvo provjeri vlasništvo i nadležnost ceste.',steps:['Zabilježi lokaciju, datum i što točno ne radi. Ne objavljuj tuđe osobne podatke.','Provjeri je li problem već prijavljen ili postoji gradski kontakt / mjesni odbor.','Prijavi problem kroz Popravi.to ili pošalji upit nadležnom gradu/općini.'],links:[['Popravi.to','https://popravi.to/'],['Imamo pravo znati','https://www.imamopravoznati.org/']]},
-    school:{title:'Škola, faks i obrazovanje',text:'Promjena školskog pravila, rasporeda, uvjeta ili studentskog standarda? Prvo razdvoji što može riješiti sama ustanova, a što traži promjenu pravila na nacionalnoj razini.',steps:['Zapiši konkretan problem i kako utječe na učenike/studente — što se događa, kome i koliko često.','Kreni preko vijeća učenika, studentskog zbora ili predstavničkog tijela ustanove; pitaj tko ima ovlast odlučivanja.','Ako se mijenja nacionalni propis ili kurikul, prati javna savjetovanja i podnesi argumentiran komentar.'],links:[['e-Savjetovanja','https://savjetovanja.gov.hr/'],['Mreža mladih Hrvatske','https://www.mmh.hr/']]},
-    housing:{title:'Stanovanje i troškovi života',text:'Stanovanje je istodobno osobno iskustvo i javna politika. Gradovi mogu imati ulogu kroz prostorno planiranje, zemljište i lokalne programe, dok se porezna i stambena pravila uređuju i na državnoj razini.',steps:['Odredi razinu problema: cijena najma, studentski smještaj, priuštivo stanovanje, bespravna gradnja ili kvaliteta zgrade.','Provjeri lokalnu stambenu strategiju, programe i zapisnike gradskog vijeća.','Zatraži postojeće podatke/dokumente ili komentiraj relevantan prijedlog propisa.'],links:[['Imamo pravo znati','https://www.imamopravoznati.org/'],['e-Savjetovanja','https://savjetovanja.gov.hr/'],['Otvoreni podaci RH','https://data.gov.hr/']]},
-    environment:{title:'Otpad i okoliš',text:'Za komunalni otpad i čistoću često su bitni grad/općina i komunalno društvo; za šire okolišne propise i dozvole mogu biti nadležna državna ili regionalna tijela. Ne pretpostavljaj — provjeri tko je izdao odluku.',steps:['Zabilježi lokaciju, učestalost i vrstu problema. Razlikuj komunalni nered od moguće povrede okolišnih propisa.','Prijavi komunalni problem nadležnoj službi ili preko Popravi.to.','Za planove, dozvole ili podatke provjeri javne dokumente i otvorene podatke; u javnom savjetovanju pošalji komentar.'],links:[['Popravi.to','https://popravi.to/'],['e-Savjetovanja','https://savjetovanja.gov.hr/'],['Otvoreni podaci RH','https://data.gov.hr/']]},
-    money:{title:'Javni novac i odluke vlasti',text:'Javni novac možeš pratiti kroz proračune, javne nabave, zapisnike i glasanja. Važno je usporediti planirano, ugovoreno i stvarno izvršeno — to nisu iste stvari.',steps:['Pronađi odluku, proračun ili ugovor koji te zanima. Zapiši instituciju, godinu i naziv dokumenta.','Ako dokument nije javno objavljen, zatraži postojeću informaciju putem ImamoPravoZnati.','Za nacionalne odluke prati Parlametar; za lokalne odluke traži sjednice i proračunske dokumente grada/općine.'],links:[['Parlametar','https://parlametar.hr/'],['Imamo pravo znati','https://www.imamopravoznati.org/'],['Otvoreni podaci RH','https://data.gov.hr/']]},
-    media:{title:'Dezinformacije i mediji',text:'Sumnjiva objava nije dokaz da je nešto lažno. Cilj provjere je ustanoviti što znamo, što ne znamo i koji je najjači dostupan dokaz.',steps:['Sačuvaj izvorni link, datum i puni kontekst; screenshot sam po sebi nije dovoljan.','Traži izvorni dokument, snimku ili izjavu. Pretraži ključne riječi i provjeri ima li starije verzije sadržaja.','Usporedi provjeru neovisnih fact-checkera; kad dokaza nema, reci „nepotvrđeno”, ne „lažno”.'],links:[['Točno tako','https://tocnotako.hr/'],['Faktograf','https://faktograf.hr/']]},
-    youth:{title:'Prostor, kultura i sadržaji za mlade',text:'Nedostaje prostor za probe, sport, druženje ili kulturni program? Takve ideje mogu postati prijedlog lokalnoj zajednici — pogotovo ako pokažeš da iza njih stoji više mladih.',steps:['Razgovaraj s još nekoliko mladih i prikupi kratke, konkretne prijedloge. Ne skupljaj osjetljive podatke.','Provjeri postoji li savjet mladih, lokalni program za mlade, javni poziv ili participativni proračun.','Predaj prijedlog s lokacijom, okvirnim troškom, korisnicima i načinom održavanja. Traži pisani odgovor.'],links:[['Mreža mladih Hrvatske','https://www.mmh.hr/'],['TikTalking Youth Policy','https://www.mmh.hr/projekti/tiktalking-youth-policy'],['Grad Rijeka · primjer participacije','https://www.rijeka.hr/en/themes-for-citizens/active-citizenship/participatory-budgeting/educational-budget-game-proracunajme/']]}
+    public:{title:'Javni prostor, promet i kvart',text:'Grad ili općina često održava javni prostor. Nadležnost ipak ovisi o vlasništvu i vrsti ceste.',steps:['Zapiši lokaciju i opiši problem bez tuđih osobnih podataka.','Provjeri gradski kontakt, mjesni odbor ili postojeću prijavu.','Pogledaj službeni kanal prijave ili Popravi.to.'],links:[['Popravi.to','https://popravi.to/'],['Imamo pravo znati','https://www.imamopravoznati.org/']]},
+    school:{title:'Škola, faks i obrazovanje',text:'Neke odluke donosi sama ustanova, a neke proizlaze iz nacionalnih pravila.',steps:['Opiši što se događa, koga pogađa i koliko često.','Provjeri ulogu vijeća učenika, studentskog zbora ili uprave ustanove.','Za nacionalna pravila pregledaj javna savjetovanja i važeće propise.'],links:[['e-Savjetovanja','https://savjetovanja.gov.hr/'],['Mreža mladih Hrvatske','https://www.mmh.hr/']]},
+    housing:{title:'Stanovanje i troškovi života',text:'Stanovanje uključuje lokalne programe, prostorno planiranje i državna pravila.',steps:['Razlikuj najam, studentski smještaj, priuštivo stanovanje i kvalitetu zgrada.','Pogledaj lokalne programe i odluke gradskog vijeća.','Potraži podatke ili komentiraj prijedlog propisa.'],links:[['Imamo pravo znati','https://www.imamopravoznati.org/'],['e-Savjetovanja','https://savjetovanja.gov.hr/'],['Otvoreni podaci RH','https://data.gov.hr/']]},
+    environment:{title:'Otpad i okoliš',text:'Za komunalni otpad često su nadležni grad i komunalno društvo. Šire okolišne propise uređuju i druga tijela.',steps:['Zapiši lokaciju i vrstu problema; razlikuj komunalni nered od okolišnog pitanja.','Provjeri službu koja zaprima komunalne prijave.','Za planove i dozvole potraži javne dokumente i otvorene podatke.'],links:[['Popravi.to','https://popravi.to/'],['e-Savjetovanja','https://savjetovanja.gov.hr/'],['Otvoreni podaci RH','https://data.gov.hr/']]},
+    money:{title:'Javni novac i odluke vlasti',text:'Javni novac prati se kroz proračune, nabavu, zapisnike i glasanja. Planirano, ugovoreno i potrošeno nisu isto.',steps:['Pronađi dokument i zabilježi instituciju, godinu i naziv.','Ako dokument nije objavljen, provjeri postupak pristupa informacijama.','Za nacionalne odluke pogledaj Parlametar; lokalne dokumente traži na stranici grada ili općine.'],links:[['Parlametar','https://parlametar.hr/'],['Imamo pravo znati','https://www.imamopravoznati.org/'],['Otvoreni podaci RH','https://data.gov.hr/']]},
+    media:{title:'Dezinformacije i mediji',text:'Sumnjiva objava nije automatski lažna. Provjeri izvor, kontekst i raspoložive dokaze.',steps:['Sačuvaj poveznicu, datum i puni kontekst objave.','Pronađi izvorni dokument, snimku ili izjavu.','Usporedi neovisne provjere. Bez dovoljno dokaza koristi oznaku „nepotvrđeno”.'],links:[['Točno tako','https://tocnotako.hr/'],['Faktograf','https://faktograf.hr/']]},
+    youth:{title:'Prostor, kultura i sadržaji za mlade',text:'Prostor za sport, druženje i kulturu često ovisi o lokalnim programima i javnim prostorima.',steps:['Usporedi potrebe i prijedloge mladih bez prikupljanja osjetljivih podataka.','Pogledaj savjet mladih, lokalni program ili javni poziv.','Za prijedlog navedi lokaciju, okvirni trošak, korisnike i održavanje.'],links:[['Mreža mladih Hrvatske','https://www.mmh.hr/'],['TikTalking Youth Policy','https://www.mmh.hr/projekti/tiktalking-youth-policy'],['Grad Rijeka · primjer participacije','https://www.rijeka.hr/en/themes-for-citizens/active-citizenship/participatory-budgeting/educational-budget-game-proracunajme/']]}
   };
-  function renderAction(){const key=$('#topicSelect').value;const d=actionData[key];const out=$('#actionOutput');out.innerHTML='<div class="mini-tag">Tvoj prvi potez</div><h3>'+d.title+'</h3><p>'+d.text+'</p><ol>'+d.steps.map(s=>'<li>'+s+'</li>').join('')+'</ol><div class="resource-links">'+d.links.map(l=>'<a href="'+l[1]+'" target="_blank" rel="noopener">'+l[0]+' ↗</a>').join('')+'</div><button class="btn btn-dark action-complete" id="actionComplete" type="button" '+(saved.actionDone?'disabled':'')+'>'+(saved.actionDone?'Prvi korak zabilježen ✓':'Odredio/la sam svoj prvi korak +5')+'</button>';const complete=$('#actionComplete');if(complete&&!saved.actionDone){complete.addEventListener('click',()=>{award('actionDone',5,'prvi korak');renderAction()},{once:true})}}
-  $('#topicSelect').addEventListener('change',renderAction);$('#effortSelect').addEventListener('change',()=>{const t=$('#effortSelect').value;const msg=t==='quick'?'Prvi mali korak je dovoljan: prikupi činjenicu i pronađi nadležno tijelo.':t==='medium'?'Odvoji vrijeme za provjeru dokumenta, razgovor s još jednom osobom i slanje konkretnog upita.':'Okupi malu grupu, podijelite zadatke i dogovorite tko će pratiti odgovor institucije.';const p=$('#actionOutput').querySelector('p');if(p)p.textContent=actionData[$('#topicSelect').value].text+' '+msg});
+  function renderAction(){
+    const key=$('#topicSelect').value;
+    const data=actionData[key];
+    const output=$('#actionOutput');
+    output.replaceChildren();
+
+    const label=document.createElement('div');
+    label.className='mini-tag';
+    label.textContent='PREGLED TEME';
+    const heading=document.createElement('h3');
+    heading.textContent=data.title;
+    const summary=document.createElement('p');
+    summary.textContent=data.text;
+
+    const details=document.createElement('details');
+    details.className='action-extra-details';
+    const detailsSummary=document.createElement('summary');
+    detailsSummary.textContent='Institucije, informacije i što provjeriti';
+    details.appendChild(detailsSummary);
+
+    const list=document.createElement('ol');
+    data.steps.forEach(step=>{
+      const item=document.createElement('li');
+      item.textContent=step;
+      list.appendChild(item);
+    });
+    details.appendChild(list);
+
+    const links=document.createElement('div');
+    links.className='resource-links';
+    data.links.forEach(([name,href])=>{
+      try{
+        const url=new URL(href);
+        if(url.protocol!=='https:')return;
+        const link=document.createElement('a');
+        link.href=url.href;
+        link.target='_blank';
+        link.rel='noopener noreferrer';
+        link.textContent=name+' ↗';
+        links.appendChild(link);
+      }catch{}
+    });
+    details.appendChild(links);
+
+    const depth=document.createElement('p');
+    depth.className='action-depth-note';
+    depth.textContent='Poveznice vode na vanjske izvore. Provjeri datum i važeće informacije.';
+    details.appendChild(depth);
+
+    const complete=document.createElement('button');
+    complete.className='btn btn-dark action-complete';
+    complete.id='actionComplete';
+    complete.type='button';
+    complete.disabled=Boolean(saved.actionDone);
+    complete.textContent=saved.actionDone?'Tema pregledana ✓':'Označi kao pregledano · +5 XP';
+    complete.addEventListener('click',()=>{
+      if(saved.actionDone)return;
+      award('actionDone',5,'pregledana tema');
+      renderAction();
+    });
+
+    output.append(label,heading,summary,details,complete);
+  }
+  $('#topicSelect').addEventListener('change',renderAction);$('#effortSelect').addEventListener('change',()=>{const t=$('#effortSelect').value;const msg=t==='quick'?'Sažetak: pronađi službeni izvor i provjeri tko je nadležan.':t==='medium'?'Detaljnije: usporedi dokumente, pravila i dostupne podatke.':'Za grupni razgovor: usporedite različite izvore i perspektive.';const p=$('#actionOutput').querySelector('.action-depth-note');if(p)p.textContent=msg+' Poveznice vode na vanjske izvore.'});
   // Clear progress is intentionally local-only.
   $('#clearProgress').addEventListener('click',()=>{if(confirm('Obrisati sav spremljeni napredak na ovom uređaju?')){saved={xp:0,quizDone:false,factDone:false,budgetDone:false,actionDone:false};try{localStorage.removeItem('potez-budget-duel-v1');localStorage.removeItem('potez-budget-duel-v2')}catch(e){}persist();window.dispatchEvent(new CustomEvent('potez:reset'));toast('Lokalni napredak je obrisan.')}});
   renderWeekly();

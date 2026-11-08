@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#f7f4ec" />
-<meta name="description" content="POTEZ je besplatna interaktivna platforma građanske i medijske pismenosti. Otkrij tko odlučuje o stvarima koje te se tiču, provjeri informacije i pronađi svoj prvi potez." />
+<meta name="description" content="POTEZ je besplatna interaktivna platforma građanske i medijske pismenosti. Saznaj tko odlučuje o stvarima koje te se tiču i gdje pronaći pouzdane informacije." />
 <meta name="author" content="Roman Šimunović" />
 <meta name="keywords" content="građanska pismenost, građanski odgoj, participacija mladih, medijska pismenost, digitalna pismenost, javne politike, građansko sudjelovanje, Hrvatska" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -42,8 +42,52 @@
 <a class="skip-link" href="#top">Preskoči na sadržaj</a>
 <div class="shell">
   <header class="topline">
+    <details class="mobile-menu" id="mobileMenu">
+      <summary aria-label="Otvori glavni izbornik" aria-controls="mobileMenuPanel" aria-expanded="false">
+        <svg class="mobile-menu-trigger-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span>Izbornik</span>
+      </summary>
+      <button class="mobile-menu-backdrop" type="button" aria-label="Zatvori izbornik"></button>
+      <div class="mobile-menu-panel" id="mobileMenuPanel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle">
+        <div class="mobile-menu-heading">
+          <span class="section-kicker">ISTRAŽI POTEZ</span>
+          <strong id="mobileMenuTitle">Što te zanima?</strong>
+          <button class="mobile-menu-close" type="button" aria-label="Zatvori izbornik"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+          <p>Odaberi područje i kreni od pitanja koje ti je važno.</p>
+        </div>
+        <nav class="mobile-menu-links" aria-label="Glavna navigacija na mobitelu">
+          <a href="#top" data-app-route="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9.5V21h14V9.5M9 21v-7h6v7"/></svg>
+            <span><strong>Početna</strong><small>Kratko predstavljanje POTEZA</small></span>
+          </a>
+          <a href="#ucenje" data-app-route="learn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM4 18.5A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 11h8"/></svg>
+            <span><strong>Uči</strong><small>Kratka objašnjenja i istraživanja</small></span>
+          </a>
+          <a href="#igraj" data-app-route="play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h10a4 4 0 0 1 4 4v7a3 3 0 0 1-5 2l-2-2h-4l-2 2a3 3 0 0 1-5-2V9a4 4 0 0 1 4-4Z"/><path d="M8 9v5M5.5 11.5h5M16 10h.01M18.5 13h.01"/></svg>
+            <span><strong>Isprobaj</strong><small>Kvizovi, simulacije i napredak</small></span>
+          </a>
+          <a href="#djeluj" data-app-route="act">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/><path d="m16 15 2 2 3-4"/></svg>
+            <span><strong>U praksi</strong><small>Institucije, dokumenti i nadležnosti</small></span>
+          </a>
+          <a href="#alati" data-app-route="tools">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6.5a4.5 4.5 0 0 0-5.8 5.8L3 17.5 6.5 21l5.2-5.2A4.5 4.5 0 0 0 17.5 10L14 13.5 10.5 10 14 6.5Z"/><path d="m15 4 5 5"/></svg>
+            <span><strong>Resursi</strong><small>Provjerene poveznice i materijali</small></span>
+          </a>
+        </nav>
+        <p class="mobile-menu-note">Bez registracije. Tvoj napredak ostaje na ovom uređaju.</p>
+      </div>
+    </details>
     <a href="#top" class="brand" aria-label="Potez početna">potez<span class="brand-dot"></span><span class="brand-sub">beta / 01</span></a>
-    <nav class="nav" aria-label="Glavna navigacija"><a href="#top" data-app-route="home">Početna</a><a href="#ucenje" data-app-route="learn">Uči</a><a href="#igraj" data-app-route="play">Igraj</a><a href="#djeluj" data-app-route="act">Djeluj</a><a href="#alati" data-app-route="tools">Alati</a></nav>
+    <nav class="nav" aria-label="Glavna navigacija">
+      <a href="#top" data-app-route="home">Početna</a>
+      <a href="#ucenje" data-app-route="learn">Uči</a>
+      <a href="#igraj" data-app-route="play">Isprobaj</a>
+      <a href="#djeluj" data-app-route="act">U praksi</a>
+      <a href="#alati" data-app-route="tools">Resursi</a>
+    </nav>
     <details class="accessibility-menu" id="accessibilityMenu">
       <summary aria-label="Otvori postavke pristupačnosti"><span aria-hidden="true">◐</span> Pristupačnost</summary>
       <div class="accessibility-panel" aria-label="Postavke prikaza">
@@ -61,10 +105,10 @@
 <section class="app-view app-home" data-app-view="home" id="view-home">
 <section class="hero">
       <div>
-        <div class="eyebrow">Građanska pismenost bez političkog žargona</div>
-        <h1>Tvoj život. <span class="highlight">Tvoj potez</span></h1>
-        <p class="hero-copy">Kasni bus. Preskup najam. Pravilo u školi koje nema smisla. Saznaj tko o tome odlučuje, provjeri informacije i pronađi svoj sljedeći korak</p>
-        <div class="actions"><a class="btn btn-dark" href="#igraj">Isprobaj prvi izazov <span aria-hidden="true">↗</span></a><a class="btn btn-light" href="#djeluj">Imam konkretan problem</a></div>
+        <div class="eyebrow">Građanska pismenost za svakodnevni život</div>
+        <h1>Razumij odluke koje <span class="highlight">utječu na tebe</span></h1>
+        <p class="hero-copy">Škola, prijevoz, stanovanje, javni novac i društvene mreže. Saznaj tko odlučuje, kako nastaju pravila i gdje pronaći pouzdane informacije.</p>
+        <div class="actions"><a class="btn btn-dark" href="#ucenje">Istraži teme <span aria-hidden="true">↗</span></a><a class="btn btn-light" href="#djeluj">Pogledaj kako sustav funkcionira</a></div>
       </div>
       <div class="hero-art" aria-label="Ilustracija mladih koji zajedno oblikuju svoj grad">
         <div class="art-label">Tvoj grad. Tvoj glas</div>
@@ -104,25 +148,25 @@
 
     <section class="home-guide" aria-labelledby="homeGuideTitle">
       <div class="home-guide-heading">
-        <div class="section-kicker">POTEZ u tri koraka</div>
-        <h2 id="homeGuideTitle">Od pitanja do konkretnog poteza</h2>
-        <p>Saznaj tko odlučuje, provjeri informacije i otkrij što možeš napraviti</p>
+        <div class="section-kicker">KAKO KORISTITI POTEZ</div>
+        <h2 id="homeGuideTitle">Od svakodnevnog pitanja do razumijevanja sustava</h2>
+        <p>Tri jednostavna načina za istraživanje tema koje utječu na naš život.</p>
       </div>
       <div class="home-step-grid">
         <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">01</span><strong>Razumij</strong><span>Tko odlučuje o prijevozu, školi i kvartu?</span><span class="home-step-link">Upoznaj sustav ↗</span></a>
-        <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">02</span><strong>Provjeri</strong><span>Je li objava činjenica, mišljenje ili neprovjerena tvrdnja?</span><span class="home-step-link">Isprobaj izazov ↗</span></a>
-        <a class="home-step-card" href="#djeluj"><span class="home-step-icon" aria-hidden="true">03</span><strong>Djeluj</strong><span>Kome se javiti i kako pokrenuti promjenu?</span><span class="home-step-link">Pronađi svoj put ↗</span></a>
+        <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">02</span><strong>Provjeri</strong><span>Je li objava činjenica, mišljenje ili neprovjerena tvrdnja?</span><span class="home-step-link">Provjeri kako informacije funkcioniraju ↗</span></a>
+        <a class="home-step-card" href="#djeluj"><span class="home-step-icon" aria-hidden="true">03</span><strong>Upoznaj sustav</strong><span>Koje institucije odlučuju i gdje su dostupni dokumenti?</span><span class="home-step-link">Pogledaj u praksi ↗</span></a>
       </div>
     </section>
     <section class="home-progress" aria-label="Tvoj lokalni napredak">
       <div><div class="section-kicker">Tvoj POTEZ</div><h3 id="homeProgressTitle">Tvoj napredak počinje ovdje</h3><p id="homeProgressDescription">Nastavi gdje si stao/la ili isprobaj novu situaciju.</p></div>
       <div class="home-progress-score"><strong id="homeXp">0 XP</strong><span>tvoj napredak</span></div>
-      <a class="btn btn-light" href="#igraj">Otvori igru ↗</a>
+      <a class="btn btn-light" href="#igraj">Isprobaj izazove ↗</a>
     </section>
 
 </section>
 <section class="app-view" data-app-view="learn" id="ucenje" hidden>
-<header class="view-intro"><div><div class="section-kicker">UČI · RAZUMIJ · PROVJERI</div><h1>Razumij kako odluke i informacije funkcioniraju</h1><p>Saznaj tko donosi odluke i kako prepoznati pouzdanu informaciju</p></div><span class="view-meta">12 tema · 4 cjeline</span></header>
+<header class="view-intro"><div><div class="section-kicker">UČI · RAZUMIJ · PROVJERI</div><h1>Teme iz svakodnevnog života</h1><p>Kratka objašnjenja, stvarni primjeri i izvori. Odaberi ono što te zanima.</p></div><span class="view-meta">12 kratkih tema</span></header>
 <section class="section learning-daily-section" aria-labelledby="dailyFactHeading">
   <div id="dailyFact" class="daily-fact-card" aria-live="polite">
     <div class="daily-fact-header"><span class="daily-fact-kicker" id="dailyFactHeading">Zanimljivost dana</span></div>
@@ -132,8 +176,8 @@
 </section>
 <section class="section learning-explorer" id="odaberi-temu" aria-labelledby="learningExplorerTitle">
   <div class="section-head">
-    <div><div class="section-kicker">Uči prema onome što te zanima</div><h2 id="learningExplorerTitle">Odaberi temu. Otkrij što stoji iza nje.</h2></div>
-    <p class="section-intro">Od svakodnevnih problema do društvenih mreža i javnog novca. Kratko objašnjenje, provjerljiv izvor i jedan konkretan potez.</p>
+    <div><div class="section-kicker">ODABERI PODRUČJE</div><h2 id="learningExplorerTitle">Što želiš bolje razumjeti?</h2></div>
+    <p class="section-intro">Od škole i prijevoza do algoritama i javnog novca. Svaka tema ima kratko objašnjenje i izvor.</p>
   </div>
   <div class="learning-explorer-toolbar">
     <div id="learningFilters" class="learning-filters" role="group" aria-label="Filtriraj teme"></div>
@@ -141,14 +185,14 @@
   </div>
   <div id="learningTopics" class="learning-grid" aria-live="polite"></div>
   <button type="button" id="learningShowMore" class="btn btn-light learning-show-more" hidden>Prikaži sve teme</button>
-  <p class="learning-footnote">Bodove dobivaš za istražene teme, ne za političke stavove. Odabir kategorije služi samo za trenutačni prikaz i ne sprema se kao profil interesa.</p>
+  <p class="learning-footnote">Odabir kategorije služi samo za filtriranje sadržaja. Ne sprema se kao profil interesa.</p>
 </section>
 <details class="learning-guides" id="teme">
-  <summary><span class="section-kicker">Detaljniji praktični vodiči</span><strong>Prijevoz, školski obroci, učenje i školska pravila</strong><span>Otvori vodiče korak po korak ↓</span></summary>
+  <summary><span class="section-kicker">Dodatni praktični vodiči</span><strong>Prijevoz, prehrana i podrška u školi</strong><span>Pogledaj detalje za odabranu temu</span></summary>
 <section class="section issue-paths" id="practicalIssuePaths" aria-labelledby="issuePathsTitle">
   <div class="section-head">
-    <div><div class="section-kicker">Kreni od onoga što te se tiče</div><h2 id="issuePathsTitle">Stvarni problemi, konkretni putevi</h2></div>
-    <p class="section-intro">Ne moraš prvo riješiti kviz. Odaberi problem, otkrij tko je nadležan, pronađi dokaz i složi potez koji ima smisla</p>
+    <div><div class="section-kicker">Kreni od onoga što te se tiče</div><h2 id="issuePathsTitle">Primjeri iz svakodnevnog života</h2></div>
+    <p class="section-intro">Ovi vodiči pokazuju koje informacije prikupiti, koje institucije mogu biti nadležne i gdje pronaći službene upute.</p>
   </div>
   <div class="issue-path-grid">
     <article class="issue-path-card issue-transport">
@@ -178,31 +222,62 @@
   </div>
   <p class="issue-path-note">Ovo su vodiči za snalaženje, ne automatska obećanja da će institucija riješiti svaki slučaj. Nadležnost i postupak provjeri u izvornim dokumentima</p>
 </section>
-<section class="section issue-detail-section" aria-label="Vodiči za odabrane probleme">
-  <article class="issue-detail" id="tema-hz">
-    <div class="issue-detail-heading"><span class="issue-path-index">01 / PRIJEVOZ</span><h2>HŽ: od kašnjenja do službenog prigovora</h2><p>Najprije zabilježi konkretan događaj. Opća tvrdnja da je „željeznica uvijek loša” ne daje prijevozniku dovoljno informacija za provjeru</p></div>
-    <ol class="issue-steps"><li><strong>Dokumentiraj</strong><span>Datum, relacija, broj vlaka, planirano i stvarno vrijeme, fotografija obavijesti i karta ako je relevantna</span></li><li><strong>Obrati se prijevozniku</strong><span>HŽ Putnički prijevoz prima pisane pritužbe na reklamacije@hzpp.hr. Traži odgovor i sačuvaj potvrdu slanja</span></li><li><strong>Ako odgovor nije dovoljan</strong><span>HAKOM opisuje daljnji postupak za prava putnika. Prati rokove i priloži prethodnu komunikaciju</span></li></ol>
-    <div class="issue-links"><a href="https://www.hzpp.hr/hr/poslije-putovanja/pohvale-i-prituzbe" target="_blank" rel="noopener">HŽPP · pohvale i pritužbe ↗</a><a href="https://www.hakom.hr/hr/zeljeznicki-putnicki-prijevoz/38" target="_blank" rel="noopener">HAKOM · prava putnika ↗</a></div>
-    <p class="issue-caution">Razlikuj pojedinačni incident, ponavljajući problem na liniji i pitanje infrastrukture ili voznog reda. Za njih mogu biti odgovorni različiti akteri</p>
-  </article>
-  <article class="issue-detail" id="tema-obroci">
-    <div class="issue-detail-heading"><span class="issue-path-index">02 / ŠKOLSKI OBROCI</span><h2>Školski obroci: tko financira, a tko organizira?</h2><p>Nemoj sve škole stavljati u isti koš. Zakonski i financijski okvir nije jednak za osnovne i srednje škole</p></div>
-    <ol class="issue-steps"><li><strong>Osnovna škola</strong><span>Provjeri aktualnu odluku države o financiranju prehrane, jelovnik, organizaciju škole i ulogu osnivača. Zatraži podatak o cijeni, standardu obroka i načinu rješavanja posebnih prehrambenih potreba</span></li><li><strong>Srednja škola</strong><span>Provjeri što škola stvarno nudi, tko je osnivač, kakvi su uvjeti prostora i postoji li lokalno sufinanciranje. Ne pretpostavljaj da se pravilo za osnovne škole automatski primjenjuje</span></li><li><strong>Predloži provjerljivu promjenu</strong><span>Prikupi iskustva učenika, jelovnike i dostupne informacije, pa prijedlog uputi ravnatelju, vijeću učenika i osnivaču</span></li></ol>
-    <div class="issue-links"><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2008_07_87_2789.html" target="_blank" rel="noopener">Zakon o odgoju i obrazovanju · financiranje prehrane ↗</a><a href="https://mzom.gov.hr/" target="_blank" rel="noopener">Ministarstvo znanosti, obrazovanja i mladih ↗</a></div>
-    <p class="issue-caution">Zakon predviđa mogućnost državnog financiranja prehrane učenika osnovnih škola za pojedinu školsku godinu, uz kriterije utvrđene odlukom Vlade. Konkretna prava i iznosi ovise o važećim odlukama i školskoj godini</p>
-  </article>
-  <article class="issue-detail" id="tema-ucenje">
-    <div class="issue-detail-heading"><span class="issue-path-index">03 / UČENJE</span><h2>Instrukcije su skupe — koje opcije imaš u školi?</h2><p>Privatne instrukcije nisu jedini oblik podrške. Prvo pitaj školu što je dužna organizirati i što je dostupno u tvojoj situaciji</p></div>
-    <ol class="issue-steps"><li><strong>Razgovaraj s nastavnikom</strong><span>Opiši gradivo i prepreku. Zatraži konkretan plan nadoknade i informacije o dopunskoj nastavi</span></li><li><strong>Uključi stručnu službu</strong><span>Pedagog, psiholog ili edukacijski rehabilitator mogu pomoći razjasniti potrebe i dostupnu podršku u školi</span></li><li><strong>Provjeri pravnu osnovu</strong><span>Članak 33. Zakona propisuje da je škola dužna organizirati dopunsku nastavu učenicima kojima je potrebna pomoć u učenju</span></li></ol>
-    <div class="issue-links"><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2008_07_87_2789.html" target="_blank" rel="noopener">Narodne novine · članak 33. ↗</a></div>
-    <p class="issue-caution">Dopunska nastava nije isto što i privatne instrukcije ni automatsko individualno podučavanje. Pitaj školu kako se podrška organizira u konkretnom predmetu</p>
-  </article>
-  <article class="issue-detail" id="tema-pravila">
-    <div class="issue-detail-heading"><span class="issue-path-index">04 / ŠKOLSKA PRAVILA</span><h2>Školsko pravilo koje ne funkcionira</h2><p>Skupi iskustva i pretvori ih u prijedlog koji se može razmotriti, umjesto da ostane na objavi u grupnom chatu</p></div>
-    <ol class="issue-steps"><li><strong>Odredi što točno ne funkcionira</strong><span>Opiši pravilo, koga pogađa i u kojim situacijama. Odvoji provjerljive primjere od dojma</span></li><li><strong>Pronađi kanal</strong><span>Razgovaraj s predstavnikom razreda i vijećem učenika. Provjeri školski statut, kućni red i godišnji plan</span></li><li><strong>Predloži rješenje</strong><span>Navedi očekivanu korist, moguće troškove i kako bi se pratilo djeluje li promjena</span></li></ol>
-    <div class="issue-links"><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2008_07_87_2789.html" target="_blank" rel="noopener">Zakon o odgoju i obrazovanju ↗</a></div>
-    <p class="issue-caution">Vijeće učenika može zastupati interese učenika i predlagati poboljšanja, ali formalna odluka o pravilima pripada nadležnim tijelima škole</p>
-  </article>
+<section class="section issue-detail-section" aria-label="Detaljniji vodiči">
+  <details class="issue-guide-card" id="tema-hz">
+    <summary><span class="issue-path-index">01 / PRIJEVOZ</span><strong>Vlak kasni ili je otkazan</strong><small>Prava putnika i prigovor</small></summary>
+    <div class="issue-guide-content">
+      <p>Zabilježi osnovne podatke o putovanju i koristi službeni postupak prijevoznika.</p>
+      <ol class="issue-steps">
+        <li><strong>Zabilježi putovanje</strong><span>Datum, relacija, broj vlaka i stvarno vrijeme dolaska. Sačuvaj kartu ili obavijest.</span></li>
+        <li><strong>Pošalji prigovor prijevozniku</strong><span>HŽ Putnički prijevoz prima pisane pritužbe na reklamacije@hzpp.hr. Sačuvaj poslanu poruku.</span></li>
+        <li><strong>Provjeri daljnji postupak</strong><span>Ako odgovor nije dovoljan, pogledaj prava putnika i rokove kod HAKOM-a.</span></li>
+      </ol>
+      <div class="issue-links"><a href="https://www.hzpp.hr/hr/poslije-putovanja/pohvale-i-prituzbe" target="_blank" rel="noopener">HŽPP · pritužbe ↗</a><a href="https://www.hakom.hr/hr/zeljeznicki-putnicki-prijevoz/38" target="_blank" rel="noopener">HAKOM · prava putnika ↗</a></div>
+      <p class="issue-caution">Kašnjenje, otkazivanje i problem infrastrukture mogu imati različite odgovorne aktere.</p>
+    </div>
+  </details>
+
+  <details class="issue-guide-card" id="tema-obroci">
+    <summary><span class="issue-path-index">02 / PREHRANA</span><strong>Školski obrok nije odgovarajući</strong><small>Organizacija i financiranje</small></summary>
+    <div class="issue-guide-content">
+      <p>Osnovne i srednje škole nemaju potpuno isti okvir. Najprije utvrdi tko organizira obrok i tko ga financira.</p>
+      <ol class="issue-steps">
+        <li><strong>Osnovna škola</strong><span>Provjeri jelovnik, prehrambene normative i važeću godišnju odluku o financiranju.</span></li>
+        <li><strong>Srednja škola</strong><span>Pitaj školu i osnivača kako je prehrana organizirana i postoji li lokalno sufinanciranje.</span></li>
+        <li><strong>Posebne potrebe</strong><span>Zatraži informaciju o načinu prilagodbe obroka i odgovornoj osobi u školi.</span></li>
+      </ol>
+      <div class="issue-links"><a href="https://gov.hr/hr/prehrana-i-prijevoz-ucenika/1008" target="_blank" rel="noopener">gov.hr · prehrana učenika ↗</a><a href="https://mzom.gov.hr/" target="_blank" rel="noopener">Ministarstvo obrazovanja ↗</a></div>
+      <p class="issue-caution">Iznosi i uvjeti financiranja mogu se mijenjati po školskoj godini.</p>
+    </div>
+  </details>
+
+  <details class="issue-guide-card" id="tema-ucenje">
+    <summary><span class="issue-path-index">03 / PODRŠKA U UČENJU</span><strong>Instrukcije su preskupe</strong><small>Podrška unutar škole</small></summary>
+    <div class="issue-guide-content">
+      <p>Prije privatnih instrukcija provjeri koju podršku škola može organizirati.</p>
+      <ol class="issue-steps">
+        <li><strong>Razgovaraj s nastavnikom</strong><span>Zatraži plan nadoknade i informaciju o dopunskoj nastavi.</span></li>
+        <li><strong>Pitaj stručnu službu</strong><span>Pedagog, psiholog ili edukacijski rehabilitator mogu objasniti dostupnu podršku.</span></li>
+        <li><strong>Provjeri pravilo</strong><span>Članak 33. Zakona uređuje obvezu škole da organizira dopunsku nastavu učenicima kojima je potrebna pomoć.</span></li>
+      </ol>
+      <div class="issue-links"><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2008_07_87_2789.html" target="_blank" rel="noopener">Narodne novine · Zakon ↗</a></div>
+      <p class="issue-caution">Dopunska nastava nije isto što i individualne privatne instrukcije.</p>
+    </div>
+  </details>
+
+  <details class="issue-guide-card" id="tema-pravila">
+    <summary><span class="issue-path-index">04 / ŠKOLSKA PRAVILA</span><strong>Školsko pravilo ne funkcionira</strong><small>Vijeće učenika i školski akti</small></summary>
+    <div class="issue-guide-content">
+      <p>Razlikuj mišljenje, konkretne primjere i ovlasti tijela škole.</p>
+      <ol class="issue-steps">
+        <li><strong>Opiši situaciju</strong><span>Navedi koje pravilo ne funkcionira, koga pogađa i u kojim okolnostima.</span></li>
+        <li><strong>Provjeri školske akte</strong><span>Pogledaj statut, kućni red i ulogu vijeća učenika.</span></li>
+        <li><strong>Razmotri prijedlog</strong><span>Usporedi moguće koristi, ograničenja i način praćenja promjene.</span></li>
+      </ol>
+      <div class="issue-links"><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2008_07_87_2789.html" target="_blank" rel="noopener">Narodne novine · Zakon ↗</a></div>
+      <p class="issue-caution">Vijeće učenika može predlagati poboljšanja, ali formalne odluke donose nadležna tijela škole.</p>
+    </div>
+  </details>
 </section>
 </details>
 <details class="learning-stat-details">
@@ -311,22 +386,22 @@
     </section>
 </section>
 <section class="app-view" data-app-view="play" id="igraj" hidden>
-<header class="view-intro"><div><div class="section-kicker">IGRAJ · NAPREDUJ · PONOVI</div><h1>Građanske vještine, pretvorene u igru</h1><p>Kratki izazovi o stvarnim temama. Bodovi nagrađuju učenje, ne političke stavove</p></div><span class="view-meta">Brzi izazovi</span></header>
+<header class="view-intro"><div><div class="section-kicker">ISPROBAJ · RAZMISLI · NAUČI</div><h1>Isprobaj kako odluke funkcioniraju</h1><p>Kratke situacije i simulacije pomažu povezati informacije s posljedicama različitih odluka.</p></div><span class="view-meta">Kvizovi i simulacije</span></header>
 <section class="section passport-section" id="putovnica" aria-labelledby="passportTitle">
   <div class="section-head">
     <div><div class="section-kicker"><span class="number">00</span> Tvoja putovnica</div><h2 id="passportTitle">Napreduj kroz znanje, ne kroz stavove</h2></div>
-    <p class="section-intro">Svaka istražena tema i dovršen izazov otvara novu razinu. Napredak ostaje na tvom uređaju.</p>
+    <p class="section-intro">Istraži teme i riješi izazove. Napredak se sprema samo na ovom uređaju.</p>
   </div>
   <div class="passport-main panel dark passport-compact">
     <div class="passport-compact-top">
       <div><div class="mini-tag">Tvoja trenutačna razina</div><div class="passport-rank" id="passportRank">Radoznalac</div></div>
       <span class="xp" id="passportPoints">0 XP</span>
     </div>
-    <p id="passportDescription">Kreni od jednog pitanja. Svaki izazov otvara novu vještinu.</p>
+    <p id="passportDescription">Uči vlastitim tempom. Bodovi prate istražene teme i izazove.</p>
     <div class="passport-track" id="passportTrack" role="progressbar" aria-label="Napredak prema sljedećoj razini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="passportFill"></span></div>
-    <div class="passport-compact-bottom"><div class="passport-next" id="passportNext">Prvi korak: završi jedan izazov</div><button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true">♪ Zvuk: uključen</button></div>
+    <div class="passport-compact-bottom"><div class="passport-next" id="passportNext">Završi jedan izazov za novu razinu</div><button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true">♪ Zvuk: uključen</button></div>
     <div class="passport-compact-actions">
-      <a class="btn btn-green" href="#odaberi-temu">Odaberi temu ↓</a>
+      <a class="btn btn-green" href="#odaberi-temu">Istraži teme ↓</a>
       <button class="btn btn-light" id="shareProgress" type="button">Podijeli napredak ↗</button>
     </div>
   </div>
@@ -350,10 +425,10 @@
 <section class="section weekly-section" aria-labelledby="weeklyTitle">
       <div class="panel mint weekly-panel">
         <div>
-          <div class="section-kicker">Tjedna misija · 3–10 minuta</div>
-          <h2 id="weeklyTitle" class="weekly-title">Jedan mali potez. Svaki tjedan</h2>
+          <div class="section-kicker">Tjedni pregled · 3–10 minuta</div>
+          <h2 id="weeklyTitle" class="weekly-title">Jedna nova tema svakog tjedna</h2>
           <p id="weeklyDescription" class="weekly-description"></p>
-          <div class="actions weekly-actions"><a class="btn btn-dark" id="weeklyLink" href="https://parlametar.hr/" target="_blank" rel="noopener">Otvori alat ↗</a><button class="btn btn-light" id="weeklyDone">Napravio/la sam to +8</button></div>
+          <div class="actions weekly-actions"><a class="btn btn-dark" id="weeklyLink" href="https://parlametar.hr/" target="_blank" rel="noopener">Otvori alat ↗</a><button class="btn btn-light" id="weeklyDone">Pročitao/la sam +8</button></div>
         </div>
         <div class="weekly-mark" aria-hidden="true">✳</div>
       </div>
@@ -361,18 +436,18 @@
 <section class="section daily-section" id="pitanje-dana" aria-labelledby="dailyTitle">
       <div class="daily-card">
         <div class="daily-heading">
-          <div><div class="section-kicker">Dnevna ruta · 9 situacija</div><h2 id="dailyTitle">Devet situacija. Tvoj potez</h2></div>
+          <div><div class="section-kicker">Situacijska igra · 9 primjera</div><h2 id="dailyTitle">Devet situacija iz svakodnevnog života</h2></div>
           <span class="daily-reward">+3 XP</span>
         </div>
-        <p class="daily-intro">Devet kratkih situacija o javnim odlukama i građanskom sudjelovanju. Odaberi svoj potez i pogledaj što iz njega slijedi.</p>
-        <div class="daily-run-progress"><div class="daily-run-progress-top"><strong id="dailyProgressLabel">0 / 9 izazova</strong><span>Riješi situaciju i nastavi dalje</span></div><div class="daily-run-track"><span id="dailyProgress"></span></div></div><div class="daily-date" id="dailyDate"></div>
+        <p class="daily-intro">Devet kratkih primjera o školi, javnom novcu, informacijama i institucijama. Odaberi odgovor i pogledaj objašnjenje.</p>
+        <div class="daily-run-progress"><div class="daily-run-progress-top"><strong id="dailyProgressLabel">0 / 9 izazova</strong><span>Odgovori na pitanje i pogledaj objašnjenje</span></div><div class="daily-run-track"><span id="dailyProgress"></span></div></div><div class="daily-date" id="dailyDate"></div>
         <div class="daily-case" aria-live="polite">
           <div class="daily-case-top"><span class="daily-case-icon" aria-hidden="true">✳</span><span id="dailyCaseLabel">Misija dana</span></div>
           <h3 id="dailyScenarioTitle">Učitavam današnju situaciju…</h3>
           <p id="dailyScenarioText"></p>
         </div>
-        <div class="daily-prompt-label">ODABERI SVOJ POTEZ</div>
-        <h3 class="daily-question" id="dailyQuestion">Što bi napravio/la?</h3>
+        <div class="daily-prompt-label">ODABERI ODGOVOR</div>
+        <h3 class="daily-question" id="dailyQuestion">Koji odgovor ima najviše smisla?</h3>
         <div class="daily-choices" id="dailyChoices" role="group" aria-label="Odaberi svoj potez"></div>
         <div class="daily-feedback" id="dailyFeedback" role="status" aria-live="polite"></div><div class="daily-actions"><button class="btn btn-dark" id="dailyNext" type="button" hidden>Sljedeći izazov →</button><button class="btn btn-light" id="dailyShare" type="button" hidden>Podijeli izazov ↗</button></div>
       </div>
@@ -381,16 +456,16 @@
   <div class="section-head">
     <div>
       <div class="section-kicker"><span class="number">02</span> IZAZOV · JAVNI NOVAC</div>
-      <h2>Ti vodiš grad.</h2>
+      <h2>Kako se raspoređuje gradski novac?</h2>
     </div>
-    <p class="section-intro">Odredi prioritete, rasporedi novac i pazi da ne potrošiš više nego što imaš.</p>
+    <p class="section-intro">Istraži kako ograničeni javni novac stvara izbore i kompromise.</p>
   </div>
   <div class="panel yellow budget-simulation">
     <div class="scenario scenario-city" id="budgetScenarioHeader">
-      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><small>Gradonačelnik/ca na jedan dan</small></span>
+      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><small>Edukativna simulacija, ne stvarni proračun</small></span>
     </div>
     <div class="budget-game-intro">
-      <strong>Tvoj je zadatak rasporediti gradski novac.</strong>
+      <strong>Isprobaj simulaciju gradskog proračuna.</strong>
       <p>Više za jednu stvar znači manje prostora za neku drugu. Otvori stavku ako želiš saznati što obuhvaća.</p>
     </div>
     <label class="budget-city-picker" for="budgetCity">Odaberi grad
@@ -453,7 +528,7 @@
         <div class="progress" role="progressbar" aria-label="Udio raspoređenog proračuna" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span id="budgetBar" style="width:100%"></span></div>
         <p id="budgetRemaining" class="budget-remaining" aria-live="polite">Preostalo: —</p>
         <p id="budgetStatus" class="budget-status" role="status" aria-live="polite">Rasporedi novac po svojim prioritetima.</p>
-        <button class="btn btn-green" id="budgetSubmit" type="button">Zaključi raspodjelu</button>
+        <button class="btn btn-green" id="budgetSubmit" type="button">Prikaži rezultat</button>
         <button class="reset" id="budgetReset" type="button">Vrati početnu raspodjelu</button>
         <div id="budgetResult" class="budget-result" hidden aria-live="polite"></div>
       </aside>
@@ -503,17 +578,17 @@
     </section>
 </section>
 <section class="app-view" data-app-view="act" id="djeluj" hidden>
-<header class="view-intro"><div><div class="section-kicker">DJELOVATI · POČETI · PROMIJENITI</div><h1>Od problema koji vidiš do koraka koji možeš poduzeti</h1><p>Odaberi temu i pronađi prvi korak. Ne moraš sve riješiti sam/a</p></div><span class="view-meta">Praktični vodič</span></header>
+<header class="view-intro"><div><div class="section-kicker">U PRAKSI · INSTITUCIJE · INFORMACIJE</div><h1>Tko odlučuje i gdje pronaći informacije?</h1><p>Pregledaj kako su podijeljene nadležnosti i koje su institucije povezane s temama iz svakodnevnog života.</p></div><span class="view-meta">Vodič kroz sustav</span></header>
 <section class="section" id="akcija">
       <div class="section-head">
-        <div><div class="section-kicker"><span class="number">04</span> Od „živcira me” do „što sad?”</div><h2>Nađi svoj sljedeći potez</h2></div>
-        <p class="section-intro">Ne moraš početi strankom, kampanjom ni velikim prosvjedom. Počni problemom koji poznaješ i pronađi mjesto na kojem se o njemu odlučuje</p>
+        <div><div class="section-kicker"><span class="number">04</span> TEME I NADLEŽNOSTI</div><h2>Odaberi područje koje te zanima</h2></div>
+        <p class="section-intro">Pogledaj tko je povezan s određenom temom, koje dokumente možeš provjeriti i gdje se nalaze službene informacije.</p>
       </div>
       <div class="action-finder">
         <div class="panel lilac">
           <div class="mini-tag">Odaberi temu</div>
-          <h3>Što bi promijenio/la?</h3>
-          <p>Odaberi problem i dobit ćeš prvi konkretan put. Nadležnost ponekad ovisi o vlasništvu, vrsti usluge i lokalnim pravilima — zato je prvi korak uvijek provjeriti tko je odgovoran</p>
+          <h3>Što te zanima?</h3>
+          <p>Odaberi područje za pregled institucija i izvora. Nadležnost ovisi o vrsti usluge, vlasništvu i važećim pravilima.</p>
           <div class="field"><label for="topicSelect">Tema</label><select id="topicSelect">
             <option value="public">Javni prostor, promet i kvart</option>
             <option value="school">Škola, faks i obrazovanje</option>
@@ -523,160 +598,186 @@
             <option value="media">Dezinformacije i mediji</option>
             <option value="youth">Prostor, kultura i sadržaji za mlade</option>
           </select></div>
-          <div class="field"><label for="effortSelect">Koliko vremena imaš?</label><select id="effortSelect"><option value="quick">10 minuta</option><option value="medium">Jedno popodne</option><option value="group">Želim pokrenuti nešto s drugima</option></select></div>
-          <span class="xp" id="actionXp">Tvoj napredak: 0 poteza</span>
+          <div class="field"><label for="effortSelect">Koliko detaljno želiš istražiti?</label><select id="effortSelect"><option value="quick">Kratki pregled</option><option value="medium">Detaljnije istraživanje</option><option value="group">Tema za razgovor u grupi</option></select></div>
+          <span class="xp" id="actionXp">Tvoj napredak: 0 XP</span>
         </div>
         <div class="action-output" id="actionOutput" aria-live="polite">
-          <div class="mini-tag">Tvoj prvi potez</div>
+          <div class="mini-tag">PREGLED TEME</div>
           <h3>Javni prostor, promet i kvart</h3>
-          <p>Rupa na pločniku, neispravna rasvjeta ili autobusna stanica bez klupe? Kreni od tijela koje održava prostor — često je to grad ili općina, ali prvo provjeri vlasništvo i nadležnost ceste</p>
-          <ol><li>Zabilježi lokaciju, datum i što točno ne radi. Ne objavljuj tuđe osobne podatke</li><li>Provjeri je li problem već prijavljen ili postoji gradski kontakt / mjesni odbor</li><li>Prijavi problem kroz Popravi.to ili pošalji upit nadležnom gradu/općini</li></ol>
-          <div class="resource-links"><a href="https://popravi.to/" target="_blank" rel="noopener">Prijavi problem · Popravi.to ↗</a><a href="https://imamopravoznati.org/" target="_blank" rel="noopener">Traži dokument · IPZ ↗</a></div>
+          <p>Za ulice, rasvjetu i javne površine obično su važni grad ili općina, ali nadležnost ovisi o vlasništvu i vrsti ceste.</p>
+          <details class="action-extra-details"><summary>Što još vrijedi provjeriti</summary><ol><li>Koje tijelo održava prostor ili cestu?</li><li>Postoji li javna obavijest, plan ili već evidentirana prijava?</li><li>Koji službeni kontakt ili dokument daje najtočniji odgovor?</li></ol><div class="resource-links"><a href="https://popravi.to/" target="_blank" rel="noopener">Popravi.to ↗</a><a href="https://imamopravoznati.org/" target="_blank" rel="noopener">Imamo pravo znati ↗</a></div></details>
         </div>
       </div>
     </section>
 </section>
 <section class="app-view" data-app-view="tools" id="alati" hidden>
-<header class="view-intro"><div><div class="section-kicker">ALATI · IZVORI · PILOT</div><h1>Ne moraš sve tražiti sam/a</h1><p>Provjereni izvori i korisni alati za nastavak istraživanja — plus tvoje povratne informacije za pilot</p></div><span class="view-meta">Otvoreni pilot</span></header>
-<section class="section" id="resursi">
-      <div class="section-head">
-        <div><div class="section-kicker"><span class="number">06</span> Bookmarkaj ovo</div><h2>Alati koji već postoje</h2></div>
-        <p class="section-intro">Ne treba sve graditi ispočetka. POTEZ ih povezuje i prevodi u razumljive korake — a stručnost ostaje kod organizacija koje se time bave</p>
-      </div>
+  <header class="view-intro">
+    <div>
+      <div class="section-kicker">RESURSI · IZVORI · MATERIJALI</div>
+      <h1>Korisni izvori na jednom mjestu</h1>
+      <p>Odabrane poveznice za javne informacije, provjeru tvrdnji, prilike za mlade i rad u učionici.</p>
+    </div>
+    <span class="view-meta">Odabrani resursi</span>
+  </header>
 
-      <section class="facilitator-kit" id="za-voditelje" aria-labelledby="facilitatorTitle">
-        <div class="facilitator-heading">
-          <div>
-            <div class="section-kicker">ZA ŠKOLE · UDRUGE · OMLADINSKE KLUBOVE</div>
-            <h2 id="facilitatorTitle">Jedan sat. Jedan stvarni problem. Jedan POTEZ</h2>
-            <p>Ne treba ti posebna oprema, korisnički računi ni predznanje iz politike. POTEZ može biti kratka radionica, uvod u građanski odgoj ili aktivnost za grupu mladih</p>
-          </div>
-          <span class="facilitator-time">45–60 min</span>
-        </div>
-        <div class="facilitator-outcomes">
-          <div><strong>Razumiju</strong><span>tko odlučuje i na kojoj razini</span></div>
-          <div><strong>Provjeravaju</strong><span>tvrdnje, izvore i dokaze</span></div>
-          <div><strong>Predlažu</strong><span>izvediv potez i način sudjelovanja</span></div>
-        </div>
-        <div class="facilitator-grid">
-          <article class="facilitator-card">
-            <span class="mini-tag">Priprema · 5 minuta</span>
-            <h3>Odaberite pitanje koje ih se tiče</h3>
-            <p>Primjeri: prijevoz do škole, školski prostor, cijena stanovanja, javni park, kvaliteta zraka, studentski rad ili dostupnost kulturnih sadržaja</p>
-            <p class="facilitator-tip">Voditeljski trik: počni od iskustva grupe, ne od definicije politike</p>
-          </article>
-          <article class="facilitator-card">
-            <span class="mini-tag">Istraži · 10 minuta</span>
-            <h3>Pronađite tko ima ovlasti</h3>
-            <p>Koristite mapu odlučivanja u POTEZ-u. Razdvojite tko donosi pravilo, tko osigurava novac i tko provodi odluku</p>
-            <p class="facilitator-tip">Nije svaki problem odgovornost gradonačelnika, škole ili države. Tražite nadležnost</p>
-          </article>
-          <article class="facilitator-card">
-            <span class="mini-tag">Igraj · 10–15 minuta</span>
-            <h3>Testirajte odluke i dokaze</h3>
-            <p>Odaberite situaciju, provjeru objave ili gradski proračun. Svaka skupina obrazlaže izbor i navodi što bi još provjerila.</p>
-            <p class="facilitator-tip">Bodovi su sporedni. Važnije je objasniti zašto je neki zaključak opravdan</p>
-          </article>
-          <article class="facilitator-card">
-            <span class="mini-tag">Djeluj · 15 minuta</span>
-            <h3>Oblikujte prvi realan korak</h3>
-            <p>Svaka skupina predlaže kome se obratiti, koji dokument ili podatak treba pronaći i kako uključiti druge. Ne morate odmah riješiti problem</p>
-            <p class="facilitator-tip">Dobar rezultat radionice je kvalitetnije pitanje i provjerljiv sljedeći korak</p>
-          </article>
-        </div>
-        <details class="facilitator-details">
-          <summary>Otvori gotov raspored radionice i pitanja za raspravu</summary>
-          <div class="facilitator-detail-content">
-            <ol>
-              <li><strong>0–5 min · Uvod:</strong> „Što u vašoj svakodnevici ne funkcionira i tko bi to mogao promijeniti?”</li>
-              <li><strong>5–15 min · Nadležnost:</strong> grupa mapira ustanovu, grad/općinu, županiju, državu ili EU te provjerava tko je stvarno odgovoran</li>
-              <li><strong>15–25 min · Dokazi:</strong> pronađite izvorni dokument, podatak ili pravilo. Odvojite činjenicu, mišljenje i pretpostavku</li>
-              <li><strong>25–40 min · Rješenje:</strong> osmislite izvediv prijedlog, navedite mogući trošak ili prepreku i odredite kome ga uputiti</li>
-              <li><strong>40–50 min · Razmjena:</strong> druga grupa postavlja tri pitanja: „Koji je dokaz?”, „Tko je nadležan?” i „Koga prijedlog može nenamjerno isključiti?”</li>
-              <li><strong>50–60 min · Refleksija:</strong> svatko zapisuje jednu stvar koju sada razumije bolje i jedan sljedeći korak koji može provjeriti</li>
-            </ol>
-            <div class="facilitator-question"><strong>Pitanja koja potiču kritičko mišljenje</strong>
-              <ul>
-                <li>Koji podatak bi mogao promijeniti vaše mišljenje?</li>
-                <li>Tko ima korist, a tko snosi trošak predložene odluke?</li>
-                <li>Čiji glas nedostaje u raspravi?</li>
-                <li>Je li rješenje izvedivo i kako bismo znali da djeluje?</li>
-                <li>Što je činjenica, što procjena, a što vrijednosni izbor?</li>
-              </ul>
-            </div>
-            <p class="small-note">Prilagodba: za kraći školski sat koristi uvod, jednu misiju i završnu refleksiju (30–45 min). Za NGO ili omladinski klub proširi dio s prijedlogom i kontaktom s lokalnim donositeljima odluka. Ne tražite od sudionika da javno otkrivaju osobna politička uvjerenja ili osjetljive podatke</p>
-          </div>
-        </details>
-      </section>
+  <section class="section tools-library" id="resursi" aria-labelledby="toolsLibraryTitle">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">ISTRAŽI PREMA INTERESU</div>
+        <h2 id="toolsLibraryTitle">Što tražiš?</h2>
+      </div>
+      <p class="section-intro">Otvori samo skupinu koja ti treba. POVEZNICE vode na službene ili specijalizirane izvore.</p>
+    </div>
 
-      <div class="europe-cases">
-        <div class="section-kicker">Primjeri iz Hrvatske i Europe</div>
-        <div class="europe-case-grid">
-          <article class="europe-case"><span class="mini-tag">Belgija · Kortrijk</span><h3>Proračun kao zajednička odluka</h3><p>Građani predlažu projekte, glasaju virtualnim novčićima, a građanski žiri raspravlja i odlučuje o raspodjeli sredstava. Igra je dio stvarnog procesa, a ne samo kviz</p><a href="https://www.kortrijk.be/burgerbudget" target="_blank" rel="noopener">Pogledaj Burgerbudget ↗</a></article>
-          <article class="europe-case"><span class="mini-tag">Erasmus+ · EmpoweringYou</span><h3>Misije oko stvarnih društvenih tema</h3><p>Gamificirana platforma povezivala je građansko učenje, razmjenu ideja i šest misija o društvenim pitanjima, sudjelovanju i okolišu</p><a href="https://www.kmop.gr/projects-vf/empoweringyou/" target="_blank" rel="noopener">Pogledaj projekt ↗</a></article>
-          <article class="europe-case"><span class="mini-tag">Više europskih zemalja · Com’ON</span><h3>Mladi predlažu, zajednica bira</h3><p>Primjeri participativnog budžetiranja mladih povezuju ideje, javno glasanje i financiranje lokalnih projekata — od radionica do obrazovnih aktivnosti</p><a href="https://school-education.ec.europa.eu/en/discover/practice/young-citizens-action-seven-examples-decision-making-and-democratic-participation" target="_blank" rel="noopener">Pročitaj europske primjere ↗</a></article>
-          <article class="europe-case"><span class="mini-tag">Hrvatska · Draganić</span><h3>BOSS: mladi odlučuju o lokalnim sredstvima</h3><p>Učenici od 13 do 15 godina sudjelovali su u predlaganju, glasanju i praćenju raspodjele sredstava za projekte zajednice, uz radionice i susrete s donositeljima odluka</p><a href="https://ruralpact.rural-vision.europa.eu/good-practice/rural-youth-participation-decision-making-and-budgeting-processes-croatia_en" target="_blank" rel="noopener">Pogledaj hrvatski primjer ↗</a></article>
+    <details class="tool-disclosure">
+      <summary>
+        <span class="tool-disclosure-title">Javne odluke i dokumenti</span>
+        <span class="tool-disclosure-meta">5 izvora</span>
+        <span class="tool-disclosure-hint">Proračuni, glasanja i javne informacije</span>
+      </summary>
+      <div class="tool-disclosure-body">
+        <div class="link-grid">
+          <a class="link-card" href="https://parlametar.hr/" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18M5 10v9M9 10v9M15 10v9M19 10v9M3 21h18M12 3 2 8h20L12 3Z"/></svg>
+            <strong>Parlametar</strong><span>Glasanja, govori i rad Hrvatskog sabora.</span><span class="go">Istraži ↗</span>
+          </a>
+          <a class="link-card" href="https://www.imamopravoznati.org/" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M8 10.5h5M10.5 8v5"/></svg>
+            <strong>Imamo pravo znati</strong><span>Zahtjevi za postojeće dokumente javnih tijela.</span><span class="go">Saznaj više ↗</span>
+          </a>
+          <a class="link-card" href="https://savjetovanja.gov.hr/" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v13H9l-5 4V4Z"/><path d="M8 9h8M8 13h6"/></svg>
+            <strong>e-Savjetovanja</strong><span>Prijedlozi propisa i javna savjetovanja.</span><span class="go">Pregledaj ↗</span>
+          </a>
+          <a class="link-card" href="https://popravi.to/" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+            <strong>Popravi.to</strong><span>Komunalni problemi i javna infrastruktura.</span><span class="go">Pogledaj ↗</span>
+          </a>
+          <a class="link-card" href="https://data.gov.hr/" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h17M8 16v-4M13 16V8M18 16v-7"/></svg>
+            <strong>Otvoreni podaci RH</strong><span>Javni podaci za usporedbe i analize.</span><span class="go">Istraži podatke ↗</span>
+          </a>
         </div>
-        <p class="source-note">Pouka za POTEZ: kombinirati kratke misije, raspravu i simulacije s jasnim putem prema stvarnom procesu odlučivanja. Ne kopirati ljestvice popularnosti ni nagrađivati političko slaganje</p>
       </div>
+    </details>
 
-      <div class="resource-feature-grid">
-        <a class="resource-feature" href="https://erasmus-plus.ec.europa.eu/opportunities/individuals/youth-exchanges-and-activities" target="_blank" rel="noopener"><span class="mini-tag">13–30 godina · EU program</span><strong>Erasmus+ razmjene mladih</strong><span>Kako se uključiti u kratku međunarodnu razmjenu kroz radionice, rasprave i zajedničke projekte. Ne moraš samostalno financirati put: projektne potpore pokrivaju prihvatljive troškove</span><b>Pronađi mogućnosti ↗</b></a>
-        <a class="resource-feature" href="https://erasmus-plus.ec.europa.eu/programme-guide/part-b/key-action-1/youth-participation" target="_blank" rel="noopener"><span class="mini-tag">Za mlade i organizacije</span><strong>Erasmus+ Youth Participation</strong><span>Pokreni projekt u kojem mladi stvarno sudjeluju u oblikovanju odluka — u školi, gradu ili zajednici</span><b>Saznaj kako ↗</b></a>
-        <a class="resource-feature" href="https://youth.europa.eu/go-abroad/volunteering/" target="_blank" rel="noopener"><span class="mini-tag">18–30 godina · volontiranje</span><strong>Europske snage solidarnosti</strong><span>Pronađi financirane volonterske prilike, organizacije i projekte u Hrvatskoj i drugim državama</span><b>Pronađi projekt ↗</b></a>
-        <a class="resource-feature" href="https://visiting.europarl.europa.eu/en" target="_blank" rel="noopener"><span class="mini-tag">Europski parlament</span><strong>Posjeti institucije EU-a</strong><span>Informacije o posjetima Parlamentu, Parlamentariumu i grupnim posjetima za škole i organizacije</span><b>Isplaniraj posjet ↗</b></a>
-      </div>
-      <p class="small-note">Uvjeti, dobne granice, rokovi i financiranje ovise o pozivu i organizatoru. Provjeri aktualne službene informacije prije prijave</p>
-      <div class="resource-feature-grid">
-        <a class="resource-feature" href="https://europa.eu/youreurope/citizens/work/work-abroad/employment-contracts/index_en.htm" target="_blank" rel="noopener"><span class="mini-tag">Radnička prava · EU</span><strong>Prije nego potpišeš ugovor</strong><span>Provjeri što mora pisati u ugovoru, radno vrijeme, plaću, godišnji odmor i predvidljivost rada</span><b>Upoznaj svoja prava ↗</b></a>
-        <a class="resource-feature" href="https://www.osijek.hr/gradska-uprava/gradski-uredi-odjeli-i-sluzbe/odsjek-za-prostorno-uredenje-i-zastitu-okolisa/" target="_blank" rel="noopener"><span class="mini-tag">Okoliš · Osijek</span><strong>Prati lokalne okolišne planove</strong><span>Pronađi gradske dokumente o kvaliteti zraka, klimatskim promjenama i zelenoj infrastrukturi</span><b>Otvori službene dokumente ↗</b></a>
-      </div>
-      <div class="link-grid">
-        <a class="link-card" href="https://parlametar.hr/" target="_blank" rel="noopener"><span class="emoji">🏛️</span><strong>Parlametar</strong><span>Prati kako zastupnici govore, glasaju i što Sabor odlučuje</span><span class="go">Istraži Sabor ↗</span></a>
-        <a class="link-card" href="https://www.imamopravoznati.org/" target="_blank" rel="noopener"><span class="emoji">🔎</span><strong>Imamo pravo znati</strong><span>Traži postojeće dokumente i informacije od javnih tijela</span><span class="go">Postavi zahtjev ↗</span></a>
-        <a class="link-card" href="https://popravi.to/" target="_blank" rel="noopener"><span class="emoji">🛠️</span><strong>Popravi.to</strong><span>Prijavi komunalni problem ili oštećenje javne infrastrukture</span><span class="go">Prijavi problem ↗</span></a>
-        <a class="link-card" href="https://savjetovanja.gov.hr/" target="_blank" rel="noopener"><span class="emoji">🗣️</span><strong>e-Savjetovanja</strong><span>Pročitaj prijedloge propisa i pošalji komentar u javnom savjetovanju</span><span class="go">Uključi se ↗</span></a>
-        <a class="link-card" href="https://tocnotako.hr/" target="_blank" rel="noopener"><span class="emoji">🧭</span><strong>Točno tako</strong><span>Nacionalna platforma s provjerama neovisnih fact-checkera</span><span class="go">Provjeri tvrdnju ↗</span></a>
-        <a class="link-card" href="https://faktograf.hr/" target="_blank" rel="noopener"><span class="emoji">🧪</span><strong>Faktograf</strong><span>Provjera činjenične točnosti političkih i javnih tvrdnji</span><span class="go">Čitaj provjere ↗</span></a>
-        <a class="link-card" href="https://www.mmh.hr/projekti/tiktalking-youth-policy" target="_blank" rel="noopener"><span class="emoji">📣</span><strong>TikTalking Youth Policy</strong><span>Mreža mladih Hrvatske i partneri razvijaju pristupačniji jezik javnih politika</span><span class="go">Upoznaj projekt ↗</span></a>
-        <a class="link-card" href="https://data.gov.hr/" target="_blank" rel="noopener"><span class="emoji">📊</span><strong>Otvoreni podaci RH</strong><span>Javni podaci iz kojih se mogu graditi analize i vizualizacije</span><span class="go">Istraži podatke ↗</span></a>
-        <a class="link-card" href="https://www.rijeka.hr/en/themes-for-citizens/active-citizenship/participatory-budgeting/educational-budget-game-proracunajme/" target="_blank" rel="noopener"><span class="emoji">💶</span><strong>Proračun(ajme)</strong><span>Riječka edukativna igra koja građanima približava gradski proračun</span><span class="go">Pogledaj primjer ↗</span></a>
-      </div>
-    </section>
-<section class="section" id="povratne" aria-labelledby="feedbackTitle">
-      <div class="section-head">
-        <div><div class="section-kicker"><span class="number">07</span> Pilot · tvoj glas o POTEZU</div><h2 id="feedbackTitle">Što radi, a što treba popraviti?</h2></div>
-        <p class="section-intro">Ovo je otvoreni pilot. Prijavi tehničku grešku ili predloži temu kroz GitHubov obrazac. POTEZ ne sprema tvoju poruku</p>
-      </div>
-      <div class="feedback-layout">
-        <div class="panel lilac">
-          <div class="mini-tag">Otvoreni pilot</div>
-          <h3>Što bi ti učinio/la jednostavnijim?</h3>
-          <p>POTEZ se razvija kao mali, praktični alat. Dobrodošle su prijave grešaka, prijedlozi tema i ideje za nove izazove</p>
-          <p class="small-note">GitHub može zatražiti prijavu, a prijava greške može biti javno vidljiva</p>
-        </div>
-        <div class="panel feedback-disabled">
-          <div class="mini-tag">Povratne informacije</div>
-          <h3>Prijavi grešku ili predloži novi izazov</h3>
-          <p>Odaberi odgovarajući obrazac. Prijava se otvara na GitHubu i može biti javno vidljiva. Nemoj unositi osobne podatke, privatne poruke ni osjetljive informacije</p>
-          <div class="actions"><a class="btn btn-dark" href="https://github.com/romansimunovic/Potez/issues/new?template=bug_report.yml" target="_blank" rel="noopener">Prijavi tehničku grešku ↗</a><a class="btn btn-light" href="https://github.com/romansimunovic/Potez/issues/new?template=idea.yml" target="_blank" rel="noopener">Predloži ideju ↗</a></div>
-          <p class="small-note">Ovo je poveznica na vanjsku platformu. Njezini uvjeti i obavijest o privatnosti primjenjuju se nakon što je otvoriš</p>
+    <details class="tool-disclosure">
+      <summary>
+        <span class="tool-disclosure-title">Provjera informacija</span>
+        <span class="tool-disclosure-meta">2 izvora</span>
+        <span class="tool-disclosure-hint">Neovisne provjere i kontekst tvrdnji</span>
+      </summary>
+      <div class="tool-disclosure-body">
+        <div class="link-grid">
+          <a class="link-card" href="https://tocnotako.hr/" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M8 10.5l1.7 1.7 3.5-3.5"/></svg>
+            <strong>Točno tako</strong><span>Provjere tvrdnji hrvatskih fact-checkera.</span><span class="go">Provjeri ↗</span>
+          </a>
+          <a class="link-card" href="https://faktograf.hr/" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 7v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+            <strong>Faktograf</strong><span>Provjera činjenične točnosti javnih tvrdnji.</span><span class="go">Čitaj provjere ↗</span>
+          </a>
         </div>
       </div>
-    </section>
-<section class="section">
-      <div class="manifesto">
-        <div><div class="section-kicker">Nije poanta skupljati bodove</div><h2>Poanta je da znaš što možeš napraviti s njima</h2><p>POTEZ je zamišljen kao ulazna točka: kratko naučiš, provjeriš izvor, pronađeš nadležno tijelo i napraviš prvi korak. Bez obaveze da se slažeš s bilo kojom strankom ili ideologijom</p></div>
-        <div class="manifesto-art"><div class="bubble">Ne moraš imati sve odgovore. Dovoljno je znati koje pitanje postaviti. ✳</div></div>
+    </details>
+
+    <details class="tool-disclosure">
+      <summary>
+        <span class="tool-disclosure-title">Mladi, prava i mogućnosti</span>
+        <span class="tool-disclosure-meta">6 izvora</span>
+        <span class="tool-disclosure-hint">Sudjelovanje, obrazovanje, volontiranje i rad</span>
+      </summary>
+      <div class="tool-disclosure-body">
+        <div class="link-grid">
+          <a class="link-card" href="https://www.mmh.hr/projekti/tiktalking-youth-policy" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 9h8M8 13h5"/></svg>
+            <strong>TikTalking Youth Policy</strong><span>Javne politike objašnjene razumljivije mladima.</span><span class="go">Upoznaj projekt ↗</span>
+          </a>
+          <a class="link-card" href="https://erasmus-plus.ec.europa.eu/opportunities/individuals/youth-exchanges-and-activities" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 20c0-3 2-5 5-5s5 2 5 5M12 20c0-3 2-5 5-5s5 2 5 5"/></svg>
+            <strong>Erasmus+ razmjene mladih</strong><span>Međunarodne radionice i zajednički projekti.</span><span class="go">Pronađi mogućnosti ↗</span>
+          </a>
+          <a class="link-card" href="https://erasmus-plus.ec.europa.eu/programme-guide/part-b/key-action-1/youth-participation" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V5l8-2 8 2v15l-8-2-8 2Z"/><path d="M12 3v15M8 8h2M14 8h2M8 12h2M14 12h2"/></svg>
+            <strong>Erasmus+ Youth Participation</strong><span>Projekti u kojima mladi sudjeluju u odlukama.</span><span class="go">Saznaj više ↗</span>
+          </a>
+          <a class="link-card" href="https://youth.europa.eu/go-abroad/volunteering/" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z"/></svg>
+            <strong>Europske snage solidarnosti</strong><span>Volonterske prilike i projekti u Europi.</span><span class="go">Pogledaj projekte ↗</span>
+          </a>
+          <a class="link-card" href="https://visiting.europarl.europa.eu/en" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6M8 10h.01M12 10h.01M16 10h.01"/></svg>
+            <strong>Posjeti Europski parlament</strong><span>Informacije za pojedince, grupe i škole.</span><span class="go">Informacije o posjetima ↗</span>
+          </a>
+          <a class="link-card" href="https://europa.eu/youreurope/citizens/work/work-abroad/employment-contracts/index_en.htm" target="_blank" rel="noopener">
+            <svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l1 3h4v13H3V7h4l1-3Z"/><path d="M7 7h10M8 12h8M8 16h6"/></svg>
+            <strong>Prava iz radnog odnosa</strong><span>Ugovor, radno vrijeme, plaća i odmor u EU-u.</span><span class="go">Upoznaj prava ↗</span>
+          </a>
+        </div>
+        <p class="small-note">Uvjeti, dobne granice i rokovi ovise o aktualnom pozivu. Provjeri detalje kod organizatora.</p>
       </div>
-      <p class="source-note">Napredak se sprema u preglednik. Proračunski izazov koristi edukativni model s jasno navedenim pretpostavkama; nije prikaz službenih gradskih planova. Povratne informacije otvaraju vanjski GitHub obrazac.</p>
-    </section>
+    </details>
+
+    <details class="tool-disclosure">
+      <summary>
+        <span class="tool-disclosure-title">Za nastavnike i voditelje</span>
+        <span class="tool-disclosure-meta">Radionica 45–60 min</span>
+        <span class="tool-disclosure-hint">Materijal za školu, udrugu ili knjižnicu</span>
+      </summary>
+      <div class="tool-disclosure-body">
+        <p class="tool-intro">POTEZ može poslužiti kao uvod u građansku ili medijsku pismenost. Nije potrebna registracija ni posebna oprema.</p>
+        <ol class="tool-workshop-list">
+          <li><strong>Odaberite temu</strong><span>Prijevoz, školski obrok, javni prostor ili društvene mreže.</span></li>
+          <li><strong>Pronađite institucije</strong><span>Razlikujte tko donosi pravilo, osigurava novac i provodi odluku.</span></li>
+          <li><strong>Usporedite informacije</strong><span>Provjerite izvor, datum, uzorak i kontekst tvrdnje.</span></li>
+          <li><strong>Razgovarajte o posljedicama</strong><span>Tko ima korist, tko snosi trošak i čiji glas nedostaje?</span></li>
+        </ol>
+        <p class="small-note">Prilagodite sadržaj dobi i iskustvu grupe. Ne tražite od sudionika da iznose privatna politička uvjerenja ili osjetljive osobne podatke.</p>
+      </div>
+    </details>
+
+    <details class="tool-disclosure">
+      <summary>
+        <span class="tool-disclosure-title">Primjeri iz prakse</span>
+        <span class="tool-disclosure-meta">Hrvatska i Europa</span>
+        <span class="tool-disclosure-hint">Kako zajednice uključuju građane u odluke</span>
+      </summary>
+      <div class="tool-disclosure-body">
+        <div class="practice-examples">
+          <article><strong>Kortrijk, Belgija</strong><span>Građani predlažu projekte i sudjeluju u raspodjeli dijela gradskog proračuna.</span><a href="https://www.kortrijk.be/burgerbudget" target="_blank" rel="noopener">Burgerbudget ↗</a></article>
+          <article><strong>EmpoweringYou</strong><span>Projekt koji povezuje građansko učenje, kratke misije i društvene teme.</span><a href="https://www.kmop.gr/projects-vf/empoweringyou/" target="_blank" rel="noopener">Projekt ↗</a></article>
+          <article><strong>Com’ON</strong><span>Primjeri participativnog budžetiranja mladih i lokalnih ideja.</span><a href="https://school-education.ec.europa.eu/en/discover/practice/young-citizens-action-seven-examples-decision-making-and-democratic-participation" target="_blank" rel="noopener">Europski primjeri ↗</a></article>
+          <article><strong>BOSS, Draganić</strong><span>Učenici su sudjelovali u predlaganju i odabiru projekata za lokalnu zajednicu.</span><a href="https://ruralpact.rural-vision.europa.eu/good-practice/rural-youth-participation-decision-making-and-budgeting-processes-croatia_en" target="_blank" rel="noopener">Hrvatski primjer ↗</a></article>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <details class="tool-disclosure tool-feedback" id="povratne">
+    <summary>
+      <span class="tool-disclosure-title">Komentar o POTEZU ili prijava greške</span>
+      <span class="tool-disclosure-meta">Otvoreni pilot</span>
+      <span class="tool-disclosure-hint">Povratne informacije pomažu poboljšati sadržaj i preglednost.</span>
+    </summary>
+    <div class="tool-disclosure-body">
+      <p>Prijava se otvara na GitHubu i može biti javno vidljiva. Nemoj unositi osobne podatke, privatne poruke ni osjetljive informacije.</p>
+      <div class="actions">
+        <a class="btn btn-dark" href="https://github.com/romansimunovic/Potez/issues/new?template=bug_report.yml" target="_blank" rel="noopener">Prijavi tehničku grešku ↗</a>
+        <a class="btn btn-light" href="https://github.com/romansimunovic/Potez/issues/new?template=idea.yml" target="_blank" rel="noopener">Predloži ideju ↗</a>
+      </div>
+    </div>
+  </details>
+
+  <section class="section tools-note">
+    <p>POTEZ je otvoreni edukativni pilot. Poveznice vode na vanjske izvore, a njihovi uvjeti i aktualnost provjeravaju se kod pružatelja.</p>
+  </section>
+</section>
 </section>
   </main>
 
   <footer class="footer"><div><strong>potez</strong> · otvoreni pilot</div><div>Politika prevedena na tvoj život. <button class="reset" id="clearProgress">Obriši lokalni napredak</button></div><div><a href="/privacy.html">Privatnost</a> · <a href="/uvjeti.html">Uvjeti korištenja</a> · <a href="#povratne">Prijedlozi</a></div><div>Sadržaj se temelji na navedenim izvorima. POTEZ nije stranački ni službeni institucionalni kanal</div></footer>
 </div>
-<nav class="mobile-nav" aria-label="Glavna navigacija na mobitelu"><a href="#top" data-app-route="home"><span class="mobile-nav-icon" aria-hidden="true">🏠</span><span>Početna</span></a><a href="#ucenje" data-app-route="learn"><span class="mobile-nav-icon" aria-hidden="true">🧠</span><span>Uči</span></a><a href="#igraj" data-app-route="play"><span class="mobile-nav-icon" aria-hidden="true">🎮</span><span>Igraj</span></a><a href="#djeluj" data-app-route="act"><span class="mobile-nav-icon" aria-hidden="true">✊</span><span>Djeluj</span></a><a href="#alati" data-app-route="tools"><span class="mobile-nav-icon" aria-hidden="true">🧰</span><span>Alati</span></a></nav>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 </body>

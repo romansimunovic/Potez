@@ -57,7 +57,7 @@
 
     const details = document.createElement('details');
     details.className = 'learning-card-details';
-    const summary = el('summary', '', 'Otkrij zašto je ovo važno');
+    const summary = el('summary', '', 'Pogledaj objašnjenje');
     details.append(summary);
 
     const question = el('p', 'learning-question', topic.question);
@@ -65,23 +65,23 @@
     details.append(el('p', 'learning-insight', topic.insight));
 
     const action = el('div', 'learning-action');
-    action.append(el('strong', '', 'Tvoj mogući potez'));
+    action.append(el('strong', '', 'Kako ovo primijeniti'));
     action.append(el('p', '', topic.action));
     details.append(action);
 
     const sources = el('div', 'learning-card-sources');
-    sources.append(el('span', 'learning-source-caption', 'Izvor i dodatni kontekst'));
+    sources.append(el('span', 'learning-source-caption', 'Izvor'));
     sources.append(safeExternalLink(topic.sourceTitle, topic.sourceUrl));
     if (topic.sourceNote) sources.append(el('p', 'learning-source-note', topic.sourceNote));
     details.append(sources);
 
     const footer = el('div', 'learning-card-footer');
     if (topic.target) {
-      const guide = el('a', 'learning-guide-link', 'Otvori praktični vodič →');
+      const guide = el('a', 'learning-guide-link', 'Povezani vodič →');
       guide.href = topic.target;
       footer.append(guide);
     }
-    const award = el('button', 'learning-award', 'Zabilježi naučeno · +4 XP');
+    const award = el('button', 'learning-award', 'Pročitano · +4 XP');
     award.type = 'button';
     const key = 'lesson-' + topic.id;
     const done = Boolean(readProgress()[key]);
