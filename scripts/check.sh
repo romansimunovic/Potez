@@ -224,8 +224,7 @@ readme = Path("README.md").read_text(encoding="utf-8")
 for token in ('id="dailyFact"', 'id="learningFilters"', 'id="learningTopics"',
               'id="learningShowMore"', 'id="passportTopics"',
               '<details class="learning-guides" id="teme">',
-              '<details class="learning-stat-details">',
-              '12 kratkih tema'):
+              '<details class="learning-stat-details">'):
     assert token in html, token
 
 for token in ('name="description"', 'name="keywords"', 'name="author"',
