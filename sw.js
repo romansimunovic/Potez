@@ -1,9 +1,11 @@
-const CACHE_NAME = 'potez-pilot-v4';
+const CACHE_NAME = 'potez-pilot-v5';
 const APP_SHELL = [
   '/',
   '/index.html',
   '/privacy.html',
+  '/privacy',
   '/uvjeti.html',
+  '/uvjeti',
   '/assets/styles.css',
   '/assets/navigation.js',
   '/assets/feedback.js',
