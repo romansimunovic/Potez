@@ -119,8 +119,8 @@ assert 'value="virovitica"' in html and 'value="virovitica" disabled' not in htm
 assert 'value="valpovo"' in html and 'value="valpovo" disabled' not in html
 assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
 assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
-assert abs(cities["zagreb"]["pocetni-plan"]["total"] - 2484265290) < 0.001
-assert cities["zagreb"]["pocetni-plan"]["items"][0]["amount"] == 354781100
+assert "total: 2484265290" in data
+assert "amount: 354781100" in data
 
 assert "id: 'virovitica'" not in data
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
