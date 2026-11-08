@@ -13,6 +13,9 @@ const cities = window.POTEZ_BUDGET_DATA.cities;
 for (const [cityKey, city] of Object.entries(cities)) {
   for (const [districtKey, district] of Object.entries(city.districts)) {
     const sum = district.items.reduce((total, item) => total + item.amount, 0);
+    if (cityKey === "valpovo" && districtKey === "funkcijska-klasifikacija" && Math.abs(district.total - 14375354.05) > 0.001) {
+      throw new Error("Valpovo selected functions subtotal changed unexpectedly");
+    }
     if (sum !== district.total) {
       throw new Error(cityKey + '/' + districtKey + ': category total ' + sum + ' does not match programme total ' + district.total);
     }
@@ -109,10 +112,11 @@ for page in ("privacy.html","uvjeti.html"):
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
 assert 'Odaberi stvarni problem' in html and 'budgetCity' in html and 'budgetDistrict' in html
 data = Path("assets/budget-data.js").read_text(encoding="utf-8")
-for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "nova-gradiska", "zagreb"):
+for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "nova-gradiska", "zagreb"):
     assert city in data, city
 assert "budgetDistrictLabel" in html and "budgetEnvelopeLabel" in html
 assert 'value="virovitica"' in html and 'value="virovitica" disabled' not in html
+assert 'value="valpovo"' in html and 'value="valpovo" disabled' not in html
 assert "id: 'virovitica'" not in data
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
 assert "budgetCityImage" not in Path("assets/app.js").read_text(encoding="utf-8")
@@ -130,7 +134,7 @@ data = Path("assets/budget-data.js").read_text(encoding="utf-8")
 for token in ("tvrda", "novi-grad", "gornji-grad", "donji-grad", "93729", "99492"):
     assert token in data, token
 assert "100.000 €" not in html and "data-budget-slider" in Path("assets/app.js").read_text(encoding="utf-8")
-assert all(token in html for token in ("Slavonski Brod", "Slatina", "Vukovar", "Virovitica", "Zagreb", "Nova Gradiška"))
+assert all(token in html for token in ("Slavonski Brod", "Slatina", "Vukovar", "Virovitica", "Valpovo", "Zagreb", "Nova Gradiška"))
 assert "Proračunska igra prikazuje odabrane iznose iz službenih planova" in Path("uvjeti.html").read_text(encoding="utf-8")
 assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.js").read_text(encoding="utf-8")
 assert "razlika manja od 5% ili 5.000 €" in Path("assets/civic.js").read_text(encoding="utf-8")
