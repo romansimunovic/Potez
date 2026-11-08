@@ -101,7 +101,7 @@
         '<div class="budget-line-head">' +
           '<label data-budget-name for="' + id + '">' +
             '<span class="budget-category-icon" aria-hidden="true">' + item.icon + '</span>' +
-            '<span>' + item.name + '</span>' +
+            '<span class="budget-category-label">' + item.name + '</span>' +
           '</label>' +
           '<output class="amount" id="v' + number + '" for="' + id + '">' + euro(item.amount) + '</output>' +
         '</div>' +
