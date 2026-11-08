@@ -220,9 +220,6 @@
     const output=$('#actionOutput');
     output.replaceChildren();
 
-    const label=document.createElement('div');
-    label.className='mini-tag';
-    label.textContent='PREGLED TEME';
     const heading=document.createElement('h3');
     heading.textContent=data.title;
     const summary=document.createElement('p');
@@ -275,7 +272,7 @@
       renderAction();
     });
 
-    output.append(label,heading,summary,details,complete);
+    output.append(heading,summary,details,complete);
   }
   $('#topicSelect').addEventListener('change',renderAction);$('#effortSelect').addEventListener('change',()=>{const t=$('#effortSelect').value;const msg=t==='quick'?'Sažetak: pronađi službeni izvor i provjeri tko je nadležan.':t==='medium'?'Detaljnije: usporedi dokumente, pravila i dostupne podatke.':'Za grupni razgovor: usporedite različite izvore i perspektive.';const p=$('#actionOutput').querySelector('.action-depth-note');if(p)p.textContent=msg+' Poveznice vode na vanjske izvore.'});
   // Clear progress is intentionally local-only.
