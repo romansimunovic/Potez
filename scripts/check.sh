@@ -158,7 +158,7 @@ assert "@media (max-width:360px)" in css
 assert "potez-pilot-v23" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
-assert "edukativni model s jasno navedenim pretpostavkama" in html
+assert "Ovo nije službeni gradski proračun." in html
 app_quiz = Path("assets/app.js").read_text(encoding="utf-8")
 assert "quizOptions=q.a.map((text,index)=>({text,correct:index===q.correct}))" in app_quiz
 assert "Math.random()" in app_quiz
