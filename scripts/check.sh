@@ -210,6 +210,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 html = Path("index.html").read_text(encoding="utf-8")
+css = Path("assets/styles.css").read_text(encoding="utf-8")
 learning = Path("assets/learning.js").read_text(encoding="utf-8")
 data = Path("assets/learning-data.js").read_text(encoding="utf-8")
 app = Path("assets/app.js").read_text(encoding="utf-8")
