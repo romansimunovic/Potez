@@ -344,14 +344,15 @@
     render();
   }
 
-  const categoryNames = [
-    'Sigurnije rute',
-    'Prostor za mlade',
-    'Autobusne veze',
-    'Kultura i sport',
-    'Podrška mentalnom zdravlju'
-  ];
-  const budgetIds = ['b1', 'b2', 'b3', 'b4', 'b5'];
+  const currentBudget = () => Array.from(document.querySelectorAll('[data-budget-slider]')).map(input => Number(input.value));
+  const categoryNames = () => Array.from(document.querySelectorAll('[data-budget-name]')).map(label => label.textContent.trim());
+  const budgetContext = () => [$('#budgetCity')?.value || '', $('#budgetDistrict')?.value || ''].join(':');
+  const budgetLabel = () => {
+    const city = $('#budgetCity')?.selectedOptions?.[0]?.textContent || 'odabrani grad';
+    const district = $('#budgetDistrict')?.selectedOptions?.[0]?.textContent || 'odabrana četvrt';
+    const total = $('#budgetEnvelope')?.textContent || '';
+    return district + ', ' + city + ' · ' + total;
+  };
   const formatEuro = (amount) => new Intl.NumberFormat('hr-HR', {
     style: 'currency', currency: 'EUR', maximumFractionDigits: 0
   }).format(amount);
@@ -365,26 +366,21 @@
     }
   }
 
-  function currentBudget() {
-    return budgetIds.map((id) => {
-      const input = $('#' + id);
-      return input ? Number(input.value) : 0;
-    });
-  }
-
   function renderDuelStatus() {
     const saved = readDuel();
     const status = $('#budgetDuelStatus');
     if (!status) return;
-    const hasA = Array.isArray(saved.a) && saved.a.length === 5;
-    const hasB = Array.isArray(saved.b) && saved.b.length === 5;
+    const sameContext = saved.context === budgetContext();
+    const count = currentBudget().length;
+    const hasA = sameContext && Array.isArray(saved.a) && saved.a.length === count;
+    const hasB = sameContext && Array.isArray(saved.b) && saved.b.length === count;
     status.textContent = hasA && hasB
       ? 'Oba izbora su spremljena. Usporedite razlike — ne tražite pobjednika.'
       : hasA
         ? 'Izbor A je spremljen. Sada neka igrač B promijeni raspodjelu i spremi svoj izbor.'
         : hasB
           ? 'Izbor B je spremljen. Spremite još raspodjelu igrača A.'
-          : 'Još nema spremljenih izbora. Prvo spremite raspodjelu igrača A.';
+          : 'Još nema spremljenih izbora za ovu gradsku četvrt.';
     const shareResult = $('#shareBudgetResult');
     if (shareResult) shareResult.disabled = !(hasA && hasB);
   }
@@ -392,6 +388,12 @@
   function saveBudget(slot) {
     const values = currentBudget();
     const saved = readDuel();
+    if (!values.length) return;
+    if (saved.context !== budgetContext()) {
+      saved.a = null;
+      saved.b = null;
+      saved.context = budgetContext();
+    }
     saved[slot] = values;
     try {
       localStorage.setItem(DUEL_STORE, JSON.stringify(saved));
@@ -415,12 +417,13 @@
   if (compare && duelResult) {
     compare.addEventListener('click', () => {
       const saved = readDuel();
-      if (!Array.isArray(saved.a) || saved.a.length !== 5 || !Array.isArray(saved.b) || saved.b.length !== 5) {
+      if (saved.context !== budgetContext() || !Array.isArray(saved.a) || saved.a.length !== currentBudget().length || !Array.isArray(saved.b) || saved.b.length !== currentBudget().length) {
         notify('Najprije spremite oba izbora.');
         return;
       }
+      const names = categoryNames();
       const sameCount = saved.a.reduce((count, amount, index) => count + (Math.abs(amount - saved.b[index]) < 5000 ? 1 : 0), 0);
-      const largest = categoryNames.map((name, index) => ({
+      const largest = names.map((name, index) => ({
         name,
         difference: Math.abs(saved.a[index] - saved.b[index]),
         a: saved.a[index],
@@ -428,7 +431,7 @@
       })).sort((left, right) => right.difference - left.difference);
 
       const lines = [
-        'Slični prioriteti u ' + sameCount + '/5 područja (razlika manja od 5.000 €).',
+        'Slični prioriteti u ' + sameCount + '/' + names.length + ' područja (razlika manja od 5.000 €).',
         '',
         ...largest.map((item) => item.name + ': A ' + formatEuro(item.a) + ' · B ' + formatEuro(item.b) + ' · razlika ' + formatEuro(item.difference)),
         '',
@@ -456,14 +459,14 @@
   if (shareBudgetResult) {
     shareBudgetResult.addEventListener('click', async () => {
       const saved = readDuel();
-      if (!Array.isArray(saved.a) || !Array.isArray(saved.b)) {
+      if (saved.context !== budgetContext() || !Array.isArray(saved.a) || !Array.isArray(saved.b) || saved.a.length !== currentBudget().length || saved.b.length !== currentBudget().length) {
         notify('Najprije spremite oba izbora.');
         return;
       }
-      const summary = categoryNames.map((name, index) =>
+      const summary = categoryNames().map((name, index) =>
         name + ': A ' + formatEuro(saved.a[index]) + ' / B ' + formatEuro(saved.b[index])
       );
-      const message = 'Naša POTEZ usporedba prioriteta za 100.000 €:\n' + summary.join('\n') +
+      const message = 'Naša POTEZ usporedba prioriteta za ' + budgetLabel() + ':\n' + summary.join('\n') +
         '\n\nNije natjecanje — razgovarali smo o tome kome odluke koriste. https://potez.pages.dev/#budzet';
       try {
         if (navigator.share) {
@@ -481,7 +484,7 @@
   const shareDuel = $('#shareBudgetChallenge');
   if (shareDuel) {
     shareDuel.addEventListener('click', async () => {
-      const message = 'Isprobaj POTEZ simulaciju: rasporedi 100.000 € za grad, pa mi pošalji svoj izbor. Usporedit ćemo prioritete i argumente. https://potez.pages.dev/#budzet';
+      const message = 'Isprobaj POTEZ simulaciju: promijeni stvarne planirane iznose za ' + budgetLabel() + ', pa mi pošalji svoj izbor. Usporedit ćemo prioritete i argumente. https://potez.pages.dev/#budzet';
       try {
         if (navigator.share) {
           await navigator.share({ title: 'POTEZ — izazov javnog budžeta', text: message, url: 'https://potez.pages.dev/#budzet' });
@@ -499,6 +502,7 @@
   renderDailyQuestion();
   renderDuelStatus();
   window.addEventListener('potez:progress', renderPassport);
+  window.addEventListener('potez:budget-context', renderDuelStatus);
   window.addEventListener('storage', (event) => {
     if (!event.key || event.key === STORE || event.key === DUEL_STORE) {
       renderPassport();

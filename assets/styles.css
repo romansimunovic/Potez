@@ -1845,3 +1845,77 @@ html[data-theme="dark"] .mobile-nav a[aria-current="page"] .mobile-nav-icon{back
   .home-progress{grid-template-columns:1fr}
   .home-progress-score{align-items:flex-start}
 }
+
+
+/* Pilot refinement: section titles and descriptions form one left-aligned reading column. */
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  justify-content:start;
+  justify-items:start;
+  align-items:start;
+  gap:9px;
+  margin-bottom:22px;
+  text-align:left;
+}
+.section-head>div{width:100%;min-width:0;text-align:left}
+.section-head .section-kicker,.section-head h2,.section-head .section-intro{text-align:left;margin-left:0;margin-right:0}
+.section-head h2{margin-top:8px;margin-bottom:0;max-width:22ch}
+.section-head .section-intro{max-width:74ch}
+
+/* The three first steps are entry points, not oversized feature panels. */
+.home-guide{padding:clamp(18px,2vw,27px);margin-bottom:20px}
+.home-guide-heading{max-width:800px;margin-bottom:16px}
+.home-guide-heading h2{font-size:clamp(1.75rem,3.3vw,2.65rem);line-height:1.08;margin:7px 0 8px}
+.home-guide-heading p{font-size:.92rem;line-height:1.55}
+.home-step-grid{gap:12px}
+.home-step-card{min-height:166px;padding:18px;gap:7px}
+.home-step-icon{width:32px;height:32px;font-size:.74rem}
+.home-step-card strong{font-size:1.03rem}
+.home-step-card>span:not(.home-step-icon){font-size:.83rem;line-height:1.45}
+.home-step-card .home-step-link{font-size:.75rem}
+@media(max-width:760px){
+  .section-head{gap:8px;margin-bottom:18px}
+  .home-guide{padding:17px;margin-bottom:16px}
+  .home-guide-heading{margin-bottom:13px}
+  .home-step-card{min-height:0;padding:16px}
+}
+
+/* Real local-priority data selector and budget controls. */
+.budget-simulation{padding:clamp(18px,2.5vw,30px)}
+.budget-location-selectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 15px;max-width:760px}
+.budget-location-selectors label{display:grid;gap:7px;color:var(--ink);font-size:.82rem;font-weight:850}
+.budget-location-selectors select{width:100%;min-height:46px;padding:10px 38px 10px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:.9rem}
+.budget-data-intro{max-width:78ch;margin:14px 0 8px;padding:14px 16px;border-left:4px solid var(--green-deep);background:rgba(255,255,255,.48);color:var(--ink)}
+.budget-data-intro strong{display:block;margin-bottom:4px}
+.budget-data-intro p{margin:0;font-size:.87rem;line-height:1.5}
+.budget-line{grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;margin:17px 0;padding-bottom:12px;border-bottom:1px solid rgba(42,57,45,.16)}
+.budget-line label{font-size:.9rem}
+.budget-line .amount{font-size:.9rem}
+.budget-line-detail{grid-column:1/-1;color:#59665e;font-size:.77rem;line-height:1.45}
+.budget-line input[type=range]{margin-top:1px;min-height:28px}
+.budget-total{top:18px}
+.budget-total .big{font-size:clamp(1.85rem,2.5vw,2.35rem)}
+.budget-remaining{font-weight:850}
+.budget-result{margin-top:14px;padding-top:13px;border-top:1px solid #526158;font-size:.84rem;line-height:1.55}
+.budget-result p{margin:8px 0 0;color:#e3eee5}
+.budget-footnote{margin-top:18px}
+.budget-sources{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:13px;padding-top:13px;border-top:1px solid rgba(42,57,45,.18)}
+.budget-sources a{font-size:.78rem;font-weight:850;text-underline-offset:3px}
+.scenario-city img{width:140px;height:82px;object-fit:cover}
+.scenario-city img[hidden]{display:none!important}
+html[data-theme="dark"] .budget-data-intro{background:#18251d;color:#f7faf7;border-color:#b5dc8d}
+html[data-theme="dark"] .budget-data-intro p,
+html[data-theme="dark"] .budget-line-detail{color:#e7eee8}
+html[data-theme="dark"] .budget-location-selectors label{color:#fff}
+html[data-theme="dark"] .budget-location-selectors select{background:#151e1a;color:#fff;border-color:#64756a}
+html[data-theme="dark"] .budget-line{border-color:#46554a}
+html[data-theme="dark"] .budget-sources{border-color:#46554a}
+html[data-theme="dark"] .budget-sources a{color:#d8eaff}
+html[data-theme="dark"] .budget-result p{color:#edf4ee}
+@media(max-width:760px){
+  .budget-location-selectors{grid-template-columns:1fr;gap:10px}
+  .sim-wrap{grid-template-columns:1fr;gap:16px}
+  .budget-total{position:static}
+  .scenario-city img{width:112px;height:70px}
+}

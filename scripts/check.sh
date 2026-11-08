@@ -2,9 +2,24 @@
 set -euo pipefail
 node --check assets/rewards.js
 node --check assets/app.js
+node --check assets/budget-data.js
 node --check assets/civic.js
 node --check assets/accessibility.js
 node --check sw.js
+node - <<'NODE'
+global.window = global;
+require('./assets/budget-data.js');
+const cities = window.POTEZ_BUDGET_DATA.cities;
+for (const [cityKey, city] of Object.entries(cities)) {
+  for (const [districtKey, district] of Object.entries(city.districts)) {
+    const sum = district.items.reduce((total, item) => total + item.amount, 0);
+    if (sum !== district.total) {
+      throw new Error(cityKey + '/' + districtKey + ': category total ' + sum + ' does not match programme total ' + district.total);
+    }
+  }
+}
+console.log('Verified all local category sums match the adopted programme totals.');
+NODE
 python - <<'PY'
 import json
 from collections import Counter
@@ -59,7 +74,7 @@ assert not Path("functions").exists()
 assert not Path("supabase").exists()
 assert "localStorage" in privacy and "Cloudflare Pagesa" in privacy
 assert "daily-run-progress" in html or "dailyProgress" in html
-assert "data.gov.hr/ckan/dataset/972-proracun-6" in html
+assert "budgetProgramLink" in html and "Program-Prioriteta" in Path("assets/budget-data.js").read_text(encoding="utf-8")
 assert "prefers-reduced-motion:reduce" in Path("assets/styles.css").read_text(encoding="utf-8")
 assert not Path("_redirects").exists()
 print("POTEZ pilot UX/privacy checks passed")
@@ -87,16 +102,22 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v10" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v11" in sw and "'/assets/budget-data.js'" in sw
 for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
-assert 'Odaberi stvarni problem' in html and 'Osijek_VP01.jpg' in html
+assert 'Odaberi stvarni problem' in html and 'budgetCity' in html and 'budgetDistrict' in html
+assert 'Osijek_VP01.jpg' in Path('assets/budget-data.js').read_text(encoding='utf-8')
+assert 'upload.wikimedia.org/wikipedia/commons/3/35/Osijek_VP01.jpg' in Path('assets/budget-data.js').read_text(encoding='utf-8')
 assert 'HAKOM' in html and 'članak 33.' in html
 assert "Stvarni problemi, konkretni putevi" in html
 assert "🏠" in html and "🧠" in html and "🎮" in html and "✊" in html and "🧰" in html
 assert "mobile-nav-icon{display:inline" in css
 assert "home-progress-score span" in css and "minmax(0,1.12fr)" in css
-print("POTEZ final desktop, dark-mode and navigation checks passed")
+data = Path("assets/budget-data.js").read_text(encoding="utf-8")
+for token in ("tvrda", "novi-grad", "gornji-grad", "donji-grad", "93729", "99492"):
+    assert token in data, token
+assert "100.000 €" not in html and "data-budget-slider" in Path("assets/app.js").read_text(encoding="utf-8")
+print("POTEZ final desktop, local budget, dark-mode and navigation checks passed")
 PY
