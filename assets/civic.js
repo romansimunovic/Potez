@@ -466,7 +466,7 @@
       const summary = categoryNames().map((name, index) =>
         name + ': A ' + formatEuro(saved.a[index]) + ' / B ' + formatEuro(saved.b[index])
       );
-      const message = 'Naša POTEZ usporedba prioriteta za 100.000 €:\n' + summary.join('\n') +
+      const message = 'Naša POTEZ usporedba prioriteta za ' + budgetLabel() + ':\n' + summary.join('\n') +
         '\n\nNije natjecanje — razgovarali smo o tome kome odluke koriste. https://potez.pages.dev/#budzet';
       try {
         if (navigator.share) {
