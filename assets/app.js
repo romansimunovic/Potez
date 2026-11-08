@@ -112,6 +112,7 @@ if ('serviceWorker' in navigator && location.protocol === 'https:') {
     widgetId = window.turnstile.render('#turnstile-container', {
       sitekey: siteKey,
       theme: 'light',
+      action: 'feedback',
       size: 'flexible',
       callback: (token) => {
         tokenInput.value = token;
