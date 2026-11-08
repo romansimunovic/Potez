@@ -2316,3 +2316,8 @@ html[data-theme="dark"] .action-depth-note{color:#c7d3ca!important}
 /* Readability pass: preserve important notices without shrinking them into microcopy. */
 .budget-context-note{display:block;margin-top:3px;font-size:.87rem;line-height:1.45}
 .daily-feedback-xp,.daily-source{display:block;margin:10px 0 0;font-size:.88rem;line-height:1.55}
+
+/* Spacing after removal of redundant kickers and helper captions. */
+.mobile-menu-heading{min-height:44px;align-items:center;padding:4px 48px 4px 2px;border-bottom:0}
+.passport-badges{margin-top:0}
+.accessibility-panel-heading{margin-bottom:12px}
