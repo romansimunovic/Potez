@@ -156,6 +156,14 @@ assert "potez-pilot-v22" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "edukativni model s jasno navedenim pretpostavkama" in html
+app_quiz = Path("assets/app.js").read_text(encoding="utf-8")
+assert "quizOptions=q.a.map((text,index)=>({text,correct:index===q.correct}))" in app_quiz
+assert "Math.random()" in app_quiz
+assert "quizOptions[j]?.correct" in app_quiz
+assert "Dnevna ruta · 9 situacija" in html
+assert "Devet situacija. Tvoj potez" in html
+assert "oko 1 minute" not in html
+
 headers = Path("_headers").read_text(encoding="utf-8")
 assert "https://challenges.cloudflare.com" not in headers
 assert "script-src 'self';" in headers and "frame-src 'none';" in headers
