@@ -141,9 +141,10 @@ assert "budgetDistrict" not in civic and "stvarne planirane iznose" not in civic
 assert "Number(input.dataset.amount || 0)" in civic
 assert "budgetContext = () => $('#budgetCity')?.value || '';" in civic
 assert "data-budget-name for=" in app
+assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v20" in sw
+assert "potez-pilot-v21" in sw
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
 assert "budgetCityImage" not in app
 assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.js").read_text(encoding="utf-8")
