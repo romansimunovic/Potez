@@ -106,7 +106,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v18" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v19" in sw and "'/assets/budget-data.js'" in sw
 for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
@@ -124,6 +124,8 @@ assert 'value="belisce"' in html and 'value="belisce" disabled' not in html
 assert 'value="djakovo"' in html and 'value="djakovo" disabled' not in html
 assert "total: 47574000" in data
 assert "amount: 6258000" in data
+assert "11. 11. 2026." in data
+assert "najavljen rebalans krajem listopada" in data
 assert "total: 31641383.4" in data
 assert "amount: 17150400" in data
 assert "total: 94845254.82" in data

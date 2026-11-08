@@ -39,13 +39,22 @@ U igru je uključen **početni usvojeni plan za 2026.**, iz službenog PDF-a „
 
 Službena stranica Grada Valpova objavljuje plan proračuna za 2026. i I. izmjene i dopune. U materijalima za sjednicu 1. listopada 2026. pronađen je dokument označen kao **prijedlog III. izmjena i dopuna**. Zato su u igru prenesene vrijednosti iz stupca „Planirano” (plan prije predloženih promjena), a ne kolona s novim predloženim iznosima. Zbroj šest funkcija 04, 05, 06, 08, 09 i 10 iznosi 14.375.354,05 EUR; to je izdvojeni funkcijski subtotal, ne ukupni proračun. Službeni izvor: https://valpovo.hr/proracun/ ; prijedlog za usporedbu: https://valpovo.hr/wp-content/uploads/2026/10/4.III_.-izmjene-i-dopune-Proracuna-za-2026.godinu.pdf.
 
+## Stanje provjere za preostala dva grada — 8. 11. 2026.
+
+### Nova Gradiška
+
+Službena stranica 6. 11. 2026. objavila je poziv i dnevni red 10. sjednice Gradskog vijeća. Poziv izričito navodi da će se sjednica održati **11. 11. 2026. u 13:30**. Druga točka dnevnog reda jest polugodišnji izvještaj o izvršenju proračuna za 2026.; dnevni red ne navodi rebalans proračuna. Zato se polugodišnje izvršenje ne koristi kao raspodjela za igru. Početni posebni dio proračuna nalazi se u velikom PDF-u od približno 15,45 MB koji još treba tehnički obraditi. Službeni izvori: https://novagradiska.hr/news/10-sjednica-gradskog-vijeca-3/ ; https://novagradiska.hr/wp-file-download-search/.
+
+### Požega
+
+Gradonačelnik je na 12. sjednici Gradskog vijeća **15. 9. 2026.** izjavio da se rebalans priprema za kraj listopada i da će biti predložen Gradskom vijeću. Službene novine 10/2026, objavljene **21. 9. 2026.**, sadrže polugodišnji izvještaj o izvršenju proračuna i II. izmjenu odluke o izvršavanju, ali u popisu akata nije navedena nova odluka o rebalansu proračuna. To nije dokaz da rebalans nije naknadno usvojen; znači da ga prije aktivacije treba pronaći u kasnijim službenim novinama i pribaviti XLS tablice. I. izmjene od 26. 6. ne smiju se automatski predstavljati kao posljednji važeći plan. Službeni izvori: https://www.pozega.hr/gradska-uprava/gradsko-vijece/vijecnicka-pitanja/12-sjednica-vijecnicka-pitanja ; https://www.pozega.hr/sluzbene-novine/sluzbene-novine-2026-godina ; https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine.
+
 ## Gradovi u pripremi
 
 | Grad | Posljednji pronađeni službeni materijal | Što još treba učiniti | Službeni izvor |
 |---|---|---|---|
-| Nova Gradiška | Službeni arhiv s kategorijama proračuna, izmjena i dopuna te izvještaja o izvršenju za 2026. | Utvrditi posljednju važeću odluku i preuzeti posebni dio/funkcijsku klasifikaciju; ne koristiti starije projekcije za 2026. | https://novagradiska.hr/wp-file-download-search/ |
-| Požega | I. izmjene i dopune 2026., objavljene 26. 6. 2026.; tablice u XLS formatu | Obraditi važeći XLS i obrazloženje; uskladiti stavke s odabranim funkcijama/programima | https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine |
-| Virovitica | II. izmjene i dopune 2026. | Aktivno; izvorni PDF povezan u scenariju | https://www.virovitica.hr/proracun-grada-virovitice/ |
+| Nova Gradiška | Početni proračun 2026.; poziv za 10. sjednicu GV objavljen 6. 11. 2026. | Sjednica je zakazana za 11. 11. 2026. u 13:30; točka 2 je polugodišnje izvršenje, ne rebalans. Početni posebni dio (PDF oko 15,45 MB) još treba izvući i provjeriti. | https://novagradiska.hr/wp-file-download-search/ ; https://novagradiska.hr/news/10-sjednica-gradskog-vijeca-3/ |
+| Požega | I. izmjene i dopune objavljene 26. 6. 2026.; 12. sjednica od 15. 9. usvojila polugodišnje izvršenje; gradonačelnik najavio prijedlog rebalansa za kraj listopada | U Službenim novinama 10/2026 (21. 9.) pronađen je polugodišnji izvještaj i II. izmjena odluke o izvršavanju, ali ne i novi rebalans proračuna. Potvrditi je li naknadni rebalans usvojen i pribaviti njegove tablice; ne koristiti izvršenje kao plan. | https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine |
 
 ## Provjere prije aktivacije
 
