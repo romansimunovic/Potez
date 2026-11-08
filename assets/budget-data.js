@@ -183,6 +183,30 @@ window.POTEZ_BUDGET_DATA = {
         }
       }
     },
+    zagreb: {
+      label: 'Zagreb',
+      selectionLabel: 'Odaberi prikaz',
+      districts: {
+        'pocetni-plan': {
+          label: 'Početni usvojeni plan · prije izmjena',
+          year: 2026,
+          total: 2484265290,
+          envelopeLabel: 'Zbroj odabranih funkcija',
+          scopeNote: 'Funkcijska klasifikacija · početni plan 2026.',
+          intro: 'Ovaj scenarij koristi početni usvojeni plan. Rujanske izmjene za 2026. nisu uključene jer najnovija funkcijska tablica nije obrađena.',
+          source: 'https://www.zagreb.hr/proracun/113894',
+          sourceLabel: 'Službeni proračunski dokumenti Grada Zagreba',
+          items: [
+            { name: 'Promet i gospodarstvo', amount: 354781100, detail: 'Funkcija 04 · ekonomski poslovi' },
+            { name: 'Zaštita okoliša', amount: 126392900, detail: 'Funkcija 05 · zaštita okoliša' },
+            { name: 'Stanovanje i zajednica', amount: 434261300, detail: 'Funkcija 06 · stanovanje i unapređenje zajednice' },
+            { name: 'Sport i kultura', amount: 363445100, detail: 'Funkcija 08 · rekreacija, kultura i religija' },
+            { name: 'Obrazovanje', amount: 1023466120, detail: 'Funkcija 09 · obrazovanje' },
+            { name: 'Socijalna zaštita', amount: 181918770, detail: 'Funkcija 10 · socijalna zaštita' }
+          ]
+        }
+      }
+    },
     virovitica: {
       label: 'Virovitica',
       selectionLabel: 'Odaberi prikaz',
@@ -209,7 +233,6 @@ window.POTEZ_BUDGET_DATA = {
     },
   },
   upcoming: [
-    { id: 'zagreb', label: 'Zagreb', note: 'Izmjene 2026. i funkcijska XLS tablica objavljeni; potrebno izvući i provjeriti vrijednosti', source: 'https://www.zagreb.hr/proracun/113894' },
     { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Službeni arhiv sadrži proračun i izmjene za 2026.; utvrđivanje posljednje važeće tablice i obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
     { id: 'vinkovci', label: 'Vinkovci', note: 'I. izmjene objavljene 27. 5. 2026.; PDF posebnog dijela treba izvući i uskladiti', source: 'https://vinkovci.hr/dokumenti/proracun' },
     { id: 'požega', label: 'Požega', note: 'I. izmjene objavljene 26. 6. 2026.; službene XLS tablice treba obraditi', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
