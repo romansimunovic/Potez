@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
+node --check assets/feedback.js
 node --check assets/app.js
 node --check assets/civic.js
+node --check sw.js
 node --input-type=module --check < functions/api/feedback.js
 node --test tests/feedback.test.mjs
 python - <<'PY'
@@ -23,7 +25,7 @@ class Check(HTMLParser):
         if href.startswith("#") and len(href) > 1:
             self.fragments.append(href[1:])
 
-for filename in ("index.html", "privacy.html"):
+for filename in ("index.html", "privacy.html", "uvjeti.html"):
     parser = Check()
     parser.feed(Path(filename).read_text(encoding="utf-8"))
     parser.close()
@@ -36,7 +38,9 @@ for filename in ("index.html", "privacy.html"):
     print(f"HTML parsed and in-page links checked: {filename}")
 
 json.loads(Path("manifest.webmanifest").read_text(encoding="utf-8"))
-json.loads(Path("_routes.json").read_text(encoding="utf-8"))
-print("Manifest and Pages routes JSON parsed")
+pages_routes = json.loads(Path("_routes.json").read_text(encoding="utf-8"))
+if pages_routes.get("include") != []:
+    raise SystemExit("Pages Functions must remain disabled for the public pilot")
+print("Manifest and Pages routes JSON parsed; Pages Functions are disabled")
 PY
 printf 'POTEZ static and API checks passed.\n'
