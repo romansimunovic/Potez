@@ -1736,3 +1736,112 @@ html[data-theme="dark"] .issue-caution{background:#26372d;color:#fff}
   .facilitator-outcomes>div{min-height:0;padding:16px}
   .shell{width:min(100% - 24px, var(--content-width))}
 }
+
+
+/* Pilot final polish — desktop-first composition with the mobile layout preserved. */
+:root{--content-width:1440px}
+.shell{width:min(calc(100% - 64px),1440px)}
+.app-main{width:100%;max-width:none}
+.app-view{width:100%;max-width:none}
+.app-home .hero{grid-template-columns:minmax(0,1.12fr) minmax(420px,.88fr);gap:clamp(42px,5vw,84px);padding-block:clamp(58px,6vw,92px)}
+.app-home .hero>div:first-child{max-width:760px}
+.app-home .hero-art{min-height:clamp(420px,34vw,540px)}
+.home-guide,.home-progress,.issue-paths,.issue-detail-section,.passport-section,.daily-section,.weekly-section,
+#ucenje,#igraj,#djeluj,#alati{width:100%}
+.home-guide-heading{max-width:920px}
+.home-step-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.home-step-card{min-height:220px;padding:clamp(22px,2vw,30px)}
+.home-progress{grid-template-columns:minmax(0,1fr) auto auto;gap:clamp(20px,3vw,42px);padding:clamp(22px,2.2vw,32px)}
+.home-progress-score{min-width:110px}
+.home-progress-score strong{font-size:2rem}
+.home-progress-score span{font-size:.78rem}
+.issue-path-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.issue-path-card{min-height:290px;padding:clamp(22px,2vw,30px)}
+.issue-detail{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,3vw,44px);padding:clamp(26px,3vw,42px)}
+.section-head{align-items:flex-end}
+.topline{gap:clamp(18px,2vw,34px);padding-block:22px}
+.nav{gap:8px}
+.nav a{padding-inline:14px;font-size:.9rem}
+.nav a[aria-current="page"]{background:transparent!important;color:var(--ink)!important;font-weight:950;text-decoration:underline;text-decoration-color:var(--green-deep);text-decoration-thickness:3px;text-underline-offset:7px}
+.mobile-nav{display:none!important}
+
+/* Dark theme: text on dark surfaces is near-white, never low-contrast grey. */
+html[data-theme="dark"] .home-progress{background:#17251c!important;border-color:#536b58!important;color:#f7faf7!important}
+html[data-theme="dark"] .home-progress h3,
+html[data-theme="dark"] .home-progress strong,
+html[data-theme="dark"] .home-progress-score strong,
+html[data-theme="dark"] .home-progress-score span,
+html[data-theme="dark"] .home-progress .section-kicker{color:#fff!important}
+html[data-theme="dark"] .home-progress p{color:#e8f0e9!important}
+html[data-theme="dark"] .home-start-row{background:#302b1b!important;color:#fff!important;border:1px solid #78683d}
+html[data-theme="dark"] .home-start-row h3{color:#fff!important}
+html[data-theme="dark"] .home-start-row p{color:#f0eadb!important}
+html[data-theme="dark"] .passport-main,
+html[data-theme="dark"] .budget-total,
+html[data-theme="dark"] .panel.dark{background:#080d0a!important;color:#fff!important}
+html[data-theme="dark"] .passport-main p,
+html[data-theme="dark"] .passport-next,
+html[data-theme="dark"] .budget-total p,
+html[data-theme="dark"] .budget-total .reset,
+html[data-theme="dark"] .result-list{color:#edf4ee!important}
+html[data-theme="dark"] .passport-stat{background:#151e1a!important;color:#fff!important;border-color:#526158!important}
+html[data-theme="dark"] .passport-stat span{color:#e8f0e9!important}
+html[data-theme="dark"] .daily-reward{background:#30452b!important;color:#fff!important;border-color:#8eb779}
+html[data-theme="dark"] .daily-choice{background:#151e1a!important;color:#fff!important;border-color:#64756a}
+html[data-theme="dark"] .daily-choice:hover:not(:disabled){background:#243329!important}
+html[data-theme="dark"] .daily-feedback{background:#243329!important;color:#f7faf7!important}
+html[data-theme="dark"] .daily-feedback *{color:#f7faf7!important}
+html[data-theme="dark"] .weekly-panel{background:#151e1a!important;color:#fff!important}
+html[data-theme="dark"] .weekly-title{color:#fff!important}
+html[data-theme="dark"] .weekly-description{color:#e8f0e9!important}
+html[data-theme="dark"] .path-card .path-state{color:#d5f3aa!important}
+html[data-theme="dark"] .home-step-card .home-step-link{color:#d5f3aa!important}
+html[data-theme="dark"] .view-meta{background:#202d25!important;color:#f7faf7!important;border-color:#65766a!important}
+html[data-theme="dark"] .issue-path-meta{color:#e5eee7!important}
+html[data-theme="dark"] .issue-links a{color:#cde7ff!important}
+html[data-theme="dark"] .accessibility-menu>summary{background:#18221d;color:#fff;border-color:#64756a}
+html[data-theme="dark"] .accessibility-panel-heading span{color:#e8f0e9}
+html[data-theme="dark"] .accessibility-control strong{color:#fff}
+html[data-theme="dark"] .accessibility-actions button[aria-pressed="true"],
+html[data-theme="dark"] .accessibility-toggle[aria-pressed="true"]{background:#fff!important;color:#101713!important}
+html[data-theme="dark"] .footer a{color:#d8eaff}
+html[data-theme="dark"] .footer .reset{color:#f7faf7}
+
+/* Navigation uses one typographic active state — no nested tiles or glowing icon blocks. */
+.mobile-nav a{background:transparent!important;box-shadow:none!important}
+.mobile-nav a[aria-current="page"]{background:transparent!important;color:var(--ink)!important;font-weight:950!important}
+.mobile-nav a[aria-current="page"]>span:last-child{font-weight:950}
+.mobile-nav-icon{display:inline!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important;box-shadow:none!important;font-size:1.12rem!important;line-height:1.1!important;filter:none!important}
+html[data-theme="dark"] .mobile-nav a{color:#d9e3dc!important}
+html[data-theme="dark"] .mobile-nav a[aria-current="page"]{color:#fff!important}
+html[data-theme="dark"] .mobile-nav a[aria-current="page"] .mobile-nav-icon{background:transparent!important;color:inherit!important}
+
+/* Keep content comfortably wide on desktop and progressively denser on smaller screens. */
+@media(min-width:1500px){
+  .shell{width:min(calc(100% - 96px),1480px)}
+  .app-home .hero{gap:clamp(72px,6vw,110px)}
+  .section{padding-block:clamp(4.5rem,5vw,6rem)}
+}
+@media(max-width:1100px) and (min-width:761px){
+  .shell{width:min(calc(100% - 48px),var(--content-width))}
+  .app-home .hero{grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:28px}
+  .app-home .hero-art{min-height:340px}
+  .issue-path-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-step-grid{gap:12px}
+  .home-step-card{padding:18px}
+}
+@media(max-width:760px){
+  .shell{width:min(calc(100% - 28px),var(--content-width))}
+  .app-home .hero{grid-template-columns:1fr;gap:18px;padding-block:30px 25px}
+  .app-home .hero-art{min-height:260px}
+  .home-step-grid{grid-template-columns:1fr;gap:10px}
+  .home-progress{grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:17px}
+  .issue-path-grid{grid-template-columns:1fr}
+  .issue-path-card{min-height:0}
+  .mobile-nav{display:grid!important}
+  .nav{display:none}
+}
+@media(max-width:390px){
+  .home-progress{grid-template-columns:1fr}
+  .home-progress-score{align-items:flex-start}
+}
