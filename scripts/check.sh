@@ -11,7 +11,7 @@ global.window = global;
 require('./assets/budget-data.js');
 const data = window.POTEZ_BUDGET_DATA;
 const cities = data.cities;
-if (Object.keys(cities).length < 40) throw new Error('Expected at least 40 city simulations');
+if (Object.keys(cities).length !== 42) throw new Error('Expected exactly 42 city simulations');
 if (data.model !== 'population-based-illustrative') throw new Error('Unexpected budget model');
 for (const [cityKey, city] of Object.entries(cities)) {
   if (!Number.isInteger(city.population) || !Number.isInteger(city.children) || city.children > city.population) {
@@ -132,6 +132,15 @@ assert 'data-budget-slider type="range" min="0" max="200" step="5" value="100"' 
 assert "Math.round(activeBudget.items[index].amount * percentage / 100)" in app
 assert "budgetDistrict" not in app and "budgetProgramLink" not in app
 assert "budget-category-info" in app and "Što ulazi u ovu stavku?" in app
+assert "input.dataset.amount = String(amount)" in app
+assert "DUEL_STORE = 'potez-budget-duel-v2'" in Path("assets/civic.js").read_text(encoding="utf-8")
+civic = Path("assets/civic.js").read_text(encoding="utf-8")
+assert "budgetDistrict" not in civic and "stvarne planirane iznose" not in civic
+assert "Number(input.dataset.amount || 0)" in civic
+assert "budgetContext = () => $('#budgetCity')?.value || '';" in civic
+assert "data-budget-name for=" in app
+assert ".budget-total .big { white-space: nowrap" in css
+assert "@media (max-width:360px)" in css
 assert "potez-pilot-v20" in sw
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
 assert "budgetCityImage" not in app
