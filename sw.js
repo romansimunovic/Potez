@@ -1,4 +1,4 @@
-const CACHE_NAME = 'potez-pilot-v1';
+const CACHE_NAME = 'potez-pilot-v2';
 const APP_SHELL = [
   '/',
   '/index.html',
@@ -12,6 +12,8 @@ const APP_SHELL = [
   '/icons/potez-512.png',
   '/og-image.png'
 ];
+
+const APP_SHELL_PATHS = new Set(APP_SHELL);
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
@@ -27,34 +29,42 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+async function networkFirst(request) {
+  const cache = await caches.open(CACHE_NAME);
+  try {
+    const response = await fetch(request);
+    if (response.ok && response.type === 'basic') {
+      await cache.put(request, response.clone());
+    }
+    return response;
+  } catch {
+    return (await cache.match(request)) || Response.error();
+  }
+}
+
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
-  if (request.method !== 'GET' || url.origin !== self.location.origin || url.pathname.startsWith('/api/')) return;
 
-  if (request.mode === 'navigate') {
-    event.respondWith(
-      fetch(request).then((response) => {
-        if (response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-        }
-        return response;
-      }).catch(async () => (await caches.match(request)) || (await caches.match('/index.html')))
-    );
+  // Never intercept writes, third-party requests, or API calls.
+  if (request.method !== 'GET' || url.origin !== self.location.origin || url.pathname.startsWith('/api/')) {
     return;
   }
 
-  event.respondWith(
-    caches.match(request).then((cached) => {
-      const network = fetch(request).then((response) => {
-        if (response.ok && response.type === 'basic') {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-        }
-        return response;
-      });
-      return cached || network;
-    })
-  );
+  if (request.mode === 'navigate') {
+    event.respondWith(networkFirst(request).then(async (response) => {
+      if (response.type === 'error') {
+        return (await caches.match(request)) || (await caches.match('/index.html')) || response;
+      }
+      return response;
+    }));
+    return;
+  }
+
+  const isAppAsset =
+    APP_SHELL_PATHS.has(url.pathname) ||
+    url.pathname.startsWith('/assets/') ||
+    url.pathname.startsWith('/icons/');
+
+  if (isAppAsset) event.respondWith(networkFirst(request));
 });
