@@ -97,9 +97,10 @@ python - <<'PY'
 from pathlib import Path
 html = Path("index.html").read_text(encoding="utf-8")
 css = Path("assets/styles.css").read_text(encoding="utf-8")
-assert 'id="za-voditelje"' in html
-assert "Otvori gotov raspored radionice" in html
-assert "mobile-nav-icon" in html
+assert 'class="tool-disclosure"' in html and 'tool-workshop-list' in html
+assert 'id="mobileMenu"' in html and 'mobile-menu-panel' in Path("assets/styles.css").read_text(encoding="utf-8")
+assert 'mobile-nav-icon' not in html and '<nav class="mobile-nav"' not in html
+assert 'class="issue-guide-card"' in html
 assert ".facilitator-kit" in css and "prefers-reduced-motion:reduce" in css
 print("POTEZ facilitator and mobile navigation checks passed")
 PY
@@ -162,8 +163,8 @@ app_quiz = Path("assets/app.js").read_text(encoding="utf-8")
 assert "quizOptions=q.a.map((text,index)=>({text,correct:index===q.correct}))" in app_quiz
 assert "Math.random()" in app_quiz
 assert "quizOptions[j]?.correct" in app_quiz
-assert "Dnevna ruta · 9 situacija" in html
-assert "Devet situacija. Tvoj potez" in html
+assert "Situacijska igra · 9 primjera" in html
+assert "Devet situacija iz svakodnevnog života" in html
 assert "oko 1 minute" not in html
 
 headers = Path("_headers").read_text(encoding="utf-8")
@@ -237,7 +238,7 @@ assert "awardLesson" in app and "claimDailyFact" in app
 assert "saved.dailyFactStamp===stamp" in app
 assert "potez:reset" in app and "potez:reset" in civic
 assert "lesson-" in civic and "passportTopics" in civic
-assert "parentDetails.open=true" in navigation
+assert "ancestor.tagName==='DETAILS'" in navigation
 assert ".innerHTML" not in learning
 assert "syncTopicProgress" in learning and "syncDailyFactProgress" in learning
 assert "renderTopics();\n    renderDailyFact();" not in learning
@@ -252,6 +253,17 @@ for path in ('docs/LEARNING_SOURCES_2026.md', 'docs/POTENTIAL_PARTNERS_AND_PILOT
     assert Path(path).exists(), path
 
 ET.parse("sitemap.xml")
+mobile = Path("assets/navigation.js").read_text(encoding="utf-8")
+for token in ('id="mobileMenu"', 'id="mobileMenuPanel"', 'mobileMenuClose', "event.key==='Escape'", "event.key==='Tab'"):
+    if token not in html and token not in mobile:
+        raise AssertionError(token)
+assert 'role="dialog"' in html and 'aria-modal="true"' in html
+assert "mobile-menu-close" in html and "mobile-menu-backdrop" in html
+assert "mobile-menu-panel" in css and "mobile-menu-links" in css
+assert "tool-disclosure" in css and "issue-guide-card" in css
+assert 'U PRAKSI · INSTITUCIJE · INFORMACIJE' in html
+assert 'RESURSI · IZVORI · MATERIJALI' in html
+assert "body{padding-bottom:0!important}" in css
 print("Verified learning UI, local-only progress, compact passport, SEO metadata, sitemap and source documentation.")
 PY
 
