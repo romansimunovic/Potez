@@ -2311,3 +2311,10 @@ html[data-theme="dark"] .action-depth-note{color:#c7d3ca!important}
   .action-extra-details>summary{min-height:42px;display:flex;align-items:center}
   .action-output .action-complete{min-height:44px}
 }
+
+
+/* Drawer close control and removal of legacy bottom-navigation spacing. */
+.mobile-menu-heading{position:relative;padding-right:48px}
+.mobile-menu-close{position:absolute;top:0;right:0;display:grid;width:40px;height:40px;place-items:center;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink)}
+.mobile-menu-close svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+@media(max-width:760px){body{padding-bottom:0!important}}
