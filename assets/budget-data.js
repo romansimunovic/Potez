@@ -185,11 +185,11 @@ window.POTEZ_BUDGET_DATA = {
     },
   },
   upcoming: [
-    { id: 'zagreb', label: 'Zagreb', note: 'Rebalans donesen 16. 9. 2026.; obrada službenih tablica', source: 'https://www.zagreb.hr/proracun/113894' },
-    { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Rebalans donesen 14. 8. 2026.; obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
-    { id: 'vinkovci', label: 'Vinkovci', note: 'I. izmjene za 2026. objavljene 27. 5. 2026.; obrada tablica', source: 'https://vinkovci.hr/dokumenti/proracun' },
-    { id: 'požega', label: 'Požega', note: 'I. izmjene i dopune objavljene 26. 6. 2026.; obrada tablica', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
-    { id: 'valpovo', label: 'Valpovo', note: 'I. izmjene i dopune za 2026.; obrada tablica', source: 'https://valpovo.hr/proracun/' },
-    { id: 'belisce', label: 'Belišće', note: 'II. izmjene i izvješće za treće tromjesečje 2026.; obrada tablica', source: 'https://belisce.hr/proracun/' },
-    { id: 'djakovo', label: 'Đakovo', note: 'I. rebalans 2026.; obrada funkcijskih iznosa', source: 'https://www.djakovo.hr/index.php/grad/sluzbena-obiljezja/item/2910-proracun-grada-dakova.html' }
+    { id: 'zagreb', label: 'Zagreb', note: 'Izmjene 2026. i funkcijska XLS tablica objavljeni; potrebno izvući i provjeriti vrijednosti', source: 'https://www.zagreb.hr/proracun/113894' },
+    { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Službeni arhiv sadrži proračun i izmjene za 2026.; utvrđivanje posljednje važeće tablice i obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
+    { id: 'vinkovci', label: 'Vinkovci', note: 'I. izmjene objavljene 27. 5. 2026.; PDF posebnog dijela treba izvući i uskladiti', source: 'https://vinkovci.hr/dokumenti/proracun' },
+    { id: 'požega', label: 'Požega', note: 'I. izmjene objavljene 26. 6. 2026.; službene XLS tablice treba obraditi', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
+    { id: 'valpovo', label: 'Valpovo', note: 'I. izmjene i obrazloženje dostupni su kao XLS; potrebno izdvojiti i provjeriti funkcije', source: 'https://valpovo.hr/proracun/' },
+    { id: 'belisce', label: 'Belišće', note: 'II. izmjene i izvješće izvršenja do 30. 9. 2026.; veliki PDF treba obraditi', source: 'https://belisce.hr/proracun/' },
+    { id: 'djakovo', label: 'Đakovo', note: 'II. rebalans i obrazloženje za 2026. objavljeni; potrebno izdvojiti važeće funkcijske iznose', source: 'https://www.djakovo.hr/index.php/grad/sluzbena-obiljezja/item/2910-proracun-grada-dakova.html' }
   ]};
