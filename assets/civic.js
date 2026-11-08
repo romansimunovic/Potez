@@ -8,10 +8,12 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const xpRanks = [
     { min: 0, title: 'Radoznalac', description: 'Kreni od jednog pitanja. Svaki izazov otvara novu vještinu.' },
-    { min: 10, title: 'Istraživač', description: 'Već si počeo/la povezivati informacije i širu sliku.' },
-    { min: 20, title: 'Provjeravatelj', description: 'Sve češće pitaš: tko to tvrdi i koji je dokaz?' },
-    { min: 35, title: 'Promišljeni sudionik', description: 'Razumiješ da odluke traže prioritete, argumente i odgovornost.' },
-    { min: 50, title: 'Pokretač promjene', description: 'Znanje pretvaraš u konkretan korak i uključuješ druge.' }
+    { min: 10, title: 'Istraživač', description: 'Već povezuješ informacije i širu sliku.' },
+    { min: 25, title: 'Provjeravatelj', description: 'Pitaš tko nešto tvrdi, na temelju čega i što još nedostaje.' },
+    { min: 45, title: 'Poznavatelj sustava', description: 'Razumiješ tko odlučuje, tko plaća i tko provodi odluku.' },
+    { min: 70, title: 'Promišljeni sudionik', description: 'Povezuješ dokaze, javne prioritete i mogućnosti djelovanja.' },
+    { min: 100, title: 'Pokretač promjene', description: 'Znanje pretvaraš u argumentiran i izvediv potez.' },
+    { min: 140, title: 'Građanski istraživač', description: 'Samostalno istražuješ probleme i pomažeš drugima da se snađu.' }
   ];
 
   const mainMissions = [
@@ -96,7 +98,10 @@
     const path = $('#passportPath');
     if (completedElement) completedElement.textContent = completed + '/4';
     const weekDone = saved.weeklyDoneKey === weekStamp();
-    const earnedBadges = mainMissions.filter((mission) => Boolean(saved[mission.key])).length + (weekDone ? 1 : 0);
+    const learnedLessons = Object.keys(saved).filter((key) => key.startsWith('lesson-') && saved[key] === true).length;
+    const topicCount = $('#passportTopics');
+    if (topicCount) topicCount.textContent = String(learnedLessons);
+    const earnedBadges = mainMissions.filter((mission) => Boolean(saved[mission.key])).length + (weekDone ? 1 : 0) + learnedLessons;
     if (badgeCount) badgeCount.textContent = String(earnedBadges);
 
     if (badges) {
@@ -111,6 +116,10 @@
       weeklyBadge.className = 'skill-badge' + (weekDone ? '' : ' locked');
       weeklyBadge.textContent = (weekDone ? '✓ ' : '○ ') + 'Tjedni ritam';
       badges.appendChild(weeklyBadge);
+      const lessonBadge = document.createElement('span');
+      lessonBadge.className = 'skill-badge' + (learnedLessons ? '' : ' locked');
+      lessonBadge.textContent = (learnedLessons ? '✓ ' : '○ ') + learnedLessons + ' istraženih tema';
+      badges.appendChild(lessonBadge);
     }
 
     if (path) {
