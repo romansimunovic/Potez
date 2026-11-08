@@ -160,13 +160,12 @@ window.POTEZ_BUDGET_DATA = {
     }
   },
   upcoming: [
-    { id: 'zagreb', label: 'Zagreb', note: 'Izmjene proračuna objavljene 16. 10. 2026.; obrada funkcijske tablice', source: 'https://www.zagreb.hr/proracun/113894' },
-    { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Proračun usvojen; potrebno izdvojiti stavke iz službene tablice', source: 'https://novagradiska.hr/news/6-sjednica-gradskog-vijeca-3/' },
-    { id: 'vinkovci', label: 'Vinkovci', note: 'Službeni proračunski dokumenti dostupni', source: 'https://vinkovci.hr/dokumenti/proracun' },
-    { id: 'požega', label: 'Požega', note: 'Potrebna obrada usporedivih stavki', source: 'https://www.pozega.hr/' },
-    { id: 'virovitica', label: 'Virovitica', note: 'Potrebna obrada službenih stavki' },
-    { id: 'valpovo', label: 'Valpovo', note: 'Proračunski dokumenti dostupni; obrada u tijeku', source: 'https://valpovo.hr/proracun/' },
-    { id: 'belisce', label: 'Belišće', note: 'Potrebna obrada službenih stavki', source: 'https://belisce.hr/proracun/' },
-    { id: 'djakovo', label: 'Đakovo', note: 'Potrebna obrada službenih stavki' }
-  ]
-};
+    { id: 'zagreb', label: 'Zagreb', note: 'Izmjene proračuna objavljene 16. 10. 2026.; obrada tablice', source: 'https://www.zagreb.hr/proracun/113894' },
+    { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Potrebna obrada usvojenog proračuna i posebnog dijela', source: 'https://novagradiska.hr/news/6-sjednica-gradskog-vijeca-3/' },
+    { id: 'vinkovci', label: 'Vinkovci', note: 'I. izmjene za 2026. objavljene 27. 5. 2026.; obrada tablica', source: 'https://vinkovci.hr/dokumenti/proracun' },
+    { id: 'požega', label: 'Požega', note: 'I. izmjene i dopune objavljene 26. 6. 2026.; obrada tablica', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
+    { id: 'virovitica', label: 'Virovitica', note: 'II. izmjene i polugodišnje izvršenje 2026.; obrada tablica', source: 'https://www.virovitica.hr/proracun-grada-virovitice/' },
+    { id: 'valpovo', label: 'Valpovo', note: 'I. izmjene i dopune za 2026.; obrada tablica', source: 'https://valpovo.hr/proracun/' },
+    { id: 'belisce', label: 'Belišće', note: 'II. izmjene i izvješće za treće tromjesečje 2026.; obrada tablica', source: 'https://belisce.hr/proracun/' },
+    { id: 'djakovo', label: 'Đakovo', note: 'Rebalansi za 2026. objavljeni; obrada tablica', source: 'https://www.djakovo.hr/index.php/grad/sluzbena-obiljezja/item/2910-proracun-grada-dakova.html' }
+  ]};
