@@ -1,0 +1,34 @@
+name: Ideja za POTEZ
+description: Predloži temu, izazov ili poboljšanje.
+title: "[Ideja] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Nemoj unositi osobne podatke, privatne poruke ili osjetljive informacije. GitHub Issue može biti javno vidljiv.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Što predlažeš?
+      options:
+        - Nova tema ili izazov
+        - Poboljšanje igre
+        - Pristupačnost ili UX
+        - Novi alat ili izvor
+        - Drugo
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Opiši ideju
+      description: Koji problem rješava i kome bi koristila?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Primjer ili izvor (neobavezno)
+    validations:
+      required: false
