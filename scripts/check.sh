@@ -52,7 +52,8 @@ privacy = Path("privacy.html").read_text(encoding="utf-8")
 civic = Path("assets/civic.js").read_text(encoding="utf-8")
 assert 'id="feedbackForm"' not in html
 assert 'id="dailyScenarioTitle"' in html and 'id="dailyScenarioText"' in html
-assert "dailyChoiceIndex" in civic and "Kako izgleda dobar ishod" in civic
+assert "dailyRunOrder" in civic and "dailyCompletedIds" in civic
+assert 'id="dailyProgress"' in html and 'id="dailyNext"' in html and 'id="dailyShare"' in html
 assert not Path("functions").exists()
 assert not Path("supabase").exists()
 assert "localStorage" in privacy and "Cloudflare Pagesa" in privacy
