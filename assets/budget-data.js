@@ -24,7 +24,7 @@ window.POTEZ_BUDGET_DATA = {
             { name: 'Javne zelene površine', amount: 6000, detail: 'Održavanje zelenih površina i sadnja prema potrebi' }
           ]
         },
-        novi-grad: {
+        'novi-grad': {
           label: 'Gradska četvrt Novi grad',
           year: 2026,
           total: 93729,
@@ -39,7 +39,7 @@ window.POTEZ_BUDGET_DATA = {
             { name: 'Javne zelene površine', amount: 5000, detail: 'Održavanje zelenih površina i sadnja prema potrebi' }
           ]
         },
-        gornji-grad: {
+        'gornji-grad': {
           label: 'Gradska četvrt Gornji grad',
           year: 2026,
           total: 99492,
@@ -53,7 +53,7 @@ window.POTEZ_BUDGET_DATA = {
             { name: 'Javne zelene površine', amount: 1000, detail: 'Održavanje zelenih površina i sadnja prema potrebi' }
           ]
         },
-        donji-grad: {
+        'donji-grad': {
           label: 'Gradska četvrt Donji grad',
           year: 2026,
           total: 99492,
