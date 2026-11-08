@@ -54,3 +54,13 @@ Ne obećavati da prijava, peticija ili komentar nužno mijenjaju odluku.
 - Bodovi se dodjeljuju za dovršetak edukativnog zadatka, ne za politički stav, brzinu, slaganje s autorom ili stvarni utjecaj.
 - Interesi odabrani u filteru služe samo trenutačnom prikazu. Ne spremaju se kao profil, ne šalju se na poslužitelj i ne koriste za personalizirano oglašavanje.
 - Izvori, opseg tvrdnji i datum provjere vode se u [registru izvora za učenje](LEARNING_SOURCES_2026.md).
+
+## Uporaba umjetne inteligencije u razvoju i uredništvu
+
+- Uporabu generativnih AI alata u razvoju projekta treba transparentno navesti u [Izjavi o transparentnosti uporabe AI-ja](AI_TRANSPARENCY.md).
+- AI izlaz nije izvor ni dokaz. Činjenične, statističke i pravne tvrdnje provjeravaju se prema pouzdanim, po mogućnosti primarnim izvorima.
+- Prije objave čovjek mora pregledati, urediti i odobriti edukativni sadržaj te preuzeti uredničku odgovornost.
+- Ne objavljivati AI-generirane citate, reference, statistike ili pravne tvrdnje bez neovisne provjere.
+- Ako se objavljuje AI-generirani ili izmijenjeni tekst o pitanju od javnog interesa bez ljudske provjere ili uredničkog nadzora, zasebno procijeniti obvezu označavanja iz članka 50. stavka 4. AI Acta.
+- Ako se u aplikaciju uvede AI sustav koji izravno komunicira s korisnicima, prije uporabe osigurati jasnu obavijest da korisnik komunicira s AI sustavom te ponovno procijeniti privatnost, sigurnost i primjenjive propise.
+- Svaka nova AI funkcionalnost zahtijeva zasebnu procjenu svrhe, podataka, rizika, odgovornosti i obavijesti korisnicima; ova izjava nije zamjena za pravnu procjenu.
