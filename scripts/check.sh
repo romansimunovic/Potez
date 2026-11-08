@@ -113,7 +113,15 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v21" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v22" in sw and "'/assets/budget-data.js'" in sw
+
+app_reset = Path("assets/app.js").read_text(encoding="utf-8")
+assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
+assert "localStorage.removeItem('potez-budget-duel-v2')" in app_reset
+assert not Path(".env.example").exists()
+security = Path("SECURITY.md").read_text(encoding="utf-8")
+assert "ne sadrži Pages Functions" in security
+assert "Supabase konfiguraciju" in security
 for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
@@ -144,7 +152,7 @@ assert "data-budget-name for=" in app
 assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v21" in sw
+assert "potez-pilot-v22" in sw
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
 assert "budgetCityImage" not in app
 assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.js").read_text(encoding="utf-8")
