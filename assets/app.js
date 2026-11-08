@@ -9,11 +9,11 @@
   function award(flag,points,label){if(!saved[flag]){saved[flag]=true;saved.xp=(saved.xp||0)+points;persist();window.POTEZ_FEEDBACK?.success();toast('+'+points+' POTEZ bodova · '+label)}else{toast('Ovaj izazov već je uračunat u tvoj napredak.')}}
   function updateActionXp(){$('#actionXp').textContent='Tvoj napredak: '+(saved.xp||0)+' bodova'}
   const weeklyMissions=[
-    {title:'Pogledaj kako zastupnici stvarno glasaju.',desc:'Otvori Parlametar, pronađi temu koja te zanima i usporedi kako su zastupnici glasali. Razlika između izjave i glasanja često je važnija od viralnog isječka.',url:'https://parlametar.hr/',label:'Istraži glasanja',icon:'🏛️'},
-    {title:'Pronađi jednu otvorenu javnu raspravu.',desc:'Na e-Savjetovanjima pregledaj naslov i sažetak jednog prijedloga. Zapiši što bi pitao/la predlagatelja. Za slanje komentara potrebna je prijava putem NIAS-a.',url:'https://savjetovanja.gov.hr/',label:'Pregledaj savjetovanja',icon:'🗣️'},
-    {title:'Prijavi jednu stvar koju svi zaobilaze.',desc:'Uoči li neispravnu rasvjetu, oštećen pločnik ili drugi problem javne infrastrukture, zabilježi lokaciju i provjeri kome ga prijaviti. Ako je primjenjivo, isprobaj Popravi.to.',url:'https://popravi.to/',label:'Pogledaj Popravi.to',icon:'🛠️'},
-    {title:'Provjeri tvrdnju koju si vidio/la na feedu.',desc:'Odaberi objavu koja izaziva snažnu reakciju. Potraži izvorni dokument ili snimku i usporedi je s provjerom neovisnih fact-checkera.',url:'https://tocnotako.hr/',label:'Otvori Točno tako',icon:'🧭'},
-    {title:'Pronađi jedan javni podatak o svojoj zajednici.',desc:'Na portalu otvorenih podataka potraži temu koja te zanima: promet, okoliš, proračun ili javne usluge. Pitaj se što se iz tog podatka može, a što ne može zaključiti.',url:'https://data.gov.hr/',label:'Istraži otvorene podatke',icon:'📊'},
+    {title:'Pogledaj kako zastupnici stvarno glasaju.',desc:'Na Parlametru usporedi kako su zastupnici glasali o temi koja te zanima.',url:'https://parlametar.hr/',label:'Istraži glasanja',icon:'🏛️'},
+    {title:'Pronađi jednu otvorenu javnu raspravu.',desc:'Pročitaj prijedlog na e-Savjetovanjima i zapiši jedno pitanje.',url:'https://savjetovanja.gov.hr/',label:'Pregledaj savjetovanja',icon:'🗣️'},
+    {title:'Prijavi jednu stvar koju svi zaobilaze.',desc:'Zabilježi problem u kvartu i provjeri kome ga prijaviti.',url:'https://popravi.to/',label:'Pogledaj Popravi.to',icon:'🛠️'},
+    {title:'Provjeri tvrdnju koju si vidio/la na feedu.',desc:'Pronađi izvor objave i usporedi ga s neovisnom provjerom.',url:'https://tocnotako.hr/',label:'Otvori Točno tako',icon:'🧭'},
+    {title:'Pronađi jedan javni podatak o svojoj zajednici.',desc:'Pronađi podatak o prometu, okolišu ili javnim uslugama.',url:'https://data.gov.hr/',label:'Istraži otvorene podatke',icon:'📊'},
     {title:'Pretvori prigovor u dobro pitanje.',desc:'Odaberi problem iz svog mjesta i napiši instituciji jedno precizno pitanje: koji je plan, tko je odgovoran, postoji li rok i gdje je objavljena dokumentacija?',url:'https://www.imamopravoznati.org/',label:'Saznaj kako tražiti informaciju',icon:'🔎'}
   ];
   function getWeekStamp(){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+4-(d.getDay()||7));const y=d.getFullYear();const start=new Date(y,0,1);const w=Math.ceil((((d-start)/86400000)+1)/7);return y+'-'+String(w).padStart(2,'0')}
