@@ -1,88 +1,135 @@
 # POTEZ
 
-POTEZ is a static, mobile-first civic-literacy platform deployed on Cloudflare Pages.
+**Politika prevedena na tvoj život.**
 
-## Architecture
+POTEZ je besplatna, mobilna pilot-platforma građanske pismenosti. Pomaže mladima razumjeti tko donosi javne odluke, kako provjeravati informacije i što mogu napraviti kada žele promijeniti nešto u svojoj školi, kvartu ili zajednici.
 
-- Static frontend: HTML, CSS and vanilla JavaScript.
-- Hosting and CDN: Cloudflare Pages.
-- Server endpoint: Cloudflare Pages Function at POST /api/feedback.
-- Optional feedback storage: Supabase Postgres.
-- Bot protection: Cloudflare Turnstile, validated server-side.
-- Quiz answers and progress: local browser storage only; no user accounts or political profiles.
+Projekt je zamišljen kao jednostavna ulazna točka u građansko sudjelovanje — bez registracije, prijave, političkog profiliranja, javnih ljestvica i nepotrebnog prikupljanja podataka.
 
-The public site does not need a database for its core learning features. Keep feedback disabled until the privacy notice, Turnstile widget, Supabase project and server-side secrets are configured.
+**Autor, urednik i voditelj projekta:** Roman Šimunović  
+**Javna pilot-verzija:** https://potez.pages.dev/  
+**Repozitorij:** https://github.com/romansimunovic/Potez
 
-## Deploy
+---
 
-Connect this repository to a Cloudflare Pages project (not a Workers Builds project).
+## Što POTEZ omogućuje?
 
-- Production branch: main
+Aplikacija je organizirana u pet odredišta:
+
+- **Početna** — kratko objašnjenje projekta i put prema prvom izazovu.
+- **Uči** — kvizovi, provjera tvrdnji i mapa institucija i nadležnosti.
+- **Igraj** — građanska putovnica, XP, značke, dnevno pitanje, tjedne misije i simulacija javnog proračuna.
+- **Djeluj** — praktični vodič od problema do prvog koraka.
+- **Alati** — poveznice na javne resurse, primjeri dobre prakse i informacije o pilotu.
+
+Sadržaj je namijenjen prvenstveno mladima, ali ga mogu koristiti svi koji žele razumljivije pratiti javne odluke i građansko sudjelovanje.
+
+## Autorstvo i transparentnost uporabe AI-ja
+
+Koncept, urednički smjer, odabir tema, odluke o funkcionalnostima i konačna objava projekta pripadaju **Romanu Šimunoviću**.
+
+**OpenAI ChatGPT korišten je kao pomoćni alat** tijekom strukturiranja projekta i dokumentacije, razrade korisničkog iskustva, organiziranja sadržaja, pisanja i dorade dijelova koda, prijedloga pristupačnosti i responzivnosti, savjetovanja o tehničkoj arhitekturi, debugiranja te pripreme i provjere testova.
+
+ChatGPT nije autor koji samostalno upravlja projektom niti se koristi kao dio aplikacije u radu s posjetiteljima. Konačne odluke, provjera sadržaja, testiranje, uređivanje i odgovornost za objavljenu verziju ostaju na autoru projekta. U aplikaciji se ne poziva OpenAI API, nema AI chatbota i ne šalju se korisnički podaci modelu.
+
+Uporaba AI-ja navodi se radi transparentnosti o načinu nastanka projekta, a ne kao zamjena za autorstvo i odgovornost.
+
+## Tehnologije i platforme
+
+| Područje | Tehnologija / platforma | Uloga |
+|---|---|---|
+| Struktura | HTML5 | Semantička struktura stranica |
+| Dizajn | CSS3 | Responzivni prikaz, animacije i pristupačnost |
+| Logika | JavaScript (vanilla) | Kvizovi, XP, misije, simulacije i navigacija |
+| Zvuk | Web Audio API | Kratki lokalni zvuk nagrade, bez audio datoteka |
+| Dijeljenje | Web Share API / Clipboard API | Dijeljenje napretka na izričit zahtjev korisnika |
+| Lokalna pohrana | localStorage / Cache Storage | Napredak, postavke zvuka i statičke datoteke na uređaju |
+| PWA | Web App Manifest / Service Worker | Instalacija i osnovna podrška izvan mreže |
+| Hosting | Cloudflare Pages | Objavljivanje statičke aplikacije |
+| Izvorni kod | GitHub | Repozitorij, grane i pull requestovi |
+| Automatizirane provjere | GitHub Actions | Statičke i sigurnosne provjere pri promjenama |
+| Razvojna podrška | OpenAI ChatGPT | Pomoć pri planiranju, kodu, debugiranju i dokumentaciji |
+
+Projekt koristi HTML, CSS i JavaScript bez velikog frontend frameworka. Osnovne edukativne funkcije ne zahtijevaju bazu podataka ni korisnički račun.
+
+### Opcionalne tehnologije koje trenutačno nisu aktivne
+
+U repozitoriju postoji pripremljena Cloudflare Pages Function za povratne informacije, uz integraciju Cloudflare Turnstile i Supabase Postgresa. **U javnoj pilot-verziji obrazac je uklonjen, a ruta /api/* nije uključena u Cloudflare Pages Functions.** Nema aktivnog slanja ni pohrane poruka korisnika.
+
+Povratne informacije o sadržaju trenutačno se mogu predložiti kroz javni GitHub Issues. Tamo ne treba objavljivati osobne podatke.
+
+## Privatnost i obrada podataka
+
+POTEZ nema registraciju, prijavu, račune, korisničke profile ni političko profiliranje.
+
+Podaci o XP-u, dovršenim izazovima, dnevnoj/tjednoj misiji i budžetskoj usporedbi pohranjuju se lokalno u pregledniku. Postavka zvuka sprema se lokalno. Autor projekta ne prima te vrijednosti niti ih može vidjeti na daljinu.
+
+Aplikacija ne koristi vlastitu analitiku, oglašivačke kolačiće ni piksele za praćenje. Service Worker sprema statičke datoteke radi učitavanja i osnovne podrške izvan mreže.
+
+Stranica se poslužuje putem Cloudflare Pages. Pružatelj hostinga može obrađivati tehničke podatke mrežnih zahtjeva radi isporuke i zaštite usluge, u skladu sa svojim pravilima. Detalji su u [obavijesti o privatnosti](privacy.html).
+
+**Dokumentacija:**
+- [Obavijest o privatnosti](privacy.html)
+- [Uvjeti korištenja](uvjeti.html)
+
+## Dijeljenje i gamifikacija
+
+XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Nema javnih ljestvica, održavanja nizova ni kazne za propušten dan.
+
+Kratki zvuk nagrade generira se u pregledniku nakon korisničke radnje. Ne učitava se audio datoteka. Zvuk se može isključiti prekidačem; postavka ostaje lokalna.
+
+Dijeljenje napretka pokreće se samo kada korisnik pritisne gumb. Koristi se izvorni sustav dijeljenja uređaja ili kopiranje teksta; POTEZ ne dobiva podatke o primatelju.
+
+## Lokalni razvoj i provjere
+
+Za brzi lokalni prikaz statičke aplikacije:
+
+~~~bash
+python -m http.server 8000
+~~~
+
+Zatim otvori http://localhost:8000.
+
+Za provjeru koda i API sigurnosnih regresija:
+
+~~~bash
+bash scripts/check.sh
+~~~
+
+Provjere obuhvaćaju sintaksu JavaScripta, validaciju HTML-a i internih poveznica, JSON konfiguraciju te testove pripremljenog feedback endpointa.
+
+## Objavljivanje na Cloudflare Pages
+
+Postavke projekta:
+
+- Produkcijska grana: main
 - Framework preset: None
-- Build command: leave empty
-- Build output directory: .
+- Build command: prazan
+- Build output directory: . (repository root)
 - Root directory: repository root
 
-Cloudflare Pages deploys the static files and the functions/ directory together.
+Cloudflare Pages objavljuje statičke datoteke iz repozitorija. GitHub Actions pokreće provjere pri pull requestovima i promjenama na main.
 
-## Feedback setup — do not enable before completing privacy review
+## Sigurnosna i privatnosna načela
 
-1. Create a Turnstile widget and allow only the production hostname.
-2. Apply supabase/migrations/202611080001_feedback.sql in the Supabase SQL Editor.
-3. In Cloudflare Pages > Settings > Variables and Secrets, configure production values:
-   - APP_ORIGIN: exact public origin, for example https://potez.example (no path or trailing slash).
-   - SUPABASE_URL: Supabase project URL.
-   - SUPABASE_SECRET_KEY: a Supabase secret key beginning with sb_secret_. Store it as a Secret, never as a plain variable.
-   - TURNSTILE_SECRET_KEY: Turnstile secret key. Store it as a Secret.
-4. In assets/config.js, set the public Turnstile site key and set privacyNoticeReady: true only after the privacy notice is complete.
-5. Complete every placeholder in privacy.html: controller identity and contact, legal basis, retention period, deletion process, and processor information.
-6. Deploy and test the form with a real Turnstile challenge. Confirm that direct Supabase inserts using the public key are rejected.
+- Ne dodavati registraciju ili prijavu bez jasne potrebe.
+- Ne dodavati političke profile, lokacijsko praćenje, javne ljestvice ni identifikatore korisnika.
+- Ne prikazivati izmišljene rezultate kao stvarne podatke o mladima ili posjetiteljima.
+- Ne dodavati analitiku ili kolačiće za praćenje bez procjene svrhe, pravne osnove, minimizacije i odgovarajuće obavijesti.
+- Nikada ne stavljati tajne ključeve u javni frontend ili GitHub repozitorij.
+- Ako se feedback endpoint ikad aktivira, prije toga treba ponovno otvoriti /api/* rutu, dovršiti procjenu obrade, jasno navesti kontakt voditelja obrade, svrhu, pravnu osnovu, primatelje i rok čuvanja, ažurirati privatnost i uvjete te provjeriti stvarno ponašanje u produkciji.
 
-The Supabase secret key bypasses RLS. It is used only by the server-side Pages Function. The SQL migration revokes public table access and gives the server role only INSERT permission on the four feedback fields. Do not add the secret key to assets/config.js, HTML, JavaScript delivered to browsers, GitHub, or screenshots.
+## Sadržaj i ograničenja
 
-Supabase is transitioning from legacy anon / service_role keys to sb_publishable_ / sb_secret_ keys; use the new key format for new setup.
+POTEZ je edukativni alat, ne službeni kanal javne institucije i ne pruža pravni ili drugi stručni savjet. Proračunska igra koristi izmišljene iznose. Podaci i nadležnosti mogu se promijeniti; korisnike se potiče da otvore izvorne dokumente i provjere aktualne informacije.
 
-## Security controls
+Vanjske poveznice vode prema organizacijama i servisima koji imaju vlastita pravila privatnosti i uvjete.
 
-- _headers defines CSP, HSTS and browser security headers.
-- _routes.json invokes Pages Functions only for /api/*.
-- /api/feedback requires the exact configured origin, JSON, a bounded request body, validated fields, a server-verified Turnstile token for the feedback action, and a server-side Supabase secret.
-- The API never returns stored feedback and never logs submitted message contents.
-- Service-worker requests exclude /api/*; static app resources use network-first caching so new deployments are not indefinitely hidden behind stale cached JavaScript.
+## Autorska prava
 
-For public deployments, add a Cloudflare rate-limiting rule for POST /api/feedback on a custom domain/zone where WAF rules are available. Start conservatively and monitor false positives before tightening limits.
+Koncept, urednička struktura, tekstovi i vizualni identitet projekta pripisuju se Romanu Šimunoviću, osim kada je uz sadržaj naveden drugi autor ili izvor. Repozitorij trenutačno nema zasebnu datoteku otvorene softverske licencije; javna dostupnost koda na GitHubu sama po sebi ne daje opće dopuštenje za daljnju distribuciju ili komercijalnu uporabu.
 
-## Local checks
+---
 
-Run:
-
-    bash scripts/check.sh
-
-Preview static files:
-
-    python -m http.server 8000
-
-For local Pages Functions, use the Cloudflare Pages local development workflow and supply local secrets via an ignored .dev.vars file. Never commit .dev.vars.
-
-## Privacy by design
-
-Do not add political-preference profiling, location tracking, or accounts merely to support the educational modules. If new data collection is introduced, document its purpose, legal basis, minimization, retention period, access controls and deletion procedure before launch.
-
-## Civic journey and gamification
-
-The civic passport turns existing learning activities into a visible skills path. A one-minute daily civic question rotates locally by date and rewards an attempt without streak pressure or penalties for missed days:
-understanding context, checking claims, weighing public priorities, and finding a
-real participation route. XP and badges reward completing learning tasks; they
-do not score political opinions, party preferences, or the perceived worth of
-a person's real-world civic activity. There are no daily streak penalties,
-public rankings, accounts, or political profiles.
-
-The two-player budget comparison is a local pass-and-play exercise on one device.
-Its saved allocations stay in that browser and are not sent to a server. Sharing
-buttons share only a generic invitation or the player's own progress summary.
-
-Do not present sample personas or invented aggregate percentages as real player
-results. A future cross-device community board would require a separate opt-in
-data design, transparent purpose and retention rules, abuse prevention, and
-minimum aggregation thresholds before launch. Prefer aggregated learning
-patterns over public individual profiles or location/political-interest ranking.
+*POTEZ — politika prevedena na tvoj život.*  
+*Autor projekta: Roman Šimunović.*

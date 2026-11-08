@@ -4,62 +4,83 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f7f4ec" />
-  <meta name="description" content="Obavijest o privatnosti za POTEZ pilot-platformu." />
+  <meta name="description" content="Kako POTEZ postupa s lokalnim napretkom i tehničkim podacima." />
   <title>Privatnost — POTEZ</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="stylesheet" href="/assets/styles.css" />
-  <script src="/assets/config.js" defer></script>
 </head>
-<body>
+<body class="legal-page">
   <a class="skip-link" href="#content">Preskoči na sadržaj</a>
   <div class="shell">
     <header class="topline">
       <a href="/" class="brand" aria-label="POTEZ početna">potez<span class="brand-dot"></span><span class="brand-sub">pilot</span></a>
-      <nav class="nav" aria-label="Navigacija"><a href="/">Početna</a><a href="/#povratne">Povratne informacije</a></nav>
+      <nav class="nav" aria-label="Navigacija"><a href="/">Početna</a><a href="/uvjeti.html">Uvjeti korištenja</a></nav>
     </header>
-    <main id="content" class="section" tabindex="-1">
-      <div class="section-kicker">Transparentnost i privatnost</div>
-      <h1 style="font-size:clamp(2.5rem,8vw,4.5rem);margin:10px 0 22px">Obavijest o privatnosti</h1>
-      <p class="hero-copy">Verzija za pilot · posljednje ažuriranje: 8. studenoga 2026.</p>
-      <div class="panel" style="margin-top:24px">
-        <h2 style="font-size:1.5rem">1. Tko upravlja projektom?</h2>
-        <p>POTEZ je neovisna pilot-platforma građanske pismenosti. Prije javnog uključivanja obrasca voditelj projekta mora ovdje unijeti svoje puno ime ili naziv organizacije i kontakt za pitanja o privatnosti.</p>
-        <p><strong>Voditelj obrade:</strong> [UPISATI IME / ORGANIZACIJU PRIJE JAVNOG PILOTA]</p>
-        <p><strong>Kontakt za privatnost:</strong> [UPISATI E-MAIL ZAHTJEVA O PRIVATNOSTI PRIJE JAVNOG PILOTA]</p>
-      </div>
-      <div class="panel" style="margin-top:14px">
-        <h2 style="font-size:1.5rem">2. Koje podatke obrađuje platforma?</h2>
-        <p>Glavne edukativne funkcije rade u pregledniku. Bodovi i napredak spremaju se lokalno na uređaju putem pregledničke pohrane (localStorage). Ti se podaci ne šalju na poslužitelj i ne stvaraju korisnički profil.</p>
-        <p>Ako dobrovoljno pošalješ povratnu informaciju, obrađuju se samo odabrana kategorija, dio platforme, neobavezna ocjena korisnosti i tekst poruke. Obrazac ne traži ime, e-mail, dob, lokaciju ni političko opredjeljenje. Nemoj u poruku unositi osobne podatke o sebi ili drugim osobama.</p>
-      </div>
-      <div class="panel" style="margin-top:14px">
-        <h2 style="font-size:1.5rem">3. Zašto i na kojoj osnovi?</h2>
-        <p>Povratne informacije služe isključivo otkrivanju grešaka i poboljšanju sadržaja i pristupačnosti pilot-platforme. Obrazac je dobrovoljan. Prije javnog prikupljanja voditelj projekta mora dokumentirati odgovarajuću pravnu osnovu, rok čuvanja i postupak za zahtjeve ispitanika te dovršiti identifikacijske podatke u ovoj obavijesti.</p>
-      </div>
-      <div class="panel" style="margin-top:14px">
-        <h2 style="font-size:1.5rem">4. Gdje se podaci čuvaju i tko ih može vidjeti?</h2>
-        <p>Poruke iz obrasca spremaju se u privatnu tablicu baze Supabase. Javni posjetitelji nemaju mogućnost čitanja, uređivanja ili brisanja poruka. Pristup imaju samo ovlašteni administratori projekta. Cloudflare obrađuje tehničke podatke zahtjeva i provodi Turnstile provjeru protiv automatiziranog slanja poruka.</p>
-      </div>
-      <div class="panel" style="margin-top:14px">
-        <h2 style="font-size:1.5rem">5. Kolačići, analitika i praćenje</h2>
-        <p>Platforma ne koristi oglašivačke kolačiće, profiliranje, piksele za praćenje ni analitičke alate trećih strana. Preglednička pohrana koristi se samo za lokalni napredak. Ako se u budućnosti uvede analitika, ova obavijest mora se ažurirati prije njezina uključivanja.</p>
-      </div>
-      <div class="panel" style="margin-top:14px">
-        <h2 style="font-size:1.5rem">6. Koliko dugo se čuvaju povratne informacije?</h2>
-        <p><strong>Ovaj rok mora biti određen prije aktivacije obrasca.</strong> Voditelj projekta treba unijeti konkretan rok čuvanja, postaviti postupak redovitog brisanja i dokumentirati postupanje s porukama koje sadrže osobne podatke unatoč upozorenju.</p>
-      </div>
-      <div class="panel" style="margin-top:14px">
-        <h2 style="font-size:1.5rem">7. Tvoja prava i upiti</h2>
-        <p>Zahtjeve povezane s osobnim podacima možeš uputiti kontaktu voditelja obrade navedenom u odjeljku 1. Informacije o pravima ispitanika i nadzornom tijelu dostupne su na <a href="https://azop.hr/" target="_blank" rel="noopener">stranicama Agencije za zaštitu osobnih podataka</a>.</p>
-      </div>
-      <div class="panel coral" style="margin-top:14px">
-        <h2 style="font-size:1.3rem">Napomena prije javnog pilota</h2>
-        <p>Ova je obavijest predložak za pilot, a ne pravno mišljenje. Nemoj aktivirati obrazac niti promovirati prikupljanje poruka široj javnosti dok nisu popunjeni identitet i kontakt voditelja obrade, određena pravna osnova i konkretan rok čuvanja te provjereni svi ugovorni odnosi s pružateljima usluga.</p>
-      </div>
-      <p class="source-note"><a href="/">← Povratak na POTEZ</a></p>
+    <main id="content" class="legal-content" tabindex="-1">
+      <div class="section-kicker">Transparentnost · bez korisničkih računa</div>
+      <h1>Privatnost, bez sitnih slova.</h1>
+      <p class="legal-lead">POTEZ je jednostavan edukativni pilot. Ne traži registraciju, prijavu, ime, e-mail, dob, lokaciju ni političke stavove. Napredak ostaje u pregledniku na tvom uređaju.</p>
+      <p class="legal-updated">Verzija 1.0 · ažurirano 8. studenoga 2026.</p>
+
+      <section class="legal-panel">
+        <h2>1. Tko stoji iza POTEZA?</h2>
+        <p>POTEZ je samostalni projekt građanske pismenosti. Autor i urednik projekta je <strong>Roman Šimunović</strong>.</p>
+        <p>Opće prijedloge i ispravke sadržaja moguće je ostaviti na <a href="https://github.com/romansimunovic/Potez/issues" target="_blank" rel="noopener">GitHub Issues stranici projekta</a>. To je javni prostor: nemoj objavljivati osobne podatke, privatnu korespondenciju ni informacije o drugim osobama. Zahtjeve koji sadrže osobne podatke nemoj slati javnim putem. Opće informacije o autoru dostupne su na <a href="https://github.com/romansimunovic" target="_blank" rel="noopener">GitHub profilu autora</a>.</p>
+      </section>
+
+      <section class="legal-panel">
+        <h2>2. Što POTEZ sprema na tvom uređaju?</h2>
+        <p>Radi funkcionalnosti, preglednik lokalno sprema:</p>
+        <ul>
+          <li>bodove (XP), značke, dovršene izazove i oznaku dovršetka dnevne/tjedne misije</li>
+          <li>raspodjelu u budžetskoj igri za usporedbu igrača A i B na istom uređaju</li>
+          <li>postavku želiš li čuti kratki zvuk nagrade</li>
+          <li>statičke datoteke aplikacije u predmemoriji (Service Worker / Cache Storage), radi bržeg učitavanja i osnovne podrške izvan mreže</li>
+        </ul>
+        <p>Te se vrijednosti spremaju u pregledniku (localStorage i Cache Storage). POTEZ ih ne šalje u korisnički profil ni projektnu bazu. Ne postoji račun i autor projekta ne može iz aplikacije vidjeti tvoj XP, odgovore ili budžetske izbore.</p>
+        <p>Napredak i usporedbe možeš obrisati gumbom „Obriši lokalni napredak” na dnu aplikacije. Postavku zvuka mijenjaš zasebnim prekidačem. Možeš ih obrisati i kroz postavke podataka web-stranice u pregledniku.</p>
+      </section>
+
+      <section class="legal-panel">
+        <h2>3. Što ne prikupljamo kroz aplikaciju?</h2>
+        <p>POTEZ nema registraciju ni prijavu, korisničke profile, praćenje lokacije, oglašivačke kolačiće, piksele, analitičke alate ni sustav za profiliranje političkih stavova.</p>
+        <p>U ovoj pilot-verziji obrazac za povratne informacije nije dostupan, a slanje poruka iz aplikacije je isključeno. Ne šalješ nam poruku kroz POTEZ i ne postoji baza s korisničkim komentarima. Ako otvoriš GitHub Issues, prelaziš na zasebnu platformu koju uređuje GitHub i na koju se primjenjuju njihova pravila.</p>
+        <p>POTEZ aplikacijski kod ne postavlja marketinške kolačiće. Lokalna pohrana i predmemorija opisane su u prethodnom odjeljku.</p>
+      </section>
+
+      <section class="legal-panel">
+        <h2>4. Tehnički podaci hostinga</h2>
+        <p>Stranica je objavljena putem Cloudflare Pages. Kao i kod uobičajenog posluživanja web-stranica, pružatelj infrastrukture može obrađivati tehničke podatke zahtjeva radi isporuke sadržaja, sigurnosti i sprječavanja zloupotreba. Cloudflare navodi da takvi podaci mogu uključivati IP adrese, podatke o usmjeravanju prometa i konfiguraciji sustava.</p>
+        <p>Ti tehnički podaci nisu XP, odgovori na kviz ili budžetski odabiri. POTEZ ne koristi zaseban analitički alat niti namjerno izrađuje korisničke profile. Obradu koju provodi Cloudflare uređuju <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflareova obavijest o privatnosti</a> i odgovarajući uvjeti njihovih usluga.</p>
+      </section>
+
+      <section class="legal-panel">
+        <h2>5. Dijeljenje napretka i vanjske poveznice</h2>
+        <p>Gumb za dijeljenje koristi mogućnosti preglednika ili operacijskog sustava. Aktivira se samo kada ga sam/a pritisneš. Ti biraš hoćeš li i kome poslati sažetak napretka ili poziv na igru. POTEZ ne dobiva popis primatelja i ne vidi kamo si poslao/la sadržaj.</p>
+        <p>Na poveznicama prema drugim organizacijama i servisima napuštaš POTEZ. Njihove obavijesti o privatnosti i uvjeti korištenja vrijede za njihove stranice.</p>
+      </section>
+
+      <section class="legal-panel">
+        <h2>6. Zvuk i animacije</h2>
+        <p>Kratki zvuk nagrade generira se lokalno u pregledniku putem Web Audio API-ja nakon što zaradiš bodove. Ne preuzima se audio datoteka i zvuk se ne pokreće automatski pri otvaranju stranice. Možeš ga isključiti prekidačem u putovnici; izbor se pamti lokalno na uređaju.</p>
+      </section>
+
+      <section class="legal-panel">
+        <h2>7. Tvoja kontrola i prava</h2>
+        <p>Lokalni napredak možeš obrisati u bilo kojem trenutku. Budući da POTEZ ne prima odgovore na kviz ni podatke o napretku, autor nema pristup tim vrijednostima i ne može ih izvoziti ili mijenjati na daljinu.</p>
+        <p>Za opće informacije o pravima u vezi s osobnim podacima pogledaj <a href="https://azop.hr/data-subject-rights/" target="_blank" rel="noopener">objašnjenje prava ispitanika Agencije za zaštitu osobnih podataka</a> i <a href="https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en" target="_blank" rel="noopener">informacije Europske komisije</a>. Pritužbu možeš uputiti <a href="https://azop.hr/" target="_blank" rel="noopener">Agenciji za zaštitu osobnih podataka (AZOP)</a>.</p>
+      </section>
+
+      <section class="legal-panel legal-note">
+        <h2>8. Ako se način rada promijeni</h2>
+        <p>Ako se u budućnosti uključi obrazac, analitika, računi ili druga obrada podataka, ova će obavijest biti izmijenjena prije aktivacije. Prije prikupljanja poruka potrebno je jasno odrediti kontakt voditelja obrade, svrhu i pravnu osnovu, primatelje, rok čuvanja i postupak za ostvarivanje prava. Trenutačno takvo prikupljanje nije uključeno.</p>
+        <p>Ova obavijest opisuje trenutačnu tehničku konfiguraciju pilot-verzije i nije individualni pravni savjet.</p>
+      </section>
+
+      <p class="legal-back"><a href="/">← Povratak na POTEZ</a> · <a href="/uvjeti.html">Uvjeti korištenja</a></p>
     </main>
-    <footer class="footer"><div><strong>potez.</strong> · pilot</div><div><a href="/">Početna</a> · <a href="/#povratne">Povratne informacije</a></div></footer>
+    <footer class="footer"><div><strong>potez.</strong> · pilot</div><div><a href="/">Početna</a> · <a href="/uvjeti.html">Uvjeti korištenja</a></div><div>Autor projekta: Roman Šimunović.</div></footer>
   </div>
 </body>
 </html>

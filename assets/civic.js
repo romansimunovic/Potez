@@ -288,6 +288,7 @@
             localStorage.setItem(STORE, JSON.stringify(current));
             window.dispatchEvent(new CustomEvent('potez:progress'));
           } catch {}
+          window.POTEZ_FEEDBACK?.success();
         }
 
         feedbackNode.textContent = (correct ? 'Točno. +3 XP. ' : 'Dobar pokušaj — pogledaj zašto. +3 XP. ') +
