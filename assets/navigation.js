@@ -12,6 +12,9 @@
   }
   function showView(view,target,scroll){
     if(!view)view=homeView;
+    const parentDetails=target?.closest?.('details');
+    if(parentDetails)parentDetails.open=true;
+    if(target?.tagName==='DETAILS')target.open=true;
     views.forEach(item=>{item.hidden=item!==view;});
     updateActiveNavigation(view);
     if(scroll){

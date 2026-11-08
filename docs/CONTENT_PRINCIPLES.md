@@ -40,3 +40,17 @@ Za svaki predloženi korak objasniti:
 5. što se može učiniti ako tijelo ne odgovori.
 
 Ne obećavati da prijava, peticija ili komentar nužno mijenjaju odluku.
+
+
+## Dnevne zanimljivosti i tematske kartice
+
+- Dnevna zanimljivost mora biti unaprijed urednički provjerena i vezana uz konkretan primarni ili metodološki jasan izvor.
+- Rotacija sadržaja smije mijenjati redoslijed, ne činjenice, brojke, izvor ili zaključak.
+- Uz brojku navesti populaciju, uzorak i godinu; ne pretvarati nalaz učenika u tvrdnju o svim mladima.
+- Uz propis navesti vremenski okvir i provjeriti važeću verziju. Dokument s isteklim razdobljem ostaje povijesni izvor i ne smije se prikazivati kao aktualna mjera.
+- Razlikovati misinformaciju od dezinformacije, ali ne zaključivati o namjeri iz same objave bez dodatnih dokaza.
+- Za korupciju i integritet ne koristiti senzacionalizam ni optužbe bez pravnog konteksta. Razlikovati rizik, sumnju, prijavu, izvide, istragu, optužnicu i presudu.
+- Svaka kartica sadrži: stvarno pitanje, kratko objašnjenje, mogući građanski potez i izvor koji se otvara na zahtjev.
+- Bodovi se dodjeljuju za dovršetak edukativnog zadatka, ne za politički stav, brzinu, slaganje s autorom ili stvarni utjecaj.
+- Interesi odabrani u filteru služe samo trenutačnom prikazu. Ne spremaju se kao profil, ne šalju se na poslužitelj i ne koriste za personalizirano oglašavanje.
+- Izvori, opseg tvrdnji i datum provjere vode se u [registru izvora za učenje](LEARNING_SOURCES_2026.md).

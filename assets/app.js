@@ -6,7 +6,23 @@
   try{saved={...saved,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch(e){}
   function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved))}catch(e){} updateActionXp();window.dispatchEvent(new CustomEvent('potez:progress'))}
   function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2400)}
-  function award(flag,points,label){if(!saved[flag]){saved[flag]=true;saved.xp=(saved.xp||0)+points;persist();window.POTEZ_FEEDBACK?.success();toast('+'+points+' POTEZ bodova · '+label)}else{toast('Ovaj izazov već je uračunat u tvoj napredak.')}}
+  function award(flag,points,label){if(saved[flag]){toast('Ovaj izazov već je uračunat u tvoj napredak.');return false;}saved[flag]=true;saved.xp=(saved.xp||0)+points;persist();window.POTEZ_FEEDBACK?.success();toast('+'+points+' POTEZ bodova · '+label);return true;}
+  // Expose only narrow, validated progress actions to the learning interface.
+  window.POTEZ_PROGRESS = Object.freeze({
+    awardLesson(flag,label) {
+      if(typeof flag!=='string'||!/^lesson-[a-z0-9-]+$/.test(flag))return false;
+      return award(flag,4,label||'naučena tema');
+    },
+    claimDailyFact(stamp) {
+      if(typeof stamp!=='string'||stamp.length!==10||stamp[4]!=='-'||stamp[7]!=='-'||!Number.isFinite(Date.parse(stamp))||saved.dailyFactStamp===stamp)return false;
+      saved.dailyFactStamp=stamp;
+      saved.xp=(saved.xp||0)+2;
+      persist();
+      window.POTEZ_FEEDBACK?.success();
+      toast('+2 POTEZ boda · zanimljivost dana');
+      return true;
+    }
+  });
   function updateActionXp(){$('#actionXp').textContent='Tvoj napredak: '+(saved.xp||0)+' bodova'}
   const weeklyMissions=[
     {title:'Pogledaj kako zastupnici stvarno glasaju.',desc:'Na Parlametru usporedi kako su zastupnici glasali o temi koja te zanima.',url:'https://parlametar.hr/',label:'Istraži glasanja',icon:'🏛️'},
@@ -201,7 +217,7 @@
   function renderAction(){const key=$('#topicSelect').value;const d=actionData[key];const out=$('#actionOutput');out.innerHTML='<div class="mini-tag">Tvoj prvi potez</div><h3>'+d.title+'</h3><p>'+d.text+'</p><ol>'+d.steps.map(s=>'<li>'+s+'</li>').join('')+'</ol><div class="resource-links">'+d.links.map(l=>'<a href="'+l[1]+'" target="_blank" rel="noopener">'+l[0]+' ↗</a>').join('')+'</div><button class="btn btn-dark action-complete" id="actionComplete" type="button" '+(saved.actionDone?'disabled':'')+'>'+(saved.actionDone?'Prvi korak zabilježen ✓':'Odredio/la sam svoj prvi korak +5')+'</button>';const complete=$('#actionComplete');if(complete&&!saved.actionDone){complete.addEventListener('click',()=>{award('actionDone',5,'prvi korak');renderAction()},{once:true})}}
   $('#topicSelect').addEventListener('change',renderAction);$('#effortSelect').addEventListener('change',()=>{const t=$('#effortSelect').value;const msg=t==='quick'?'Prvi mali korak je dovoljan: prikupi činjenicu i pronađi nadležno tijelo.':t==='medium'?'Odvoji vrijeme za provjeru dokumenta, razgovor s još jednom osobom i slanje konkretnog upita.':'Okupi malu grupu, podijelite zadatke i dogovorite tko će pratiti odgovor institucije.';const p=$('#actionOutput').querySelector('p');if(p)p.textContent=actionData[$('#topicSelect').value].text+' '+msg});
   // Clear progress is intentionally local-only.
-  $('#clearProgress').addEventListener('click',()=>{if(confirm('Obrisati sav spremljeni napredak na ovom uređaju?')){saved={xp:0,quizDone:false,factDone:false,budgetDone:false,actionDone:false};try{localStorage.removeItem('potez-budget-duel-v1');localStorage.removeItem('potez-budget-duel-v2')}catch(e){}persist();toast('Lokalni napredak je obrisan.')}});
+  $('#clearProgress').addEventListener('click',()=>{if(confirm('Obrisati sav spremljeni napredak na ovom uređaju?')){saved={xp:0,quizDone:false,factDone:false,budgetDone:false,actionDone:false};try{localStorage.removeItem('potez-budget-duel-v1');localStorage.removeItem('potez-budget-duel-v2')}catch(e){}persist();window.dispatchEvent(new CustomEvent('potez:reset'));toast('Lokalni napredak je obrisan.')}});
   renderWeekly();
   updateActionXp();
 })();
