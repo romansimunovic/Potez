@@ -384,3 +384,7 @@ button:disabled { cursor:not-allowed; }
   .grid-2,.sim-wrap,.action-finder,.feedback-layout { grid-template-columns:1fr; }
   .link-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
+
+.duel-share-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; padding-top:12px; }
+.duel-share-actions .btn { flex:1 1 180px; justify-content:center; }
+.duel-share-actions .btn:disabled { opacity:.5; cursor:not-allowed; }
