@@ -43,15 +43,15 @@
 <div class="shell">
   <header class="topline">
     <details class="mobile-menu" id="mobileMenu">
-      <summary aria-label="Otvori glavni izbornik">
+      <summary aria-label="Otvori glavni izbornik" aria-controls="mobileMenuPanel" aria-expanded="false">
         <svg class="mobile-menu-trigger-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <span>Izbornik</span>
       </summary>
       <button class="mobile-menu-backdrop" type="button" aria-label="Zatvori izbornik"></button>
-      <div class="mobile-menu-panel" id="mobileMenuPanel">
+      <div class="mobile-menu-panel" id="mobileMenuPanel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle">
         <div class="mobile-menu-heading">
           <span class="section-kicker">ISTRAŽI POTEZ</span>
-          <strong>Što te zanima?</strong>
+          <strong id="mobileMenuTitle">Što te zanima?</strong>
           <p>Odaberi područje i kreni od pitanja koje ti je važno.</p>
         </div>
         <nav class="mobile-menu-links" aria-label="Glavna navigacija na mobitelu">
@@ -587,7 +587,7 @@
         <div class="panel lilac">
           <div class="mini-tag">Odaberi temu</div>
           <h3>Što te zanima?</h3>
-          <p>Odaberi problem i dobit ćeš prvi konkretan put. Nadležnost ponekad ovisi o vlasništvu, vrsti usluge i lokalnim pravilima — zato je prvi korak uvijek provjeriti tko je odgovoran</p>
+          <p>Odaberi područje za pregled institucija i izvora. Nadležnost ovisi o vrsti usluge, vlasništvu i važećim pravilima.</p>
           <div class="field"><label for="topicSelect">Tema</label><select id="topicSelect">
             <option value="public">Javni prostor, promet i kvart</option>
             <option value="school">Škola, faks i obrazovanje</option>
@@ -628,7 +628,7 @@
       <p class="section-intro">Otvori samo skupinu koja ti treba. POVEZNICE vode na službene ili specijalizirane izvore.</p>
     </div>
 
-    <details class="tool-disclosure" open>
+    <details class="tool-disclosure">
       <summary>
         <span class="tool-disclosure-title">Javne odluke i dokumenti</span>
         <span class="tool-disclosure-meta">5 izvora</span>
