@@ -235,6 +235,7 @@ assert 'potez-pilot-v23' in sw
 assert "'/assets/learning-data.js'" in sw and "'/assets/learning.js'" in sw
 assert "awardLesson" in app and "claimDailyFact" in app
 assert "saved.dailyFactStamp===stamp" in app
+assert "potez:reset" in app and "potez:reset" in civic
 assert "lesson-" in civic and "passportTopics" in civic
 assert "parentDetails.open=true" in navigation
 assert ".innerHTML" not in learning
