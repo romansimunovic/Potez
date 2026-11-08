@@ -18,7 +18,7 @@ Aplikacija je organizirana u pet odredišta:
 
 - **Početna** — kratko objašnjenje projekta i put prema prvom izazovu.
 - **Uči** — kvizovi, provjera tvrdnji i mapa institucija i nadležnosti.
-- **Igraj** — građanska putovnica, XP, značke, dnevno pitanje, tjedne misije i simulacija javnog proračuna.
+- **Igraj** — građanska putovnica, XP, značke, dnevne situacijske misije, tjedne misije i simulacija javnog proračuna.
 - **Djeluj** — praktični vodič od problema do prvog koraka.
 - **Alati** — poveznice na javne resurse, primjeri dobre prakse i informacije o pilotu.
 
@@ -69,8 +69,8 @@ Aplikacija ne koristi vlastitu analitiku, oglašivačke kolačiće ni piksele za
 Stranica se poslužuje putem Cloudflare Pages. Pružatelj hostinga može obrađivati tehničke podatke mrežnih zahtjeva radi isporuke i zaštite usluge, u skladu sa svojim pravilima. Detalji su u [obavijesti o privatnosti](privacy.html).
 
 **Dokumentacija:**
-- [Obavijest o privatnosti](privacy.html)
-- [Uvjeti korištenja](uvjeti.html)
+- [Obavijest o privatnosti](/privacy)
+- [Uvjeti korištenja](/uvjeti)
 
 ## Dijeljenje i gamifikacija
 
