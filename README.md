@@ -113,7 +113,7 @@ Za provjeru koda i granica privatnosti:
 bash scripts/check.sh
 ~~~
 
-Provjere obuhvaćaju sintaksu JavaScripta, validaciju HTML-a i internih poveznica, manifest te potvrdu da javni pilot nema server-side funkcije, bazu ni obrazac za prikupljanje poruka.
+Provjere obuhvaćaju sintaksu JavaScripta, HTML strukturu i interne poveznice, manifest, edukativne podatke te potvrdu da javni pilot nema server-side funkcije, bazu ni obrazac za prikupljanje poruka.
 
 ## Objavljivanje na Cloudflare Pages
 

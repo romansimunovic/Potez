@@ -1,7 +1,7 @@
 # POTEZ — izvori za tematske kartice i zanimljivosti (2026.)
 
 **Datum uredničke provjere:** 8. studenoga 2026.  
-**Namjena:** interna dokumentacija izvora za sadržaj u `assets/learning-data.js`.  
+**Namjena:** javni registar izvora za sadržaj u `assets/learning-data.js`.  
 **Pravilo:** poveznica u dokumentu ne znači da izvor podupire svaku moguću interpretaciju teme. U kartici se mora navesti opseg podatka, a datum i status izvora ponovno provjeriti prije većeg godišnjeg izdanja.
 
 ## Istraživanja i participacija mladih

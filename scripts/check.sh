@@ -247,10 +247,11 @@ assert "localStorage" in learning and "POTEZ_PROGRESS" in learning
 assert "kategorije u izborniku tema" in privacy
 assert "zanimljivost dana" in privacy.lower()
 assert "Sitemap: https://potez.pages.dev/sitemap.xml" in robots
-for path in ('docs/LEARNING_SOURCES_2026.md', 'docs/POTENTIAL_PARTNERS_AND_PILOT.md', 'docs/BUDGET_MODEL_2026.md'):
+for path in ('docs/AI_TRANSPARENCY.md', 'docs/CONTENT_PRINCIPLES.md', 'docs/LEARNING_SOURCES_2026.md', 'docs/BUDGET_MODEL_2026.md'):
     assert path in readme, path
-for path in ('docs/LEARNING_SOURCES_2026.md', 'docs/POTENTIAL_PARTNERS_AND_PILOT.md', 'docs/BUDGET_MODEL_2026.md'):
-    assert Path(path).exists(), path
+    assert Path(path).is_file(), path
+for private_path in ('docs/POTENTIAL_PARTNERS_AND_PILOT.md', 'docs/BUDGET_SOURCES_2026.md'):
+    assert not Path(private_path).exists(), private_path
 
 ET.parse("sitemap.xml")
 mobile = Path("assets/navigation.js").read_text(encoding="utf-8")

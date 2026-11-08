@@ -49,4 +49,4 @@ Objašnjenja kategorija navode tipične lokalne usluge i ulaganja. Ne predstavlj
 - Popis 2021. je najnovija zajednička osnova u ovom modelu; demografija se od tada mijenja.
 - Broj djece predškolske dobi i učenika I.–IV. razreda nije broj mladih od 15 do 29 godina.
 - Troškovni i turistički faktori autorske su pretpostavke za igrivost, a ne statističke procjene.
-- Stari pregled službenih planova i izvora sačuvan je u [registru proračunskih izvora 2026.](docs/BUDGET_SOURCES_2026.md), ali više ne pogoni interaktivni simulator.
+- Demografski izvori i metodološka ograničenja navedeni su u odjeljku „Demografska osnova”; simulacijske pretpostavke nisu službeni gradski financijski podaci.
