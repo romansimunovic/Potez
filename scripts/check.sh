@@ -262,8 +262,16 @@ assert 'role="dialog"' in html and 'aria-modal="true"' in html
 assert "mobile-menu-close" in html and "mobile-menu-backdrop" in html
 assert "mobile-menu-panel" in css and "mobile-menu-links" in css
 assert "tool-disclosure" in css and "issue-guide-card" in css
-assert 'U PRAKSI · INSTITUCIJE · INFORMACIJE' in html
-assert 'RESURSI · IZVORI · MATERIJALI' in html
+assert 'U PRAKSI · INSTITUCIJE · INFORMACIJE' not in html
+assert 'RESURSI · IZVORI · MATERIJALI' not in html
+assert 'Kratko predstavljanje POTEZA' not in html
+assert 'Bez registracije' not in html and 'registracija ni posebna oprema' not in html
+assert 'class="section-kicker"' not in html and 'class="mini-tag"' not in html
+assert 'class="view-meta"' not in html
+assert 'tool-disclosure-meta' not in html and 'tool-disclosure-hint' not in html
+assert 'learning-footnote' not in html and 'learningCount' not in html
+assert 'dailyDate' not in html and 'dailyCaseLabel' not in html
+assert 'PREGLED TEME' not in Path("assets/app.js").read_text(encoding="utf-8")
 assert "body{padding-bottom:0!important}" in css
 print("Verified learning UI, local-only progress, compact passport, SEO metadata, sitemap and source documentation.")
 PY
