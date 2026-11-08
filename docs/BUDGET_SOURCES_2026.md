@@ -13,6 +13,11 @@ Ovaj registar služi uredničkoj provjeri podataka u proračunskom izazovu POTEZ
 | Slatina | Proračun 2026. | Odabrane funkcijske klasifikacije |
 | Vukovar | Proračun 2026.–2028. | Odabrane funkcijske klasifikacije |
 | Virovitica | II. izmjene i dopune proračuna 2026., usvojene 25. 6. 2026. | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 73.329.364 EUR, nije ukupni proračun |
+| Valpovo | Posljednji dokumentirani plan prije prijedloga III. izmjena za 2026. | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 14.375.354,05 EUR. Vrijednosti su preuzete iz stupca „Planirano” u službenom prijedlogu III. izmjena; novi predloženi iznosi nisu tretirani kao usvojeni plan |
+
+## Napomena o Valpovu
+
+Službena stranica Grada Valpova objavljuje plan proračuna za 2026. i I. izmjene i dopune. U materijalima za sjednicu 1. listopada 2026. pronađen je dokument označen kao **prijedlog III. izmjena i dopuna**. Zato su u igru prenesene vrijednosti iz stupca „Planirano” (plan prije predloženih promjena), a ne kolona s novim predloženim iznosima. Zbroj šest funkcija 04, 05, 06, 08, 09 i 10 iznosi 14.375.354,05 EUR; to je izdvojeni funkcijski subtotal, ne ukupni proračun. Službeni izvor: https://valpovo.hr/proracun/ ; prijedlog za usporedbu: https://valpovo.hr/wp-content/uploads/2026/10/4.III_.-izmjene-i-dopune-Proracuna-za-2026.godinu.pdf.
 
 ## Gradovi u pripremi
 
@@ -23,7 +28,6 @@ Ovaj registar služi uredničkoj provjeri podataka u proračunskom izazovu POTEZ
 | Vinkovci | I. izmjene i dopune proračuna 2026., objavljene 27. 5. 2026.; PDF 36,5 MB | Izvući tablice iz izmijenjenog proračuna; XLS koji je objavljen uz njega odnosi se na plan nabave, ne na cijeli proračun | https://www.vinkovci.hr/dokumenti/proracun |
 | Požega | I. izmjene i dopune 2026., objavljene 26. 6. 2026.; tablice u XLS formatu | Obraditi važeći XLS i obrazloženje; uskladiti stavke s odabranim funkcijama/programima | https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine |
 | Virovitica | II. izmjene i dopune 2026. | Aktivno; izvorni PDF povezan u scenariju | https://www.virovitica.hr/proracun-grada-virovitice/ |
-| Valpovo | I. izmjene i dopune 2026. i obrazloženje, objavljeni u XLS formatu; financijski izvještaji 2026. | Obraditi izmijenjeni plan i provjeriti zbrojeve; ne zamjenjivati ga izvršenjem | https://valpovo.hr/proracun/ |
 | Belišće | II. izmjene i dopune 2026.; izvještaj izvršenja do 30. 9. 2026. | Obraditi drugi rebalans; izvještaj izvršenja koristiti samo kao kontrolu realizacije, ne kao plan | https://belisce.hr/proracun/ |
 | Đakovo | II. rebalans proračuna za 2026. i pripadajuće obrazloženje | Izdvojiti tablice iz II. rebalansa; ne koristiti I. rebalans ili početni plan kao aktualnu osnovu | https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html |
 
@@ -37,4 +41,4 @@ Ovaj registar služi uredničkoj provjeri podataka u proračunskom izazovu POTEZ
 6. U sučelju jasno navesti „zbroj odabranih funkcija/programa” i da klizači mijenjaju samo edukativni scenarij.
 7. Zadržati službenu poveznicu izravno uz scenarij.
 
-**Status 8. 11. 2026.:** Virovitica je aktivirana na temelju II. rebalansa. Ostali gradovi iz tablice ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
+**Status 8. 11. 2026.:** Aktivni su Osijek, Slavonski Brod, Slatina, Vukovar, Virovitica i Valpovo. Valpovo koristi plan prije predloženih III. izmjena. Zagreb, Nova Gradiška, Vinkovci, Požega, Belišće i Đakovo ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
