@@ -304,6 +304,6 @@ window.POTEZ_BUDGET_DATA = {
     },
   },
   upcoming: [
-    { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Službeni arhiv sadrži proračun i izmjene za 2026.; utvrđivanje posljednje važeće tablice i obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
-    { id: 'požega', label: 'Požega', note: 'I. izmjene objavljene 26. 6. 2026.; službene XLS tablice treba obraditi', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
+    { id: 'nova-gradiska', label: 'Nova Gradiška', note: '10. sjednica zakazana za 11. 11. 2026.; točka 2 je polugodišnje izvršenje, ne rebalans; početne tablice treba izvući', source: 'https://novagradiska.hr/wp-file-download-search/' },
+    { id: 'požega', label: 'Požega', note: 'I. izmjene od 26. 6.; 12. sjednica 15. 9. usvojila izvršenje; najavljen rebalans krajem listopada, treba potvrditi usvajanje', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
   ]};
