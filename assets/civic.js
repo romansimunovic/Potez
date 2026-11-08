@@ -345,7 +345,7 @@
   }
 
   const currentBudget = () => Array.from(document.querySelectorAll('[data-budget-slider]')).map(input => Number(input.dataset.amount || 0));
-  const categoryNames = () => Array.from(document.querySelectorAll('[data-budget-name]')).map(label => label.textContent.trim());
+  const categoryNames = () => Array.from(document.querySelectorAll('[data-budget-name]')).map(label => label.querySelector('.budget-category-label')?.textContent.trim() || label.textContent.trim());
   const budgetContext = () => $('#budgetCity')?.value || '';
   const budgetLabel = () => {
     const city = $('#budgetCity')?.selectedOptions?.[0]?.textContent || 'odabrani grad';
