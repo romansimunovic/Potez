@@ -67,3 +67,9 @@ Gradonačelnik je na 12. sjednici Gradskog vijeća **15. 9. 2026.** izjavio da s
 7. Zadržati službenu poveznicu izravno uz scenarij.
 
 **Status 8. 11. 2026.:** Aktivni su Osijek, Slavonski Brod, Slatina, Vukovar, Virovitica, Valpovo, Zagreb, Vinkovci, Belišće i Đakovo. Zagreb, Vinkovci i Belišće koriste jasno označene početne usvojene planove prije naknadnih izmjena; Đakovo koristi II. rebalans. Nova Gradiška i Požega ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
+
+## Status nakon redizajna simulatora
+
+**Ažurirano 8. 11. 2026.** Ovaj registar ostaje arhiva prethodnog istraživanja službenih gradskih planova i rebalansa. Interaktivni izazov više ne prikazuje te iznose kao početnu raspodjelu. U novom UX-u svi gradovi koriste zajednički edukativni model na temelju broja stanovnika, broja djece predškolske dobi i učenika I.–IV. razreda, uz otvoreno označene simulacijske faktore troška i turističkog opterećenja. Razlog promjene je usporedivost i razumljivost igre, a ne tvrdnja da su simulirani iznosi službeni.
+
+Službeni planovi i prethodni izračuni u ovom registru mogu se koristiti za daljnju analizu i kalibraciju, ali se ne smiju predstavljati kao izvor trenutnih slider-iznosa. Za aktivni model pogledati odjeljak „Model simulacije lokalnog proračuna” u README.md.

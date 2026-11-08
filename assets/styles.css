@@ -1930,3 +1930,99 @@ html[data-theme="dark"] .budget-result p{color:#edf4ee}
 html:not([data-theme="dark"]) .budget-upcoming a{color:var(--green-deep)}
 html[data-theme="dark"] .budget-upcoming{color:#d0dbd3}
 html[data-theme="dark"] .budget-upcoming a{color:#d8eaff}
+
+
+/* Budget game refresh: one city picker, clear trade-offs, expandable explanations. */
+#budzet .budget-simulation,
+#budzet .sim-wrap,
+#budzet .budget-sliders,
+#budzet .budget-total,
+#budzet .budget-line { min-width: 0; max-width: 100%; }
+#budzet .budget-simulation { overflow: hidden; }
+#budzet .section-intro { max-width: 44ch; }
+.budget-game-intro { max-width: 68ch; margin: 8px 0 18px; }
+.budget-game-intro strong { display: block; margin-bottom: 3px; font-size: 1.05rem; }
+.budget-game-intro p { margin: 0; color: #46534a; font-size: .9rem; line-height: 1.55; }
+.budget-city-picker { display: grid; gap: 7px; width: min(100%, 440px); margin: 15px 0 18px; color: var(--ink); font-size: .82rem; font-weight: 900; }
+.budget-city-picker select { width: 100%; min-width: 0; min-height: 50px; padding: 10px 40px 10px 13px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 1rem; }
+#budgetContextTitle { display: block; max-width: 100%; overflow-wrap: anywhere; }
+#budgetContextSubtitle { display: block; margin-top: 2px; color: var(--muted); font-size: .75rem; font-weight: 700; }
+.sim-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(270px, 320px); align-items: start; gap: clamp(16px, 2.5vw, 28px); margin-top: 14px; }
+.budget-sliders { display: grid; gap: 0; min-width: 0; }
+.budget-line { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0; margin: 0; padding: 15px 0; border-bottom: 1px solid rgba(42,57,45,.17); }
+.budget-line-head { display: flex; min-width: 0; align-items: center; justify-content: space-between; gap: 12px; }
+.budget-line label { display: flex; min-width: 0; flex: 1 1 auto; align-items: center; gap: 10px; color: #26352b; font-size: .94rem; font-weight: 900; line-height: 1.3; overflow-wrap: anywhere; }
+.budget-category-icon { display: inline-grid; flex: 0 0 30px; width: 30px; height: 30px; place-items: center; font-size: 1.25rem; }
+.budget-line .amount { display: block; flex: 0 0 auto; max-width: 50%; color: #26352b; font-size: clamp(.78rem, 1.2vw, .94rem); font-weight: 950; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.budget-line-control { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; min-width: 0; }
+.budget-line input[type="range"] { display: block; grid-column: auto; width: 100%; min-width: 0; min-height: 34px; margin: 0; accent-color: #527c2c; cursor: pointer; }
+.budget-share { color: #59665e; font-size: .73rem; font-weight: 800; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.budget-category-info { min-width: 0; color: #536159; font-size: .78rem; line-height: 1.5; }
+.budget-category-info summary { width: max-content; max-width: 100%; min-height: 30px; padding: 3px 0; color: #365a1e; cursor: pointer; font-size: .76rem; font-weight: 850; text-decoration: underline; text-underline-offset: 3px; }
+.budget-category-info p { max-width: 65ch; margin: 6px 0 1px; color: #46534a; font-size: .82rem; line-height: 1.55; }
+.budget-total { position: sticky; top: 18px; width: 100%; min-width: 0; overflow: hidden; padding: clamp(16px, 2vw, 22px); border-radius: 20px; background: var(--dark); color: white; }
+.budget-total .mini-tag { max-width: 100%; overflow-wrap: anywhere; background: #35483d; color: #d9efbf; }
+.budget-total .big { display: block; max-width: 100%; margin: 9px 0 17px; color: #fff; font-size: clamp(1.35rem, 2.4vw, 2rem); font-weight: 950; line-height: 1.12; letter-spacing: 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.budget-spent-label { color: #d7e1d9; font-size: .82rem; font-weight: 800; }
+.budget-total .budget-spent-value { margin: 4px 0 13px; color: #d9efbf; }
+.budget-total .progress { width: 100%; max-width: 100%; overflow: hidden; background: #3c4c43; }
+.budget-total .progress > span { background: var(--green); }
+.budget-total p { margin: 10px 0 0; color: #e1e9e3; font-size: .82rem; line-height: 1.45; overflow-wrap: anywhere; }
+.budget-total .budget-status { color: #d4e7c4; }
+.budget-total .budget-status.is-over-budget { color: #ffb6a8; }
+.budget-total .btn { width: 100%; max-width: 100%; margin-top: 15px; white-space: normal; }
+.budget-total .btn:disabled { opacity: .48; cursor: not-allowed; }
+.budget-total .reset { display: block; max-width: 100%; margin: 10px auto 0; color: #d0dbd3; text-align: center; }
+.budget-result { min-width: 0; margin-top: 15px; padding-top: 13px; border-top: 1px solid #526158; color: #fff; font-size: .84rem; line-height: 1.55; overflow-wrap: anywhere; }
+.budget-result strong { display: block; color: #d9efbf; }
+.budget-result p { margin: 7px 0 0; color: #e3eee5; }
+.budget-method { margin-top: 18px; padding-top: 13px; border-top: 1px solid rgba(42,57,45,.18); color: var(--muted); font-size: .78rem; line-height: 1.55; }
+.budget-method summary { width: max-content; max-width: 100%; min-height: 34px; padding: 5px 0; color: var(--ink); cursor: pointer; font-weight: 900; }
+.budget-method p { max-width: 78ch; margin: 7px 0; color: var(--muted); font-size: .82rem; }
+.budget-method-links { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 9px; }
+.budget-method-links a { color: var(--green-deep); font-size: .76rem; font-weight: 850; text-underline-offset: 3px; overflow-wrap: anywhere; }
+html[data-theme="dark"] .budget-game-intro p,
+html[data-theme="dark"] .budget-category-info,
+html[data-theme="dark"] .budget-category-info p,
+html[data-theme="dark"] .budget-share { color: #dce7de; }
+html[data-theme="dark"] .budget-line label,
+html[data-theme="dark"] .budget-line .amount,
+html[data-theme="dark"] .budget-method summary { color: #f7faf7; }
+html[data-theme="dark"] .budget-category-info summary,
+html[data-theme="dark"] .budget-method-links a { color: #d8f2b5; }
+html[data-theme="dark"] .budget-method p { color: #d5e0d8; }
+
+@media (max-width: 850px) {
+  .sim-wrap { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .budget-total { position: static; order: -1; }
+}
+@media (max-width: 600px) {
+  #budzet .budget-simulation { padding: 16px; }
+  .budget-city-picker { width: 100%; }
+  .budget-total { padding: 16px; }
+  .budget-total .big { font-size: clamp(1.35rem, 6vw, 1.8rem); }
+  .budget-line { padding: 13px 0; gap: 7px; }
+  .budget-line-head { gap: 8px; }
+  .budget-line label { gap: 7px; font-size: .88rem; }
+  .budget-category-icon { flex-basis: 26px; width: 26px; height: 26px; font-size: 1.1rem; }
+  .budget-line .amount { max-width: 56%; font-size: .76rem; }
+  .budget-line-control { grid-template-columns: minmax(0, 1fr); gap: 1px; }
+  .budget-line input[type="range"] { min-height: 38px; }
+  .budget-share { text-align: left; font-size: .7rem; }
+  .budget-category-info summary { min-height: 34px; }
+  .budget-total .btn { min-height: 48px; }
+}
+@media (max-width: 360px) {
+  #budzet .budget-simulation { padding: 12px; }
+  .budget-total .big { font-size: 1.28rem; }
+  .budget-line .amount { font-size: .72rem; }
+}
+
+/* Keep large currency values inside the scorecard at every viewport width. */
+.budget-total .big { white-space: nowrap; overflow-wrap: normal; font-size: clamp(1.16rem, 1.85vw, 1.58rem); letter-spacing: -.025em; }
+@media (max-width:600px) {
+  .budget-total .big { font-size: clamp(1.12rem, 5.1vw, 1.48rem); white-space: nowrap; }
+}
+@media (max-width:360px) {
+  .budget-total .big { font-size: 1.08rem; }
+}

@@ -35,122 +35,153 @@
   $('#quizNext').addEventListener('click',()=>{if(qi<qs.length-1){qi++;renderQuiz()}else{award('quizDone',15,'istraživački izazov');$('#quizNext').style.display='none';$('#quizRestart').style.display='inline-flex';$('#quizFeedback').innerHTML+='<br><strong>Rezultat: '+score+'/4.</strong> Najvažniji dio nije rezultat nego kontekst: ovo je uzorak učenika završnih razreda, a ne svih mladih.';}});
   $('#quizRestart').addEventListener('click',()=>{qi=0;score=0;renderQuiz()});renderQuiz();
 
-  // Budget challenge: the starting allocation comes from an adopted local programme.
+  // Budget challenge: an educational city-budget simulation, scaled to local population.
   const budgetData = window.POTEZ_BUDGET_DATA;
   const budgetCity = $('#budgetCity');
-  const budgetDistrict = $('#budgetDistrict');
   const sliderHost = $('#budgetSliders');
   let activeBudget = null;
-  const euro=n=>new Intl.NumberFormat('hr-HR',{style:'currency',currency:'EUR',minimumFractionDigits:0,maximumFractionDigits:2}).format(n);
-  function budgetUpdate(){
-    if(!activeBudget)return [];
-    const inputs=$$('[data-budget-slider]');
-    const values=inputs.map((input,i)=>{
-      const amount=Number(input.value);
-      const output=$('#v'+(i+1));
-      if(output)output.textContent=euro(amount);
+  const euro = n => new Intl.NumberFormat('hr-HR', {
+    style: 'currency', currency: 'EUR', maximumFractionDigits: 0
+  }).format(Math.round(n));
+
+  function budgetUpdate() {
+    if (!activeBudget) return [];
+    const inputs = $$('[data-budget-slider]');
+    const values = inputs.map((input, index) => {
+      const percentage = Number(input.value);
+      const amount = Math.round(activeBudget.items[index].amount * percentage / 100);
+      input.dataset.amount = String(amount);
+      const output = $('#v' + (index + 1));
+      const share = $('#s' + (index + 1));
+      if (output) output.textContent = euro(amount);
+      if (share) share.textContent = percentage + '% od početnog iznosa';
+      input.setAttribute('aria-valuetext', percentage + '% početne raspodjele, ' + euro(amount));
       return amount;
     });
-    const sum=values.reduce((a,b)=>a+b,0);
-    const remaining=activeBudget.total-sum;
-    $('#budgetSpent').textContent=euro(sum);
-    $('#budgetRemaining').textContent=remaining>=0?'Preostalo: '+euro(remaining):'Prekoračenje: '+euro(Math.abs(remaining));
-    $('#budgetBar').style.width=Math.min(100,Math.max(0,sum/activeBudget.total*100))+'%';
-    const status=$('#budgetStatus');
-    const submit=$('#budgetSubmit');
-    if(remaining<0){
-      status.textContent='Smanji iznose: prekoračenje je '+euro(Math.abs(remaining))+'.';
-      status.style.color='#ffad9e';
-      submit.disabled=true;
-    }else if(remaining>0){
-      status.textContent='Rasporedi preostali iznos ili ga ostavi kao pričuvu.';
-      status.style.color='#d4e7c4';
-      submit.disabled=false;
-    }else{
-      status.textContent='Raspodjela je potpuna.';
-      status.style.color='#d4e7c4';
-      submit.disabled=false;
-    }
+    const spent = values.reduce((sum, value) => sum + value, 0);
+    const remaining = activeBudget.total - spent;
+    const withinBudget = remaining >= 0;
+
+    $('#budgetSpent').textContent = euro(spent);
+    $('#budgetRemaining').textContent = withinBudget
+      ? 'Preostalo: ' + euro(remaining)
+      : 'Prekoračenje: ' + euro(Math.abs(remaining));
+
+    const percent = Math.max(0, Math.min(100, spent / activeBudget.total * 100));
+    $('#budgetBar').style.width = percent + '%';
+    const progress = $('#budgetBar').parentElement;
+    progress.setAttribute('aria-valuenow', String(Math.round(percent)));
+
+    const status = $('#budgetStatus');
+    const submit = $('#budgetSubmit');
+    submit.disabled = !withinBudget;
+    status.textContent = withinBudget
+      ? (remaining === 0 ? 'Cijeli fond je raspoređen.' : 'Možeš ostaviti dio za nepredviđene troškove.')
+      : 'Smanji neke stavke kako bi ostao/la unutar proračuna.';
+    status.classList.toggle('is-over-budget', !withinBudget);
     return values;
   }
-  function renderBudgetScenario(){
-    if(!budgetData||!budgetCity||!budgetDistrict||!sliderHost)return;
-    const city=budgetData.cities[budgetCity.value];
-    if(!city)return;
-    const district=city.districts[budgetDistrict.value];
-    if(!district)return;
-    activeBudget=district;
-    $('#budgetContextTitle').textContent=city.label.toLocaleUpperCase('hr-HR')+' · '+district.year;
-    $('#budgetContextSubtitle').textContent=district.label;
-    $('#budgetEnvelope').textContent=euro(district.total);
-    $('#budgetEnvelopeLabel').textContent=district.envelopeLabel||'Ukupno po programu';
-    $('#budgetDataTitle').textContent=district.scopeNote||('Planirani iznosi · '+district.year);
-    $('#budgetDataIntro').textContent=district.intro||'Promijeni iznose i usporedi svoj izbor s objavljenim planom.';
-    $('#budgetDistrictLabel').textContent=city.selectionLabel||'Odaberi prikaz';
-    $('#budgetProgramLink').href=district.source;
-    $('#budgetProgramLink').textContent=(district.sourceLabel||'Otvori službeni izvor').replace(/\s*↗\s*$/,'')+' ↗';
-    sliderHost.innerHTML=district.items.map((item,index)=>{
-      const id='b'+(index+1);
-      return '<div class="budget-line" data-budget-line>'+
-        '<label data-budget-name for="'+id+'">'+item.name+'</label>'+
-        '<span class="amount" id="v'+(index+1)+'">'+euro(item.amount)+'</span>'+
-        '<small class="budget-line-detail">'+item.detail+' · Plan: '+euro(item.amount)+'</small>'+
-        '<input id="'+id+'" data-budget-slider type="range" min="0" max="'+district.total+'" step="'+(Number.isInteger(item.amount)?(item.amount>=1000000?10000:item.amount>=100000?1000:100):0.01)+'" value="'+item.amount+'" aria-label="'+item.name+'; početni plan '+euro(item.amount)+'">'+
-      '</div>';
+
+  function renderBudgetScenario() {
+    if (!budgetData || !budgetCity || !sliderHost) return;
+    const city = budgetData.cities[budgetCity.value];
+    if (!city) return;
+    activeBudget = city;
+
+    $('#budgetContextTitle').textContent = city.label.toLocaleUpperCase('hr-HR') + ' · ' + city.year;
+    $('#budgetEnvelope').textContent = euro(city.total);
+    const number = value => new Intl.NumberFormat('hr-HR').format(value);
+    $('#budgetPopulationMeta').textContent = number(city.population) + ' stanovnika prema Popisu 2021. · ' +
+      number(city.children) + ' djece predškolske dobi i učenika I.–IV. razreda. To nije ukupan broj mladih od 15 do 29 godina.';
+
+    sliderHost.innerHTML = city.items.map((item, index) => {
+      const id = 'budget-' + item.id;
+      const number = index + 1;
+      return '<article class="budget-line">' +
+        '<div class="budget-line-head">' +
+          '<label data-budget-name for="' + id + '">' +
+            '<span class="budget-category-icon" aria-hidden="true">' + item.icon + '</span>' +
+            '<span class="budget-category-label">' + item.name + '</span>' +
+          '</label>' +
+          '<output class="amount" id="v' + number + '" for="' + id + '">' + euro(item.amount) + '</output>' +
+        '</div>' +
+        '<div class="budget-line-control">' +
+          '<input id="' + id + '" data-budget-slider type="range" min="0" max="200" step="5" value="100" aria-label="' + item.name + '; 100 posto početne raspodjele">' +
+          '<span class="budget-share" id="s' + number + '">100% od početnog iznosa</span>' +
+        '</div>' +
+        '<details class="budget-category-info">' +
+          '<summary>Što ulazi u ovu stavku?</summary>' +
+          '<p>' + item.detail + '</p>' +
+        '</details>' +
+      '</article>';
     }).join('');
-    $$('[data-budget-slider]').forEach(input=>input.addEventListener('input',budgetUpdate));
-    $('#budgetResult').hidden=true;
-    $('#budgetResult').textContent='';
+
+    $$('[data-budget-slider]').forEach(input => input.addEventListener('input', () => {
+      $('#budgetResult').hidden = true;
+      budgetUpdate();
+    }));
+    $('#budgetResult').hidden = true;
+    $('#budgetResult').replaceChildren();
     budgetUpdate();
     window.dispatchEvent(new CustomEvent('potez:budget-context'));
   }
-  if(budgetCity&&budgetDistrict&&budgetData){
-    budgetCity.addEventListener('change',()=>{
-      const city=budgetData.cities[budgetCity.value];
-      if(!city)return;
-      budgetDistrict.innerHTML=Object.entries(city.districts).map(([key,value])=>'<option value="'+key+'">'+value.label.replace('Gradska četvrt ','')+'</option>').join('');
-      renderBudgetScenario();
-    });
-    budgetDistrict.addEventListener('change',renderBudgetScenario);
+
+  if (budgetCity && budgetData && sliderHost) {
+    budgetCity.addEventListener('change', renderBudgetScenario);
     renderBudgetScenario();
   }
-  $('#budgetSubmit').addEventListener('click',()=>{
-    const values=budgetUpdate();
-    if(!activeBudget||values.reduce((a,b)=>a+b,0)>activeBudget.total)return;
-    const changes=activeBudget.items.map((item,index)=>({name:item.name,delta:values[index]-item.amount}))
-      .sort((left,right)=>Math.abs(right.delta)-Math.abs(left.delta));
-    const result=$('#budgetResult');
+
+  $('#budgetSubmit').addEventListener('click', () => {
+    const values = budgetUpdate();
+    if (!activeBudget || values.reduce((sum, value) => sum + value, 0) > activeBudget.total) return;
+
+    const changes = activeBudget.items.map((item, index) => ({
+      name: item.name,
+      delta: values[index] - item.amount
+    }));
+    const increases = changes.filter(item => item.delta > 0).sort((a, b) => b.delta - a.delta);
+    const decreases = changes.filter(item => item.delta < 0).sort((a, b) => a.delta - b.delta);
+    const remaining = activeBudget.total - values.reduce((sum, value) => sum + value, 0);
+
+    const result = $('#budgetResult');
     result.replaceChildren();
-    const heading=document.createElement('strong');
-    heading.textContent='Usporedba s početnim planom';
+
+    const heading = document.createElement('strong');
+    heading.textContent = 'Tvoj prijedlog proračuna';
     result.appendChild(heading);
-    const changed=changes.filter(item=>item.delta!==0);
-    const summary=document.createElement('p');
-    if(changed.length){
-      const biggest=changed[0];
-      summary.textContent='Najveća promjena: „'+biggest.name+'” '+(biggest.delta>0?'+':'−')+euro(Math.abs(biggest.delta))+'.';
-    }else{
-      summary.textContent='Tvoja raspodjela u potpunosti odgovara početnom službenom planu.';
+
+    if (increases.length) {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = 'Najviše si povećao/la: ' + increases[0].name + ' (+' + euro(increases[0].delta) + ').';
+      result.appendChild(paragraph);
     }
-    result.appendChild(summary);
-    const remaining=activeBudget.total-values.reduce((a,b)=>a+b,0);
-    const reserve=document.createElement('p');
-    reserve.textContent=remaining>0?'Preostalo: '+euro(remaining)+'.':'Cijeli iznos je raspoređen.';
+    if (decreases.length) {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = 'Najviše si smanjio/la: ' + decreases[0].name + ' (' + euro(decreases[0].delta) + ').';
+      result.appendChild(paragraph);
+    }
+    const reserve = document.createElement('p');
+    reserve.textContent = remaining > 0
+      ? 'Za nepredviđene troškove ostavio/la si ' + euro(remaining) + '.'
+      : 'Rasporedio/la si cijeli fond.';
     result.appendChild(reserve);
-    const reflection=document.createElement('p');
-    reflection.textContent='Kome koristi? Tko još čeka?';
+
+    const reflection = document.createElement('p');
+    reflection.textContent = 'Kako bi građanima objasnio/la kome tvoj izbor daje prednost?';
     result.appendChild(reflection);
-    result.hidden=false;
-    award('budgetDone',15,'proračunski izazov');
+
+    result.hidden = false;
+    award('budgetDone', 15, 'proračunski izazov');
   });
-  $('#budgetReset').addEventListener('click',()=>{
-    if(!activeBudget)return;
-    $$('[data-budget-slider]').forEach((input,index)=>input.value=activeBudget.items[index].amount);
+
+  $('#budgetReset').addEventListener('click', () => {
+    if (!activeBudget) return;
+    $$('[data-budget-slider]').forEach(input => { input.value = '100'; });
     budgetUpdate();
-    $('#budgetResult').hidden=true;
-    $('#budgetResult').textContent='';
-    toast('Vraćena je službena raspodjela.');
+    $('#budgetResult').hidden = true;
+    $('#budgetResult').replaceChildren();
   });
+
   // Verification exercise. "Unverified" is intentionally not treated as "false".
   const factButtons=$$('#factChoices .choice');factButtons.forEach(b=>b.addEventListener('click',()=>{if(factButtons.some(x=>x.disabled))return;const chosen=b.dataset.answer;factButtons.forEach(x=>{x.disabled=true;if(x.dataset.answer==='check')x.classList.add('correct');if(x===b&&chosen!=='check')x.classList.add('wrong')});const f=$('#factFeedback');f.innerHTML='<strong>'+(chosen==='check'?'Da — zasad je to nepotvrđena tvrdnja.':'Ne još. Pazi na razliku.')+'</strong>Objava iznosi provjerljivu tvrdnju, ali ne navodi izvor, datum ni odluku. Zato je ne možemo tretirati kao činjenicu, ali nemamo dovoljno dokaza ni da je proglasimo lažnom. Potraži odluku nadležnog tijela, datum stupanja na snagu i pouzdan neovisni izvor. <a href="https://tocnotako.hr/" target="_blank" rel="noopener">Provjeri Točno tako</a> ili <a href="https://faktograf.hr/" target="_blank" rel="noopener">Faktograf</a>.';f.classList.add('show');award('factDone',10,'detektor tvrdnji')}));
 

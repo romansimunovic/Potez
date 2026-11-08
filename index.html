@@ -336,76 +336,94 @@
 <section class="section" id="budzet">
   <div class="section-head">
     <div>
-      <div class="section-kicker"><span class="number">02</span> Javni novac u praksi</div>
-      <h2>Rasporedi gradski novac</h2>
+      <div class="section-kicker"><span class="number">02</span> IZAZOV · JAVNI NOVAC</div>
+      <h2>Ti vodiš grad.</h2>
     </div>
-    <p class="section-intro">Odaberi grad i promijeni raspodjelu prema svojim prioritetima.</p>
+    <p class="section-intro">Odredi prioritete, rasporedi novac i pazi da ne potrošiš više nego što imaš.</p>
   </div>
   <div class="panel yellow budget-simulation">
     <div class="scenario scenario-city" id="budgetScenarioHeader">
-      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><small id="budgetContextSubtitle">Gradska četvrt Tvrđa</small></span>
+      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><small>Gradonačelnik/ca na jedan dan</small></span>
     </div>
-    <div class="budget-location-selectors">
-      <label for="budgetCity">Odaberi grad
-        <select id="budgetCity">
-          <option value="osijek" selected>Osijek</option>
-          <option value="slavonski-brod">Slavonski Brod</option>
-          <option value="slatina">Slatina</option>
-          <option value="vukovar">Vukovar</option>
-          <option value="virovitica">Virovitica</option>
-          <option value="zagreb">Zagreb · početni plan 2026.</option>
-          <option value="vinkovci">Vinkovci · početni plan 2026.</option>
-          <option value="belisce">Belišće · početni plan 2026.</option>
-          <option value="djakovo">Đakovo · II. rebalans 2026.</option>
-          <option value="valpovo">Valpovo</option>
-          <optgroup label="U pripremi">
-
-            <option value="nova-gradiska" disabled>Nova Gradiška</option>
-
-            <option value="požega" disabled>Požega</option>
-
-
-
-          </optgroup>
-        </select>
-      </label>
-      <label for="budgetDistrict"><span id="budgetDistrictLabel">Odaberi gradsku četvrt</span>
-        <select id="budgetDistrict">
-          <option value="tvrda" selected>Tvrđa</option>
-          <option value="novi-grad">Novi grad</option>
-          <option value="gornji-grad">Gornji grad</option>
-          <option value="donji-grad">Donji grad</option>
-        </select>
-      </label>
+    <div class="budget-game-intro">
+      <strong>Tvoj je zadatak rasporediti gradski novac.</strong>
+      <p>Više za jednu stvar znači manje prostora za neku drugu. Otvori stavku ako želiš saznati što obuhvaća.</p>
     </div>
-    <div class="budget-data-intro">
-      <strong id="budgetDataTitle">Program prioriteta · Tvrđa · 2026.</strong>
-      <p id="budgetDataIntro">Promijeni iznose i usporedi svoj izbor s usvojenim planom četvrti.</p>
-    </div>
+    <label class="budget-city-picker" for="budgetCity">Odaberi grad
+      <select id="budgetCity">
+        <optgroup label="Najveći gradovi">
+            <option value="zagreb">Zagreb</option>
+            <option value="split">Split</option>
+            <option value="rijeka">Rijeka</option>
+            <option value="osijek" selected>Osijek</option>
+            <option value="zadar">Zadar</option>
+            <option value="velika-gorica">Velika Gorica</option>
+            <option value="pula">Pula</option>
+            <option value="slavonski-brod">Slavonski Brod</option>
+            <option value="karlovac">Karlovac</option>
+            <option value="varazdin">Varaždin</option>
+        </optgroup>
+        <optgroup label="Ostali gradovi">
+            <option value="sibenik">Šibenik</option>
+            <option value="dubrovnik">Dubrovnik</option>
+            <option value="sisak">Sisak</option>
+            <option value="kastela">Kaštela</option>
+            <option value="samobor">Samobor</option>
+            <option value="bjelovar">Bjelovar</option>
+            <option value="vinkovci">Vinkovci</option>
+            <option value="koprivnica">Koprivnica</option>
+            <option value="cakovec">Čakovec</option>
+            <option value="solin">Solin</option>
+            <option value="zapresic">Zaprešić</option>
+            <option value="djakovo">Đakovo</option>
+            <option value="sinj">Sinj</option>
+            <option value="vukovar">Vukovar</option>
+            <option value="pozega">Požega</option>
+            <option value="petrinja">Petrinja</option>
+            <option value="kutina">Kutina</option>
+            <option value="virovitica">Virovitica</option>
+            <option value="krizevci">Križevci</option>
+            <option value="sveta-nedelja">Sveta Nedelja</option>
+            <option value="dugo-selo">Dugo Selo</option>
+            <option value="porec">Poreč</option>
+            <option value="metkovic">Metković</option>
+            <option value="nasice">Našice</option>
+            <option value="omis">Omiš</option>
+            <option value="makarska">Makarska</option>
+            <option value="rovinj">Rovinj</option>
+            <option value="nova-gradiska">Nova Gradiška</option>
+            <option value="slatina">Slatina</option>
+            <option value="valpovo">Valpovo</option>
+            <option value="belisce">Belišće</option>
+            <option value="beli-manastir">Beli Manastir</option>
+        </optgroup>
+      </select>
+    </label>
     <div class="sim-wrap">
-      <div id="budgetSliders" class="budget-sliders" aria-label="Raspodjela sredstava po kategorijama"></div>
-      <aside class="budget-total">
-        <div class="mini-tag" id="budgetEnvelopeLabel">Ukupno po programu</div>
-        <div class="big" id="budgetEnvelope">93.729 €</div>
-        <p>Tvoja raspodjela</p>
-        <div class="big" id="budgetSpent">93.729 €</div>
-        <div class="progress"><span id="budgetBar" style="width:100%"></span></div>
-        <p id="budgetRemaining" class="budget-remaining" aria-live="polite">Preostalo: 0 €</p>
-        <p id="budgetStatus" role="status" aria-live="polite">Iznos je raspoređen.</p>
-        <button class="btn btn-green" id="budgetSubmit" type="button">Usporedi svoj izbor ↗</button>
-        <button class="reset" id="budgetReset" type="button">Vrati početni plan</button>
+      <div id="budgetSliders" class="budget-sliders" aria-label="Raspodjela simuliranog gradskog proračuna po područjima"></div>
+      <aside class="budget-total" aria-label="Stanje gradskog proračuna">
+        <div class="mini-tag">Simulirani godišnji fond</div>
+        <div class="big" id="budgetEnvelope">—</div>
+        <div class="budget-spent-label">Tvoja raspodjela</div>
+        <div class="big budget-spent-value" id="budgetSpent">—</div>
+        <div class="progress" role="progressbar" aria-label="Udio raspoređenog proračuna" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span id="budgetBar" style="width:100%"></span></div>
+        <p id="budgetRemaining" class="budget-remaining" aria-live="polite">Preostalo: —</p>
+        <p id="budgetStatus" class="budget-status" role="status" aria-live="polite">Rasporedi novac po svojim prioritetima.</p>
+        <button class="btn btn-green" id="budgetSubmit" type="button">Zaključi raspodjelu</button>
+        <button class="reset" id="budgetReset" type="button">Vrati početnu raspodjelu</button>
         <div id="budgetResult" class="budget-result" hidden aria-live="polite"></div>
       </aside>
     </div>
-    <p class="small-note budget-footnote">Početni iznosi prate službeni plan; klizači mijenjaju samo tvoj scenarij.</p>
-    <div class="budget-sources">
-      <a id="budgetProgramLink" href="https://www.osijek.hr/wp-content/uploads/2026/04/Program-Prioriteta-za-odrzavanje-i-poboljsanje-komunalne-infrastrukture-GC-Tvrda-za-2026.pdf" target="_blank" rel="noopener">Otvori službeni izvor ↗</a>
-      <details class="budget-upcoming">
-        <summary>Službeni izvori za ostale gradove</summary>
-        <p><a href="https://novagradiska.hr/wp-file-download-search/" target="_blank" rel="noopener">Nova Gradiška</a> · <a href="https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine" target="_blank" rel="noopener">Požega</a></p>
-        
-      </details>
-    </div>
+    <details class="budget-method">
+      <summary>Kako radi ova simulacija?</summary>
+      <p id="budgetPopulationMeta">Demografski podatak odabranog grada.</p>
+      <p>Iznos je modeliran prema broju stanovnika, osnovnim troškovima grada, turističkom opterećenju i lokalnim infrastrukturnim potrebama. Udio za vrtiće, škole i mlade blago se prilagođava broju djece predškolske dobi i učenika nižih razreda.</p>
+      <p>Ovo nije službeni gradski proračun. Služi za razumijevanje prioriteta i kompromisa pri odlučivanju. Metodologija i ograničenja nalaze se u README-u.</p>
+      <div class="budget-method-links">
+        <a href="https://podaci.dzs.hr/hr/podaci/stanovnistvo/popis-stanovnistva/" target="_blank" rel="noopener">DZS · Popis stanovništva 2021.</a>
+        <a href="https://mdu.gov.hr/UserDocsImages//Direktorij%202/Slike%20od%2013.2024/Dokumenti//Popis%20jedinica%20lokalne%20samouprave.pdf" target="_blank" rel="noopener">Stanovništvo i djeca po gradovima · 2021.</a>
+      </div>
+    </details>
   </div>
 </section>
 <section class="section" id="usporedi" aria-labelledby="duelTitle">
