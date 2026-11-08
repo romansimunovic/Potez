@@ -196,12 +196,12 @@
       story: 'Tvoja ekipa godinama traži siguran prostor za skejtanje. Grad napokon objavljuje natječaj za uređenje skate-parka. U dokumentima primijetiš da je osoba povezana s jednim ponuditeljem sudjelovala u povjerenstvu. Ne znaš je li to prijavljeno ni kako je ponuda ocijenjena.',
       question: 'Koji je tvoj najbolji prvi potez?',
       options: [
-        { text: 'Nazvati poznanika u gradskoj upravi da „pogura” našu ponudu.', best: false, feedback: 'Veza nije kriterij. Neformalni pritisak narušava jednaku priliku i može ugroziti cijeli postupak. I tvoj projekt zaslužuje dobiti prostor zbog kvalitete, ne zbog poznanstva.' },
-        { text: 'Zatražiti kriterije, zapisnik bodovanja i obrazloženu odluku.', best: true, feedback: 'To je najjači prvi korak. Traži dokumente koji pokazuju jesu li kriteriji bili poznati unaprijed, kako su ponude ocijenjene i je li mogući sukob interesa prijavljen i riješen.' },
-        { text: 'Objaviti ime osobe i odmah je proglasiti lopovom.', best: false, feedback: 'Sumnja zaslužuje provjeru, ali sama povezanost nije dokaz korupcije. Drži se dokumentiranih činjenica i nemoj objavljivati osobne optužbe bez dokaza.' }
+        { text: 'Zamoliti poznanika da pogura ponudu.', best: false, feedback: 'Poznanstvo nije kriterij. Pritisak narušava jednaka pravila i može ugroziti postupak.' },
+        { text: 'Zatražiti kriterije, zapisnik bodovanja i obrazloženu odluku.', best: true, feedback: 'Zatraži kriterije, bodovanje i obrazloženje. Provjeri je li mogući sukob interesa prijavljen i riješen.' },
+        { text: 'Objaviti ime osobe i odmah je proglasiti lopovom.', best: false, feedback: 'Povezanost nije dokaz korupcije. Traži dokumente i ne objavljuj optužbe bez dokaza.' }
       ],
-      outcome: 'Kad su kriteriji jasni, bodovanje obrazloženo, a mogući sukob interesa uredno provjeren, grad može izabrati izvođača bez pogodovanja. Skate-park dobiva sigurnosne standarde, rokove i javno objašnjenje odluke.',
-      takeaway: 'Transparentnost nije kočnica projektu — ona pomaže da dobar projekt bude izveden pošteno.'
+      outcome: 'Objavljeni kriteriji i provjeren sukob interesa daju svima jednaka pravila i obrazloženu odluku.',
+      takeaway: 'Jasna pravila čuvaju projekt od pogodovanja.'
     },
     {
       label: 'Javni poziv · ista pravila za sve',
@@ -209,12 +209,12 @@
       story: 'Prijavili ste ideju za mali glazbeni festival na gradski natječaj za mlade. Rezultati su objavljeni, ali ne razumiješ zašto je drugi projekt dobio više bodova. U objavi nema detaljnog obrazloženja.',
       question: 'Kako možeš provjeriti je li odluka bila poštena?',
       options: [
-        { text: 'Tražiti objavljene kriterije, svoje bodovanje i obrazloženje odluke.', best: true, feedback: 'Odlično. Usporedi kriterije objavljene prije prijave s obrazloženjem i bodovanjem. Ako nešto nije jasno, pošalji konkretan, pristojan upit organizatoru.' },
-        { text: 'Ponuditi članu komisije uslugu ili poklon da idući put dobijete više bodova.', best: false, feedback: 'To je upravo pogodovanje koje narušava povjerenje i može biti protuzakonito. Ne pokušavaj utjecati na ocjenjivače privatnim koristima.' },
-        { text: 'Zaključiti da je natječaj namješten i odustati od svega.', best: false, feedback: 'Možda postoji problem, a možda je drugi projekt bolje odgovorio na kriterije. Prvo prikupi dokumente; zaključak donesi na temelju provjerljivih razloga.' }
+        { text: 'Tražiti objavljene kriterije, svoje bodovanje i obrazloženje odluke.', best: true, feedback: 'Usporedi unaprijed objavljene kriterije s bodovanjem. Zatraži obrazloženje ako nešto nije jasno.' },
+        { text: 'Ponuditi članu komisije uslugu ili poklon da idući put dobijete više bodova.', best: false, feedback: 'Poklon ili usluga ocjenjivaču znači pogodovanje. Ne pokušavaj utjecati privatnim koristima.' },
+        { text: 'Zaključiti da je natječaj namješten i odustati od svega.', best: false, feedback: 'Prvo usporedi kriterije i dokumente. Razliku u bodovima provjeri prije zaključka.' }
       ],
-      outcome: 'Organizator objavljuje jasnije obrazloženje i omogućuje jednak uvid u kriterije. Vaša ekipa zna što idući put treba ojačati, a svi prijavitelji imaju isti okvir.',
-      takeaway: 'Ne moraš „poznavati nekoga” da bi razumio/la odluku. Traži ista pravila i obrazloženje.'
+      outcome: 'Organizator objavljuje obrazloženje i bodovanje. Svi prijavitelji dobivaju isti okvir.',
+      takeaway: 'Traži jednaka pravila i obrazloženje, ne poznanstva.'
     },
     {
       label: 'Grupni chat · provjeri prije dijeljenja',
@@ -222,12 +222,12 @@
       story: 'U razrednoj grupi netko pošalje screenshot s dramatičnom porukom: „Od ponedjeljka nema više besplatnog prijevoza!” Nema datuma, poveznice ni naziva institucije. Svi počinju paničariti.',
       question: 'Koji potez najviše pomaže ekipi?',
       options: [
-        { text: 'Proslijediti screenshot svim razredima da budu spremni.', best: false, feedback: 'Tako se neprovjerena tvrdnja samo širi. Screenshot može biti star, izrezan ili izmišljen. Zaustavi lanac dok ne pronađeš izvor.' },
-        { text: 'Pronaći izvornu odluku i provjeriti datum i nadležno tijelo.', best: true, feedback: 'Da. Traži službenu objavu, odluku ili obavijest prijevoznika i provjeri na koga se odnosi. Ako izvora nema, ispravan status je „nepotvrđeno”, ne „sigurno istinito” ili „lažno”.' },
-        { text: 'Napisati da je vijest lažna jer nema poveznice.', best: false, feedback: 'Nedostatak poveznice nije dokaz da je tvrdnja lažna. Prvo provjeri izvor i datum; tek onda možeš odgovorno prenijeti zaključak.' }
+        { text: 'Proslijediti screenshot svim razredima da budu spremni.', best: false, feedback: 'Screenshot može biti star ili izrezan. Zaustavi dijeljenje dok ne pronađeš izvor.' },
+        { text: 'Pronaći izvornu odluku i provjeriti datum i nadležno tijelo.', best: true, feedback: 'Provjeri službenu obavijest, datum i na koga se odnosi. Bez izvora je tvrdnja nepotvrđena — ne automatski lažna.' },
+        { text: 'Napisati da je vijest lažna jer nema poveznice.', best: false, feedback: 'Nedostatak poveznice nije dokaz da je tvrdnja lažna. Provjeri izvor i datum.' }
       ],
-      outcome: 'Učenici pronađu službenu obavijest: promjena se odnosi samo na jednu liniju i počinje kasnije. Razred podijeli provjerenu informaciju umjesto panike.',
-      takeaway: 'Dobar digitalni potez nije najbrži share. To je pronalazak izvora i konteksta.'
+      outcome: 'Obavijest pokaže da se promjena odnosi na jednu liniju i počinje kasnije. Razred dijeli provjerenu informaciju.',
+      takeaway: 'Prvo izvor i kontekst. Tek onda dijeljenje.'
     },
     {
       label: 'Škola · prijedlog koji se može provesti',
@@ -235,12 +235,12 @@
       story: 'U školi se promijenio raspored korištenja zajedničkog prostora. Učenici se žale da nemaju gdje boraviti tijekom odmora. Objave na društvenim mrežama skupile su reakcije, ali pravilo ostaje isto.',
       question: 'Kako od pritužbe napraviti prijedlog na koji škola može odgovoriti?',
       options: [
-        { text: 'Okupiti učenike, prikupiti konkretne primjere i predložiti rješenje vijeću učenika.', best: true, feedback: 'To je dobar početak. Prikupi iskustva bez nepotrebnih osobnih podataka, predloži izvedivu promjenu i zatraži da se prijedlog uputi nadležnom tijelu škole.' },
-        { text: 'Objaviti imena nastavnika i prozivati ih u komentarima.', best: false, feedback: 'To može povrijediti osobe, zaoštriti odnos i ne rješava problem. Kritiziraj pravilo i postupak, ne izlaži pojedince pritisku.' },
-        { text: 'Čekati da netko drugi pokrene stvar.', best: false, feedback: 'Možeš početi malim korakom. Nekoliko konkretnih primjera i prijedlog s jasnim razlogom često su korisniji od čekanja ili samo pritužbe.' }
+        { text: 'Okupiti učenike, prikupiti konkretne primjere i predložiti rješenje vijeću učenika.', best: true, feedback: 'Prikupi primjere, predloži izvedivu promjenu i uputi je vijeću učenika.' },
+        { text: 'Objaviti imena nastavnika i prozivati ih u komentarima.', best: false, feedback: 'Javno prozivanje može povrijediti osobe i zatvoriti razgovor. Kritiziraj pravilo, ne pojedince.' },
+        { text: 'Čekati da netko drugi pokrene stvar.', best: false, feedback: 'Nekoliko konkretnih primjera i izvediv prijedlog bolji su od čekanja.' }
       ],
-      outcome: 'Vijeće učenika iznosi prijedlog na sastanku s upravom škole. Dogovara se probno rješenje i rok nakon kojeg će učenici i škola provjeriti funkcionira li.',
-      takeaway: 'Sudjelovanje počinje kad problem pretvoriš u jasan prijedlog, a ne kad samo postane viralan.'
+      outcome: 'Vijeće učenika iznosi prijedlog upravi. Dogovaraju se probno rješenje i rok provjere.',
+      takeaway: 'Pretvori pritužbu u jasan prijedlog.'
     },
     {
       label: 'Javni novac · izbor prioriteta',
@@ -248,12 +248,12 @@
       story: 'Grad poziva mlade da predlože kako rasporediti 10.000 eura: oprema za sportski teren, prostor za probe ili bolja rasvjeta na putu do škole. Novca nema za sve.',
       question: 'Što čini prijedlog odgovornim i uvjerljivim?',
       options: [
-        { text: 'Odabrati ono što je najpopularnije na društvenim mrežama.', best: false, feedback: 'Popularnost je signal interesa, ali ne govori tko još koristi prostor, koliko projekt košta ni tko će ga održavati.' },
-        { text: 'Usporediti potrebe, broj korisnika, trošak, pristupačnost i održavanje.', best: true, feedback: 'Upravo to. Dobar prijedlog pokazuje kome koristi, koliko košta, tko bi mogao ostati izostavljen i može li se projekt održavati nakon početnog ulaganja.' },
-        { text: 'Tražiti da se novac podijeli između prijateljskih ekipa.', best: false, feedback: 'Javni novac nije nagrada za bliskost. Potrebe zajednice i unaprijed poznati kriteriji moraju biti važniji od poznanstava.' }
+        { text: 'Odabrati ono što je najpopularnije na društvenim mrežama.', best: false, feedback: 'Popularnost ne pokazuje trošak, broj korisnika ni održavanje.' },
+        { text: 'Usporediti potrebe, broj korisnika, trošak, pristupačnost i održavanje.', best: true, feedback: 'Usporedi potrebe, trošak, broj korisnika i održavanje. Pitaj se tko bi mogao ostati izostavljen.' },
+        { text: 'Tražiti da se novac podijeli između prijateljskih ekipa.', best: false, feedback: 'Javni novac raspoređuje se prema potrebama i unaprijed poznatim kriterijima.' }
       ],
-      outcome: 'Mladi objave prijedloge s troškovima i koristima, a grad obrazloži odluku. Dio novca ide rasvjeti, dio opremi; za prostor za probe traži se dodatni izvor financiranja.',
-      takeaway: 'Pravedna odluka ne znači da svi dobiju sve. Znači da su kriteriji jasni i odluka objašnjena.'
+      outcome: 'Grad obrazlaže izbor: dio novca ide rasvjeti i opremi, a prostor za probe traži dodatni izvor.',
+      takeaway: 'Pravedna odluka ima jasne kriterije i obrazloženje.'
     },
     {
       label: 'Javno savjetovanje · tvoj komentar',
@@ -261,12 +261,12 @@
       story: 'Grad objavi prijedlog izmjene voznog reda i otvori javno savjetovanje. Nova linija prolazi blizu škole, ali polazi deset minuta prije završetka nastave. Imaš nekoliko dana za komentar.',
       question: 'Koji komentar ima najveću šansu da bude koristan?',
       options: [
-        { text: '„Ovo je glupost, napravite nešto normalno.”', best: false, feedback: 'Razumljivo je da si frustriran/a, ali ovakav komentar ne daje tijelu podatak na temelju kojeg može promijeniti prijedlog.' },
-        { text: 'Navesti vrijeme završetka nastave, postojeći vozni red i predložiti polazak 15 minuta kasnije.', best: true, feedback: 'To je konkretno i provjerljivo. Opiši problem, pokaži na koga utječe i predloži izvedivu izmjenu uz podatke ili primjere.' },
-        { text: 'Poslati isti komentar više puta s različitih profila.', best: false, feedback: 'Umjetno umnažanje komentara ne čini argument jačim. Jedan dobro obrazložen komentar vrijedi više od lažnog dojma masovne podrške.' }
+        { text: '„Ovo je glupost, napravite nešto normalno.”', best: false, feedback: 'Uvreda ne daje tijelu podatak na temelju kojeg može promijeniti prijedlog.' },
+        { text: 'Navesti vrijeme završetka nastave, postojeći vozni red i predložiti polazak 15 minuta kasnije.', best: true, feedback: 'Navedi kraj nastave, postojeći polazak i konkretno vrijeme koje bi riješilo problem.' },
+        { text: 'Poslati isti komentar više puta s različitih profila.', best: false, feedback: 'Više kopija ne jača argument. Pošalji jedan obrazložen komentar.' }
       ],
-      outcome: 'U očitovanju se navodi da je vrijeme polaska prilagođeno završetku nastave i da će se nakon mjesec dana pratiti broj putnika.',
-      takeaway: 'Javno savjetovanje nije anketa popularnosti. Najkorisniji su jasni argumenti i prijedlozi.'
+      outcome: 'Polazak se pomiče, a broj putnika prati se sljedećih mjesec dana.',
+      takeaway: 'Savjetovanje traži argumente i izvedive prijedloge.'
     },
     {
       label: 'Javna informacija · pronađi dokument',
@@ -274,12 +274,12 @@
       story: 'Prije pola godine objavljeno je da će igralište biti obnovljeno. Radovi nisu počeli, a na mrežama se šire nagađanja. Ne znaš je li problem u novcu, natječaju ili dozvoli.',
       question: 'Koji je prvi korak prije zaključka?',
       options: [
-        { text: 'Zatražiti postojeće dokumente: odluku, ugovor, rokove i status radova.', best: true, feedback: 'Dobar potez. Traži konkretne postojeće informacije i pitaj koja je institucija zadužena za provedbu. Tako možeš razlikovati kašnjenje, promjenu plana i moguću nepravilnost.' },
-        { text: 'Objaviti da je novac ukraden jer radovi kasne.', best: false, feedback: 'Kašnjenje samo po sebi nije dokaz krađe. Prvo provjeri odluke, ugovor, plaćanja i status projekta; optužbe moraju počivati na dokazima.' },
-        { text: 'Nazvati izvođača i ponuditi novac da radove završi ranije.', best: false, feedback: 'Ne pokušavaj zaobilaziti ugovor ili pravila privatnim dogovorima. Odgovornost se provjerava kroz službeni ugovor i tijelo koje nadzire radove.' }
+        { text: 'Zatražiti postojeće dokumente: odluku, ugovor, rokove i status radova.', best: true, feedback: 'Zatraži odluku, ugovor i rokove. Provjeri tko je odgovoran za provedbu.' },
+        { text: 'Objaviti da je novac ukraden jer radovi kasne.', best: false, feedback: 'Kašnjenje nije dokaz krađe. Provjeri ugovor, plaćanja i status radova.' },
+        { text: 'Nazvati izvođača i ponuditi novac da radove završi ranije.', best: false, feedback: 'Drži se ugovora i službenog nadzora. Privatni dogovor ne rješava problem.' }
       ],
-      outcome: 'Dokumenti pokažu da kasni isporuka opreme, a ne da je projekt nestao. Grad objavi novi rok i nadležno tijelo prati izvršenje ugovora.',
-      takeaway: 'Kad nešto kasni, prvo prati dokumente, rokove i odgovornost. Ne preskači dokaz.'
+      outcome: 'Dokumenti pokažu kašnjenje opreme. Grad objavi novi rok, a nadležno tijelo prati ugovor.',
+      takeaway: 'Prati dokumente, rokove i odgovornost.'
     }
     ,
     {
@@ -288,12 +288,12 @@
       story: 'Istraživači su anketirali 502 mlade osobe diljem Hrvatske. Analizirali su što je povezano sa spremnošću na izlazak na izbore. U rezultatima se pojavljuju dob, razgovori s prijateljima o aktualnim događajima, zajedničko sudjelovanje na prosvjedima i praćenje društveno angažiranog sadržaja.',
       question: 'Koji zaključak je najbliži onome što istraživanje pokazuje?',
       options: [
-        { text: 'Politička participacija razvija se i kroz razgovore i odnose s vršnjacima.', best: true, feedback: 'Da. Istraživanje nalazi povezanost između više oblika socijalizacije i spremnosti na formalnu političku participaciju. To ne dokazuje da razgovor s prijateljima sam po sebi uzrokuje izlazak na izbore.' },
-        { text: 'Društvene mreže same po sebi određuju hoće li netko glasati.', best: false, feedback: 'To bi bilo pretjerivanje. Istraživanje razmatra više čimbenika, uključujući dob, obitelj, prijatelje i društvene mreže. Ne svodi participaciju na jednu platformu.' },
-        { text: 'Mladi koji ne razgovaraju o politici nikada ne sudjeluju.', best: false, feedback: 'Takav zaključak nije opravdan. Povezanost na razini skupine ne znači da možemo predvidjeti ponašanje svake osobe.' }
+        { text: 'Politička participacija razvija se i kroz razgovore i odnose s vršnjacima.', best: true, feedback: 'Razgovori s vršnjacima povezani su sa spremnošću na sudjelovanje. Povezanost ne dokazuje uzročnost.' },
+        { text: 'Društvene mreže same po sebi određuju hoće li netko glasati.', best: false, feedback: 'Istraživanje razmatra više čimbenika. Jedna platforma ne objašnjava izlazak na izbore.' },
+        { text: 'Mladi koji ne razgovaraju o politici nikada ne sudjeluju.', best: false, feedback: 'Skupni nalaz ne predviđa ponašanje svake osobe.' }
       ],
-      outcome: 'Umjesto da mlade proglasimo apatičnima, škola ili udruga može otvoriti prostor za razgovor, zajedničko istraživanje problema i susret s donositeljima odluka.',
-      takeaway: 'Građanska participacija ne nastaje samo u institucijama. Važni su i vršnjaci, razgovor i zajedničko iskustvo.',
+      outcome: 'Škola ili udruga može otvoriti prostor za razgovor i zajedničko rješavanje problema.',
+      takeaway: 'Sudjelovanje počinje i u razgovorima među vršnjacima.',
       source: 'Kovačić, Baketa i Grus Bosak (2025), istraživanje na 502 mlade osobe u Hrvatskoj, Communication Management Review, 10(2), 46–61.',
       sourceUrl: 'https://hrcak.srce.hr/342048'
     },
@@ -303,12 +303,12 @@
       story: 'Znanstveni rad uspoređuje rezultate anketa o percepciji korupcije i povjerenju u institucije u Hrvatskoj iz 2022. s ranijim istraživanjima. Uočena je promjena u tome kako građani procjenjuju raširenost korupcije.',
       question: 'Što iz takvog nalaza smijemo zaključiti?',
       options: [
-        { text: 'Percepcija građana o korupciji porasla je; to nije isto što i izravno izmjerena stopa svih koruptivnih djela.', best: true, feedback: 'Točno. Anketa o percepciji mjeri stavove i procjene ispitanika. Važna je za razumijevanje povjerenja, ali ne može sama dokazati koliko je kaznenih djela stvarno počinjeno.' },
-        { text: 'Dokazano je da je svaki javni natječaj korumpiran.', best: false, feedback: 'Ne. Takva tvrdnja nije u istraživanju. Percepcija raširenosti korupcije nije dokaz protiv svake institucije, zaposlenika ili natječaja.' },
-        { text: 'Ako ljudi ne vjeruju institucijama, nema smisla tražiti dokumente.', best: false, feedback: 'Upravo suprotno. Dokumenti, kriteriji, zapisnici i neovisni nadzor omogućuju provjeru pojedinačnih odluka. Nepovjerenje ne smije zamijeniti dokaz.' }
+        { text: 'Percepcija građana o korupciji porasla je; to nije isto što i izravno izmjerena stopa svih koruptivnih djela.', best: true, feedback: 'Anketa mjeri procjene i povjerenje, ne broj stvarno počinjenih kaznenih djela.' },
+        { text: 'Dokazano je da je svaki javni natječaj korumpiran.', best: false, feedback: 'Percepcija korupcije nije dokaz protiv svake institucije ili natječaja.' },
+        { text: 'Ako ljudi ne vjeruju institucijama, nema smisla tražiti dokumente.', best: false, feedback: 'Dokumenti i nadzor omogućuju provjeru odluka. Nepovjerenje ne zamjenjuje dokaz.' }
       ],
-      outcome: 'Kad primijetiš moguću nepravilnost, odvoji ono što znaš od onoga što pretpostavljaš. Sačuvaj dokumente, provjeri postupak i koristi odgovarajuće kanale prijave.',
-      takeaway: 'Percepcija je važan podatak o povjerenju. Dokaz nepravilnosti traži konkretne činjenice i provjerljiv trag.',
+      outcome: 'Odvoji činjenice od pretpostavki. Sačuvaj dokumente i provjeri postupak.',
+      takeaway: 'Percepcija govori o povjerenju; nepravilnost dokazuju činjenice.',
       source: 'Budak i Škrinjarić (2024), Hrvatska i komparativna javna uprava, 24(1), 147–182.',
       sourceUrl: 'https://hrcak.srce.hr/316552'
     }
@@ -338,9 +338,9 @@
     function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved));}catch{}window.dispatchEvent(new CustomEvent('potez:progress'));}
     function progress(){bar.style.width=(completed.length/dailyQuestions.length*100)+'%';progressLabel.textContent=completed.length+' / '+dailyQuestions.length+' izazova';}
     function shareText(message){if(navigator.share){navigator.share({title:'POTEZ — izazov',text:message}).catch(e=>{if(e&&e.name!=='AbortError')notify('Dijeljenje nije dostupno.');});return;}const t=document.createElement('textarea');t.value=message;document.body.appendChild(t);t.select();try{document.execCommand('copy');notify('Tekst je kopiran. Podijeli ga s ekipom.');}catch{notify('Kopiranje nije dostupno.');}t.remove();}
-    function complete(){label.textContent='RUTA ZAVRŠENA';title.textContent=dailyQuestions.length+' situacija. Nove vještine za stvarni život.';story.textContent='Prošao/la si cijelu današnju rutu. Znaš kako provjeravati tvrdnje, tražiti dokumente, predlagati rješenja i pratiti javne odluke.';q.textContent='Tvoj sljedeći potez?';choices.replaceChildren();const p=document.createElement('p');p.textContent='Ponovi izazove bez dodatnih bodova ili podijeli rutu s ekipom.';feedback.replaceChildren(p);next.textContent='Odigraj ponovno ↻';next.hidden=false;next.onclick=()=>{saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed^(Date.now()%65535));saved.dailyRunIndex=0;persist();render();};share.hidden=false;share.onclick=()=>shareText('Odigrao/la sam POTEZ — '+dailyQuestions.length+' kratkih situacija o javnim odlukama i građanskom sudjelovanju. Probaj i ti: https://potez.pages.dev/#igraj');progress();}
-    function feedbackFor(option,earned){const h=document.createElement('strong');h.className='daily-feedback-title';h.textContent=option.best?'Dobar potez.':'Zanimljiv pokušaj — evo što se događa.';const ex=document.createElement('p');ex.textContent=option.feedback;const l=document.createElement('span');l.className='daily-outcome-label';l.textContent='Što se događa dalje';const out=document.createElement('p');out.textContent=item.outcome;const take=document.createElement('p');take.className='daily-takeaway';take.textContent='Za ponijeti: '+item.takeaway;const xp=document.createElement('small');xp.textContent=earned?'+3 XP · izazov riješen':'Već riješeno · ponavljanje ne donosi dodatne bodove';const nodes=[h,ex,l,out,take];if(item.sourceUrl){const source=document.createElement('small');source.className='daily-source';source.textContent='Izvor: '+item.source+' ';const link=document.createElement('a');link.href=item.sourceUrl;link.target='_blank';link.rel='noopener';link.textContent='Otvori istraživanje ↗';source.appendChild(link);nodes.push(source);}nodes.push(xp);feedback.replaceChildren(...nodes);next.textContent=index+1===order.length?'Završi rutu →':'Sljedeći izazov →';next.hidden=false;next.onclick=()=>{saved.dailyRunIndex=index+1;persist();render();};share.hidden=false;share.onclick=()=>shareText('POTEZ izazov: '+item.title+'\n'+item.takeaway+'\nOdigraj i ti: https://potez.pages.dev/#igraj');}
-    function render(){index=Math.max(0,Math.min(Number(saved.dailyRunIndex)||0,order.length));progress();if(index>=order.length){complete();return;}item=dailyQuestions[order[index]];options=shuffle(item.options,hash(today+':'+order[index]));answered=false;choices.replaceChildren();feedback.replaceChildren();next.hidden=true;share.hidden=true;label.textContent=item.label;title.textContent=item.title;story.textContent=item.story;q.textContent=item.question;options.forEach((option,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='daily-choice';btn.dataset.letter=String.fromCharCode(65+i);btn.textContent=option.text;btn.addEventListener('click',()=>{if(answered)return;answered=true;const earned=!completed.includes(item.title);choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(i===j){el.classList.add('chosen');if(!option.best)el.classList.add('wrong');}});if(earned){completed.push(item.title);saved.dailyCompletedIds=completed;saved.dailyChoiceById=saved.dailyChoiceById||{};saved.dailyChoiceById[item.title]=option.text;saved.xp=Math.max(0,Number(saved.xp)||0)+3;persist();window.POTEZ_FEEDBACK?.success();}progress();feedbackFor(option,earned);notify(earned?'+3 XP · izazov riješen':'Potez zabilježen.');});choices.appendChild(btn);});const previous=(saved.dailyChoiceById||{})[item.title];if(previous){const chosen=options.findIndex(o=>o.text===previous);if(chosen>=0){answered=true;choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(j===chosen){el.classList.add('chosen');if(!options[j].best)el.classList.add('wrong');}});feedbackFor(options[chosen],false);}}}
+    function complete(){label.textContent='RUTA ZAVRŠENA';title.textContent='Sve situacije su riješene.';story.textContent='Sad znaš gdje tražiti izvor, kako postaviti pitanje i kome se obratiti.';q.textContent='Što dalje?';choices.replaceChildren();const p=document.createElement('p');p.textContent='Ponovi rutu ili je podijeli s ekipom.';feedback.replaceChildren(p);next.textContent='Odigraj ponovno ↻';next.hidden=false;next.onclick=()=>{saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed^(Date.now()%65535));saved.dailyRunIndex=0;persist();render();};share.hidden=false;share.onclick=()=>shareText('Odigrao/la sam POTEZ — '+dailyQuestions.length+' kratkih situacija o javnim odlukama i građanskom sudjelovanju. Probaj i ti: https://potez.pages.dev/#igraj');progress();}
+    function feedbackFor(option,earned){const h=document.createElement('strong');h.className='daily-feedback-title';h.textContent=option.best?'Dobar smjer.':'Ovaj potez nosi rizik.';const ex=document.createElement('p');ex.textContent=option.feedback;const l=document.createElement('span');l.className='daily-outcome-label';l.textContent='Ishod';const out=document.createElement('p');out.textContent=item.outcome;const take=document.createElement('p');take.className='daily-takeaway';take.textContent=item.takeaway;const xp=document.createElement('small');xp.textContent=earned?'+3 XP':'Bodovi su već osvojeni';const nodes=[h,ex,l,out,take];if(item.sourceUrl){const source=document.createElement('small');source.className='daily-source';source.textContent='Izvor: '+item.source+' ';const link=document.createElement('a');link.href=item.sourceUrl;link.target='_blank';link.rel='noopener';link.textContent='Istraži ↗';source.appendChild(link);nodes.push(source);}nodes.push(xp);feedback.replaceChildren(...nodes);next.textContent=index+1===order.length?'Završi rutu →':'Sljedeća situacija →';next.hidden=false;next.onclick=()=>{saved.dailyRunIndex=index+1;persist();render();};share.hidden=false;share.onclick=()=>shareText('POTEZ izazov: '+item.title+'\n'+item.takeaway+'\nOdigraj i ti: https://potez.pages.dev/#igraj');}
+    function render(){index=Math.max(0,Math.min(Number(saved.dailyRunIndex)||0,order.length));progress();if(index>=order.length){complete();return;}item=dailyQuestions[order[index]];options=shuffle(item.options,hash(today+':'+order[index]));answered=false;choices.replaceChildren();feedback.replaceChildren();next.hidden=true;share.hidden=true;label.textContent=item.label;title.textContent=item.title;story.textContent=item.story;q.textContent=item.question;options.forEach((option,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='daily-choice';btn.dataset.letter=String.fromCharCode(65+i);btn.textContent=option.text;btn.addEventListener('click',()=>{if(answered)return;answered=true;const earned=!completed.includes(item.title);choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(i===j){el.classList.add('chosen');if(!option.best)el.classList.add('wrong');}});if(earned){completed.push(item.title);saved.dailyCompletedIds=completed;saved.dailyChoiceById=saved.dailyChoiceById||{};saved.dailyChoiceById[item.title]=option.text;saved.xp=Math.max(0,Number(saved.xp)||0)+3;persist();window.POTEZ_FEEDBACK?.success();}progress();feedbackFor(option,earned);notify(earned?'+3 XP':'Već riješeno.');});choices.appendChild(btn);});const previous=(saved.dailyChoiceById||{})[item.title];if(previous){const chosen=options.findIndex(o=>o.text===previous);if(chosen>=0){answered=true;choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(j===chosen){el.classList.add('chosen');if(!options[j].best)el.classList.add('wrong');}});feedbackFor(options[chosen],false);}}}
     render();
   }
 
