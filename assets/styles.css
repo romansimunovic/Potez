@@ -311,7 +311,7 @@ button:disabled { cursor:not-allowed; }
 .passport-badge-panel { background:#e8f5d5; border:1px solid #c8dfb3; border-radius:18px; padding:17px; }
 .passport-badges { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
 .skill-badge { display:inline-flex; align-items:center; gap:6px; padding:7px 10px; border-radius:999px; background:#fffefa; border:1px solid #bdcbb6; color:#26352b; font-size:.78rem; font-weight:850; }
-.skill-badge.locked { opacity:.55; background:#f3f4ef; }
+.skill-badge.locked { opacity:1; background:#f3f4ef; color:#566158; border-color:#c8d0c6; }
 .passport-path { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:12px; }
 .path-card { display:flex; flex-direction:column; gap:8px; text-decoration:none; border:1px solid var(--line); background:#fffefa; border-radius:17px; padding:16px; min-height:145px; }
 .path-card strong { font-size:.98rem; line-height:1.25; }
@@ -377,4 +377,10 @@ button:disabled { cursor:not-allowed; }
 }
 @media (prefers-reduced-motion:reduce) {
   .passport-track span { transition:none; }
+}
+
+@media (min-width:601px) and (max-width:850px) {
+  .hero { grid-template-columns:1fr; }
+  .grid-2,.sim-wrap,.action-finder,.feedback-layout { grid-template-columns:1fr; }
+  .link-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
