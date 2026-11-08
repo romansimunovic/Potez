@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
-node --check assets/feedback.js
+node --check assets/rewards.js
 node --check assets/app.js
 node --check assets/civic.js
 node --check sw.js
-node --input-type=module --check < functions/api/feedback.js
-node --test tests/feedback.test.mjs
 python - <<'PY'
 import json
 from collections import Counter
@@ -38,9 +36,25 @@ for filename in ("index.html", "privacy.html", "uvjeti.html"):
     print(f"HTML parsed and in-page links checked: {filename}")
 
 json.loads(Path("manifest.webmanifest").read_text(encoding="utf-8"))
-pages_routes = json.loads(Path("_routes.json").read_text(encoding="utf-8"))
-if pages_routes.get("include") != []:
-    raise SystemExit("Pages Functions must remain disabled for the public pilot")
-print("Manifest and Pages routes JSON parsed; Pages Functions are disabled")
+if Path("functions").exists():
+    raise SystemExit("The public pilot must remain static; remove Pages Functions")
+if Path("supabase").exists():
+    raise SystemExit("The public pilot must not include an active database schema")
+print("Manifest parsed; no server-side functions or database migrations are present")
 PY
-printf 'POTEZ static and API checks passed.\n'
+printf 'POTEZ static and privacy checks passed.\n'
+
+python - <<'PY'
+from pathlib import Path
+import json
+html = Path("index.html").read_text(encoding="utf-8")
+privacy = Path("privacy.html").read_text(encoding="utf-8")
+civic = Path("assets/civic.js").read_text(encoding="utf-8")
+assert 'id="feedbackForm"' not in html
+assert 'id="dailyScenarioTitle"' in html and 'id="dailyScenarioText"' in html
+assert "dailyChoiceIndex" in civic and "Kako izgleda dobar ishod" in civic
+assert not Path("functions").exists()
+assert not Path("supabase").exists()
+assert "localStorage" in privacy and "Cloudflare Pagesa" in privacy
+print("POTEZ pilot UX/privacy checks passed")
+PY

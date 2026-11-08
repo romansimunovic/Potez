@@ -15,9 +15,8 @@
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
 <link rel="stylesheet" href="/assets/styles.css" />
-<script src="/assets/config.js" defer></script>
 <script src="/assets/navigation.js" defer></script>
-<script src="/assets/feedback.js" defer></script>
+<script src="/assets/rewards.js" defer></script>
 <script src="/assets/app.js" defer></script>
 <script src="/assets/civic.js" defer></script>
 <title>POTEZ — politika prevedena na tvoj život</title>
@@ -248,13 +247,19 @@
 <section class="section daily-section" id="pitanje-dana" aria-labelledby="dailyTitle">
       <div class="daily-card">
         <div class="daily-heading">
-          <div><div class="section-kicker">Jedna minuta · mijenja se svaki dan</div><h2 id="dailyTitle">Dnevno pitanje: tko odlučuje?</h2></div>
+          <div><div class="section-kicker">Dnevna misija · oko 1 minute</div><h2 id="dailyTitle">Jedna situacija. Tvoj potez.</h2></div>
           <span class="daily-reward">+3 XP</span>
         </div>
-        <p class="daily-intro">Jedna stvarna situacija, tri moguća odgovora i kratko objašnjenje. Bez niza koji moraš održavati — vrati se kad ti odgovara.</p>
+        <p class="daily-intro">Uleti u kratku situaciju iz stvarnog života. Odaberi što bi napravio/la i vidi kamo taj potez vodi. Nema niza ni kazne ako preskočiš dan.</p>
         <div class="daily-date" id="dailyDate"></div>
-        <h3 class="daily-question" id="dailyQuestion">Učitavam današnje pitanje…</h3>
-        <div class="daily-choices" id="dailyChoices" role="group" aria-label="Odgovori na dnevno pitanje"></div>
+        <div class="daily-case" aria-live="polite">
+          <div class="daily-case-top"><span class="daily-case-icon" aria-hidden="true">✳</span><span id="dailyCaseLabel">Misija dana</span></div>
+          <h3 id="dailyScenarioTitle">Učitavam današnju situaciju…</h3>
+          <p id="dailyScenarioText"></p>
+        </div>
+        <div class="daily-prompt-label">ODABERI SVOJ POTEZ</div>
+        <h3 class="daily-question" id="dailyQuestion">Što bi napravio/la?</h3>
+        <div class="daily-choices" id="dailyChoices" role="group" aria-label="Odaberi svoj potez"></div>
         <div class="daily-feedback" id="dailyFeedback" role="status" aria-live="polite"></div>
       </div>
     </section>

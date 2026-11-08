@@ -1396,3 +1396,75 @@ body.reward-celebration .passport-rank { animation: potez-reward-rank .48s ease-
   .toast.show { animation: none !important; }
   .passport-track span { transition: none !important; }
 }
+
+
+/* Privacy page: clear reading width, calmer cards and better mobile rhythm. */
+.legal-page .legal-nav { display:flex; flex-wrap:wrap; }
+.legal-content { max-width: 900px; padding: clamp(28px, 5vw, 52px) 0 48px; }
+.legal-hero { max-width: 760px; margin: 0 auto 26px; }
+.legal-hero h1 { max-width: 16ch; margin: 10px 0 13px; font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.04; letter-spacing: -.065em; }
+.legal-hero .legal-lead { max-width: 62ch; margin-bottom: 12px; font-size: clamp(1rem, 1.7vw, 1.13rem); line-height: 1.62; }
+.legal-updated { margin: 12px 0 0; color: var(--muted); font-size: .78rem; }
+.privacy-glance { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin: 0 0 22px; }
+.privacy-glance-card { display:grid; grid-template-columns:38px minmax(0,1fr); align-items:center; column-gap:10px; padding:15px; border:1px solid var(--line); border-radius:17px; background:var(--surface); }
+.privacy-glance-card > span { grid-row:1 / span 2; display:grid; place-items:center; width:36px; height:36px; border-radius:12px; background:var(--green-soft); font-size:1.15rem; }
+.privacy-glance-card strong { font-size:.91rem; line-height:1.3; }
+.privacy-glance-card small { margin-top:2px; color:var(--muted); font-size:.72rem; line-height:1.35; }
+.legal-sections { display:grid; gap:11px; }
+.legal-content .legal-panel { margin:0; padding:clamp(18px,2.5vw,25px); border-radius:18px; }
+.legal-content .legal-panel h2 { margin-bottom:9px; font-size:clamp(1.12rem,2.5vw,1.42rem); }
+.legal-content .legal-panel p, .legal-content .legal-panel li { max-width:76ch; margin-bottom:9px; font-size:.9rem; line-height:1.62; }
+.legal-content .legal-panel p:last-child { margin-bottom:0; }
+.legal-content .legal-panel ul { margin:7px 0 12px; padding-left:21px; }
+.legal-content .legal-panel li + li { margin-top:4px; }
+.legal-content .legal-back { margin-top:24px; padding-top:17px; border-top:1px solid var(--line); }
+.legal-content .legal-back span { padding:0 7px; color:var(--muted); }
+
+/* Daily missions feel like a short decision scenario, not a school test. */
+.daily-case {
+  margin: 17px 0 18px;
+  padding: clamp(18px, 3vw, 24px);
+  border: 1px solid #d6d3ed;
+  border-radius: 19px;
+  background: linear-gradient(135deg, #f2efff 0%, #f8f7ff 65%, #f5faff 100%);
+}
+.daily-case-top { display:flex; align-items:center; gap:9px; margin-bottom:10px; color:#4e477c; font-size:.76rem; font-weight:950; letter-spacing:.055em; text-transform:uppercase; }
+.daily-case-icon { display:grid; place-items:center; width:31px; height:31px; border-radius:10px; background:#ded7ff; font-size:1rem; }
+.daily-case h3 { margin:0 0 8px; font-size:clamp(1.2rem,2.6vw,1.55rem); line-height:1.2; letter-spacing:-.035em; }
+.daily-case p { max-width:68ch; margin:0; color:#46435d; font-size:.91rem; line-height:1.62; }
+.daily-prompt-label { margin:0 0 6px; color:var(--muted); font-size:.7rem; font-weight:950; letter-spacing:.09em; }
+.daily-question { margin-top:0; }
+.daily-choices { grid-template-columns:1fr; gap:9px; }
+.daily-choice { min-height:64px; position:relative; gap:10px; padding:15px 17px 15px 50px; font-size:.91rem; }
+.daily-choice::before { position:absolute; left:16px; top:50%; transform:translateY(-50%); display:grid; place-items:center; width:24px; height:24px; border:1px solid #c8d0c6; border-radius:8px; color:#536159; font-size:.68rem; font-weight:950; content:attr(data-letter); }
+.daily-choice.correct { border-color:#43852f; background:#eaf5e2; }
+.daily-choice.wrong { border-color:#c15d4a; background:#fff0ec; }
+.daily-choice.chosen { box-shadow:0 0 0 2px rgba(23,33,29,.09); }
+.daily-feedback { display:grid; gap:8px; }
+.daily-feedback p { margin:0; }
+.daily-feedback-title { font-size:1rem; }
+.daily-outcome-label { margin-top:5px; color:#365a1e; font-size:.7rem; font-weight:950; letter-spacing:.07em; text-transform:uppercase; }
+.daily-takeaway { padding-top:9px; border-top:1px solid rgba(54,90,30,.18); font-weight:800; }
+.daily-feedback small { color:#536159; font-size:.75rem; }
+
+@media (max-width:760px) {
+  .legal-page .topline { align-items:center; flex-direction:row; }
+  .legal-page .legal-nav { display:flex; gap:4px; }
+  .legal-page .legal-nav a { padding:7px 9px; font-size:.73rem; }
+}
+@media (max-width:600px) {
+  .legal-content { padding:24px 0 34px; }
+  .legal-hero { margin-bottom:18px; }
+  .legal-hero h1 { font-size:clamp(2.05rem,9vw,2.8rem); }
+  .legal-hero .legal-lead { font-size:.94rem; line-height:1.52; }
+  .privacy-glance { grid-template-columns:1fr; gap:7px; margin-bottom:15px; }
+  .privacy-glance-card { padding:11px 13px; }
+  .legal-sections { gap:8px; }
+  .legal-content .legal-panel { padding:16px; border-radius:15px; }
+  .legal-content .legal-panel p, .legal-content .legal-panel li { font-size:.86rem; line-height:1.55; }
+  .daily-card { padding:19px; }
+  .daily-case { margin:14px 0; padding:16px; }
+  .daily-case p { font-size:.87rem; line-height:1.52; }
+  .daily-choice { min-height:58px; padding:13px 13px 13px 45px; font-size:.87rem; }
+  .daily-choice::before { left:12px; }
+}

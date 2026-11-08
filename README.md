@@ -18,7 +18,7 @@ Aplikacija je organizirana u pet odredišta:
 
 - **Početna** — kratko objašnjenje projekta i put prema prvom izazovu.
 - **Uči** — kvizovi, provjera tvrdnji i mapa institucija i nadležnosti.
-- **Igraj** — građanska putovnica, XP, značke, dnevno pitanje, tjedne misije i simulacija javnog proračuna.
+- **Igraj** — građanska putovnica, XP, značke, dnevne situacijske misije, tjedne misije i simulacija javnog proračuna.
 - **Djeluj** — praktični vodič od problema do prvog koraka.
 - **Alati** — poveznice na javne resurse, primjeri dobre prakse i informacije o pilotu.
 
@@ -52,11 +52,11 @@ Uporaba AI-ja navodi se radi transparentnosti o načinu nastanka projekta, a ne 
 
 Projekt koristi HTML, CSS i JavaScript bez velikog frontend frameworka. Osnovne edukativne funkcije ne zahtijevaju bazu podataka ni korisnički račun.
 
-### Opcionalne tehnologije koje trenutačno nisu aktivne
+### Namjerno bez backenda
 
-U repozitoriju postoji pripremljena Cloudflare Pages Function za povratne informacije, uz integraciju Cloudflare Turnstile i Supabase Postgresa. **U javnoj pilot-verziji obrazac je uklonjen, a ruta /api/* nije uključena u Cloudflare Pages Functions.** Nema aktivnog slanja ni pohrane poruka korisnika.
+U javnoj beta-verziji ne postoje Cloudflare Pages Functions, API endpointi, Supabase baza ni obrazac za slanje poruka. Iz repozitorija su uklonjeni i pripremljeni server-side kod i migracija baze kako ne bi ostao neaktivan put za prikupljanje podataka.
 
-Povratne informacije o sadržaju trenutačno se mogu predložiti kroz javni GitHub Issues. Tamo ne treba objavljivati osobne podatke.
+Za opće prijedloge i prijavu tehničkih grešaka postoji javni GitHub Issues. To je vanjska platforma; ondje ne treba objavljivati osobne ni povjerljive podatke.
 
 ## Privatnost i obrada podataka
 
@@ -69,12 +69,12 @@ Aplikacija ne koristi vlastitu analitiku, oglašivačke kolačiće ni piksele za
 Stranica se poslužuje putem Cloudflare Pages. Pružatelj hostinga može obrađivati tehničke podatke mrežnih zahtjeva radi isporuke i zaštite usluge, u skladu sa svojim pravilima. Detalji su u [obavijesti o privatnosti](privacy.html).
 
 **Dokumentacija:**
-- [Obavijest o privatnosti](privacy.html)
-- [Uvjeti korištenja](uvjeti.html)
+- [Obavijest o privatnosti](/privacy)
+- [Uvjeti korištenja](/uvjeti)
 
 ## Dijeljenje i gamifikacija
 
-XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Nema javnih ljestvica, održavanja nizova ni kazne za propušten dan.
+XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Nema javnih ljestvica, održavanja nizova ni kazne za propušten dan. Dnevna misija koristi kratke situacijske scenarije o javnim odlukama, integritetu, informacijama i poštenom sudjelovanju. Svaki izbor dobiva posljedicu i objašnjenje; bodovi nagrađuju pokušaj, a ne slaganje s političkim stajalištem.
 
 Kratki zvuk nagrade generira se u pregledniku nakon korisničke radnje. Ne učitava se audio datoteka. Zvuk se može isključiti prekidačem; postavka ostaje lokalna.
 
@@ -90,13 +90,13 @@ python -m http.server 8000
 
 Zatim otvori http://localhost:8000.
 
-Za provjeru koda i API sigurnosnih regresija:
+Za provjeru koda i granica privatnosti:
 
 ~~~bash
 bash scripts/check.sh
 ~~~
 
-Provjere obuhvaćaju sintaksu JavaScripta, validaciju HTML-a i internih poveznica, JSON konfiguraciju te testove pripremljenog feedback endpointa.
+Provjere obuhvaćaju sintaksu JavaScripta, validaciju HTML-a i internih poveznica, manifest te potvrdu da javni pilot nema server-side funkcije, bazu ni obrazac za prikupljanje poruka.
 
 ## Objavljivanje na Cloudflare Pages
 
@@ -117,7 +117,7 @@ Cloudflare Pages objavljuje statičke datoteke iz repozitorija. GitHub Actions p
 - Ne prikazivati izmišljene rezultate kao stvarne podatke o mladima ili posjetiteljima.
 - Ne dodavati analitiku ili kolačiće za praćenje bez procjene svrhe, pravne osnove, minimizacije i odgovarajuće obavijesti.
 - Nikada ne stavljati tajne ključeve u javni frontend ili GitHub repozitorij.
-- Ako se feedback endpoint ikad aktivira, prije toga treba ponovno otvoriti /api/* rutu, dovršiti procjenu obrade, jasno navesti kontakt voditelja obrade, svrhu, pravnu osnovu, primatelje i rok čuvanja, ažurirati privatnost i uvjete te provjeriti stvarno ponašanje u produkciji.
+- Ako se u budućnosti uvede bilo kakvo slanje podataka ili backend, to je nova funkcionalnost koja zahtijeva zasebnu procjenu svrhe, pravne osnove, minimizacije, sigurnosti, primatelja i rokova čuvanja te ažuriranje obavijesti o privatnosti prije aktivacije.
 
 ## Sadržaj i ograničenja
 
