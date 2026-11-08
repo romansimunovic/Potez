@@ -344,14 +344,13 @@
     render();
   }
 
-  const currentBudget = () => Array.from(document.querySelectorAll('[data-budget-slider]')).map(input => Number(input.value));
+  const currentBudget = () => Array.from(document.querySelectorAll('[data-budget-slider]')).map(input => Number(input.dataset.amount || 0));
   const categoryNames = () => Array.from(document.querySelectorAll('[data-budget-name]')).map(label => label.textContent.trim());
-  const budgetContext = () => [$('#budgetCity')?.value || '', $('#budgetDistrict')?.value || ''].join(':');
+  const budgetContext = () => $('#budgetCity')?.value || '';
   const budgetLabel = () => {
     const city = $('#budgetCity')?.selectedOptions?.[0]?.textContent || 'odabrani grad';
-    const district = $('#budgetDistrict')?.selectedOptions?.[0]?.textContent || 'odabrana četvrt';
     const total = $('#budgetEnvelope')?.textContent || '';
-    return district + ', ' + city + ' · ' + total;
+    return city + ' · fond ' + total;
   };
   const formatEuro = (amount) => new Intl.NumberFormat('hr-HR', {
     style: 'currency', currency: 'EUR', maximumFractionDigits: 0
