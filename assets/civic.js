@@ -297,7 +297,7 @@
   const shareDuel = $('#shareBudgetChallenge');
   if (shareDuel) {
     shareDuel.addEventListener('click', async () => {
-      const message = 'Imam POTEZ izazov: rasporedi 100.000 € za grad i usporedi prioritete sa mnom. Bez kviza o političkim stavovima — samo odluke i argumenti. https://potez.pages.dev/#budzet';
+      const message = 'Isprobaj POTEZ simulaciju: rasporedi 100.000 € za grad, pa mi pošalji svoj izbor. Usporedit ćemo prioritete i argumente. https://potez.pages.dev/#budzet';
       try {
         if (navigator.share) {
           await navigator.share({ title: 'POTEZ — izazov javnog budžeta', text: message, url: 'https://potez.pages.dev/#budzet' });
