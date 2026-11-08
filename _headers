@@ -20,3 +20,6 @@
 
 /privacy.html
   Cache-Control: no-cache
+
+/uvjeti.html
+  Cache-Control: no-cache
