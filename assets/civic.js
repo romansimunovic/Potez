@@ -203,7 +203,7 @@
       label: 'Javni natječaj · poštena pravila',
       title: 'Tko dobiva ugovor za novi skate-park?',
       story: 'Tvoja ekipa godinama traži siguran prostor za skejtanje. Grad napokon objavljuje natječaj za uređenje skate-parka. U dokumentima primijetiš da je osoba povezana s jednim ponuditeljem sudjelovala u povjerenstvu. Ne znaš je li to prijavljeno ni kako je ponuda ocijenjena.',
-      question: 'Koji je tvoj najbolji prvi potez?',
+      question: 'Koji je postupak najprimjereniji?',
       options: [
         { text: 'Zamoliti poznanika da pogura ponudu.', best: false, feedback: 'Poznanstvo nije kriterij. Pritisak narušava jednaka pravila i može ugroziti postupak.' },
         { text: 'Zatražiti kriterije, zapisnik bodovanja i obrazloženu odluku.', best: true, feedback: 'Zatraži kriterije, bodovanje i obrazloženje. Provjeri je li mogući sukob interesa prijavljen i riješen.' },
