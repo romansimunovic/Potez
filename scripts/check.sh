@@ -12,12 +12,13 @@ require('./assets/budget-data.js');
 const cities = window.POTEZ_BUDGET_DATA.cities;
 for (const [cityKey, city] of Object.entries(cities)) {
   for (const [districtKey, district] of Object.entries(city.districts)) {
-    const sum = district.items.reduce((total, item) => total + item.amount, 0);
+    const sumCents = district.items.reduce((total, item) => total + Math.round(item.amount * 100), 0);
+    const expectedCents = Math.round(district.total * 100);
     if (cityKey === "valpovo" && districtKey === "funkcijska-klasifikacija" && Math.abs(district.total - 14375354.05) > 0.001) {
       throw new Error("Valpovo selected functions subtotal changed unexpectedly");
     }
-    if (sum !== district.total) {
-      throw new Error(cityKey + '/' + districtKey + ': category total ' + sum + ' does not match programme total ' + district.total);
+    if (sumCents !== expectedCents) {
+      throw new Error(cityKey + '/' + districtKey + ': category total ' + (sumCents / 100) + ' does not match programme total ' + district.total);
     }
   }
 }
@@ -105,19 +106,22 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v15" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v16" in sw and "'/assets/budget-data.js'" in sw
 for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
 assert 'Odaberi stvarni problem' in html and 'budgetCity' in html and 'budgetDistrict' in html
 data = Path("assets/budget-data.js").read_text(encoding="utf-8")
-for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "zagreb", "nova-gradiska"):
+for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "zagreb", "vinkovci", "nova-gradiska"):
     assert city in data, city
 assert "budgetDistrictLabel" in html and "budgetEnvelopeLabel" in html
 assert 'value="virovitica"' in html and 'value="virovitica" disabled' not in html
 assert 'value="valpovo"' in html and 'value="valpovo" disabled' not in html
 assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
+assert 'value="vinkovci"' in html and 'value="vinkovci" disabled' not in html
+assert "total: 94845254.82" in data
+assert "amount: 18581614.85" in data
 assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
 assert "total: 2484265290" in data
 assert "amount: 354781100" in data
@@ -139,7 +143,7 @@ data = Path("assets/budget-data.js").read_text(encoding="utf-8")
 for token in ("tvrda", "novi-grad", "gornji-grad", "donji-grad", "93729", "99492"):
     assert token in data, token
 assert "100.000 €" not in html and "data-budget-slider" in Path("assets/app.js").read_text(encoding="utf-8")
-assert all(token in html for token in ("Slavonski Brod", "Slatina", "Vukovar", "Virovitica", "Valpovo", "Zagreb", "Nova Gradiška"))
+assert all(token in html for token in ("Slavonski Brod", "Slatina", "Vukovar", "Virovitica", "Valpovo", "Zagreb", "Vinkovci", "Nova Gradiška"))
 assert "Proračunska igra prikazuje odabrane iznose iz službenih planova" in Path("uvjeti.html").read_text(encoding="utf-8")
 assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.js").read_text(encoding="utf-8")
 assert "razlika manja od 5% ili 5.000 €" in Path("assets/civic.js").read_text(encoding="utf-8")
