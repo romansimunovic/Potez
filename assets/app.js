@@ -50,6 +50,7 @@
     const values = inputs.map((input, index) => {
       const percentage = Number(input.value);
       const amount = Math.round(activeBudget.items[index].amount * percentage / 100);
+      input.dataset.amount = String(amount);
       const output = $('#v' + (index + 1));
       const share = $('#s' + (index + 1));
       if (output) output.textContent = euro(amount);
@@ -95,7 +96,7 @@
       const number = index + 1;
       return '<article class="budget-line">' +
         '<div class="budget-line-head">' +
-          '<label for="' + id + '">' +
+          '<label data-budget-name for="' + id + '">' +
             '<span class="budget-category-icon" aria-hidden="true">' + item.icon + '</span>' +
             '<span>' + item.name + '</span>' +
           '</label>' +
