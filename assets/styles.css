@@ -2314,5 +2314,5 @@ html[data-theme="dark"] .action-depth-note{color:#c7d3ca!important}
 @media(max-width:760px){body{padding-bottom:0!important}}
 
 /* Readability pass: preserve important notices without shrinking them into microcopy. */
-.scenario-city small{display:block;margin-top:3px;font-size:.87rem;line-height:1.45}
+.budget-context-note{display:block;margin-top:3px;font-size:.87rem;line-height:1.45}
 .daily-feedback-xp,.daily-source{display:block;margin:10px 0 0;font-size:.88rem;line-height:1.55}
