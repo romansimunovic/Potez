@@ -2026,3 +2026,97 @@ html[data-theme="dark"] .budget-method p { color: #d5e0d8; }
 @media (max-width:360px) {
   .budget-total .big { font-size: 1.08rem; }
 }
+
+/* Evidence-led learning explorer and compact progression. */
+.learning-daily-section{padding-top:18px;padding-bottom:0}
+.daily-fact-card{display:grid;gap:11px;padding:clamp(20px,3vw,30px);border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);box-shadow:var(--shadow-sm)}
+.daily-fact-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.daily-fact-kicker{display:inline-flex;align-items:center;gap:8px;color:var(--green-deep);font-size:.76rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.daily-fact-kicker:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--coral)}
+.daily-fact-date{color:var(--muted);font-size:.78rem;font-weight:700}
+.daily-fact-card h2{max-width:40ch;margin:0;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.15;letter-spacing:-.035em}
+.daily-fact-text{max-width:76ch;margin:0;font-size:1.02rem;line-height:1.65}
+.daily-fact-note{max-width:76ch;margin:0;color:var(--muted);font-size:.88rem}
+.daily-fact-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:4px}
+.daily-fact-source,.learning-source-link{color:var(--green-deep);font-size:.82rem;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.daily-fact-award,.learning-award{min-height:40px;padding:9px 14px;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:#fff;font-size:.82rem;font-weight:800}
+.daily-fact-award:disabled,.learning-award:disabled{border-color:var(--line);background:var(--green-soft);color:var(--green-deep);cursor:default}
+.learning-explorer{padding-top:34px}
+.learning-explorer-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 16px}
+.learning-filters{display:flex;flex-wrap:wrap;gap:8px}
+.learning-filter{min-height:38px;padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);font-size:.82rem;font-weight:760}
+.learning-filter[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.learning-count{flex:0 0 auto;color:var(--muted);font-size:.8rem;font-weight:750}
+.learning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.learning-card{display:flex;flex-direction:column;min-width:0;padding:19px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface);box-shadow:var(--shadow-sm)}
+.learning-card.is-complete{border-color:#8bab75}
+.learning-card-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.learning-topic-label{color:var(--green-deep);font-size:.7rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.learning-category-label{color:var(--muted);font-size:.7rem;font-weight:750}
+.learning-card h3{margin:0 0 9px;font-size:1.12rem;line-height:1.22;letter-spacing:-.02em}
+.learning-card-intro{margin:0 0 13px;color:var(--muted);font-size:.9rem;line-height:1.55}
+.learning-card-details{margin-top:auto;border-top:1px solid var(--line);padding-top:10px}
+.learning-card-details>summary{cursor:pointer;color:var(--text);font-size:.84rem;font-weight:820;list-style-position:inside}
+.learning-card-details[open]>summary{margin-bottom:12px}
+.learning-question{margin:0 0 9px;font-weight:800;font-size:.93rem;line-height:1.45}
+.learning-insight,.learning-action p{margin:0 0 12px;color:var(--text);font-size:.88rem;line-height:1.58}
+.learning-action{padding:12px;border-radius:12px;background:var(--green-soft);margin:0 0 12px}
+.learning-action strong{display:block;margin-bottom:5px;font-size:.81rem}
+.learning-action p{margin:0}
+.learning-card-sources{display:grid;gap:5px;padding-top:10px;border-top:1px solid var(--line)}
+.learning-source-caption{color:var(--muted);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.learning-source-note{margin:0;color:var(--muted);font-size:.76rem;line-height:1.45}
+.learning-card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:12px}
+.learning-guide-link{color:var(--green-deep);font-size:.8rem;font-weight:820;text-decoration:underline;text-underline-offset:3px}
+.learning-award{min-height:37px;padding:8px 12px;font-size:.77rem}
+.learning-show-more{display:flex;width:max-content;margin:17px auto 0}
+.learning-footnote{max-width:78ch;margin:13px 0 0;color:var(--muted);font-size:.78rem;line-height:1.5}
+.learning-empty{grid-column:1/-1;color:var(--muted)}
+.learning-guides{margin:20px 0 12px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);overflow:hidden}
+.learning-guides>summary{display:grid;grid-template-columns:1fr;gap:3px;padding:19px 22px;cursor:pointer;list-style-position:inside}
+.learning-guides>summary strong{font-size:1.05rem}
+.learning-guides>summary span:last-child{color:var(--muted);font-size:.82rem}
+.learning-guides[open]>summary{border-bottom:1px solid var(--line)}
+.learning-guides .issue-paths{padding:20px 22px 16px}
+.learning-guides .issue-detail-section{padding:0 22px 22px}
+.learning-guides .issue-paths .section-head{margin-bottom:15px}
+.passport-compact{display:grid;gap:11px;padding:20px 24px}
+.passport-compact-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.passport-compact .passport-rank{margin:3px 0 0;font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.1}
+.passport-compact p{margin:0;color:#d7e1d9;font-size:.88rem}
+.passport-compact-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.passport-compact .passport-next{font-size:.82rem}
+.passport-compact-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:2px}
+.passport-compact-actions .btn{min-height:40px;padding:8px 13px;font-size:.82rem}
+.passport-more{margin-top:11px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface)}
+.passport-more>summary{padding:12px 16px;cursor:pointer;color:var(--text);font-size:.85rem;font-weight:800}
+.passport-more-content{display:grid;gap:13px;padding:0 16px 16px}
+.passport-more-content .passport-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.passport-more-content .passport-path{margin-top:0}
+.passport-section .section-head{margin-bottom:16px}
+@media(max-width:1000px){.learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){
+  .learning-explorer{padding-top:25px}
+  .learning-explorer-toolbar{align-items:flex-start;flex-direction:column}
+  .learning-grid{grid-template-columns:1fr;gap:10px}
+  .learning-card{padding:17px}
+  .daily-fact-card{padding:19px}
+  .daily-fact-footer{align-items:flex-start;flex-direction:column}
+  .daily-fact-award{width:100%}
+  .learning-guides>summary{padding:16px}
+  .learning-guides .issue-paths{padding:16px 16px 12px}
+  .learning-guides .issue-detail-section{padding:0 16px 16px}
+  .passport-compact{padding:18px}
+  .passport-compact-top{align-items:flex-start}
+  .passport-compact-actions{display:grid;grid-template-columns:1fr}
+  .passport-compact-actions .btn{width:100%}
+  .passport-more-content .passport-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+html[data-theme="dark"] .daily-fact-card,html[data-theme="dark"] .learning-card,html[data-theme="dark"] .learning-guides,html[data-theme="dark"] .passport-more{background:#151e1a;border-color:#526158;color:#f7f4ec}
+html[data-theme="dark"] .daily-fact-kicker,html[data-theme="dark"] .learning-topic-label,html[data-theme="dark"] .learning-guide-link,html[data-theme="dark"] .daily-fact-source,html[data-theme="dark"] .learning-source-link{color:#c8f169}
+html[data-theme="dark"] .daily-fact-note,html[data-theme="dark"] .daily-fact-date,html[data-theme="dark"] .learning-card-intro,html[data-theme="dark"] .learning-category-label,html[data-theme="dark"] .learning-footnote,html[data-theme="dark"] .learning-source-note{color:#bdcbc1}
+html[data-theme="dark"] .learning-filter{background:#151e1a;color:#f7f4ec;border-color:#526158}
+html[data-theme="dark"] .learning-filter[aria-pressed="true"]{background:#c8f169;color:#17211d;border-color:#c8f169}
+html[data-theme="dark"] .learning-action{background:#293d2d;color:#eff8e7}
+html[data-theme="dark"] .learning-award:disabled,html[data-theme="dark"] .daily-fact-award:disabled{background:#293d2d;color:#c8f169;border-color:#526158}
+html[data-theme="dark"] .passport-more>summary,html[data-theme="dark"] .learning-guides>summary{color:#f7f4ec}
