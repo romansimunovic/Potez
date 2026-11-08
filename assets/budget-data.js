@@ -87,13 +87,14 @@ window.POTEZ_BUDGET_DATA = {
         'odabrani-programi': {
           label: 'Gradski programi i ulaganja',
           year: 2026,
-          total: 34951603,
+          total: 44901378,
           envelopeLabel: 'Zbroj prikazanih programa',
           scopeNote: 'Odabrani programi i ulaganja · 2026.',
           intro: 'Odabrani su programi koji izravno oblikuju školu, kvart, stanovanje, sport i okoliš.',
           source: 'https://www.slavonski-brod.hr/gradska-uprava/proracun/16363-proracun-grada-za-2026-godinu',
           sourceLabel: 'Proračun Grada Slavonskog Broda za 2026. ↗',
           items: [
+            { name: 'ITU projekti', amount: 9945775, detail: 'Biciklističke staze, botanički vrt, akcelerator i kamp na Poloju' },
             { name: 'Škole', amount: 5371508, detail: 'Dogradnje, igrališta, blagovaonice i oprema' },
             { name: 'Okoliš i obnovljivi izvori', amount: 3612723, detail: 'Kvaliteta zraka, geotermalna energija i park Klasije' },
             { name: 'Stanovanje za mlade obitelji', amount: 870000, detail: 'Stanovi i poticaji za gradnju kuća' },
