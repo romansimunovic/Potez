@@ -17,8 +17,8 @@ Projekt je zamišljen kao jednostavna ulazna točka u građansko sudjelovanje �
 Aplikacija je organizirana u pet odredišta:
 
 - **Početna** — kratko objašnjenje projekta i put prema prvom izazovu.
-- **Uči** — kvizovi, provjera tvrdnji i mapa institucija i nadležnosti.
-- **Igraj** — građanska putovnica, XP, značke, dnevne situacijske misije, tjedne misije i simulacija javnog proračuna.
+- **Uči** — tematske kartice prema interesu, zanimljivost dana s izvorom, kvizovi, provjera tvrdnji i mapa institucija i nadležnosti.
+- **Igraj** — lokalna građanska putovnica, XP razine, značke, dnevne i tjedne misije te simulacija javnog proračuna.
 - **Djeluj** — praktični vodič od problema do prvog koraka.
 - **Alati** — poveznice na javne resurse, primjeri dobre prakse, gotov okvir radionice za škole i udruge te informacije o pilotu.
 
@@ -84,7 +84,7 @@ Dijeljenje napretka pokreće se samo kada korisnik pritisne gumb. Koristi se izv
 
 Proračunski izazov je edukativna simulacija, ne službeni gradski proračun niti prognoza potrošnje. Model obuhvaća 42 grada, koristi Popis 2021. i jasno označava vlastite troškovne pretpostavke. Potpuna demografska osnova, formula, raspodjela, izvori i ograničenja nalaze se u [metodologiji simulacije lokalnog proračuna](docs/BUDGET_MODEL_2026.md).
 
-## Lokalni razvoj i provjere
+## Uređivačka i partnerska dokumentacija\n\n- [Izvori za tematske kartice i dnevne zanimljivosti](docs/LEARNING_SOURCES_2026.md)\n- [Potencijalni partneri i prijedlog pilotiranja](docs/POTENTIAL_PARTNERS_AND_PILOT.md)\n- [Urednička načela POTEZA](docs/CONTENT_PRINCIPLES.md)\n\n## Lokalni razvoj i provjere
 
 Za brzi lokalni prikaz statičke aplikacije:
 
