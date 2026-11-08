@@ -2017,3 +2017,12 @@ html[data-theme="dark"] .budget-method p { color: #d5e0d8; }
   .budget-total .big { font-size: 1.28rem; }
   .budget-line .amount { font-size: .72rem; }
 }
+
+/* Keep large currency values inside the scorecard at every viewport width. */
+.budget-total .big { white-space: nowrap; overflow-wrap: normal; font-size: clamp(1.16rem, 1.85vw, 1.58rem); letter-spacing: -.025em; }
+@media (max-width:600px) {
+  .budget-total .big { font-size: clamp(1.12rem, 5.1vw, 1.48rem); white-space: nowrap; }
+}
+@media (max-width:360px) {
+  .budget-total .big { font-size: 1.08rem; }
+}
