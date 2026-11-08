@@ -16,6 +16,11 @@ Ovaj registar služi uredničkoj provjeri podataka u proračunskom izazovu POTEZ
 | Valpovo | Posljednji dokumentirani plan prije prijedloga III. izmjena za 2026. | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 14.375.354,05 EUR. Vrijednosti su preuzete iz stupca „Planirano” u službenom prijedlogu III. izmjena; novi predloženi iznosi nisu tretirani kao usvojeni plan |
 | Zagreb | Početni usvojeni proračun 2026.; funkcijska tablica iz službenog PDF-a | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 2.484.265.290 EUR. Ovo je početni plan prije naknadnih izmjena; službena XLS funkcijska tablica uz izmjene još nije obrađena |
 | Vinkovci | Proračun u malom 2026. s funkcijskom klasifikacijom početnog plana | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 94.845.254,82 EUR. Ovo je početni plan prije I. izmjena od 27. 5. 2026.; ne predstavlja rebalans |
+| Belišće | Usvojeni početni proračun 2026. i službeni vodič po upravnim odjelima | Pet upravnih odjela; zbroj 31.641.383,40 EUR, cijeli početni rashodni plan. Ovo je organizacijska, a ne funkcijska klasifikacija; II. izmjene nisu uključene |
+
+## Napomena o Belišću
+
+Scenarij koristi **početni usvojeni proračun za 2026.** iz službenog vodiča „Proračun u malom”. Pet upravnih odjela daju ukupno 31.641.383,40 EUR, što odgovara ukupnom početnom proračunu. Ovo je organizacijska klasifikacija i nije izravno usporediva s funkcijskim scenarijima drugih gradova. U odjelu financija, proračuna i javne nabave posebno je važno da 16.775.000 EUR čine planirani povrati zajmova (97,81% iznosa odjela), a ne uobičajeni administrativni troškovi. Gradova službena proračunska stranica navodi i **II. izmjene i dopune za 2026.**, objavljene nakon početnog vodiča; njihove nove tablice nisu uključene u ovaj početni scenarij. Službeni vodič: https://belisce.hr/wp-content/uploads/2026/01/Vodic-za-gradane-Proracun-u-malom-Grada-Belisca-za-2026.-godinu.pdf ; aktualni registar proračuna: https://belisce.hr/proracun/.
 
 ## Napomena o Vinkovcima
 
@@ -36,7 +41,6 @@ Službena stranica Grada Valpova objavljuje plan proračuna za 2026. i I. izmjen
 | Nova Gradiška | Službeni arhiv s kategorijama proračuna, izmjena i dopuna te izvještaja o izvršenju za 2026. | Utvrditi posljednju važeću odluku i preuzeti posebni dio/funkcijsku klasifikaciju; ne koristiti starije projekcije za 2026. | https://novagradiska.hr/wp-file-download-search/ |
 | Požega | I. izmjene i dopune 2026., objavljene 26. 6. 2026.; tablice u XLS formatu | Obraditi važeći XLS i obrazloženje; uskladiti stavke s odabranim funkcijama/programima | https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine |
 | Virovitica | II. izmjene i dopune 2026. | Aktivno; izvorni PDF povezan u scenariju | https://www.virovitica.hr/proracun-grada-virovitice/ |
-| Belišće | II. izmjene i dopune 2026.; izvještaj izvršenja do 30. 9. 2026. | Obraditi drugi rebalans; izvještaj izvršenja koristiti samo kao kontrolu realizacije, ne kao plan | https://belisce.hr/proracun/ |
 | Đakovo | II. rebalans proračuna za 2026. i pripadajuće obrazloženje | Izdvojiti tablice iz II. rebalansa; ne koristiti I. rebalans ili početni plan kao aktualnu osnovu | https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html |
 
 ## Provjere prije aktivacije
@@ -49,4 +53,4 @@ Službena stranica Grada Valpova objavljuje plan proračuna za 2026. i I. izmjen
 6. U sučelju jasno navesti „zbroj odabranih funkcija/programa” i da klizači mijenjaju samo edukativni scenarij.
 7. Zadržati službenu poveznicu izravno uz scenarij.
 
-**Status 8. 11. 2026.:** Aktivni su Osijek, Slavonski Brod, Slatina, Vukovar, Virovitica, Valpovo, Zagreb i Vinkovci. Zagreb i Vinkovci koriste jasno označene početne usvojene planove prije naknadnih izmjena. Nova Gradiška, Požega, Belišće i Đakovo ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
+**Status 8. 11. 2026.:** Aktivni su Osijek, Slavonski Brod, Slatina, Vukovar, Virovitica, Valpovo, Zagreb, Vinkovci i Belišće. Zagreb, Vinkovci i Belišće koriste jasno označene početne usvojene planove prije naknadnih izmjena. Nova Gradiška, Požega i Đakovo ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
