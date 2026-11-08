@@ -30,6 +30,8 @@ Sučelje koristi progresivno otkrivanje sadržaja: tematske kartice, praktični 
 
 ## Autorstvo i transparentnost uporabe AI-ja
 
+Detaljna izjava o alatima, opsegu uporabe, ljudskoj provjeri i odnosu prema članku 50. Akta EU-a o umjetnoj inteligenciji nalazi se u [Izjavi o transparentnosti uporabe AI-ja](docs/AI_TRANSPARENCY.md).
+
 Koncept, urednički smjer, odabir tema, odluke o funkcionalnostima i konačna objava projekta pripadaju **Romanu Šimunoviću**.
 
 **OpenAI ChatGPT korišten je kao pomoćni alat** tijekom strukturiranja projekta i dokumentacije, razrade korisničkog iskustva, organiziranja sadržaja, pisanja i dorade dijelova koda, prijedloga pristupačnosti i responzivnosti, savjetovanja o tehničkoj arhitekturi, debugiranja te pripreme i provjere testova.
