@@ -1919,3 +1919,14 @@ html[data-theme="dark"] .budget-result p{color:#edf4ee}
   .budget-total{position:static}
   .scenario-city img{width:112px;height:70px}
 }
+
+
+/* Compact city-source disclosure, kept secondary to the allocation controls. */
+.budget-upcoming{flex:1 1 100%;margin-top:8px;color:var(--muted);font-size:.8rem}
+.budget-upcoming summary{width:max-content;cursor:pointer;font-weight:850;text-underline-offset:3px}
+.budget-upcoming p{margin:8px 0 4px;line-height:1.7}
+.budget-upcoming a{color:var(--green-deep);font-weight:800}
+.budget-upcoming small{font-size:.74rem}
+html:not([data-theme="dark"]) .budget-upcoming a{color:var(--green-deep)}
+html[data-theme="dark"] .budget-upcoming{color:#d0dbd3}
+html[data-theme="dark"] .budget-upcoming a{color:#d8eaff}

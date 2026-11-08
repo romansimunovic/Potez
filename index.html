@@ -51,7 +51,6 @@
         <h1>Tvoj život. <span class="highlight">Tvoj potez</span></h1>
         <p class="hero-copy">Kasni bus. Preskup najam. Pravilo u školi koje nema smisla. Saznaj tko o tome odlučuje, provjeri informacije i pronađi svoj sljedeći korak</p>
         <div class="actions"><a class="btn btn-dark" href="#igraj">Isprobaj prvi izazov <span aria-hidden="true">↗</span></a><a class="btn btn-light" href="#djeluj">Imam konkretan problem</a></div>
-        <p class="source-note">Bez stranaka. Bez korisničkog računa. Tvoj napredak ostaje na ovom uređaju</p>
       </div>
       <div class="hero-art" aria-label="Ilustracija mladih koji zajedno oblikuju svoj grad">
         <div class="art-label">Tvoj grad. Tvoj glas</div>
@@ -102,7 +101,7 @@
       </div>
     </section>
     <section class="home-progress" aria-label="Tvoj lokalni napredak">
-      <div><div class="section-kicker">Tvoj POTEZ · spremljen samo ovdje</div><h3 id="homeProgressTitle">Tvoj napredak počinje ovdje</h3><p id="homeProgressDescription">Ne trebaš račun. Bodovi se čuvaju samo na tvom uređaju</p></div>
+      <div><div class="section-kicker">Tvoj POTEZ</div><h3 id="homeProgressTitle">Tvoj napredak počinje ovdje</h3><p id="homeProgressDescription">Nastavi gdje si stao/la ili isprobaj novu situaciju.</p></div>
       <div class="home-progress-score"><strong id="homeXp">0 XP</strong><span>tvoj napredak</span></div>
       <a class="btn btn-light" href="#igraj">Otvori igru ↗</a>
     </section>
@@ -272,11 +271,11 @@
     </section>
 </section>
 <section class="app-view" data-app-view="play" id="igraj" hidden>
-<header class="view-intro"><div><div class="section-kicker">IGRAJ · NAPREDUJ · PONOVI</div><h1>Građanske vještine, pretvorene u igru</h1><p>Kratki izazovi o stvarnim temama. Bodovi nagrađuju učenje, ne političke stavove</p></div><span class="view-meta">Bez računa · lokalno</span></header>
+<header class="view-intro"><div><div class="section-kicker">IGRAJ · NAPREDUJ · PONOVI</div><h1>Građanske vještine, pretvorene u igru</h1><p>Kratki izazovi o stvarnim temama. Bodovi nagrađuju učenje, ne političke stavove</p></div><span class="view-meta">Brzi izazovi</span></header>
 <section class="section passport-section" id="putovnica" aria-labelledby="passportTitle">
       <div class="section-head">
         <div><div class="section-kicker"><span class="number">00</span> Tvoja putovnica</div><h2 id="passportTitle">Od znatiželje do stvarnog poteza</h2></div>
-        <p class="section-intro">Skupljaj vještine, ne političke bodove. Napredak se čuva samo na ovom uređaju — bez profila, javne ljestvice i praćenja tvojih stavova</p>
+        <p class="section-intro">Riješi izazove, otključaj nove vještine i isprobaj ih na stvarnim situacijama</p>
       </div>
       <div class="passport-layout">
         <div class="passport-main panel dark">
@@ -302,7 +301,7 @@
         </div>
       </div>
       <div class="passport-path" id="passportPath" aria-label="Put kroz izazove"></div>
-      <p class="source-note">XP bodovi označavaju završene edukativne zadatke, ne kvalitetu tvojih političkih stavova ni stvarni društveni utjecaj. Ne postoji „točan” politički izbor</p>
+      <p class="source-note">Bodovi prate dovršene izazove — ne političke stavove</p>
     </section>
 <section class="section weekly-section" aria-labelledby="weeklyTitle">
       <div class="panel mint weekly-panel">
@@ -314,7 +313,6 @@
         </div>
         <div class="weekly-mark" aria-hidden="true">✳</div>
       </div>
-      <p class="source-note">Misija se mijenja jednom tjedno. Označavanje i bodovi spremaju se samo u ovom pregledniku; nema javne ljestvice ni korisničkog profila</p>
     </section>
 <section class="section daily-section" id="pitanje-dana" aria-labelledby="dailyTitle">
       <div class="daily-card">
@@ -322,8 +320,8 @@
           <div><div class="section-kicker">Dnevna misija · oko 1 minute</div><h2 id="dailyTitle">Jedna situacija. Tvoj potez</h2></div>
           <span class="daily-reward">+3 XP</span>
         </div>
-        <p class="daily-intro">Uleti u kratku situaciju iz stvarnog života. Odaberi što bi napravio/la i vidi kamo taj potez vodi. Nema niza ni kazne ako preskočiš dan</p>
-        <div class="daily-run-progress"><div class="daily-run-progress-top"><strong id="dailyProgressLabel">0 / 9 izazova</strong><span>Dovrši izazov, otključaj sljedeći i usput nauči nešto korisno</span></div><div class="daily-run-track"><span id="dailyProgress"></span></div></div><div class="daily-date" id="dailyDate"></div>
+        <p class="daily-intro">Kratka situacija. Tvoj izbor. Pogledaj što može uslijediti.</p>
+        <div class="daily-run-progress"><div class="daily-run-progress-top"><strong id="dailyProgressLabel">0 / 9 izazova</strong><span>Riješi situaciju i nastavi dalje</span></div><div class="daily-run-track"><span id="dailyProgress"></span></div></div><div class="daily-date" id="dailyDate"></div>
         <div class="daily-case" aria-live="polite">
           <div class="daily-case-top"><span class="daily-case-icon" aria-hidden="true">✳</span><span id="dailyCaseLabel">Misija dana</span></div>
           <h3 id="dailyScenarioTitle">Učitavam današnju situaciju…</h3>
@@ -341,25 +339,32 @@
       <div class="section-kicker"><span class="number">02</span> Javni novac u praksi</div>
       <h2>Ti si gradonačelnik na 5 minuta</h2>
     </div>
-    <p class="section-intro">Ovo nije cijeli gradski proračun: odaberi gradsku četvrt i preraspodijeli stvarne iznose iz njezina usvojenog programa za 2026.</p>
+    <p class="section-intro">Odaberi grad i pogledaj kako se planirani novac raspoređuje. Što bi promijenio/la?</p>
   </div>
   <div class="panel yellow budget-simulation">
     <div class="scenario scenario-city" id="budgetScenarioHeader">
-      <img id="budgetCityImage" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Osijek_VP01.jpg" alt="Pogled na osječku Tvrđu s mosta preko Drave" loading="lazy" decoding="async">
-      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><small id="budgetContextSubtitle">Program prioriteta · GČ Tvrđa</small></span>
+      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><small id="budgetContextSubtitle">Gradska četvrt Tvrđa</small></span>
     </div>
     <div class="budget-location-selectors">
       <label for="budgetCity">Odaberi grad
         <select id="budgetCity">
           <option value="osijek" selected>Osijek</option>
-          <optgroup label="Podaci se pripremaju">
-            <option value="zagreb" disabled>Zagreb</option>
-            <option value="rijeka" disabled>Rijeka</option>
-            <option value="split" disabled>Split</option>
+          <option value="slavonski-brod">Slavonski Brod</option>
+          <option value="slatina">Slatina</option>
+          <option value="vukovar">Vukovar</option>
+          <optgroup label="Sljedeći gradovi">
+            <option value="zagreb" disabled>Zagreb · izmjene proračuna u obradi</option>
+            <option value="nova-gradiska" disabled>Nova Gradiška · podaci u obradi</option>
+            <option value="vinkovci" disabled>Vinkovci · podaci u obradi</option>
+            <option value="požega" disabled>Požega · podaci u obradi</option>
+            <option value="virovitica" disabled>Virovitica · podaci u obradi</option>
+            <option value="valpovo" disabled>Valpovo · podaci u obradi</option>
+            <option value="belisce" disabled>Belišće · podaci u obradi</option>
+            <option value="djakovo" disabled>Đakovo · podaci u obradi</option>
           </optgroup>
         </select>
       </label>
-      <label for="budgetDistrict">Odaberi gradsku četvrt
+      <label for="budgetDistrict"><span id="budgetDistrictLabel">Odaberi gradsku četvrt</span>
         <select id="budgetDistrict">
           <option value="tvrda" selected>Tvrđa</option>
           <option value="novi-grad">Novi grad</option>
@@ -369,29 +374,32 @@
       </label>
     </div>
     <div class="budget-data-intro">
-      <strong id="budgetDataTitle">Stvarni planirani iznosi · 2026.</strong>
-      <p id="budgetDataIntro">Početne vrijednosti preuzete su iz usvojenog Programa prioriteta Gradske četvrti Tvrđa. Promijeni ih i složi vlastiti scenarij.</p>
+      <strong id="budgetDataTitle">Program prioriteta · Tvrđa · 2026.</strong>
+      <p id="budgetDataIntro">Promijeni iznose i usporedi svoj izbor s usvojenim planom četvrti.</p>
     </div>
     <div class="sim-wrap">
       <div id="budgetSliders" class="budget-sliders" aria-label="Raspodjela sredstava po kategorijama"></div>
       <aside class="budget-total">
-        <div class="mini-tag">Ukupan iznos iz programa</div>
+        <div class="mini-tag" id="budgetEnvelopeLabel">Ukupno po programu</div>
         <div class="big" id="budgetEnvelope">93.729 €</div>
-        <p>Trenutno raspoređeno</p>
+        <p>Tvoja raspodjela</p>
         <div class="big" id="budgetSpent">93.729 €</div>
         <div class="progress"><span id="budgetBar" style="width:100%"></span></div>
         <p id="budgetRemaining" class="budget-remaining" aria-live="polite">Preostalo: 0 €</p>
-        <p id="budgetStatus" role="status" aria-live="polite">Raspodjela odgovara ukupnom iznosu programa.</p>
-        <button class="btn btn-green" id="budgetSubmit" type="button">Zaključi svoj scenarij ↗</button>
-        <button class="reset" id="budgetReset" type="button">Vrati usvojene iznose</button>
+        <p id="budgetStatus" role="status" aria-live="polite">Iznos je raspoređen.</p>
+        <button class="btn btn-green" id="budgetSubmit" type="button">Usporedi svoj izbor ↗</button>
+        <button class="reset" id="budgetReset" type="button">Vrati početni plan</button>
         <div id="budgetResult" class="budget-result" hidden aria-live="polite"></div>
       </aside>
     </div>
-    <p class="small-note budget-footnote">Ovo je edukativna simulacija. Službeni program je usvojeni plan prioriteta; tvoja izmjena ne mijenja stvarni proračun niti predstavlja prijedlog koji je Grad prihvatio. Početni iznosi pokazuju službeno planiranu raspodjelu.</p>
+    <p class="small-note budget-footnote">Početni iznosi preuzeti su iz službenih planova. Klizači prikazuju tvoj scenarij — ne mijenjaju usvojeni proračun.</p>
     <div class="budget-sources">
-      <a id="budgetProgramLink" href="https://www.osijek.hr/wp-content/uploads/2026/04/Program-Prioriteta-za-odrzavanje-i-poboljsanje-komunalne-infrastrukture-GC-Tvrda-za-2026.pdf" target="_blank" rel="noopener">Otvori usvojeni program za odabranu četvrt ↗</a>
-      <a href="https://www.osijek.hr/gradska-uprava/gradski-uredi-odjeli-i-sluzbe/upravni-odjel-za-financije-i-fondove-eu/odsjek-za-proracun/proracunski-dokumenti/" target="_blank" rel="noopener">Svi proračunski dokumenti Grada Osijeka ↗</a>
-      <a id="budgetImageCredit" href="https://commons.wikimedia.org/wiki/File:Osijek_VP01.jpg" target="_blank" rel="noopener">Fotografija: Vid Pogacnik · Wikimedia Commons · CC0 1.0 ↗</a>
+      <a id="budgetProgramLink" href="https://www.osijek.hr/wp-content/uploads/2026/04/Program-Prioriteta-za-odrzavanje-i-poboljsanje-komunalne-infrastrukture-GC-Tvrda-za-2026.pdf" target="_blank" rel="noopener">Otvori službeni izvor ↗</a>
+      <details class="budget-upcoming">
+        <summary>Još gradova</summary>
+        <p><a href="https://www.zagreb.hr/proracun/113894" target="_blank" rel="noopener">Zagreb</a> · <a href="https://novagradiska.hr/news/6-sjednica-gradskog-vijeca-3/" target="_blank" rel="noopener">Nova Gradiška</a> · <a href="https://vinkovci.hr/dokumenti/proracun" target="_blank" rel="noopener">Vinkovci</a> · <a href="https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine" target="_blank" rel="noopener">Požega</a> · <a href="https://www.virovitica.hr/proracun-grada-virovitice/" target="_blank" rel="noopener">Virovitica</a> · <a href="https://valpovo.hr/proracun/" target="_blank" rel="noopener">Valpovo</a> · <a href="https://belisce.hr/proracun/" target="_blank" rel="noopener">Belišće</a> · <a href="https://www.djakovo.hr/index.php/grad/sluzbena-obiljezja/item/2910-proracun-grada-dakova.html" target="_blank" rel="noopener">Đakovo</a></p>
+        <small>Dokumente obrađujemo prije uključivanja iznosa u igru.</small>
+      </details>
     </div>
   </div>
 </section>
@@ -405,9 +413,9 @@
           <div class="mini-tag">Izazov u paru · 5 minuta</div>
           <h3>Kako igrati na jednom uređaju</h3>
           <ol class="duel-steps">
-            <li>Igrač A odabere četvrt, promijeni službene iznose i spremi svoj izbor</li>
-            <li>Predajte uređaj igraču B. Neka promijeni raspodjelu iste četvrti i spremi svoju</li>
-            <li>Usporedite razlike. Oboje objasnite kome bi odluka najviše pomogla i tko bi mogao ostati zakinut</li>
+            <li>Igrač A odabere grad i scenarij, promijeni iznose i spremi svoj izbor</li>
+            <li>Predajte uređaj igraču B. Neka promijeni raspodjelu istog scenarija i spremi svoju</li>
+            <li>Usporedite razlike: kome bi odluka pomogla, a čija bi potreba ostala po strani?</li>
           </ol>
           <div class="duel-actions">
             <a class="btn btn-light" href="#budzet">Vrati se na raspodjelu ↑</a>
@@ -416,7 +424,6 @@
             <button class="btn btn-light" id="compareBudgets" type="button">Usporedi izbore</button>
             <button class="reset" id="resetBudgetDuel" type="button">Obriši usporedbu</button>
           </div>
-          <p class="small-note">Izbori se spremaju samo u ovom pregledniku, bez imena i slanja na poslužitelj</p>
         </div>
         <div class="panel dark duel-result-panel">
           <div class="mini-tag">Vaša usporedba</div>
@@ -500,7 +507,7 @@
           <article class="facilitator-card">
             <span class="mini-tag">Igraj · 10–15 minuta</span>
             <h3>Testirajte odluke i dokaze</h3>
-            <p>Odaberite dnevnu misiju, provjeru objave ili proračunsku simulaciju. Neka male skupine obrazlože izbor i navedu što bi još trebale provjeriti</p>
+            <p>Odaberite situaciju, provjeru objave ili gradski proračun. Svaka skupina obrazlaže izbor i navodi što bi još provjerila.</p>
             <p class="facilitator-tip">Bodovi su sporedni. Važnije je objasniti zašto je neki zaključak opravdan</p>
           </article>
           <article class="facilitator-card">
@@ -579,10 +586,10 @@
           <div class="mini-tag">Otvoreni pilot</div>
           <h3>Što bi ti učinio/la jednostavnijim?</h3>
           <p>POTEZ se razvija kao mali, praktični alat. Dobrodošle su prijave grešaka, prijedlozi tema i ideje za nove izazove</p>
-          <p class="small-note">POTEZ ne traži račun ni političke stavove. GitHub može zatražiti prijavu i javno prikazati sadržaj obrasca</p>
+          <p class="small-note">GitHub može zatražiti prijavu, a prijava greške može biti javno vidljiva</p>
         </div>
         <div class="panel feedback-disabled">
-          <div class="mini-tag">Povratne informacije · bez računa</div>
+          <div class="mini-tag">Povratne informacije</div>
           <h3>Prijavi grešku ili predloži novi izazov</h3>
           <p>Odaberi odgovarajući obrazac. Prijava se otvara na GitHubu i može biti javno vidljiva. Nemoj unositi osobne podatke, privatne poruke ni osjetljive informacije</p>
           <div class="actions"><a class="btn btn-dark" href="https://github.com/romansimunovic/Potez/issues/new?template=bug_report.yml" target="_blank" rel="noopener">Prijavi tehničku grešku ↗</a><a class="btn btn-light" href="https://github.com/romansimunovic/Potez/issues/new?template=idea.yml" target="_blank" rel="noopener">Predloži ideju ↗</a></div>
@@ -595,7 +602,7 @@
         <div><div class="section-kicker">Nije poanta skupljati bodove</div><h2>Poanta je da znaš što možeš napraviti s njima</h2><p>POTEZ je zamišljen kao ulazna točka: kratko naučiš, provjeriš izvor, pronađeš nadležno tijelo i napraviš prvi korak. Bez obaveze da se slažeš s bilo kojom strankom ili ideologijom</p></div>
         <div class="manifesto-art"><div class="bubble">Ne moraš imati sve odgovore. Dovoljno je znati koje pitanje postaviti. ✳</div></div>
       </div>
-      <p class="source-note">Napredak i postavka zvuka spremaju se samo u preglednik na tvom uređaju. Nema računa, prijave, analitike ni političkog profiliranja. POTEZ ne pohranjuje poruke; povratne informacije otvaraju vanjski GitHub obrazac. Proračunska simulacija je izmišljeni edukativni primjer; sadržaj nije službeni pravni savjet</p>
+      <p class="source-note">Napredak se sprema u preglednik. Proračunski izazov koristi službene gradske planove; izvori su uz prikazane iznose. Povratne informacije otvaraju vanjski GitHub obrazac.</p>
     </section>
 </section>
   </main>

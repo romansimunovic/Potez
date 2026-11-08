@@ -9,12 +9,12 @@
   function award(flag,points,label){if(!saved[flag]){saved[flag]=true;saved.xp=(saved.xp||0)+points;persist();window.POTEZ_FEEDBACK?.success();toast('+'+points+' POTEZ bodova · '+label)}else{toast('Ovaj izazov već je uračunat u tvoj napredak.')}}
   function updateActionXp(){$('#actionXp').textContent='Tvoj napredak: '+(saved.xp||0)+' bodova'}
   const weeklyMissions=[
-    {title:'Pogledaj kako zastupnici stvarno glasaju.',desc:'Otvori Parlametar, pronađi temu koja te zanima i usporedi kako su zastupnici glasali. Razlika između izjave i glasanja često je važnija od viralnog isječka.',url:'https://parlametar.hr/',label:'Istraži glasanja',icon:'🏛️'},
-    {title:'Pronađi jednu otvorenu javnu raspravu.',desc:'Na e-Savjetovanjima pregledaj naslov i sažetak jednog prijedloga. Zapiši što bi pitao/la predlagatelja. Za slanje komentara potrebna je prijava putem NIAS-a.',url:'https://savjetovanja.gov.hr/',label:'Pregledaj savjetovanja',icon:'🗣️'},
-    {title:'Prijavi jednu stvar koju svi zaobilaze.',desc:'Uoči li neispravnu rasvjetu, oštećen pločnik ili drugi problem javne infrastrukture, zabilježi lokaciju i provjeri kome ga prijaviti. Ako je primjenjivo, isprobaj Popravi.to.',url:'https://popravi.to/',label:'Pogledaj Popravi.to',icon:'🛠️'},
-    {title:'Provjeri tvrdnju koju si vidio/la na feedu.',desc:'Odaberi objavu koja izaziva snažnu reakciju. Potraži izvorni dokument ili snimku i usporedi je s provjerom neovisnih fact-checkera.',url:'https://tocnotako.hr/',label:'Otvori Točno tako',icon:'🧭'},
-    {title:'Pronađi jedan javni podatak o svojoj zajednici.',desc:'Na portalu otvorenih podataka potraži temu koja te zanima: promet, okoliš, proračun ili javne usluge. Pitaj se što se iz tog podatka može, a što ne može zaključiti.',url:'https://data.gov.hr/',label:'Istraži otvorene podatke',icon:'📊'},
-    {title:'Pretvori prigovor u dobro pitanje.',desc:'Odaberi problem iz svog mjesta i napiši instituciji jedno precizno pitanje: koji je plan, tko je odgovoran, postoji li rok i gdje je objavljena dokumentacija?',url:'https://www.imamopravoznati.org/',label:'Saznaj kako tražiti informaciju',icon:'🔎'}
+    {title:'Pogledaj kako zastupnici stvarno glasaju.',desc:'Na Parlametru usporedi kako su zastupnici glasali o temi koja te zanima.',url:'https://parlametar.hr/',label:'Istraži glasanja',icon:'🏛️'},
+    {title:'Pronađi jednu otvorenu javnu raspravu.',desc:'Pročitaj prijedlog na e-Savjetovanjima i zapiši jedno pitanje.',url:'https://savjetovanja.gov.hr/',label:'Pregledaj savjetovanja',icon:'🗣️'},
+    {title:'Prijavi jednu stvar koju svi zaobilaze.',desc:'Zabilježi problem u kvartu i provjeri kome ga prijaviti.',url:'https://popravi.to/',label:'Pogledaj Popravi.to',icon:'🛠️'},
+    {title:'Provjeri tvrdnju koju si vidio/la na feedu.',desc:'Pronađi izvor objave i usporedi ga s neovisnom provjerom.',url:'https://tocnotako.hr/',label:'Otvori Točno tako',icon:'🧭'},
+    {title:'Pronađi jedan javni podatak o svojoj zajednici.',desc:'Pronađi podatak o prometu, okolišu ili javnim uslugama.',url:'https://data.gov.hr/',label:'Istraži otvorene podatke',icon:'📊'},
+    {title:'Pretvori prigovor u dobro pitanje.',desc:'Pošalji instituciji jasno pitanje: tko je odgovoran i koji je rok?',url:'https://www.imamopravoznati.org/',label:'Saznaj kako tražiti informaciju',icon:'🔎'}
   ];
   function getWeekStamp(){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+4-(d.getDay()||7));const y=d.getFullYear();const start=new Date(y,0,1);const w=Math.ceil((((d-start)/86400000)+1)/7);return y+'-'+String(w).padStart(2,'0')}
   function renderWeekly(){const stamp=getWeekStamp();const index=(Number(stamp.slice(-2))-1)%weeklyMissions.length;const m=weeklyMissions[index];$('#weeklyTitle').textContent=m.icon+' '+m.title;$('#weeklyDescription').textContent=m.desc;$('#weeklyLink').href=m.url;$('#weeklyLink').textContent=m.label+' ↗';const done=saved.weeklyDoneKey===stamp;$('#weeklyDone').textContent=done?'Misija odrađena ✓':'Napravio/la sam to +8';$('#weeklyDone').disabled=done;$('#weeklyDone').style.opacity=done?'.65':'1';$('#weeklyDone').addEventListener('click',()=>{if(saved.weeklyDoneKey===stamp)return;saved.weeklyDoneKey=stamp;saved.xp=(saved.xp||0)+8;persist();window.POTEZ_FEEDBACK?.success();renderWeekly();toast('+8 POTEZ bodova · tjedna misija')},{once:true})}
@@ -42,7 +42,6 @@
   const sliderHost = $('#budgetSliders');
   let activeBudget = null;
   const euro=n=>new Intl.NumberFormat('hr-HR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
-  const currentBudgetValues=()=>$$('[data-budget-slider]').map(input=>Number(input.value));
   function budgetUpdate(){
     if(!activeBudget)return [];
     const inputs=$$('[data-budget-slider]');
@@ -64,11 +63,11 @@
       status.style.color='#ffad9e';
       submit.disabled=true;
     }else if(remaining>0){
-      status.textContent='Ostalo je '+euro(remaining)+'. Možeš ga dodijeliti nekom prioritetu ili ostaviti kao pričuvu.';
+      status.textContent='Preostalo je '+euro(remaining)+'. Rasporedi ga ili ostavi kao pričuvu.';
       status.style.color='#d4e7c4';
       submit.disabled=false;
     }else{
-      status.textContent='Raspodijelio/la si cijeli iznos programa. Sada pogledaj kako se tvoj izbor razlikuje od usvojenog plana.';
+      status.textContent='Iznos je raspoređen. Usporedi svoj izbor s početnim planom.';
       status.style.color='#d4e7c4';
       submit.disabled=false;
     }
@@ -82,26 +81,21 @@
     if(!district)return;
     activeBudget=district;
     $('#budgetContextTitle').textContent=city.label.toLocaleUpperCase('hr-HR')+' · '+district.year;
-    $('#budgetContextSubtitle').textContent='Program prioriteta · '+district.label;
+    $('#budgetContextSubtitle').textContent=district.label;
     $('#budgetEnvelope').textContent=euro(district.total);
-    $('#budgetDataTitle').textContent='Stvarni planirani iznosi · '+district.year;
-    $('#budgetDataIntro').textContent='Ovo nije cijeli gradski proračun. Početne vrijednosti preuzete su iz usvojenog programa za '+district.label+'. Promijeni raspodjelu i usporedi vlastite prioritete s odlukom vijeća četvrti.';
+    $('#budgetEnvelopeLabel').textContent=district.envelopeLabel||'Ukupno po programu';
+    $('#budgetDataTitle').textContent=district.scopeNote||('Planirani iznosi · '+district.year);
+    $('#budgetDataIntro').textContent=district.intro||'Promijeni iznose i usporedi svoj izbor s objavljenim planom.';
+    $('#budgetDistrictLabel').textContent=city.selectionLabel||'Odaberi prikaz';
     $('#budgetProgramLink').href=district.source;
     $('#budgetProgramLink').textContent=district.sourceLabel+' ↗';
-    const image=$('#budgetCityImage');
-    const showImage=budgetDistrict.value==='tvrda';
-    image.hidden=!showImage;
-    image.src=city.image;
-    image.alt='Pogled na osječku Tvrđu s mosta preko Drave; ilustracija grada Osijeka';
-    $('#budgetImageCredit').href=city.imagePage;
-    $('#budgetImageCredit').textContent='Fotografija: '+city.imageCredit+' ↗';
     sliderHost.innerHTML=district.items.map((item,index)=>{
       const id='b'+(index+1);
       return '<div class="budget-line" data-budget-line>'+
         '<label data-budget-name for="'+id+'">'+item.name+'</label>'+
         '<span class="amount" id="v'+(index+1)+'">'+euro(item.amount)+'</span>'+
-        '<small class="budget-line-detail">'+item.detail+' · Usvojeno: '+euro(item.amount)+'</small>'+
-        '<input id="'+id+'" data-budget-slider type="range" min="0" max="'+district.total+'" step="100" value="'+item.amount+'" aria-label="'+item.name+'; početni službeni iznos '+euro(item.amount)+'">'+
+        '<small class="budget-line-detail">'+item.detail+' · Plan: '+euro(item.amount)+'</small>'+
+        '<input id="'+id+'" data-budget-slider type="range" min="0" max="'+district.total+'" step="'+(item.amount>=1000000?10000:item.amount>=100000?1000:100)+'" value="'+item.amount+'" aria-label="'+item.name+'; početni plan '+euro(item.amount)+'">'+
       '</div>';
     }).join('');
     $$('[data-budget-slider]').forEach(input=>input.addEventListener('input',budgetUpdate));
@@ -128,23 +122,23 @@
     const result=$('#budgetResult');
     result.replaceChildren();
     const heading=document.createElement('strong');
-    heading.textContent='Tvoj scenarij u odnosu na usvojeni program';
+    heading.textContent='Usporedba s početnim planom';
     result.appendChild(heading);
     const changed=changes.filter(item=>item.delta!==0);
     const summary=document.createElement('p');
     if(changed.length){
       const biggest=changed[0];
-      summary.textContent='Najviše si promijenio/la stavku „'+biggest.name+'”: '+(biggest.delta>0?'povećao/la si je za ':'smanjio/la si je za ')+euro(Math.abs(biggest.delta))+'.';
+      summary.textContent='Najveća promjena: „'+biggest.name+'” '+(biggest.delta>0?'+':'−')+euro(Math.abs(biggest.delta))+'.';
     }else{
       summary.textContent='Tvoja raspodjela u potpunosti odgovara početnom službenom planu.';
     }
     result.appendChild(summary);
     const remaining=activeBudget.total-values.reduce((a,b)=>a+b,0);
     const reserve=document.createElement('p');
-    reserve.textContent=remaining>0?'Ostavio/la si '+euro(remaining)+' neraspoređeno. To može biti svjesna pričuva, ali u stvarnom proračunu treba znati pod kojim se uvjetima sredstva mogu tako zadržati.':'Nisi ostavio/la neraspoređen iznos.';
+    reserve.textContent=remaining>0?'Preostalo: '+euro(remaining)+'.':'Cijeli iznos je raspoređen.';
     result.appendChild(reserve);
     const reflection=document.createElement('p');
-    reflection.textContent='Za raspravu: kome tvoja odluka najviše koristi, čija potreba ostaje po strani i koji bi podatak provjerio/la prije nego što bi predložio/la promjenu?';
+    reflection.textContent='Kome tvoj izbor koristi? Tko čeka? Koji bi podatak još provjerio/la?';
     result.appendChild(reflection);
     result.hidden=false;
     award('budgetDone',15,'proračunski izazov');
