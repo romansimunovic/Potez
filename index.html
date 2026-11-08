@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/assets/styles.css" />
 <script src="/assets/config.js" defer></script>
 <script src="/assets/navigation.js" defer></script>
+<script src="/assets/feedback.js" defer></script>
 <script src="/assets/app.js" defer></script>
 <script src="/assets/civic.js" defer></script>
 <title>POTEZ — politika prevedena na tvoj život</title>
@@ -208,7 +209,7 @@
       </div>
       <div class="passport-layout">
         <div class="passport-main panel dark">
-          <div class="passport-topline"><span class="mini-tag">Tvoj put kroz POTEZ</span><span class="xp" id="passportPoints">0 XP</span></div>
+          <div class="passport-topline"><span class="mini-tag">Tvoj put kroz POTEZ</span><span class="xp" id="passportPoints">0 XP</span><button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true">♪ Zvuk: uključen</button></div>
           <div class="passport-rank" id="passportRank">Radoznalac</div>
           <p id="passportDescription">Kreni od jednog pitanja. Svaki izazov otvara novu vještinu.</p>
           <div class="passport-track" id="passportTrack" role="progressbar" aria-label="Napredak prema sljedećoj razini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="passportFill"></span></div>
@@ -388,45 +389,22 @@
 <section class="section" id="povratne" aria-labelledby="feedbackTitle">
       <div class="section-head">
         <div><div class="section-kicker"><span class="number">07</span> Pilot · tvoj glas o POTEZU</div><h2 id="feedbackTitle">Što radi, a što treba popraviti?</h2></div>
-        <p class="section-intro">Ovo je pilot-verzija. Reci nam što ti je bilo korisno, što je nejasno i što bi te natjeralo da se vratiš. Ne tražimo ime, e-mail ni političke stavove.</p>
+        <p class="section-intro">Ovo je otvoreni pilot. Možeš predložiti teme i poboljšanja, ali trenutačno ne šaljemo ni pohranjujemo poruke kroz POTEZ.</p>
       </div>
       <div class="feedback-layout">
         <div class="panel lilac">
-          <div class="mini-tag">Testiramo zajedno</div>
-          <h3>Ne trebaju nam pohvale. Trebaju nam korisne primjedbe.</h3>
-          <p>Možeš prijaviti grešku, predložiti temu ili opisati što ti nije sjelo. Nemoj unositi imena drugih osoba, kontaktne podatke ni osjetljive osobne podatke.</p>
-          <ul class="feedback-points">
-            <li>Anonimno slanje bez korisničkog računa</li>
-            <li>Bez javne objave poruka</li>
-            <li>Bez praćenja političkih stavova</li>
-          </ul>
-          <p class="small-note">Napomena: obrazac se aktivira nakon povezivanja Supabasea i Cloudflare Turnstilea prema uputama u repozitoriju.</p>
+          <div class="mini-tag">Otvoreni pilot</div>
+          <h3>Što bi ti učinio/la jednostavnijim?</h3>
+          <p>POTEZ se razvija kao mali, praktični alat. Dobrodošle su prijave grešaka, prijedlozi tema i ideje za nove izazove.</p>
+          <p class="small-note">Trenutačno ne tražimo ime, e-mail, lokaciju ni političke stavove — i ne otvaramo korisničke račune.</p>
         </div>
-        <form class="panel feedback-form" id="feedbackForm" novalidate>
-          <div class="field"><label for="feedbackType">Što želiš poslati?</label>
-            <select id="feedbackType" name="feedbackType" required>
-              <option value="general">Opći dojam</option><option value="idea">Ideja / prijedlog</option><option value="bug">Greška / nešto ne radi</option>
-            </select>
-          </div>
-          <div class="field"><label for="feedbackSection">Na koji se dio odnosi?</label>
-            <select id="feedbackSection" name="section" required>
-              <option value="overall">Cijela platforma</option><option value="quiz">Kviz</option><option value="budget">Proračunska igra</option><option value="factcheck">Provjera objave</option><option value="action">Tvoj potez</option><option value="resources">Alati i izvori</option><option value="mobile">Mobilni prikaz</option>
-            </select>
-          </div>
-          <div class="field"><label for="feedbackRating">Koliko ti je ovo zasad korisno? (nije obavezno)</label>
-            <select id="feedbackRating" name="rating"><option value="">Preskoči</option><option value="1">1 — nimalo</option><option value="2">2 — malo</option><option value="3">3 — osrednje</option><option value="4">4 — dosta</option><option value="5">5 — jako korisno</option></select>
-          </div>
-          <div class="field"><label for="feedbackMessage">Tvoja poruka</label>
-            <textarea id="feedbackMessage" name="message" rows="5" minlength="10" maxlength="1200" required placeholder="Npr. volio/la bih da postoji dio o tome kako se može utjecati na javni prijevoz..."></textarea>
-            <div class="field-hint"><span>10–1.200 znakova</span><span id="feedbackCount">0 / 1.200</span></div>
-          </div>
-          <div class="hp-field" aria-hidden="true"><label for="website">Ne ispunjavaj ovo polje</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
-          <div class="privacy-check"><input type="checkbox" id="privacyConfirm" required /><label for="privacyConfirm">Potvrđujem da nisam unio/la osobne podatke ili podatke drugih osoba.</label></div>
-          <div id="turnstile-container" class="turnstile-slot" aria-label="Provjera protiv automatiziranih poruka"></div>
-          <button class="btn btn-dark" type="submit" id="feedbackSubmit" disabled>Pošalji povratnu informaciju ↗</button>
-          <p class="form-status" id="feedbackStatus" role="status" aria-live="polite">Obrazac se priprema za javni pilot. Za aktivaciju je potrebno postaviti zaštitu i bazu prema README-u.</p>
-          <p class="small-note">Slanjem se poruka pohranjuje u bazu projekta radi poboljšanja platforme. Detalji su u <a href="/privacy.html">obavijesti o privatnosti</a>.</p>
-        </form>
+        <div class="panel feedback-disabled">
+          <div class="mini-tag">Slanje poruka kroz POTEZ je isključeno</div>
+          <h3>Nema obrasca koji sprema tvoje podatke.</h3>
+          <p>Za opće prijedloge možeš otvoriti javni GitHub Issue. GitHub ga može prikazati javno, zato nemoj unositi osobne podatke, privatne poruke ni informacije o drugim osobama.</p>
+          <a class="btn btn-dark" href="https://github.com/romansimunovic/Potez/issues" target="_blank" rel="noopener">Predloži izmjenu na GitHubu ↗</a>
+          <p class="small-note">Ovo je poveznica na vanjsku platformu. Njezini uvjeti i obavijest o privatnosti primjenjuju se nakon što je otvoriš.</p>
+        </div>
       </div>
     </section>
 <section class="section">
@@ -434,12 +412,12 @@
         <div><div class="section-kicker">Nije poanta skupljati bodove.</div><h2>Poanta je da znaš što možeš napraviti s njima.</h2><p>POTEZ je zamišljen kao ulazna točka: kratko naučiš, provjeriš izvor, pronađeš nadležno tijelo i napraviš prvi korak. Bez obaveze da se slažeš s bilo kojom strankom ili ideologijom.</p></div>
         <div class="manifesto-art"><div class="bubble">Ne moraš imati sve odgovore. Dovoljno je znati koje pitanje postaviti. ✳</div></div>
       </div>
-      <p class="source-note">Napredak u izazovima sprema se samo u preglednik na tvom uređaju. Nema računa, javne ljestvice ni praćenja političkih stavova. Povratne informacije šalju se zasebno i samo ako ih sam/a pošalješ. Proračunska simulacija je izmišljeni edukativni primjer. Sadržaj nije službeni pravni savjet.</p>
+      <p class="source-note">Napredak i postavka zvuka spremaju se samo u preglednik na tvom uređaju. Nema računa, prijave, analitike ni političkog profiliranja. POTEZ ne prima poruke putem obrasca. Proračunska simulacija je izmišljeni edukativni primjer; sadržaj nije službeni pravni savjet.</p>
     </section>
 </section>
   </main>
 
-  <footer class="footer"><div><strong>potez.</strong> · otvoreni pilot</div><div>Politika prevedena na tvoj život. <button class="reset" id="clearProgress">Obriši lokalni napredak</button></div><div><a href="/privacy.html">Privatnost</a> · <a href="#povratne">Povratne informacije</a></div><div>Sadržaj se temelji na navedenim izvorima. POTEZ nije stranački ni službeni institucionalni kanal.</div></footer>
+  <footer class="footer"><div><strong>potez.</strong> · otvoreni pilot</div><div>Politika prevedena na tvoj život. <button class="reset" id="clearProgress">Obriši lokalni napredak</button></div><div><a href="/privacy.html">Privatnost</a> · <a href="/uvjeti.html">Uvjeti korištenja</a> · <a href="#povratne">Prijedlozi</a></div><div>Sadržaj se temelji na navedenim izvorima. POTEZ nije stranački ni službeni institucionalni kanal.</div></footer>
 </div>
 <nav class="mobile-nav" aria-label="Glavna navigacija na mobitelu"><a href="#top" data-app-route="home"><span aria-hidden="true">⌂</span><span>Početna</span></a><a href="#ucenje" data-app-route="learn"><span aria-hidden="true">✳</span><span>Uči</span></a><a href="#igraj" data-app-route="play"><span aria-hidden="true">◎</span><span>Igraj</span></a><a href="#djeluj" data-app-route="act"><span aria-hidden="true">↗</span><span>Djeluj</span></a><a href="#alati" data-app-route="tools"><span aria-hidden="true">⋯</span><span>Alati</span></a></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
