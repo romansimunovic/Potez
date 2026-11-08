@@ -91,7 +91,7 @@
       card.classList.add('is-complete');
     }
     award.addEventListener('click', () => {
-      if (window.POTEZ_PROGRESS?.award(key, 4, 'naučena tema')) {
+      if (window.POTEZ_PROGRESS?.awardLesson(key, 'naučena tema')) {
         award.disabled = true;
         award.textContent = 'Naučeno ✓';
         card.classList.add('is-complete');
