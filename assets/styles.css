@@ -1468,3 +1468,14 @@ body.reward-celebration .passport-rank { animation: potez-reward-rank .48s ease-
   .daily-choice { min-height:58px; padding:13px 13px 13px 45px; font-size:.87rem; }
   .daily-choice::before { left:12px; }
 }
+
+.daily-run-progress{margin:18px 0 14px;padding:13px 15px;border:1px solid var(--line);border-radius:15px;background:#fffefa}
+.daily-run-progress-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:9px;font-size:.76rem}
+.daily-run-progress-top span{color:var(--muted);text-align:right}
+.daily-run-track{height:8px;overflow:hidden;border-radius:99px;background:#e8e9e2}
+.daily-run-track span{display:block;width:0;height:100%;border-radius:inherit;background:var(--green-deep);transition:width .3s ease}
+.daily-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.daily-actions [hidden]{display:none!important}
+.daily-choice{text-align:left;line-height:1.45}
+.daily-choice:disabled{cursor:default;opacity:1}
+@media(max-width:600px){.daily-run-progress-top{align-items:flex-start;flex-direction:column;gap:4px}.daily-run-progress-top span{text-align:left}.daily-actions{display:grid;grid-template-columns:1fr}.daily-actions .btn{width:100%}}
