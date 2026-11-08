@@ -59,15 +59,15 @@
     const status=$('#budgetStatus');
     const submit=$('#budgetSubmit');
     if(remaining<0){
-      status.textContent='Prešao/la si raspoloživi iznos za '+euro(Math.abs(remaining))+'. Smanji jednu ili više stavki.';
+      status.textContent='Smanji iznose: prekoračenje je '+euro(Math.abs(remaining))+'.';
       status.style.color='#ffad9e';
       submit.disabled=true;
     }else if(remaining>0){
-      status.textContent='Preostalo je '+euro(remaining)+'. Rasporedi ga ili ostavi kao pričuvu.';
+      status.textContent='Rasporedi preostali iznos ili ga ostavi kao pričuvu.';
       status.style.color='#d4e7c4';
       submit.disabled=false;
     }else{
-      status.textContent='Iznos je raspoređen. Usporedi svoj izbor s početnim planom.';
+      status.textContent='Raspodjela je potpuna.';
       status.style.color='#d4e7c4';
       submit.disabled=false;
     }
@@ -88,7 +88,7 @@
     $('#budgetDataIntro').textContent=district.intro||'Promijeni iznose i usporedi svoj izbor s objavljenim planom.';
     $('#budgetDistrictLabel').textContent=city.selectionLabel||'Odaberi prikaz';
     $('#budgetProgramLink').href=district.source;
-    $('#budgetProgramLink').textContent=district.sourceLabel+' ↗';
+    $('#budgetProgramLink').textContent=(district.sourceLabel||'Otvori službeni izvor').replace(/\s*↗\s*$/,'')+' ↗';
     sliderHost.innerHTML=district.items.map((item,index)=>{
       const id='b'+(index+1);
       return '<div class="budget-line" data-budget-line>'+
@@ -138,7 +138,7 @@
     reserve.textContent=remaining>0?'Preostalo: '+euro(remaining)+'.':'Cijeli iznos je raspoređen.';
     result.appendChild(reserve);
     const reflection=document.createElement('p');
-    reflection.textContent='Kome tvoj izbor koristi? Tko čeka? Koji bi podatak još provjerio/la?';
+    reflection.textContent='Kome koristi? Tko još čeka?';
     result.appendChild(reflection);
     result.hidden=false;
     award('budgetDone',15,'proračunski izazov');
