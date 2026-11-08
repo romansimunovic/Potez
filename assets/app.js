@@ -41,7 +41,7 @@
   const budgetDistrict = $('#budgetDistrict');
   const sliderHost = $('#budgetSliders');
   let activeBudget = null;
-  const euro=n=>new Intl.NumberFormat('hr-HR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
+  const euro=n=>new Intl.NumberFormat('hr-HR',{style:'currency',currency:'EUR',minimumFractionDigits:0,maximumFractionDigits:2}).format(n);
   function budgetUpdate(){
     if(!activeBudget)return [];
     const inputs=$$('[data-budget-slider]');
@@ -95,7 +95,7 @@
         '<label data-budget-name for="'+id+'">'+item.name+'</label>'+
         '<span class="amount" id="v'+(index+1)+'">'+euro(item.amount)+'</span>'+
         '<small class="budget-line-detail">'+item.detail+' · Plan: '+euro(item.amount)+'</small>'+
-        '<input id="'+id+'" data-budget-slider type="range" min="0" max="'+district.total+'" step="'+(item.amount>=1000000?10000:item.amount>=100000?1000:100)+'" value="'+item.amount+'" aria-label="'+item.name+'; početni plan '+euro(item.amount)+'">'+
+        '<input id="'+id+'" data-budget-slider type="range" min="0" max="'+district.total+'" step="'+(Number.isInteger(item.amount)?(item.amount>=1000000?10000:item.amount>=100000?1000:100):0.01)+'" value="'+item.amount+'" aria-label="'+item.name+'; početni plan '+euro(item.amount)+'">'+
       '</div>';
     }).join('');
     $$('[data-budget-slider]').forEach(input=>input.addEventListener('input',budgetUpdate));
