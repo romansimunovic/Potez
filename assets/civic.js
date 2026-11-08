@@ -188,6 +188,125 @@
     });
   }
 
+
+  const dailyQuestions = [
+    {
+      question: 'U grupnom chatu kruži tvrdnja da se od sutra ukida učenički prijevoz. Nema poveznice ni datuma. Što je najbolji prvi korak?',
+      options: ['Podijeliti upozorenje da svi budu spremni', 'Pronaći izvornu odluku i provjeriti datum i tijelo koje ju je donijelo', 'Zaključiti da je tvrdnja lažna jer nema izvora'],
+      correct: 1,
+      explanation: 'Najprije traži izvornu odluku, datum i tijelo koje ju je donijelo. Bez toga je tvrdnja nepotvrđena — ne automatski istinita ili lažna.'
+    },
+    {
+      question: 'Tko u pravilu donosi i usvaja gradski proračun u Hrvatskoj?',
+      options: ['Gradsko vijeće, na prijedlog gradonačelnika', 'Isključivo ministarstvo financija', 'Mjesni odbor'],
+      correct: 0,
+      explanation: 'Predstavničko tijelo donosi proračun, a gradonačelnik predlaže i izvršava proračun. Zato je važno pratiti i prijedlog i glasanje.'
+    },
+    {
+      question: 'U kvartu je oštećena autobusna nadstrešnica. Što prvo treba utvrditi?',
+      options: ['Koja je stranka osvojila najviše glasova', 'Tko je vlasnik ili upravitelj nadstrešnice i tko je nadležan za održavanje', 'Je li problem postao viralan'],
+      correct: 1,
+      explanation: 'Nadležnost može ovisiti o vlasništvu, ugovoru i vrsti prometnice. Prvi korak je pronaći odgovorno tijelo ili operatora, a ne nagađati.'
+    },
+    {
+      question: 'Što znači sudjelovati u javnom savjetovanju o prijedlogu propisa?',
+      options: ['Komentar automatski postaje zakon', 'Možeš poslati argumentiran komentar koji nadležno tijelo razmatra i na njega se očituje', 'Glasaš o tome tko će biti ministar'],
+      correct: 1,
+      explanation: 'Savjetovanje omogućuje građanima i organizacijama komentiranje prijedloga. Tijelo razmatra komentare i objavljuje očitovanje, ali ih ne mora sve prihvatiti.'
+    },
+    {
+      question: 'U školi želiš promijeniti pravilo koje utječe na učenike. Gdje je smisleno početi?',
+      options: ['Od vijeća učenika i tijela škole, uz provjeru zakonskih pravila', 'Od Europske središnje banke', 'Od nasumične objave na društvenoj mreži'],
+      correct: 0,
+      explanation: 'Dio pravila može se rješavati unutar škole, dok su druga određena nacionalnim propisima. Prvo utvrdi tko ima ovlast odlučivanja.'
+    },
+    {
+      question: 'Županija, grad i država mogu biti uključeni u istu javnu uslugu. Što je najbolje pitati?',
+      options: ['Koja je razina najvažnija općenito', 'Tko donosi pravilo, tko osigurava sredstva i tko provodi uslugu', 'Tko ima najviše pratitelja'],
+      correct: 1,
+      explanation: 'Javne ovlasti često su podijeljene. Razdvajanje pravila, financiranja i provedbe pomaže pronaći pravu instituciju i smislen način utjecaja.'
+    },
+    {
+      question: 'Grupa mladih želi predložiti novi prostor za sport i druženje. Koji prijedlog ima čvršće temelje?',
+      options: ['„Napravite nam nešto lijepo”', 'Prijedlog s lokacijom, korisnicima, okvirnim troškom, održavanjem i podrškom zajednice', 'Samo broj lajkova na objavi'],
+      correct: 1,
+      explanation: 'Dobar prijedlog pokazuje kome koristi, gdje se može provesti, koliko okvirno košta i tko će ga održavati. To olakšava instituciji da ga procijeni.'
+    }
+  ];
+
+  function todayStamp() {
+    const date = new Date();
+    return date.getFullYear() + '-' +
+      String(date.getMonth() + 1).padStart(2, '0') + '-' +
+      String(date.getDate()).padStart(2, '0');
+  }
+
+  function renderDailyQuestion() {
+    const questionNode = $('#dailyQuestion');
+    const choicesNode = $('#dailyChoices');
+    const dateNode = $('#dailyDate');
+    const feedbackNode = $('#dailyFeedback');
+    if (!questionNode || !choicesNode || !dateNode || !feedbackNode) return;
+
+    const today = todayStamp();
+    const start = new Date(new Date().getFullYear(), 0, 1);
+    const elapsed = Math.floor((new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - start) / 86400000);
+    const item = dailyQuestions[elapsed % dailyQuestions.length];
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch {}
+    const alreadyDone = saved.dailyDoneStamp === today;
+
+    dateNode.textContent = new Intl.DateTimeFormat('hr-HR', { dateStyle: 'full' }).format(new Date());
+    questionNode.textContent = item.question;
+    choicesNode.replaceChildren();
+    feedbackNode.textContent = alreadyDone
+      ? 'Današnja misija već je uračunata u tvoj napredak. Možeš ponovno pročitati objašnjenje, ali bodove ne skupljaš ponavljanjem.'
+      : '';
+
+    item.options.forEach((option, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'daily-choice';
+      button.textContent = option;
+      button.addEventListener('click', () => {
+        if (choicesNode.dataset.answered === today) return;
+        choicesNode.dataset.answered = today;
+        const correct = index === item.correct;
+        Array.from(choicesNode.querySelectorAll('button')).forEach((choice, choiceIndex) => {
+          choice.disabled = true;
+          if (choiceIndex === item.correct) choice.classList.add('correct');
+          if (choiceIndex === index && !correct) choice.classList.add('wrong');
+        });
+
+        let current = {};
+        try { current = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch {}
+        const earnedToday = current.dailyDoneStamp === today;
+        if (!earnedToday) {
+          current.dailyDoneStamp = today;
+          current.xp = Math.max(0, Number(current.xp) || 0) + 3;
+          try {
+            localStorage.setItem(STORE, JSON.stringify(current));
+            window.dispatchEvent(new CustomEvent('potez:progress'));
+          } catch {}
+        }
+
+        feedbackNode.textContent = (correct ? 'Točno. +3 XP. ' : 'Dobar pokušaj — pogledaj zašto. +3 XP. ') +
+          item.explanation + (earnedToday ? ' Današnji bodovi već su bili uračunati.' : '');
+        notify(earnedToday ? 'Odgovor zabilježen.' : '+3 XP · dnevno pitanje');
+      });
+      choicesNode.appendChild(button);
+    });
+
+    if (alreadyDone) {
+      choicesNode.dataset.answered = today;
+      Array.from(choicesNode.querySelectorAll('button')).forEach((button) => { button.disabled = true; });
+      const previous = item.explanation;
+      feedbackNode.textContent += ' Objašnjenje: ' + previous;
+    } else {
+      delete choicesNode.dataset.answered;
+    }
+  }
+
   const categoryNames = [
     'Sigurnije rute',
     'Prostor za mlade',
@@ -340,6 +459,7 @@
   }
 
   renderPassport();
+  renderDailyQuestion();
   renderDuelStatus();
   window.addEventListener('potez:progress', renderPassport);
   window.addEventListener('storage', (event) => {
