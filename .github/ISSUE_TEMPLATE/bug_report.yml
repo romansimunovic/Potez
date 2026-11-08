@@ -1,0 +1,48 @@
+name: Prijava tehničke greške
+description: Prijavi problem u POTEZ-u.
+title: "[Greška] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Nemoj unositi osobne podatke, privatne poruke ili osjetljive informacije. GitHub Issue može biti javno vidljiv.
+  - type: input
+    id: page
+    attributes:
+      label: Na kojoj se stranici dogodilo?
+      placeholder: "npr. Igraj → dnevni izazov"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Što se dogodilo?
+      description: Opiši korake koji su doveli do problema.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Što si očekivao/la?
+    validations:
+      required: false
+  - type: dropdown
+    id: device
+    attributes:
+      label: Uređaj
+      options:
+        - iPhone
+        - Android
+        - Windows računalo
+        - Mac
+        - Drugo
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Preglednik i verzija (ako znaš)
+      placeholder: "npr. Safari iOS 18"
+    validations:
+      required: false
