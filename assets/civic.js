@@ -4,7 +4,7 @@
   'use strict';
 
   const STORE = 'potez-demo-v1';
-  const DUEL_STORE = 'potez-budget-duel-v1';
+  const DUEL_STORE = 'potez-budget-duel-v2';
   const $ = (selector, root = document) => root.querySelector(selector);
   const xpRanks = [
     { min: 0, title: 'Radoznalac', description: 'Kreni od jednog pitanja. Svaki izazov otvara novu vještinu.' },
@@ -483,7 +483,7 @@
   const shareDuel = $('#shareBudgetChallenge');
   if (shareDuel) {
     shareDuel.addEventListener('click', async () => {
-      const message = 'Isprobaj POTEZ simulaciju: promijeni stvarne planirane iznose za ' + budgetLabel() + ', pa mi pošalji svoj izbor. Usporedit ćemo prioritete i argumente. https://potez.pages.dev/#budzet';
+      const message = 'Isprobaj POTEZ simulaciju: promijeni simulirane iznose za ' + budgetLabel() + ', pa mi pošalji svoj izbor. Usporedit ćemo prioritete i argumente. https://potez.pages.dev/#budzet';
       try {
         if (navigator.share) {
           await navigator.share({ title: 'POTEZ — izazov javnog budžeta', text: message, url: 'https://potez.pages.dev/#budzet' });
