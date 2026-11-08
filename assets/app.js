@@ -6,7 +6,23 @@
   try{saved={...saved,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch(e){}
   function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved))}catch(e){} updateActionXp();window.dispatchEvent(new CustomEvent('potez:progress'))}
   function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2400)}
-  function award(flag,points,label){if(!saved[flag]){saved[flag]=true;saved.xp=(saved.xp||0)+points;persist();window.POTEZ_FEEDBACK?.success();toast('+'+points+' POTEZ bodova · '+label)}else{toast('Ovaj izazov već je uračunat u tvoj napredak.')}}
+  function award(flag,points,label){if(saved[flag]){toast('Ovaj izazov već je uračunat u tvoj napredak.');return false;}saved[flag]=true;saved.xp=(saved.xp||0)+points;persist();window.POTEZ_FEEDBACK?.success();toast('+'+points+' POTEZ bodova · '+label);return true;}
+  // Expose only narrow, validated progress actions to the learning interface.
+  window.POTEZ_PROGRESS = Object.freeze({
+    awardLesson(flag,label) {
+      if(typeof flag!=='string'||!/^lesson-[a-z0-9-]+$/.test(flag))return false;
+      return award(flag,4,label||'naučena tema');
+    },
+    claimDailyFact(stamp) {
+      if(typeof stamp!=='string'||!/^\\d{4}-\\d{2}-\\d{2}$/.test(stamp)||saved.dailyFactStamp===stamp)return false;
+      saved.dailyFactStamp=stamp;
+      saved.xp=(saved.xp||0)+2;
+      persist();
+      window.POTEZ_FEEDBACK?.success();
+      toast('+2 POTEZ boda · zanimljivost dana');
+      return true;
+    }
+  });
   function updateActionXp(){$('#actionXp').textContent='Tvoj napredak: '+(saved.xp||0)+' bodova'}
   const weeklyMissions=[
     {title:'Pogledaj kako zastupnici stvarno glasaju.',desc:'Na Parlametru usporedi kako su zastupnici glasali o temi koja te zanima.',url:'https://parlametar.hr/',label:'Istraži glasanja',icon:'🏛️'},
