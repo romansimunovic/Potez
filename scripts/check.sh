@@ -4,6 +4,8 @@ node --check assets/rewards.js
 node --check assets/app.js
 node --check assets/budget-data.js
 node --check assets/civic.js
+node --check assets/learning-data.js
+node --check assets/learning.js
 node --check assets/accessibility.js
 node --check sw.js
 node - <<'NODE'
@@ -113,7 +115,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v22" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v23" in sw and "'/assets/budget-data.js'" in sw
 
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
 assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
@@ -152,7 +154,7 @@ assert "data-budget-name for=" in app
 assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v22" in sw
+assert "potez-pilot-v23" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "edukativni model s jasno navedenim pretpostavkama" in html
@@ -173,3 +175,81 @@ assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.j
 assert "razlika manja od 5% ili 5.000 €" in Path("assets/civic.js").read_text(encoding="utf-8")
 print("POTEZ final desktop, local budget, dark-mode and navigation checks passed")
 PY
+
+node - <<'NODE'
+global.window = global;
+require('./assets/learning-data.js');
+const content = window.POTEZ_LEARNING_CONTENT;
+if (!content || !Array.isArray(content.topics) || !Array.isArray(content.facts)) {
+  throw new Error('Learning content registry is missing');
+}
+if (content.topics.length !== 12) throw new Error('Expected 12 curated learning topics');
+if (content.facts.length !== 14) throw new Error('Expected 14 sourced daily facts');
+const ids = content.topics.map(item => item.id);
+if (new Set(ids).size !== ids.length) throw new Error('Learning topic IDs must be unique');
+const categories = new Set(['svakodnevica', 'digitalno', 'sudjelovanje', 'odgovornost']);
+for (const topic of content.topics) {
+  if (!categories.has(topic.category)) throw new Error(topic.id + ': invalid learning category');
+  for (const key of ['title','intro','question','insight','action','sourceTitle','sourceUrl','sourceNote']) {
+    if (!topic[key]) throw new Error(topic.id + ': missing ' + key);
+  }
+  if (!topic.sourceUrl.startsWith('https://')) throw new Error(topic.id + ': source must use HTTPS');
+}
+for (const [index, fact] of content.facts.entries()) {
+  if (!fact.title || !fact.text || !fact.note || !fact.source || !fact.url) {
+    throw new Error('Daily fact ' + index + ': incomplete source or claim');
+  }
+  if (!fact.url.startsWith('https://')) throw new Error('Daily fact ' + index + ': source must use HTTPS');
+}
+console.log('Verified 12 learning topics, 14 daily facts, unique IDs and HTTPS sources.');
+NODE
+
+python - <<'PY'
+from pathlib import Path
+from xml.etree import ElementTree as ET
+
+html = Path("index.html").read_text(encoding="utf-8")
+learning = Path("assets/learning.js").read_text(encoding="utf-8")
+data = Path("assets/learning-data.js").read_text(encoding="utf-8")
+app = Path("assets/app.js").read_text(encoding="utf-8")
+civic = Path("assets/civic.js").read_text(encoding="utf-8")
+navigation = Path("assets/navigation.js").read_text(encoding="utf-8")
+sw = Path("sw.js").read_text(encoding="utf-8")
+privacy = Path("privacy.html").read_text(encoding="utf-8")
+robots = Path("robots.txt").read_text(encoding="utf-8")
+readme = Path("README.md").read_text(encoding="utf-8")
+
+for token in ('id="dailyFact"', 'id="learningFilters"', 'id="learningTopics"',
+              'id="learningShowMore"', 'id="passportTopics"',
+              '<details class="learning-guides" id="teme">',
+              '<details class="learning-stat-details">',
+              '12 tema · 4 cjeline'):
+    assert token in html, token
+
+for token in ('name="description"', 'name="keywords"', 'name="author"',
+              'rel="canonical"', 'property="og:url"',
+              'https://potez.pages.dev/og-image.png'):
+    assert token in html, token
+assert 'content="12' not in html or '12 tema' in html
+assert 'potez-pilot-v23' in sw
+assert "'/assets/learning-data.js'" in sw and "'/assets/learning.js'" in sw
+assert "awardLesson" in app and "claimDailyFact" in app
+assert "saved.dailyFactStamp===stamp" in app
+assert "lesson-" in civic and "passportTopics" in civic
+assert "parentDetails.open=true" in navigation
+assert ".innerHTML" not in learning
+assert "fetch(" not in learning and "fetch(" not in data
+assert "localStorage" in learning and "POTEZ_PROGRESS" in learning
+assert "kategorije u izborniku tema" in privacy
+assert "zanimljivost dana" in privacy.lower()
+assert "Sitemap: https://potez.pages.dev/sitemap.xml" in robots
+for path in ('docs/LEARNING_SOURCES_2026.md', 'docs/POTENTIAL_PARTNERS_AND_PILOT.md', 'docs/BUDGET_MODEL_2026.md'):
+    assert path in readme, path
+for path in ('docs/LEARNING_SOURCES_2026.md', 'docs/POTENTIAL_PARTNERS_AND_PILOT.md', 'docs/BUDGET_MODEL_2026.md'):
+    assert Path(path).exists(), path
+
+ET.parse("sitemap.xml")
+print("Verified learning UI, local-only progress, compact passport, SEO metadata, sitemap and source documentation.")
+PY
+
+printf 'POTEZ learning, privacy, SEO and documentation checks passed.\\n'
