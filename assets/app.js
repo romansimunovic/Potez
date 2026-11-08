@@ -14,7 +14,7 @@
       return award(flag,4,label||'naučena tema');
     },
     claimDailyFact(stamp) {
-      if(typeof stamp!=='string'||!/^\\d{4}-\\d{2}-\\d{2}$/.test(stamp)||saved.dailyFactStamp===stamp)return false;
+      if(typeof stamp!=='string'||stamp.length!==10||stamp[4]!=='-'||stamp[7]!=='-'||!Number.isFinite(Date.parse(stamp))||saved.dailyFactStamp===stamp)return false;
       saved.dailyFactStamp=stamp;
       saved.xp=(saved.xp||0)+2;
       persist();
