@@ -105,7 +105,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v14" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v15" in sw and "'/assets/budget-data.js'" in sw
 for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
@@ -117,6 +117,7 @@ for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "va
 assert "budgetDistrictLabel" in html and "budgetEnvelopeLabel" in html
 assert 'value="virovitica"' in html and 'value="virovitica" disabled' not in html
 assert 'value="valpovo"' in html and 'value="valpovo" disabled' not in html
+assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
 assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
 assert abs(cities["zagreb"]["pocetni-plan"]["total"] - 2484265290) < 0.001
 assert cities["zagreb"]["pocetni-plan"]["items"][0]["amount"] == 354781100
