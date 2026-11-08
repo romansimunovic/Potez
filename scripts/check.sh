@@ -44,3 +44,18 @@ if pages_routes.get("include") != []:
 print("Manifest and Pages routes JSON parsed; Pages Functions are disabled")
 PY
 printf 'POTEZ static and API checks passed.\n'
+
+python - <<'PY'
+from pathlib import Path
+import json
+html = Path("index.html").read_text(encoding="utf-8")
+privacy = Path("privacy.html").read_text(encoding="utf-8")
+civic = Path("assets/civic.js").read_text(encoding="utf-8")
+routes = json.loads(Path("_routes.json").read_text(encoding="utf-8"))
+assert 'id="feedbackForm"' not in html
+assert 'id="dailyScenarioTitle"' in html and 'id="dailyScenarioText"' in html
+assert "dailyChoiceIndex" in civic and "Kako izgleda dobar ishod" in civic
+assert len(routes.get("include", [])) == 0
+assert "localStorage" in privacy and "Cloudflare Pagesa" in privacy
+print("POTEZ pilot UX/privacy checks passed")
+PY
