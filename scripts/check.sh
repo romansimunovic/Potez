@@ -129,7 +129,7 @@ for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
-assert 'Odaberi temu' in html and 'budgetCity' in html
+assert 'id="topicSelect"' in html and 'budgetCity' in html
 assert 'budgetDistrict' not in html and 'budgetDistrict' not in Path("assets/app.js").read_text(encoding="utf-8")
 assert "Odaberi prikaz" not in html
 assert 'id="budgetSubmit"' in html and "Prikaži rezultat" in html
@@ -163,7 +163,7 @@ app_quiz = Path("assets/app.js").read_text(encoding="utf-8")
 assert "quizOptions=q.a.map((text,index)=>({text,correct:index===q.correct}))" in app_quiz
 assert "Math.random()" in app_quiz
 assert "quizOptions[j]?.correct" in app_quiz
-assert "Situacijska igra · 9 primjera" in html
+assert 'id="dailyTitle"' in html
 assert "Devet situacija iz svakodnevnog života" in html
 assert "oko 1 minute" not in html
 
@@ -224,8 +224,7 @@ readme = Path("README.md").read_text(encoding="utf-8")
 for token in ('id="dailyFact"', 'id="learningFilters"', 'id="learningTopics"',
               'id="learningShowMore"', 'id="passportTopics"',
               '<details class="learning-guides" id="teme">',
-              '<details class="learning-stat-details">',
-              '12 kratkih tema'):
+              '<details class="learning-stat-details">'):
     assert token in html, token
 
 for token in ('name="description"', 'name="keywords"', 'name="author"',
@@ -262,8 +261,22 @@ assert 'role="dialog"' in html and 'aria-modal="true"' in html
 assert "mobile-menu-close" in html and "mobile-menu-backdrop" in html
 assert "mobile-menu-panel" in css and "mobile-menu-links" in css
 assert "tool-disclosure" in css and "issue-guide-card" in css
-assert 'U PRAKSI · INSTITUCIJE · INFORMACIJE' in html
-assert 'RESURSI · IZVORI · MATERIJALI' in html
+assert 'U PRAKSI · INSTITUCIJE · INFORMACIJE' not in html
+assert 'RESURSI · IZVORI · MATERIJALI' not in html
+assert 'Kratko predstavljanje POTEZA' not in html
+assert 'Bez registracije' not in html and 'registracija ni posebna oprema' not in html
+assert 'class="section-kicker"' not in html and 'class="mini-tag"' not in html
+assert 'class="view-meta"' not in html
+assert 'tool-disclosure-meta' not in html and 'tool-disclosure-hint' not in html
+assert 'learning-footnote' not in html and 'learningCount' not in html
+assert 'dailyDate' not in html and 'dailyCaseLabel' not in html
+assert 'PREGLED TEME' not in Path("assets/app.js").read_text(encoding="utf-8")
+assert "<small" not in html
+assert 'id="fontScaleValue"' in html and '<span id="fontScaleValue">100 %</span>' in html
+assert 'aria-label="Glavni izbornik"' in html and 'mobileMenuTitle' not in html
+for route in ('home', 'learn', 'play', 'act', 'tools'):
+    assert html.count(f'data-app-route="{route}"') == 2, route
+assert 'passport-badge-panel' not in html
 assert "body{padding-bottom:0!important}" in css
 print("Verified learning UI, local-only progress, compact passport, SEO metadata, sitemap and source documentation.")
 PY

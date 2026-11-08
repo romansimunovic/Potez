@@ -12,7 +12,7 @@
 <meta name="color-scheme" content="light dark" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="POTEZ — politika prevedena na tvoj život" />
-<meta property="og:description" content="Besplatni interaktivni vodiči o školama, prijevozu, javnom novcu, društvenim mrežama i sudjelovanju. Bez registracije i stranačkih preporuka." />
+<meta property="og:description" content="Interaktivni vodiči o školama, prijevozu, javnom novcu, društvenim mrežama i sudjelovanju." />
 <meta property="og:url" content="https://potez.pages.dev/" />
 <meta property="og:site_name" content="POTEZ" />
 <meta property="og:locale" content="hr_HR" />
@@ -48,39 +48,39 @@
         <span>Izbornik</span>
       </summary>
       <button class="mobile-menu-backdrop" type="button" aria-label="Zatvori izbornik"></button>
-      <div class="mobile-menu-panel" id="mobileMenuPanel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle">
+      <div class="mobile-menu-panel" id="mobileMenuPanel" role="dialog" aria-modal="true" aria-label="Glavni izbornik">
         <div class="mobile-menu-heading">
-          <span class="section-kicker">ISTRAŽI POTEZ</span>
-          <strong id="mobileMenuTitle">Što te zanima?</strong>
+
+          
           <button class="mobile-menu-close" type="button" aria-label="Zatvori izbornik"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
-          <p>Odaberi područje i kreni od pitanja koje ti je važno.</p>
+
         </div>
         <nav class="mobile-menu-links" aria-label="Glavna navigacija na mobitelu">
           <a href="#top" data-app-route="home">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9.5V21h14V9.5M9 21v-7h6v7"/></svg>
-            <span><strong>Početna</strong><small>Kratko predstavljanje POTEZA</small></span>
+            <span><strong>Početna</strong></span>
           </a>
           <a href="#ucenje" data-app-route="learn">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM4 18.5A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 11h8"/></svg>
-            <span><strong>Uči</strong><small>Kratka objašnjenja i istraživanja</small></span>
+            <span><strong>Uči</strong></span>
           </a>
           <a href="#igraj" data-app-route="play">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h10a4 4 0 0 1 4 4v7a3 3 0 0 1-5 2l-2-2h-4l-2 2a3 3 0 0 1-5-2V9a4 4 0 0 1 4-4Z"/><path d="M8 9v5M5.5 11.5h5M16 10h.01M18.5 13h.01"/></svg>
-            <span><strong>Isprobaj</strong><small>Kvizovi, simulacije i napredak</small></span>
+            <span><strong>Isprobaj</strong></span>
           </a>
           <a href="#djeluj" data-app-route="act">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/><path d="m16 15 2 2 3-4"/></svg>
-            <span><strong>U praksi</strong><small>Institucije, dokumenti i nadležnosti</small></span>
+            <span><strong>U praksi</strong></span>
           </a>
           <a href="#alati" data-app-route="tools">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6.5a4.5 4.5 0 0 0-5.8 5.8L3 17.5 6.5 21l5.2-5.2A4.5 4.5 0 0 0 17.5 10L14 13.5 10.5 10 14 6.5Z"/><path d="m15 4 5 5"/></svg>
-            <span><strong>Resursi</strong><small>Provjerene poveznice i materijali</small></span>
+            <span><strong>Resursi</strong></span>
           </a>
         </nav>
-        <p class="mobile-menu-note">Bez registracije. Tvoj napredak ostaje na ovom uređaju.</p>
+
       </div>
     </details>
-    <a href="#top" class="brand" aria-label="Potez početna">potez<span class="brand-dot"></span><span class="brand-sub">beta / 01</span></a>
+    <a href="#top" class="brand" aria-label="Potez početna">potez<span class="brand-dot"></span></a>
     <nav class="nav" aria-label="Glavna navigacija">
       <a href="#top" data-app-route="home">Početna</a>
       <a href="#ucenje" data-app-route="learn">Uči</a>
@@ -91,11 +91,11 @@
     <details class="accessibility-menu" id="accessibilityMenu">
       <summary aria-label="Otvori postavke pristupačnosti"><span aria-hidden="true">◐</span> Pristupačnost</summary>
       <div class="accessibility-panel" aria-label="Postavke prikaza">
-        <div class="accessibility-panel-heading"><strong>Prilagodi prikaz</strong><span>Postavke se čuvaju na ovom uređaju</span></div>
-        <section class="accessibility-control" aria-labelledby="themeLabel"><div><strong id="themeLabel">Izgled</strong><small>Odaberi svijetli ili tamni prikaz</small></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section>
-        <section class="accessibility-control" aria-labelledby="fontLabel"><div><strong id="fontLabel">Veličina teksta</strong><small id="fontScaleValue">100 %</small></div><div class="accessibility-actions"><button type="button" data-font-step="-1" aria-label="Smanji tekst">A−</button><button type="button" data-font-step="1" aria-label="Povećaj tekst">A+</button></div></section>
-        <section class="accessibility-control" aria-labelledby="contrastLabel"><div><strong id="contrastLabel">Visoki kontrast</strong><small>Izraženije razlike teksta i pozadine</small></div><button type="button" class="accessibility-toggle" data-setting="contrast" aria-pressed="false">Isključeno</button></section>
-        <section class="accessibility-control" aria-labelledby="motionLabel"><div><strong id="motionLabel">Smanji animacije</strong><small>Manje kretanja i prijelaza</small></div><button type="button" class="accessibility-toggle" data-setting="motion" aria-pressed="false">Isključeno</button></section>
+        <div class="accessibility-panel-heading"><strong>Prilagodi prikaz</strong></div>
+        <section class="accessibility-control" aria-labelledby="themeLabel"><div><strong id="themeLabel">Izgled</strong></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section>
+        <section class="accessibility-control" aria-labelledby="fontLabel"><div><strong id="fontLabel">Veličina teksta</strong><span id="fontScaleValue">100 %</span></div><div class="accessibility-actions"><button type="button" data-font-step="-1" aria-label="Smanji tekst">A−</button><button type="button" data-font-step="1" aria-label="Povećaj tekst">A+</button></div></section>
+        <section class="accessibility-control" aria-labelledby="contrastLabel"><div><strong id="contrastLabel">Visoki kontrast</strong></div><button type="button" class="accessibility-toggle" data-setting="contrast" aria-pressed="false">Isključeno</button></section>
+        <section class="accessibility-control" aria-labelledby="motionLabel"><div><strong id="motionLabel">Smanji animacije</strong></div><button type="button" class="accessibility-toggle" data-setting="motion" aria-pressed="false">Isključeno</button></section>
         <button type="button" class="accessibility-reset" id="resetAccessibility">Vrati početne postavke</button>
       </div>
     </details>
@@ -105,13 +105,13 @@
 <section class="app-view app-home" data-app-view="home" id="view-home">
 <section class="hero">
       <div>
-        <div class="eyebrow">Građanska pismenost za svakodnevni život</div>
+
         <h1>Razumij odluke koje <span class="highlight">utječu na tebe</span></h1>
         <p class="hero-copy">Škola, prijevoz, stanovanje, javni novac i društvene mreže. Saznaj tko odlučuje, kako nastaju pravila i gdje pronaći pouzdane informacije.</p>
         <div class="actions"><a class="btn btn-dark" href="#ucenje">Istraži teme <span aria-hidden="true">↗</span></a><a class="btn btn-light" href="#djeluj">Pogledaj kako sustav funkcionira</a></div>
       </div>
       <div class="hero-art" aria-label="Ilustracija mladih koji zajedno oblikuju svoj grad">
-        <div class="art-label">Tvoj grad. Tvoj glas</div>
+
         <svg viewBox="0 0 560 390" role="img" aria-hidden="true">
           <path d="M38 287 Q135 250 232 281 T520 270" fill="none" stroke="#17211d" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 10"/>
           <rect x="73" y="151" width="126" height="154" rx="10" fill="#fffefa" stroke="#17211d" stroke-width="5"/>
@@ -142,13 +142,13 @@
           <path d="M35 77l15-8 7 16-15 8zM505 213l14-16 12 14-14 16z" fill="#fffefa" stroke="#17211d" stroke-width="3"/>
           <path d="M44 110l4 17m-12-5 16-7m441-76 8 17m-18-1 18-7" stroke="#17211d" stroke-width="3" stroke-linecap="round"/>
         </svg>
-        <div class="sticker">Mikro akcija. Stvaran utjecaj</div>
+
       </div>
     </section>
 
     <section class="home-guide" aria-labelledby="homeGuideTitle">
       <div class="home-guide-heading">
-        <div class="section-kicker">KAKO KORISTITI POTEZ</div>
+
         <h2 id="homeGuideTitle">Od svakodnevnog pitanja do razumijevanja sustava</h2>
         <p>Tri jednostavna načina za istraživanje tema koje utječu na naš život.</p>
       </div>
@@ -159,64 +159,64 @@
       </div>
     </section>
     <section class="home-progress" aria-label="Tvoj lokalni napredak">
-      <div><div class="section-kicker">Tvoj POTEZ</div><h3 id="homeProgressTitle">Tvoj napredak počinje ovdje</h3><p id="homeProgressDescription">Nastavi gdje si stao/la ili isprobaj novu situaciju.</p></div>
-      <div class="home-progress-score"><strong id="homeXp">0 XP</strong><span>tvoj napredak</span></div>
+      <div><h3 id="homeProgressTitle">Tvoj napredak počinje ovdje</h3><p id="homeProgressDescription">Nastavi gdje si stao/la ili isprobaj novu situaciju.</p></div>
+      <div class="home-progress-score"><strong id="homeXp">0 XP</strong></div>
       <a class="btn btn-light" href="#igraj">Isprobaj izazove ↗</a>
     </section>
 
 </section>
 <section class="app-view" data-app-view="learn" id="ucenje" hidden>
-<header class="view-intro"><div><div class="section-kicker">UČI · RAZUMIJ · PROVJERI</div><h1>Teme iz svakodnevnog života</h1><p>Kratka objašnjenja, stvarni primjeri i izvori. Odaberi ono što te zanima.</p></div><span class="view-meta">12 kratkih tema</span></header>
-<section class="section learning-daily-section" aria-labelledby="dailyFactHeading">
+<header class="view-intro"><div><h1>Teme iz svakodnevnog života</h1><p>Kratka objašnjenja, stvarni primjeri i izvori. Odaberi ono što te zanima.</p></div></header>
+<section class="section learning-daily-section" aria-label="Činjenica dana">
   <div id="dailyFact" class="daily-fact-card" aria-live="polite">
-    <div class="daily-fact-header"><span class="daily-fact-kicker" id="dailyFactHeading">Zanimljivost dana</span></div>
+
     <h2>Činjenica s izvorom. Jedan novi kut gledanja.</h2>
     <p class="daily-fact-text">Svakog dana izdvajamo jedan podatak iz istraživanja ili službenog dokumenta.</p>
   </div>
 </section>
 <section class="section learning-explorer" id="odaberi-temu" aria-labelledby="learningExplorerTitle">
   <div class="section-head">
-    <div><div class="section-kicker">ODABERI PODRUČJE</div><h2 id="learningExplorerTitle">Što želiš bolje razumjeti?</h2></div>
+    <div><h2 id="learningExplorerTitle">Što želiš bolje razumjeti?</h2></div>
     <p class="section-intro">Od škole i prijevoza do algoritama i javnog novca. Svaka tema ima kratko objašnjenje i izvor.</p>
   </div>
   <div class="learning-explorer-toolbar">
     <div id="learningFilters" class="learning-filters" role="group" aria-label="Filtriraj teme"></div>
-    <span id="learningCount" class="learning-count" aria-live="polite">10 tema</span>
+
   </div>
   <div id="learningTopics" class="learning-grid" aria-live="polite"></div>
   <button type="button" id="learningShowMore" class="btn btn-light learning-show-more" hidden>Prikaži sve teme</button>
-  <p class="learning-footnote">Odabir kategorije služi samo za filtriranje sadržaja. Ne sprema se kao profil interesa.</p>
+
 </section>
 <details class="learning-guides" id="teme">
-  <summary><span class="section-kicker">Dodatni praktični vodiči</span><strong>Prijevoz, prehrana i podrška u školi</strong><span>Pogledaj detalje za odabranu temu</span></summary>
+  <summary><strong>Prijevoz, prehrana i podrška u školi</strong></summary>
 <section class="section issue-paths" id="practicalIssuePaths" aria-labelledby="issuePathsTitle">
   <div class="section-head">
-    <div><div class="section-kicker">Kreni od onoga što te se tiče</div><h2 id="issuePathsTitle">Primjeri iz svakodnevnog života</h2></div>
+    <div><h2 id="issuePathsTitle">Primjeri iz svakodnevnog života</h2></div>
     <p class="section-intro">Ovi vodiči pokazuju koje informacije prikupiti, koje institucije mogu biti nadležne i gdje pronaći službene upute.</p>
   </div>
   <div class="issue-path-grid">
     <article class="issue-path-card issue-transport">
-      <span class="issue-path-index">01 / PRIJEVOZ</span><h3>Vlak kasni ili je linija ukinuta</h3>
+      <h3>Vlak kasni ili je linija ukinuta</h3>
       <p>Kako dokumentirati problem s HŽ-om i kome poslati prigovor</p>
-      <div class="issue-path-meta"><span>Prijevoznik → HAKOM</span><span>5–8 min</span></div>
+
       <a class="btn btn-dark" href="#tema-hz">Istraži put →</a>
     </article>
     <article class="issue-path-card issue-food">
-      <span class="issue-path-index">02 / ŠKOLSKI OBROCI</span><h3>Obrok u školi nije dostupan ili odgovarajući</h3>
+      <h3>Obrok u školi nije dostupan ili odgovarajući</h3>
       <p>Razlikuj osnovnu i srednju školu, financiranje i odgovornost škole</p>
-      <div class="issue-path-meta"><span>Škola · osnivač · država</span><span>6–9 min</span></div>
+
       <a class="btn btn-dark" href="#tema-obroci">Istraži put →</a>
     </article>
     <article class="issue-path-card issue-learning">
-      <span class="issue-path-index">03 / UČENJE</span><h3>Trebaš pomoć, a instrukcije su preskupe</h3>
+      <h3>Trebaš pomoć, a instrukcije su preskupe</h3>
       <p>Koja podrška postoji u školi prije nego što platiš privatne instrukcije</p>
-      <div class="issue-path-meta"><span>Škola → stručna služba</span><span>5–7 min</span></div>
+
       <a class="btn btn-dark" href="#tema-ucenje">Istraži put →</a>
     </article>
     <article class="issue-path-card issue-voice">
-      <span class="issue-path-index">04 / ŠKOLSKA PRAVILA</span><h3>Pravilo ne funkcionira za učenike</h3>
+      <h3>Pravilo ne funkcionira za učenike</h3>
       <p>Od pritužbe do prijedloga koji vijeće učenika može zastupati</p>
-      <div class="issue-path-meta"><span>Vijeće učenika · škola</span><span>4–6 min</span></div>
+
       <a class="btn btn-dark" href="#tema-pravila">Istraži put →</a>
     </article>
   </div>
@@ -224,7 +224,7 @@
 </section>
 <section class="section issue-detail-section" aria-label="Detaljniji vodiči">
   <details class="issue-guide-card" id="tema-hz">
-    <summary><span class="issue-path-index">01 / PRIJEVOZ</span><strong>Vlak kasni ili je otkazan</strong><small>Prava putnika i prigovor</small></summary>
+    <summary><strong>Vlak kasni ili je otkazan</strong></summary>
     <div class="issue-guide-content">
       <p>Zabilježi osnovne podatke o putovanju i koristi službeni postupak prijevoznika.</p>
       <ol class="issue-steps">
@@ -238,7 +238,7 @@
   </details>
 
   <details class="issue-guide-card" id="tema-obroci">
-    <summary><span class="issue-path-index">02 / PREHRANA</span><strong>Školski obrok nije odgovarajući</strong><small>Organizacija i financiranje</small></summary>
+    <summary><strong>Školski obrok nije odgovarajući</strong></summary>
     <div class="issue-guide-content">
       <p>Osnovne i srednje škole nemaju potpuno isti okvir. Najprije utvrdi tko organizira obrok i tko ga financira.</p>
       <ol class="issue-steps">
@@ -252,7 +252,7 @@
   </details>
 
   <details class="issue-guide-card" id="tema-ucenje">
-    <summary><span class="issue-path-index">03 / PODRŠKA U UČENJU</span><strong>Instrukcije su preskupe</strong><small>Podrška unutar škole</small></summary>
+    <summary><strong>Instrukcije su preskupe</strong></summary>
     <div class="issue-guide-content">
       <p>Prije privatnih instrukcija provjeri koju podršku škola može organizirati.</p>
       <ol class="issue-steps">
@@ -266,7 +266,7 @@
   </details>
 
   <details class="issue-guide-card" id="tema-pravila">
-    <summary><span class="issue-path-index">04 / ŠKOLSKA PRAVILA</span><strong>Školsko pravilo ne funkcionira</strong><small>Vijeće učenika i školski akti</small></summary>
+    <summary><strong>Školsko pravilo ne funkcionira</strong></summary>
     <div class="issue-guide-content">
       <p>Razlikuj mišljenje, konkretne primjere i ovlasti tijela škole.</p>
       <ol class="issue-steps">
@@ -283,21 +283,21 @@
 <details class="learning-stat-details">
   <summary>Što podaci istraživanja govore o mladima?</summary>
 <section class="stat-strip learning-stat-strip" aria-label="Nalazi istraživanja političke kompetencije učenika 2026">
-      <div class="stat"><strong>44,7 %</strong><span>učenika volontiralo je</span><small>Hrvatska · završni razredi SŠ · 2026.</small></div>
-      <div class="stat"><strong>63,1 %</strong><span>doniralo je pomoć</span><small>Financijsku ili materijalnu · 2026.</small></div>
-      <div class="stat"><strong>11,1 %</strong><span>sudjelovalo je u prosvjedu</span><small>Neformalna politička participacija · 2026.</small></div>
+      <div class="stat"><strong>44,7 %</strong><span>učenika završnih razreda srednjih škola u Hrvatskoj volontiralo je (2026.)</span></div>
+      <div class="stat"><strong>63,1 %</strong><span>učenika završnih razreda srednjih škola doniralo je financijsku ili materijalnu pomoć (2026.)</span></div>
+      <div class="stat"><strong>11,1 %</strong><span>učenika završnih razreda srednjih škola sudjelovalo je u prosvjedu (2026.)</span></div>
     </section>
 </details>
 <section class="section" id="izazov">
       <div class="section-head">
-        <div><div class="section-kicker"><span class="number">01</span> Razbij stereotip</div><h2>Jesu li mladi stvarno apatični?</h2></div>
+        <div><h2>Jesu li mladi stvarno apatični?</h2></div>
         <p class="section-intro">Četiri brza pitanja iz istraživanja. Ne tražimo „točan politički stav”, nego provjeravamo što podaci zapravo govore</p>
       </div>
       <div class="grid-2">
         <div class="panel mint">
           <div class="progress-row"><span id="quizProgressLabel">Pitanje 1 / 4</span><span class="xp" id="quizScore">0 / 4 točno</span></div>
           <div class="progress"><span id="quizProgress" style="width:25%"></span></div>
-          <div class="mini-tag">Istraživački izazov · 2 min</div>
+
           <div class="question" id="quizQuestion">Koliki je udio učenika završnih razreda srednjih škola u Hrvatskoj koji su volontirali?</div>
           <div class="choices" id="quizChoices"></div>
           <div class="feedback" id="quizFeedback" role="status" aria-live="polite"></div>
@@ -305,7 +305,7 @@
           <p class="small-note">Izvor: IDIZ, *Politička kompetencija učenika završnih razreda srednjih škola u RH – izvještaj za 2026.* Nacionalno reprezentativni uzorak N=1.285, istraživanje provedeno u ožujku i travnju 2026. Podaci se odnose na učenike završnih razreda, ne na sve mlade u Hrvatskoj</p>
         </div>
         <div class="panel dark">
-          <div class="mini-tag" style="background:var(--yellow)">Što nam brojke govore?</div>
+
           <h3>„Politički aktivan” nije isto što i „član stranke”</h3>
           <p>Politička i građanska participacija imaju različite oblike. Volontiranje i doniranje nisu automatski političko djelovanje, ali mogu biti dio šire građanske uključenosti. Peticije, bojkot i prosvjedi izravnije su usmjereni na društvene odluke</p>
           <div class="pill-row"><span class="pill">volontiranje</span><span class="pill">doniranje</span><span class="pill">peticije</span><span class="pill">bojkot</span><span class="pill">prosvjedi</span><span class="pill">izbori</span></div>
@@ -316,12 +316,12 @@
     </section>
 <section class="section" id="provjera">
       <div class="section-head">
-        <div><div class="section-kicker"><span class="number">03</span> Ne dijeli na prvu</div><h2>Objava ili navlakuša?</h2></div>
+        <div><h2>Objava ili navlakuša?</h2></div>
         <p class="section-intro">Nije svaki netočan sadržaj „fake news”. Ponekad je tvrdnja samo nepotvrđena, istrgnuta iz konteksta ili je zapravo mišljenje</p>
       </div>
       <div class="grid-2">
         <div class="panel coral">
-          <div class="mini-tag">Mini detektor · primjer</div>
+
           <div class="social-card">
             <div class="social-top"><span class="avatar">?</span><span>kvart_info_24 <span style="color:#9aa39b;font-weight:600">· objava bez poveznice</span></span></div>
             <blockquote>„OD PONEDJELJKA SE SVIM UČENICIMA UKIDA BESPLATAN PRIJEVOZ. MEDIJI ŠUTE.”</blockquote>
@@ -337,7 +337,7 @@
           <div class="feedback" id="factFeedback" role="status" aria-live="polite"></div>
         </div>
         <div class="panel blue">
-          <div class="mini-tag">Četiri koraka prije dijeljenja</div>
+
           <h3>Nemoj pitati samo „je li istina?”. Pitaj „odakle znamo?”</h3>
           <div class="steps">
             <div class="step"><b>01 / Stani</b><strong>Ne reagiraj odmah</strong><span>Emocija nije dokaz. Posebno ako objava traži hitno dijeljenje</span></div>
@@ -352,7 +352,7 @@
     </section>
 <section class="section" id="razine" aria-labelledby="levelsTitle">
       <div class="section-head">
-        <div><div class="section-kicker"><span class="number">05</span> Mapa odlučivanja</div><h2 id="levelsTitle">Tko zapravo može nešto promijeniti?</h2></div>
+        <div><h2 id="levelsTitle">Tko zapravo može nešto promijeniti?</h2></div>
         <p class="section-intro">Problem može početi u učionici ili kvartu, a odluka se donositi na razini grada, županije, države ili EU-a. Ne moraš znati sustav napamet — nauči pronaći nadležnost</p>
       </div>
       <div class="levels-grid">
@@ -386,15 +386,15 @@
     </section>
 </section>
 <section class="app-view" data-app-view="play" id="igraj" hidden>
-<header class="view-intro"><div><div class="section-kicker">ISPROBAJ · RAZMISLI · NAUČI</div><h1>Isprobaj kako odluke funkcioniraju</h1><p>Kratke situacije i simulacije pomažu povezati informacije s posljedicama različitih odluka.</p></div><span class="view-meta">Kvizovi i simulacije</span></header>
+<header class="view-intro"><div><h1>Isprobaj kako odluke funkcioniraju</h1><p>Kratke situacije i simulacije pomažu povezati informacije s posljedicama različitih odluka.</p></div></header>
 <section class="section passport-section" id="putovnica" aria-labelledby="passportTitle">
   <div class="section-head">
-    <div><div class="section-kicker"><span class="number">00</span> Tvoja putovnica</div><h2 id="passportTitle">Napreduj kroz znanje, ne kroz stavove</h2></div>
+    <div><h2 id="passportTitle">Napreduj kroz znanje, ne kroz stavove</h2></div>
     <p class="section-intro">Istraži teme i riješi izazove. Napredak se sprema samo na ovom uređaju.</p>
   </div>
   <div class="passport-main panel dark passport-compact">
     <div class="passport-compact-top">
-      <div><div class="mini-tag">Tvoja trenutačna razina</div><div class="passport-rank" id="passportRank">Radoznalac</div></div>
+      <div><div class="passport-rank" id="passportRank">Radoznalac</div></div>
       <span class="xp" id="passportPoints">0 XP</span>
     </div>
     <p id="passportDescription">Uči vlastitim tempom. Bodovi prate istražene teme i izazove.</p>
@@ -413,10 +413,7 @@
         <div class="passport-stat"><strong id="passportBadgesCount">0</strong><span>osvojenih znački</span></div>
         <div class="passport-stat"><strong id="passportTopics">0</strong><span>istraženih tema</span></div>
       </div>
-      <div class="passport-badge-panel">
-        <div class="mini-tag">Vještine koje gradiš</div>
-        <div class="passport-badges" id="passportBadges" aria-live="polite"></div>
-      </div>
+      <div class="passport-badges" id="passportBadges" aria-live="polite"></div>
       <div class="passport-path" id="passportPath" aria-label="Put kroz izazove"></div>
     </div>
   </details>
@@ -425,7 +422,7 @@
 <section class="section weekly-section" aria-labelledby="weeklyTitle">
       <div class="panel mint weekly-panel">
         <div>
-          <div class="section-kicker">Tjedni pregled · 3–10 minuta</div>
+
           <h2 id="weeklyTitle" class="weekly-title">Jedna nova tema svakog tjedna</h2>
           <p id="weeklyDescription" class="weekly-description"></p>
           <div class="actions weekly-actions"><a class="btn btn-dark" id="weeklyLink" href="https://parlametar.hr/" target="_blank" rel="noopener">Otvori alat ↗</a><button class="btn btn-light" id="weeklyDone">Pročitao/la sam +8</button></div>
@@ -436,17 +433,17 @@
 <section class="section daily-section" id="pitanje-dana" aria-labelledby="dailyTitle">
       <div class="daily-card">
         <div class="daily-heading">
-          <div><div class="section-kicker">Situacijska igra · 9 primjera</div><h2 id="dailyTitle">Devet situacija iz svakodnevnog života</h2></div>
+          <div><h2 id="dailyTitle">Devet situacija iz svakodnevnog života</h2></div>
           <span class="daily-reward">+3 XP</span>
         </div>
         <p class="daily-intro">Devet kratkih primjera o školi, javnom novcu, informacijama i institucijama. Odaberi odgovor i pogledaj objašnjenje.</p>
-        <div class="daily-run-progress"><div class="daily-run-progress-top"><strong id="dailyProgressLabel">0 / 9 izazova</strong><span>Odgovori na pitanje i pogledaj objašnjenje</span></div><div class="daily-run-track"><span id="dailyProgress"></span></div></div><div class="daily-date" id="dailyDate"></div>
+        <div class="daily-run-progress"><div class="daily-run-progress-top"><strong id="dailyProgressLabel">0 / 9 izazova</strong></div><div class="daily-run-track"><span id="dailyProgress"></span></div></div>
         <div class="daily-case" aria-live="polite">
-          <div class="daily-case-top"><span class="daily-case-icon" aria-hidden="true">✳</span><span id="dailyCaseLabel">Misija dana</span></div>
+
           <h3 id="dailyScenarioTitle">Učitavam današnju situaciju…</h3>
           <p id="dailyScenarioText"></p>
         </div>
-        <div class="daily-prompt-label">ODABERI ODGOVOR</div>
+
         <h3 class="daily-question" id="dailyQuestion">Koji odgovor ima najviše smisla?</h3>
         <div class="daily-choices" id="dailyChoices" role="group" aria-label="Odaberi svoj potez"></div>
         <div class="daily-feedback" id="dailyFeedback" role="status" aria-live="polite"></div><div class="daily-actions"><button class="btn btn-dark" id="dailyNext" type="button" hidden>Sljedeći izazov →</button><button class="btn btn-light" id="dailyShare" type="button" hidden>Podijeli izazov ↗</button></div>
@@ -455,14 +452,14 @@
 <section class="section" id="budzet">
   <div class="section-head">
     <div>
-      <div class="section-kicker"><span class="number">02</span> IZAZOV · JAVNI NOVAC</div>
+
       <h2>Kako se raspoređuje gradski novac?</h2>
     </div>
     <p class="section-intro">Istraži kako ograničeni javni novac stvara izbore i kompromise.</p>
   </div>
   <div class="panel yellow budget-simulation">
     <div class="scenario scenario-city" id="budgetScenarioHeader">
-      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><small>Edukativna simulacija, ne stvarni proračun</small></span>
+      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><span class="budget-context-note">Edukativna simulacija, ne stvarni proračun</span></span>
     </div>
     <div class="budget-game-intro">
       <strong>Isprobaj simulaciju gradskog proračuna.</strong>
@@ -521,7 +518,7 @@
     <div class="sim-wrap">
       <div id="budgetSliders" class="budget-sliders" aria-label="Raspodjela simuliranog gradskog proračuna po područjima"></div>
       <aside class="budget-total" aria-label="Stanje gradskog proračuna">
-        <div class="mini-tag">Simulirani godišnji fond</div>
+
         <div class="big" id="budgetEnvelope">—</div>
         <div class="budget-spent-label">Tvoja raspodjela</div>
         <div class="big budget-spent-value" id="budgetSpent">—</div>
@@ -547,12 +544,12 @@
 </section>
 <section class="section" id="usporedi" aria-labelledby="duelTitle">
       <div class="section-head">
-        <div><div class="section-kicker"><span class="number">02+</span> Igraj s nekim</div><h2 id="duelTitle">Dva pogleda. Isti lokalni prioriteti</h2></div>
+        <div><h2 id="duelTitle">Dva pogleda. Isti lokalni prioriteti</h2></div>
         <p class="section-intro">Usporedite prioritete, a ne tko je „pobijedio”. Dobar razgovor počinje kad objasnite zašto vam je nešto važno</p>
       </div>
       <div class="duel-layout">
         <div class="panel mint">
-          <div class="mini-tag">Izazov u paru · 5 minuta</div>
+
           <h3>Kako igrati na jednom uređaju</h3>
           <ol class="duel-steps">
             <li>Igrač A odabere grad i scenarij, promijeni iznose i spremi svoj izbor</li>
@@ -568,7 +565,7 @@
           </div>
         </div>
         <div class="panel dark duel-result-panel">
-          <div class="mini-tag">Vaša usporedba</div>
+
           <h3>Gdje se slažete, a gdje razilazite?</h3>
           <p id="budgetDuelStatus" role="status" aria-live="polite">Još nema spremljenih izbora. Prvo spremite raspodjelu igrača A</p>
           <div class="duel-result" id="budgetDuelResult" aria-live="polite"></div>
@@ -578,15 +575,15 @@
     </section>
 </section>
 <section class="app-view" data-app-view="act" id="djeluj" hidden>
-<header class="view-intro"><div><div class="section-kicker">U PRAKSI · INSTITUCIJE · INFORMACIJE</div><h1>Tko odlučuje i gdje pronaći informacije?</h1><p>Pregledaj kako su podijeljene nadležnosti i koje su institucije povezane s temama iz svakodnevnog života.</p></div><span class="view-meta">Vodič kroz sustav</span></header>
+<header class="view-intro"><div><h1>Tko odlučuje i gdje pronaći informacije?</h1><p>Pregledaj kako su podijeljene nadležnosti i koje su institucije povezane s temama iz svakodnevnog života.</p></div></header>
 <section class="section" id="akcija">
       <div class="section-head">
-        <div><div class="section-kicker"><span class="number">04</span> TEME I NADLEŽNOSTI</div><h2>Odaberi područje koje te zanima</h2></div>
+        <div><h2>Odaberi područje koje te zanima</h2></div>
         <p class="section-intro">Pogledaj tko je povezan s određenom temom, koje dokumente možeš provjeriti i gdje se nalaze službene informacije.</p>
       </div>
       <div class="action-finder">
         <div class="panel lilac">
-          <div class="mini-tag">Odaberi temu</div>
+
           <h3>Što te zanima?</h3>
           <p>Odaberi područje za pregled institucija i izvora. Nadležnost ovisi o vrsti usluge, vlasništvu i važećim pravilima.</p>
           <div class="field"><label for="topicSelect">Tema</label><select id="topicSelect">
@@ -602,7 +599,7 @@
           <span class="xp" id="actionXp">Tvoj napredak: 0 XP</span>
         </div>
         <div class="action-output" id="actionOutput" aria-live="polite">
-          <div class="mini-tag">PREGLED TEME</div>
+
           <h3>Javni prostor, promet i kvart</h3>
           <p>Za ulice, rasvjetu i javne površine obično su važni grad ili općina, ali nadležnost ovisi o vlasništvu i vrsti ceste.</p>
           <details class="action-extra-details"><summary>Što još vrijedi provjeriti</summary><ol><li>Koje tijelo održava prostor ili cestu?</li><li>Postoji li javna obavijest, plan ili već evidentirana prijava?</li><li>Koji službeni kontakt ili dokument daje najtočniji odgovor?</li></ol><div class="resource-links"><a href="https://popravi.to/" target="_blank" rel="noopener">Popravi.to ↗</a><a href="https://imamopravoznati.org/" target="_blank" rel="noopener">Imamo pravo znati ↗</a></div></details>
@@ -613,17 +610,17 @@
 <section class="app-view" data-app-view="tools" id="alati" hidden>
   <header class="view-intro">
     <div>
-      <div class="section-kicker">RESURSI · IZVORI · MATERIJALI</div>
+
       <h1>Korisni izvori na jednom mjestu</h1>
       <p>Odabrane poveznice za javne informacije, provjeru tvrdnji, prilike za mlade i rad u učionici.</p>
     </div>
-    <span class="view-meta">Odabrani resursi</span>
+
   </header>
 
   <section class="section tools-library" id="resursi" aria-labelledby="toolsLibraryTitle">
     <div class="section-head">
       <div>
-        <div class="section-kicker">ISTRAŽI PREMA INTERESU</div>
+
         <h2 id="toolsLibraryTitle">Što tražiš?</h2>
       </div>
       <p class="section-intro">Otvori samo skupinu koja ti treba. POVEZNICE vode na službene ili specijalizirane izvore.</p>
@@ -632,8 +629,8 @@
     <details class="tool-disclosure">
       <summary>
         <span class="tool-disclosure-title">Javne odluke i dokumenti</span>
-        <span class="tool-disclosure-meta">5 izvora</span>
-        <span class="tool-disclosure-hint">Proračuni, glasanja i javne informacije</span>
+
+
       </summary>
       <div class="tool-disclosure-body">
         <div class="link-grid">
@@ -664,8 +661,8 @@
     <details class="tool-disclosure">
       <summary>
         <span class="tool-disclosure-title">Provjera informacija</span>
-        <span class="tool-disclosure-meta">2 izvora</span>
-        <span class="tool-disclosure-hint">Neovisne provjere i kontekst tvrdnji</span>
+
+
       </summary>
       <div class="tool-disclosure-body">
         <div class="link-grid">
@@ -684,8 +681,8 @@
     <details class="tool-disclosure">
       <summary>
         <span class="tool-disclosure-title">Mladi, prava i mogućnosti</span>
-        <span class="tool-disclosure-meta">6 izvora</span>
-        <span class="tool-disclosure-hint">Sudjelovanje, obrazovanje, volontiranje i rad</span>
+
+
       </summary>
       <div class="tool-disclosure-body">
         <div class="link-grid">
@@ -721,11 +718,11 @@
     <details class="tool-disclosure">
       <summary>
         <span class="tool-disclosure-title">Za nastavnike i voditelje</span>
-        <span class="tool-disclosure-meta">Radionica 45–60 min</span>
-        <span class="tool-disclosure-hint">Materijal za školu, udrugu ili knjižnicu</span>
+
+
       </summary>
       <div class="tool-disclosure-body">
-        <p class="tool-intro">POTEZ može poslužiti kao uvod u građansku ili medijsku pismenost. Nije potrebna registracija ni posebna oprema.</p>
+        <p class="tool-intro">POTEZ može poslužiti kao uvod u građansku ili medijsku pismenost.</p>
         <ol class="tool-workshop-list">
           <li><strong>Odaberite temu</strong><span>Prijevoz, školski obrok, javni prostor ili društvene mreže.</span></li>
           <li><strong>Pronađite institucije</strong><span>Razlikujte tko donosi pravilo, osigurava novac i provodi odluku.</span></li>
@@ -739,8 +736,8 @@
     <details class="tool-disclosure">
       <summary>
         <span class="tool-disclosure-title">Primjeri iz prakse</span>
-        <span class="tool-disclosure-meta">Hrvatska i Europa</span>
-        <span class="tool-disclosure-hint">Kako zajednice uključuju građane u odluke</span>
+
+
       </summary>
       <div class="tool-disclosure-body">
         <div class="practice-examples">
@@ -756,8 +753,8 @@
   <details class="tool-disclosure tool-feedback" id="povratne">
     <summary>
       <span class="tool-disclosure-title">Komentar o POTEZU ili prijava greške</span>
-      <span class="tool-disclosure-meta">Otvoreni pilot</span>
-      <span class="tool-disclosure-hint">Povratne informacije pomažu poboljšati sadržaj i preglednost.</span>
+
+
     </summary>
     <div class="tool-disclosure-body">
       <p>Prijava se otvara na GitHubu i može biti javno vidljiva. Nemoj unositi osobne podatke, privatne poruke ni osjetljive informacije.</p>
@@ -769,13 +766,13 @@
   </details>
 
   <section class="section tools-note">
-    <p>POTEZ je otvoreni edukativni pilot. Poveznice vode na vanjske izvore, a njihovi uvjeti i aktualnost provjeravaju se kod pružatelja.</p>
+    <p>Poveznice vode na vanjske izvore. Njihovu aktualnost provjeri kod pružatelja.</p>
   </section>
 </section>
 </section>
   </main>
 
-  <footer class="footer"><div><strong>potez</strong> · otvoreni pilot</div><div>Politika prevedena na tvoj život. <button class="reset" id="clearProgress">Obriši lokalni napredak</button></div><div><a href="/privacy.html">Privatnost</a> · <a href="/uvjeti.html">Uvjeti korištenja</a> · <a href="#povratne">Prijedlozi</a></div><div>Sadržaj se temelji na navedenim izvorima. POTEZ nije stranački ni službeni institucionalni kanal</div></footer>
+  <footer class="footer"><div><strong>potez</strong></div><div>Politika prevedena na tvoj život. <button class="reset" id="clearProgress">Obriši lokalni napredak</button></div><div><a href="/privacy.html">Privatnost</a> · <a href="/uvjeti.html">Uvjeti korištenja</a> · <a href="#povratne">Prijedlozi</a></div><div>Sadržaj se temelji na navedenim izvorima. POTEZ nije stranački ni službeni institucionalni kanal</div></footer>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
