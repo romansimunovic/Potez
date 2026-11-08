@@ -74,7 +74,7 @@ Stranica se poslužuje putem Cloudflare Pages. Pružatelj hostinga može obrađi
 
 ## Dijeljenje i gamifikacija
 
-XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Nema javnih ljestvica, održavanja nizova ni kazne za propušten dan. Dnevna misija koristi kratke situacijske scenarije o javnim odlukama, integritetu, informacijama i poštenom sudjelovanju. Budžetska igra u temama prati službenu funkcionalnu strukturu proračuna Grada Osijeka za 2026., ali iznos fonda u simulaciji ostaje jasno označen kao hipotetski. Svaki izbor dobiva posljedicu i objašnjenje; bodovi nagrađuju pokušaj, a ne slaganje s političkim stajalištem.
+XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Dnevna misija koristi kratke situacijske scenarije o javnim odlukama, integritetu, informacijama i poštenom sudjelovanju. Proračunski izazov polazi od službenih planova za 2026.: programa prioriteta po četvrtima Osijeka, odabranih investicijskih programa Slavonskog Broda te odabranih funkcijskih klasifikacija Slatine i Vukovara. Prikazani zbroj odnosi se samo na kategorije koje su odabrane za igru, ne na cjelokupni gradski proračun. Svaki izbor dobiva kratko objašnjenje posljedica; bodovi nagrađuju dovršetak, a ne političko stajalište.
 
 Kratki zvuk nagrade generira se u pregledniku nakon korisničke radnje. Ne učitava se audio datoteka. Zvuk se može isključiti prekidačem; postavka ostaje lokalna.
 
@@ -121,7 +121,7 @@ Cloudflare Pages objavljuje statičke datoteke iz repozitorija. GitHub Actions p
 
 ## Sadržaj i ograničenja
 
-POTEZ je edukativni alat, ne službeni kanal javne institucije i ne pruža pravni ili drugi stručni savjet. Proračunska igra koristi izmišljene iznose. Podaci i nadležnosti mogu se promijeniti; korisnike se potiče da otvore izvorne dokumente i provjere aktualne informacije.
+POTEZ je edukativni alat, ne službeni kanal javne institucije i ne pruža pravni ili drugi stručni savjet. Proračunska igra koristi odabrane iznose iz službenih planova za 2026.; korisničko pomicanje klizača stvara scenarij i ne mijenja usvojeni proračun. Zagreb, Nova Gradiška i dodatni gradovi ostaju na popisu za obradu dok se njihove aktualne tablice ne provjere i ne usklade.
 
 Vanjske poveznice vode prema organizacijama i servisima koji imaju vlastita pravila privatnosti i uvjete.
 
