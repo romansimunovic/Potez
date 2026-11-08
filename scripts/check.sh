@@ -128,7 +128,7 @@ for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
-assert 'Odaberi stvarni problem' in html and 'budgetCity' in html
+assert 'Odaberi temu' in html and 'budgetCity' in html
 assert 'budgetDistrict' not in html and 'budgetDistrict' not in Path("assets/app.js").read_text(encoding="utf-8")
 assert "Odaberi prikaz" not in html
 assert 'id="budgetSubmit"' in html and "Zaključi raspodjelu" in html
