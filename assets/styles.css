@@ -1479,3 +1479,22 @@ body.reward-celebration .passport-rank { animation: potez-reward-rank .48s ease-
 .daily-choice{text-align:left;line-height:1.45}
 .daily-choice:disabled{cursor:default;opacity:1}
 @media(max-width:600px){.daily-run-progress-top{align-items:flex-start;flex-direction:column;gap:4px}.daily-run-progress-top span{text-align:left}.daily-actions{display:grid;grid-template-columns:1fr}.daily-actions .btn{width:100%}}
+
+/* Gentle motion: purposeful state changes, never motion for its own sake. */
+.app-view:not([hidden]){animation:potez-view-in .28s cubic-bezier(.2,.75,.25,1) both}
+.daily-case,.daily-choice,.budget-line,.link-card,.resource-feature,.home-step-card{transition:transform .2s cubic-bezier(.2,.75,.25,1),box-shadow .2s ease,border-color .2s ease,background-color .2s ease}
+.daily-choice:active,.link-card:active,.resource-feature:active,.home-step-card:active{transform:scale(.985)}
+.daily-choice:focus-visible{transform:translateY(-1px)}
+.daily-feedback{animation:potez-feedback-in .24s ease-out both}
+.daily-actions .btn{transition:transform .18s ease,box-shadow .18s ease}
+.daily-actions .btn:active{transform:translateY(1px) scale(.99)}
+.resource-feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+.resource-feature{display:flex;flex-direction:column;gap:9px;min-height:190px;padding:20px;border:1px solid var(--line);border-radius:18px;background:var(--surface);text-decoration:none;box-shadow:var(--shadow-sm)}
+.resource-feature:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#aab9a8}
+.resource-feature strong{font-size:1.1rem;line-height:1.2}
+.resource-feature>span:not(.mini-tag){color:var(--muted);font-size:.87rem;line-height:1.5}
+.resource-feature b{margin-top:auto;font-size:.82rem}
+@keyframes potez-view-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes potez-feedback-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.resource-feature-grid{grid-template-columns:1fr}.resource-feature{min-height:0;padding:17px}}
+@media(prefers-reduced-motion:reduce){.app-view:not([hidden]),.daily-feedback{animation:none!important}.daily-case,.daily-choice,.budget-line,.link-card,.resource-feature,.home-step-card,.daily-actions .btn{transition:none!important}.daily-choice:active,.link-card:active,.resource-feature:active,.home-step-card:active{transform:none}}
