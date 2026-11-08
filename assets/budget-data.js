@@ -97,6 +97,7 @@ window.POTEZ_BUDGET_DATA = {
             { name: 'Škole', amount: 5371508, detail: 'Dogradnje, igrališta, blagovaonice i oprema' },
             { name: 'Okoliš i obnovljivi izvori', amount: 3612723, detail: 'Kvaliteta zraka, geotermalna energija i park Klasije' },
             { name: 'Stanovanje za mlade obitelji', amount: 870000, detail: 'Stanovi i poticaji za gradnju kuća' },
+            { name: 'Dom za starije', amount: 5660000, detail: 'Nastavak izgradnje i opremanje doma' },
             { name: 'Sportski objekti', amount: 7053000, detail: 'Stadion kraj Save, Klasije i Vijuš' },
             { name: 'Dječji vrtići', amount: 3709809, detail: 'Dogradnja i opremanje vrtića Pčelica i Kosjenka' },
             { name: 'Objekti kulture', amount: 1114120, detail: 'Knjižnica, Hrvatski dom i tvrđava' },
