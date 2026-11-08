@@ -69,12 +69,12 @@ Aplikacija ne koristi vlastitu analitiku, oglašivačke kolačiće ni piksele za
 Stranica se poslužuje putem Cloudflare Pages. Pružatelj hostinga može obrađivati tehničke podatke mrežnih zahtjeva radi isporuke i zaštite usluge, u skladu sa svojim pravilima. Detalji su u [obavijesti o privatnosti](privacy.html).
 
 **Dokumentacija:**
-- [Obavijest o privatnosti](/privacy)
-- [Uvjeti korištenja](/uvjeti)
+- [Obavijest o privatnosti](/privacy.html)
+- [Uvjeti korištenja](/uvjeti.html)
 
 ## Dijeljenje i gamifikacija
 
-XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Nema javnih ljestvica, održavanja nizova ni kazne za propušten dan. Dnevna misija koristi kratke situacijske scenarije o javnim odlukama, integritetu, informacijama i poštenom sudjelovanju. Svaki izbor dobiva posljedicu i objašnjenje; bodovi nagrađuju pokušaj, a ne slaganje s političkim stajalištem.
+XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Nema javnih ljestvica, održavanja nizova ni kazne za propušten dan. Dnevna misija koristi kratke situacijske scenarije o javnim odlukama, integritetu, informacijama i poštenom sudjelovanju. Budžetska igra u temama prati službenu funkcionalnu strukturu proračuna Grada Osijeka za 2026., ali iznos fonda u simulaciji ostaje jasno označen kao hipotetski. Svaki izbor dobiva posljedicu i objašnjenje; bodovi nagrađuju pokušaj, a ne slaganje s političkim stajalištem.
 
 Kratki zvuk nagrade generira se u pregledniku nakon korisničke radnje. Ne učitava se audio datoteka. Zvuk se može isključiti prekidačem; postavka ostaje lokalna.
 

@@ -57,5 +57,9 @@ assert 'id="dailyProgress"' in html and 'id="dailyNext"' in html and 'id="dailyS
 assert not Path("functions").exists()
 assert not Path("supabase").exists()
 assert "localStorage" in privacy and "Cloudflare Pagesa" in privacy
+assert "daily-run-progress" in html or "dailyProgress" in html
+assert "data.gov.hr/ckan/dataset/972-proracun-6" in html
+assert "prefers-reduced-motion:reduce" in Path("assets/styles.css").read_text(encoding="utf-8")
+assert not Path("_redirects").exists()
 print("POTEZ pilot UX/privacy checks passed")
 PY
