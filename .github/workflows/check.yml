@@ -18,20 +18,5 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check frontend JavaScript
-        run: node --check assets/app.js
-      - name: Check Cloudflare Pages Function syntax
-        run: node --input-type=module --check < functions/api/feedback.js
-      - name: Check HTML parsing
-        run: |
-          python - <<'PY'
-          from html.parser import HTMLParser
-          from pathlib import Path
-          class Check(HTMLParser):
-              pass
-          for filename in ("index.html", "privacy.html"):
-              parser = Check()
-              parser.feed(Path(filename).read_text(encoding="utf-8"))
-              parser.close()
-              print(f"OK: {filename}")
-          PY
+      - name: Run static and API security tests
+        run: bash scripts/check.sh
