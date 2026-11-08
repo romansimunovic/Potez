@@ -63,3 +63,14 @@ assert "prefers-reduced-motion:reduce" in Path("assets/styles.css").read_text(en
 assert not Path("_redirects").exists()
 print("POTEZ pilot UX/privacy checks passed")
 PY
+
+python - <<'PY'
+from pathlib import Path
+html = Path("index.html").read_text(encoding="utf-8")
+css = Path("assets/styles.css").read_text(encoding="utf-8")
+assert 'id="za-voditelje"' in html
+assert "Otvori gotov raspored radionice" in html
+assert "mobile-nav-icon" in html
+assert ".facilitator-kit" in css and "prefers-reduced-motion:reduce" in css
+print("POTEZ facilitator and mobile navigation checks passed")
+PY
