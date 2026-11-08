@@ -16,7 +16,6 @@
   ];
   const categoryLabel = Object.fromEntries(categories.map(item => [item.id, item.label]));
   const filters = document.getElementById('learningFilters');
-  const countLabel = document.getElementById('learningCount');
   const moreButton = document.getElementById('learningShowMore');
   let activeCategory = 'sve';
   let showAll = false;
@@ -48,10 +47,6 @@
     card.dataset.category = topic.category;
     card.dataset.topicId = topic.id;
 
-    const top = el('div', 'learning-card-top');
-    top.append(el('span', 'learning-topic-label', topic.label));
-    top.append(el('span', 'learning-category-label', categoryLabel[topic.category] || 'Istraži'));
-    card.append(top);
     card.append(el('h3', '', topic.title));
     card.append(el('p', 'learning-card-intro', topic.intro));
 
@@ -137,11 +132,6 @@
     const visible = showAll ? selected : selected.slice(0, 4);
     root.replaceChildren();
     visible.forEach(topic => root.append(buildCard(topic)));
-    if (countLabel) {
-      countLabel.textContent = selected.length === 1
-        ? '1 tema'
-        : selected.length + ' tema';
-    }
     if (moreButton) {
       const canExpand = selected.length > 4;
       moreButton.hidden = !canExpand;
@@ -198,12 +188,6 @@
     const fact = content.facts[dailyFactIndex(today)];
     factRoot.replaceChildren();
 
-    const header = el('div', 'daily-fact-header');
-    header.append(el('span', 'daily-fact-kicker', 'Zanimljivost dana'));
-    header.append(el('time', 'daily-fact-date', today.toLocaleDateString('hr-HR', {
-      day: 'numeric', month: 'long', year: 'numeric'
-    })));
-    factRoot.append(header);
     factRoot.append(el('h2', '', fact.title));
     factRoot.append(el('p', 'daily-fact-text', fact.text));
     factRoot.append(el('p', 'daily-fact-note', fact.note));
