@@ -85,7 +85,7 @@ assert not Path("functions").exists()
 assert not Path("supabase").exists()
 assert "localStorage" in privacy and "Cloudflare Pagesa" in privacy
 assert "daily-run-progress" in html or "dailyProgress" in html
-assert "budgetProgramLink" in html and "Program-Prioriteta" in Path("assets/budget-data.js").read_text(encoding="utf-8")
+assert "budgetCity" in html and "budgetProgramLink" not in html
 assert "prefers-reduced-motion:reduce" in Path("assets/styles.css").read_text(encoding="utf-8")
 assert not Path("_redirects").exists()
 print("POTEZ pilot UX/privacy checks passed")
@@ -113,7 +113,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v19" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v20" in sw and "'/assets/budget-data.js'" in sw
 for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
