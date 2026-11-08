@@ -159,6 +159,30 @@ window.POTEZ_BUDGET_DATA = {
         }
       }
     },
+    valpovo: {
+      label: 'Valpovo',
+      selectionLabel: 'Odaberi prikaz',
+      districts: {
+        'funkcijska-klasifikacija': {
+          label: 'Gradski proračun · odabrane funkcije',
+          year: 2026,
+          total: 14375354.05,
+          envelopeLabel: 'Zbroj odabranih funkcija',
+          scopeNote: 'Odabrane funkcije · plan 2026.',
+          intro: 'Prikazan je plan prije predloženog III. rebalansa. Njegove nove vrijednosti nisu uključene.',
+          source: 'https://valpovo.hr/proracun/',
+          sourceLabel: 'Službeni proračunski dokumenti Valpova',
+          items: [
+            { name: 'Promet i gospodarstvo', amount: 4961600, detail: 'Funkcija 04 · ekonomski poslovi' },
+            { name: 'Zaštita okoliša', amount: 1013000, detail: 'Funkcija 05 · zaštita okoliša' },
+            { name: 'Stanovanje i zajednica', amount: 2989100, detail: 'Funkcija 06 · stanovanje i zajednica' },
+            { name: 'Sport i kultura', amount: 2119404.05, detail: 'Funkcija 08 · rekreacija, kultura i religija' },
+            { name: 'Obrazovanje', amount: 2628150, detail: 'Funkcija 09 · obrazovanje' },
+            { name: 'Socijalna zaštita', amount: 664100, detail: 'Funkcija 10 · socijalna zaštita' }
+          ]
+        }
+      }
+    },
     virovitica: {
       label: 'Virovitica',
       selectionLabel: 'Odaberi prikaz',
@@ -189,7 +213,6 @@ window.POTEZ_BUDGET_DATA = {
     { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Službeni arhiv sadrži proračun i izmjene za 2026.; utvrđivanje posljednje važeće tablice i obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
     { id: 'vinkovci', label: 'Vinkovci', note: 'I. izmjene objavljene 27. 5. 2026.; PDF posebnog dijela treba izvući i uskladiti', source: 'https://vinkovci.hr/dokumenti/proracun' },
     { id: 'požega', label: 'Požega', note: 'I. izmjene objavljene 26. 6. 2026.; službene XLS tablice treba obraditi', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
-    { id: 'valpovo', label: 'Valpovo', note: 'I. izmjene i obrazloženje dostupni su kao XLS; potrebno izdvojiti i provjeriti funkcije', source: 'https://valpovo.hr/proracun/' },
     { id: 'belisce', label: 'Belišće', note: 'II. izmjene i izvješće izvršenja do 30. 9. 2026.; veliki PDF treba obraditi', source: 'https://belisce.hr/proracun/' },
     { id: 'djakovo', label: 'Đakovo', note: 'II. rebalans i obrazloženje za 2026. objavljeni; potrebno izdvojiti važeće funkcijske iznose', source: 'https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html' }
   ]};
