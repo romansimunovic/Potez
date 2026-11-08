@@ -422,7 +422,7 @@
         return;
       }
       const names = categoryNames();
-      const sameCount = saved.a.reduce((count, amount, index) => count + (Math.abs(amount - saved.b[index]) < 5000 ? 1 : 0), 0);
+      const sameCount = saved.a.reduce((count, amount, index) => count + (Math.abs(amount - saved.b[index]) < Math.max(5000, ((Math.abs(amount) + Math.abs(saved.b[index])) / 2) * 0.05) ? 1 : 0), 0);
       const largest = names.map((name, index) => ({
         name,
         difference: Math.abs(saved.a[index] - saved.b[index]),
@@ -431,7 +431,7 @@
       })).sort((left, right) => right.difference - left.difference);
 
       const lines = [
-        'Slični prioriteti u ' + sameCount + '/' + names.length + ' područja (razlika manja od 5.000 €).',
+        'Slični prioriteti u ' + sameCount + '/' + names.length + ' područja (razlika manja od 5% ili 5.000 €).',
         '',
         ...largest.map((item) => item.name + ': A ' + formatEuro(item.a) + ' · B ' + formatEuro(item.b) + ' · razlika ' + formatEuro(item.difference)),
         '',
