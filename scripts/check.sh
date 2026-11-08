@@ -224,7 +224,7 @@ for token in ('id="dailyFact"', 'id="learningFilters"', 'id="learningTopics"',
               'id="learningShowMore"', 'id="passportTopics"',
               '<details class="learning-guides" id="teme">',
               '<details class="learning-stat-details">',
-              '12 tema · 4 cjeline'):
+              '12 kratkih tema'):
     assert token in html, token
 
 for token in ('name="description"', 'name="keywords"', 'name="author"',
