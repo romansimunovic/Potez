@@ -191,46 +191,95 @@
 
   const dailyQuestions = [
     {
-      question: 'U grupnom chatu kruži tvrdnja da se od sutra ukida učenički prijevoz. Nema poveznice ni datuma. Što je najbolji prvi korak?',
-      options: ['Podijeliti upozorenje da svi budu spremni', 'Pronaći izvornu odluku i provjeriti datum i tijelo koje ju je donijelo', 'Zaključiti da je tvrdnja lažna jer nema izvora'],
-      correct: 1,
-      explanation: 'Najprije traži izvornu odluku, datum i tijelo koje ju je donijelo. Bez toga je tvrdnja nepotvrđena — ne automatski istinita ili lažna.'
+      label: 'Javni natječaj · poštena pravila',
+      title: 'Tko dobiva ugovor za novi skate-park?',
+      story: 'Tvoja ekipa godinama traži siguran prostor za skejtanje. Grad napokon objavljuje natječaj za uređenje skate-parka. U dokumentima primijetiš da je osoba povezana s jednim ponuditeljem sudjelovala u povjerenstvu. Ne znaš je li to prijavljeno ni kako je ponuda ocijenjena.',
+      question: 'Koji je tvoj najbolji prvi potez?',
+      options: [
+        { text: 'Nazvati poznanika u gradskoj upravi da „pogura” našu ponudu.', best: false, feedback: 'Veza nije kriterij. Neformalni pritisak narušava jednaku priliku i može ugroziti cijeli postupak. I tvoj projekt zaslužuje dobiti prostor zbog kvalitete, ne zbog poznanstva.' },
+        { text: 'Zatražiti kriterije, zapisnik bodovanja i obrazloženu odluku.', best: true, feedback: 'To je najjači prvi korak. Traži dokumente koji pokazuju jesu li kriteriji bili poznati unaprijed, kako su ponude ocijenjene i je li mogući sukob interesa prijavljen i riješen.' },
+        { text: 'Objaviti ime osobe i odmah je proglasiti lopovom.', best: false, feedback: 'Sumnja zaslužuje provjeru, ali sama povezanost nije dokaz korupcije. Drži se dokumentiranih činjenica i nemoj objavljivati osobne optužbe bez dokaza.' }
+      ],
+      outcome: 'Kad su kriteriji jasni, bodovanje obrazloženo, a mogući sukob interesa uredno provjeren, grad može izabrati izvođača bez pogodovanja. Skate-park dobiva sigurnosne standarde, rokove i javno objašnjenje odluke.',
+      takeaway: 'Transparentnost nije kočnica projektu — ona pomaže da dobar projekt bude izveden pošteno.'
     },
     {
-      question: 'Tko u pravilu donosi i usvaja gradski proračun u Hrvatskoj?',
-      options: ['Gradsko vijeće, na prijedlog gradonačelnika', 'Isključivo ministarstvo financija', 'Mjesni odbor'],
-      correct: 0,
-      explanation: 'Predstavničko tijelo donosi proračun, a gradonačelnik predlaže i izvršava proračun. Zato je važno pratiti i prijedlog i glasanje.'
+      label: 'Javni poziv · ista pravila za sve',
+      title: 'Zašto je drugi projekt dobio više bodova?',
+      story: 'Prijavili ste ideju za mali glazbeni festival na gradski natječaj za mlade. Rezultati su objavljeni, ali ne razumiješ zašto je drugi projekt dobio više bodova. U objavi nema detaljnog obrazloženja.',
+      question: 'Kako možeš provjeriti je li odluka bila poštena?',
+      options: [
+        { text: 'Tražiti objavljene kriterije, svoje bodovanje i obrazloženje odluke.', best: true, feedback: 'Odlično. Usporedi kriterije objavljene prije prijave s obrazloženjem i bodovanjem. Ako nešto nije jasno, pošalji konkretan, pristojan upit organizatoru.' },
+        { text: 'Ponuditi članu komisije uslugu ili poklon da idući put dobijete više bodova.', best: false, feedback: 'To je upravo pogodovanje koje narušava povjerenje i može biti protuzakonito. Ne pokušavaj utjecati na ocjenjivače privatnim koristima.' },
+        { text: 'Zaključiti da je natječaj namješten i odustati od svega.', best: false, feedback: 'Možda postoji problem, a možda je drugi projekt bolje odgovorio na kriterije. Prvo prikupi dokumente; zaključak donesi na temelju provjerljivih razloga.' }
+      ],
+      outcome: 'Organizator objavljuje jasnije obrazloženje i omogućuje jednak uvid u kriterije. Vaša ekipa zna što idući put treba ojačati, a svi prijavitelji imaju isti okvir.',
+      takeaway: 'Ne moraš „poznavati nekoga” da bi razumio/la odluku. Traži ista pravila i obrazloženje.'
     },
     {
-      question: 'U kvartu je oštećena autobusna nadstrešnica. Što prvo treba utvrditi?',
-      options: ['Koja je stranka osvojila najviše glasova', 'Tko je vlasnik ili upravitelj nadstrešnice i tko je nadležan za održavanje', 'Je li problem postao viralan'],
-      correct: 1,
-      explanation: 'Nadležnost može ovisiti o vlasništvu, ugovoru i vrsti prometnice. Prvi korak je pronaći odgovorno tijelo ili operatora, a ne nagađati.'
+      label: 'Grupni chat · provjeri prije dijeljenja',
+      title: 'Ukida li se od ponedjeljka učenički prijevoz?',
+      story: 'U razrednoj grupi netko pošalje screenshot s dramatičnom porukom: „Od ponedjeljka nema više besplatnog prijevoza!” Nema datuma, poveznice ni naziva institucije. Svi počinju paničariti.',
+      question: 'Koji potez najviše pomaže ekipi?',
+      options: [
+        { text: 'Proslijediti screenshot svim razredima da budu spremni.', best: false, feedback: 'Tako se neprovjerena tvrdnja samo širi. Screenshot može biti star, izrezan ili izmišljen. Zaustavi lanac dok ne pronađeš izvor.' },
+        { text: 'Pronaći izvornu odluku i provjeriti datum i nadležno tijelo.', best: true, feedback: 'Da. Traži službenu objavu, odluku ili obavijest prijevoznika i provjeri na koga se odnosi. Ako izvora nema, ispravan status je „nepotvrđeno”, ne „sigurno istinito” ili „lažno”.' },
+        { text: 'Napisati da je vijest lažna jer nema poveznice.', best: false, feedback: 'Nedostatak poveznice nije dokaz da je tvrdnja lažna. Prvo provjeri izvor i datum; tek onda možeš odgovorno prenijeti zaključak.' }
+      ],
+      outcome: 'Učenici pronađu službenu obavijest: promjena se odnosi samo na jednu liniju i počinje kasnije. Razred podijeli provjerenu informaciju umjesto panike.',
+      takeaway: 'Dobar digitalni potez nije najbrži share. To je pronalazak izvora i konteksta.'
     },
     {
-      question: 'Što znači sudjelovati u javnom savjetovanju o prijedlogu propisa?',
-      options: ['Komentar automatski postaje zakon', 'Možeš poslati argumentiran komentar koji nadležno tijelo razmatra i na njega se očituje', 'Glasaš o tome tko će biti ministar'],
-      correct: 1,
-      explanation: 'Savjetovanje omogućuje građanima i organizacijama komentiranje prijedloga. Tijelo razmatra komentare i objavljuje očitovanje, ali ih ne mora sve prihvatiti.'
+      label: 'Škola · prijedlog koji se može provesti',
+      title: 'Kako promijeniti pravilo koje svima smeta?',
+      story: 'U školi se promijenio raspored korištenja zajedničkog prostora. Učenici se žale da nemaju gdje boraviti tijekom odmora. Objave na društvenim mrežama skupile su reakcije, ali pravilo ostaje isto.',
+      question: 'Kako od pritužbe napraviti prijedlog na koji škola može odgovoriti?',
+      options: [
+        { text: 'Okupiti učenike, prikupiti konkretne primjere i predložiti rješenje vijeću učenika.', best: true, feedback: 'To je dobar početak. Prikupi iskustva bez nepotrebnih osobnih podataka, predloži izvedivu promjenu i zatraži da se prijedlog uputi nadležnom tijelu škole.' },
+        { text: 'Objaviti imena nastavnika i prozivati ih u komentarima.', best: false, feedback: 'To može povrijediti osobe, zaoštriti odnos i ne rješava problem. Kritiziraj pravilo i postupak, ne izlaži pojedince pritisku.' },
+        { text: 'Čekati da netko drugi pokrene stvar.', best: false, feedback: 'Možeš početi malim korakom. Nekoliko konkretnih primjera i prijedlog s jasnim razlogom često su korisniji od čekanja ili samo pritužbe.' }
+      ],
+      outcome: 'Vijeće učenika iznosi prijedlog na sastanku s upravom škole. Dogovara se probno rješenje i rok nakon kojeg će učenici i škola provjeriti funkcionira li.',
+      takeaway: 'Sudjelovanje počinje kad problem pretvoriš u jasan prijedlog, a ne kad samo postane viralan.'
     },
     {
-      question: 'U školi želiš promijeniti pravilo koje utječe na učenike. Gdje je smisleno početi?',
-      options: ['Od vijeća učenika i tijela škole, uz provjeru zakonskih pravila', 'Od Europske središnje banke', 'Od nasumične objave na društvenoj mreži'],
-      correct: 0,
-      explanation: 'Dio pravila može se rješavati unutar škole, dok su druga određena nacionalnim propisima. Prvo utvrdi tko ima ovlast odlučivanja.'
+      label: 'Javni novac · izbor prioriteta',
+      title: 'Grad ima 10.000 € viška u malom fondu za mlade.',
+      story: 'Grad poziva mlade da predlože kako rasporediti 10.000 eura: oprema za sportski teren, prostor za probe ili bolja rasvjeta na putu do škole. Novca nema za sve.',
+      question: 'Što čini prijedlog odgovornim i uvjerljivim?',
+      options: [
+        { text: 'Odabrati ono što je najpopularnije na društvenim mrežama.', best: false, feedback: 'Popularnost je signal interesa, ali ne govori tko još koristi prostor, koliko projekt košta ni tko će ga održavati.' },
+        { text: 'Usporediti potrebe, broj korisnika, trošak, pristupačnost i održavanje.', best: true, feedback: 'Upravo to. Dobar prijedlog pokazuje kome koristi, koliko košta, tko bi mogao ostati izostavljen i može li se projekt održavati nakon početnog ulaganja.' },
+        { text: 'Tražiti da se novac podijeli između prijateljskih ekipa.', best: false, feedback: 'Javni novac nije nagrada za bliskost. Potrebe zajednice i unaprijed poznati kriteriji moraju biti važniji od poznanstava.' }
+      ],
+      outcome: 'Mladi objave prijedloge s troškovima i koristima, a grad obrazloži odluku. Dio novca ide rasvjeti, dio opremi; za prostor za probe traži se dodatni izvor financiranja.',
+      takeaway: 'Pravedna odluka ne znači da svi dobiju sve. Znači da su kriteriji jasni i odluka objašnjena.'
     },
     {
-      question: 'Županija, grad i država mogu biti uključeni u istu javnu uslugu. Što je najbolje pitati?',
-      options: ['Koja je razina najvažnija općenito', 'Tko donosi pravilo, tko osigurava sredstva i tko provodi uslugu', 'Tko ima najviše pratitelja'],
-      correct: 1,
-      explanation: 'Javne ovlasti često su podijeljene. Razdvajanje pravila, financiranja i provedbe pomaže pronaći pravu instituciju i smislen način utjecaja.'
+      label: 'Javno savjetovanje · tvoj komentar',
+      title: 'Nova autobusna linija ne odgovara učenicima.',
+      story: 'Grad objavi prijedlog izmjene voznog reda i otvori javno savjetovanje. Nova linija prolazi blizu škole, ali polazi deset minuta prije završetka nastave. Imaš nekoliko dana za komentar.',
+      question: 'Koji komentar ima najveću šansu da bude koristan?',
+      options: [
+        { text: '„Ovo je glupost, napravite nešto normalno.”', best: false, feedback: 'Razumljivo je da si frustriran/a, ali ovakav komentar ne daje tijelu podatak na temelju kojeg može promijeniti prijedlog.' },
+        { text: 'Navesti vrijeme završetka nastave, postojeći vozni red i predložiti polazak 15 minuta kasnije.', best: true, feedback: 'To je konkretno i provjerljivo. Opiši problem, pokaži na koga utječe i predloži izvedivu izmjenu uz podatke ili primjere.' },
+        { text: 'Poslati isti komentar više puta s različitih profila.', best: false, feedback: 'Umjetno umnažanje komentara ne čini argument jačim. Jedan dobro obrazložen komentar vrijedi više od lažnog dojma masovne podrške.' }
+      ],
+      outcome: 'U očitovanju se navodi da je vrijeme polaska prilagođeno završetku nastave i da će se nakon mjesec dana pratiti broj putnika.',
+      takeaway: 'Javno savjetovanje nije anketa popularnosti. Najkorisniji su jasni argumenti i prijedlozi.'
     },
     {
-      question: 'Grupa mladih želi predložiti novi prostor za sport i druženje. Koji prijedlog ima čvršće temelje?',
-      options: ['„Napravite nam nešto lijepo”', 'Prijedlog s lokacijom, korisnicima, okvirnim troškom, održavanjem i podrškom zajednice', 'Samo broj lajkova na objavi'],
-      correct: 1,
-      explanation: 'Dobar prijedlog pokazuje kome koristi, gdje se može provesti, koliko okvirno košta i tko će ga održavati. To olakšava instituciji da ga procijeni.'
+      label: 'Javna informacija · pronađi dokument',
+      title: 'Obećali su obnovu igrališta. Gdje je zapelo?',
+      story: 'Prije pola godine objavljeno je da će igralište biti obnovljeno. Radovi nisu počeli, a na mrežama se šire nagađanja. Ne znaš je li problem u novcu, natječaju ili dozvoli.',
+      question: 'Koji je prvi korak prije zaključka?',
+      options: [
+        { text: 'Zatražiti postojeće dokumente: odluku, ugovor, rokove i status radova.', best: true, feedback: 'Dobar potez. Traži konkretne postojeće informacije i pitaj koja je institucija zadužena za provedbu. Tako možeš razlikovati kašnjenje, promjenu plana i moguću nepravilnost.' },
+        { text: 'Objaviti da je novac ukraden jer radovi kasne.', best: false, feedback: 'Kašnjenje samo po sebi nije dokaz krađe. Prvo provjeri odluke, ugovor, plaćanja i status projekta; optužbe moraju počivati na dokazima.' },
+        { text: 'Nazvati izvođača i ponuditi novac da radove završi ranije.', best: false, feedback: 'Ne pokušavaj zaobilaziti ugovor ili pravila privatnim dogovorima. Odgovornost se provjerava kroz službeni ugovor i tijelo koje nadzire radove.' }
+      ],
+      outcome: 'Dokumenti pokažu da kasni isporuka opreme, a ne da je projekt nestao. Grad objavi novi rok i nadležno tijelo prati izvršenje ugovora.',
+      takeaway: 'Kad nešto kasni, prvo prati dokumente, rokove i odgovornost. Ne preskači dokaz.'
     }
   ];
 
@@ -246,43 +295,80 @@
     const choicesNode = $('#dailyChoices');
     const dateNode = $('#dailyDate');
     const feedbackNode = $('#dailyFeedback');
-    if (!questionNode || !choicesNode || !dateNode || !feedbackNode) return;
+    const caseLabel = $('#dailyCaseLabel');
+    const scenarioTitle = $('#dailyScenarioTitle');
+    const scenarioText = $('#dailyScenarioText');
+    if (!questionNode || !choicesNode || !dateNode || !feedbackNode ||
+        !caseLabel || !scenarioTitle || !scenarioText) return;
 
     const today = todayStamp();
     const start = new Date(new Date().getFullYear(), 0, 1);
     const elapsed = Math.floor((new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - start) / 86400000);
     const item = dailyQuestions[elapsed % dailyQuestions.length];
     let saved = {};
-    try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch {}
+    try {
+      saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {};
+    } catch {}
     const alreadyDone = saved.dailyDoneStamp === today;
 
     dateNode.textContent = new Intl.DateTimeFormat('hr-HR', { dateStyle: 'full' }).format(new Date());
+    caseLabel.textContent = item.label;
+    scenarioTitle.textContent = item.title;
+    scenarioText.textContent = item.story;
     questionNode.textContent = item.question;
     choicesNode.replaceChildren();
-    feedbackNode.textContent = alreadyDone
-      ? 'Današnja misija već je uračunata u tvoj napredak. Možeš ponovno pročitati objašnjenje, ali bodove ne skupljaš ponavljanjem.'
-      : '';
+    feedbackNode.replaceChildren();
+
+    function showFeedback(choiceIndex, earnedToday) {
+      const chosen = item.options[choiceIndex];
+      const heading = document.createElement('strong');
+      heading.className = 'daily-feedback-title';
+      heading.textContent = chosen.best ? 'Dobar potez.' : 'Može bolje — evo zašto.';
+      const explanation = document.createElement('p');
+      explanation.textContent = chosen.feedback;
+      const outcomeLabel = document.createElement('span');
+      outcomeLabel.className = 'daily-outcome-label';
+      outcomeLabel.textContent = 'Kako izgleda dobar ishod';
+      const outcome = document.createElement('p');
+      outcome.textContent = item.outcome;
+      const takeaway = document.createElement('p');
+      takeaway.className = 'daily-takeaway';
+      takeaway.textContent = 'Za ponijeti: ' + item.takeaway;
+      feedbackNode.replaceChildren(heading, explanation, outcomeLabel, outcome, takeaway);
+      if (earnedToday) {
+        const repeat = document.createElement('small');
+        repeat.textContent = 'Današnja misija već je uračunata u tvoj napredak.';
+        feedbackNode.appendChild(repeat);
+      }
+    }
 
     item.options.forEach((option, index) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'daily-choice';
-      button.textContent = option;
+      button.dataset.letter = String.fromCharCode(65 + index);
+      button.textContent = option.text;
       button.addEventListener('click', () => {
         if (choicesNode.dataset.answered === today) return;
         choicesNode.dataset.answered = today;
-        const correct = index === item.correct;
-        Array.from(choicesNode.querySelectorAll('button')).forEach((choice, choiceIndex) => {
+        const buttons = Array.from(choicesNode.querySelectorAll('button'));
+        buttons.forEach((choice, choiceIndex) => {
           choice.disabled = true;
-          if (choiceIndex === item.correct) choice.classList.add('correct');
-          if (choiceIndex === index && !correct) choice.classList.add('wrong');
+          if (item.options[choiceIndex].best) choice.classList.add('correct');
+          if (choiceIndex === index) {
+            choice.classList.add('chosen');
+            if (!option.best) choice.classList.add('wrong');
+          }
         });
 
         let current = {};
-        try { current = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch {}
+        try {
+          current = JSON.parse(localStorage.getItem(STORE) || '{}') || {};
+        } catch {}
         const earnedToday = current.dailyDoneStamp === today;
         if (!earnedToday) {
           current.dailyDoneStamp = today;
+          current.dailyChoiceIndex = index;
           current.xp = Math.max(0, Number(current.xp) || 0) + 3;
           try {
             localStorage.setItem(STORE, JSON.stringify(current));
@@ -290,19 +376,31 @@
           } catch {}
           window.POTEZ_FEEDBACK?.success();
         }
-
-        feedbackNode.textContent = (correct ? 'Točno. +3 XP. ' : 'Dobar pokušaj — pogledaj zašto. +3 XP. ') +
-          item.explanation + (earnedToday ? ' Današnji bodovi već su bili uračunati.' : '');
-        notify(earnedToday ? 'Odgovor zabilježen.' : '+3 XP · dnevno pitanje');
+        showFeedback(index, earnedToday);
+        notify(earnedToday ? 'Potez zabilježen.' : '+3 XP · dnevna misija');
       });
       choicesNode.appendChild(button);
     });
 
     if (alreadyDone) {
       choicesNode.dataset.answered = today;
-      Array.from(choicesNode.querySelectorAll('button')).forEach((button) => { button.disabled = true; });
-      const previous = item.explanation;
-      feedbackNode.textContent += ' Objašnjenje: ' + previous;
+      const buttons = Array.from(choicesNode.querySelectorAll('button'));
+      buttons.forEach((button, index) => {
+        button.disabled = true;
+        if (item.options[index].best) button.classList.add('correct');
+      });
+      const choiceIndex = Number(saved.dailyChoiceIndex);
+      if (Number.isInteger(choiceIndex) && choiceIndex >= 0 && choiceIndex < item.options.length) {
+        buttons[choiceIndex].classList.add('chosen');
+        if (!item.options[choiceIndex].best) buttons[choiceIndex].classList.add('wrong');
+        showFeedback(choiceIndex, true);
+      } else {
+        const note = document.createElement('p');
+        note.textContent = 'Današnja misija je već završena. Pogledaj označeni preporučeni potez i objašnjenje ishoda.';
+        const outcome = document.createElement('p');
+        outcome.textContent = item.outcome;
+        feedbackNode.replaceChildren(note, outcome);
+      }
     } else {
       delete choicesNode.dataset.answered;
     }
