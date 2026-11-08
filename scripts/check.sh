@@ -272,6 +272,12 @@ assert 'tool-disclosure-meta' not in html and 'tool-disclosure-hint' not in html
 assert 'learning-footnote' not in html and 'learningCount' not in html
 assert 'dailyDate' not in html and 'dailyCaseLabel' not in html
 assert 'PREGLED TEME' not in Path("assets/app.js").read_text(encoding="utf-8")
+assert "<small" not in html
+assert 'id="fontScaleValue"' in html and '<span id="fontScaleValue">100 %</span>' in html
+assert 'aria-label="Glavni izbornik"' in html and 'mobileMenuTitle' not in html
+for route in ('home', 'learn', 'play', 'act', 'tools'):
+    assert html.count(f'data-app-route="{route}"') == 2, route
+assert 'passport-badge-panel' not in html
 assert "body{padding-bottom:0!important}" in css
 print("Verified learning UI, local-only progress, compact passport, SEO metadata, sitemap and source documentation.")
 PY
