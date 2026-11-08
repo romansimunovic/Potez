@@ -90,7 +90,14 @@ Dijeljenje napretka pokreće se samo kada korisnik pritisne gumb. Koristi se izv
 
 Proračunski izazov je edukativna simulacija, ne službeni gradski proračun niti prognoza potrošnje. Model obuhvaća 42 grada, koristi Popis 2021. i jasno označava vlastite troškovne pretpostavke. Potpuna demografska osnova, formula, raspodjela, izvori i ograničenja nalaze se u [metodologiji simulacije lokalnog proračuna](docs/BUDGET_MODEL_2026.md).
 
-## Uređivačka i partnerska dokumentacija\n\n- [Izvori za tematske kartice i dnevne zanimljivosti](docs/LEARNING_SOURCES_2026.md)\n- [Potencijalni partneri i prijedlog pilotiranja](docs/POTENTIAL_PARTNERS_AND_PILOT.md)\n- [Urednička načela POTEZA](docs/CONTENT_PRINCIPLES.md)\n\n## Lokalni razvoj i provjere
+## Dokumentacija projekta
+
+- [Urednička načela i standardi provjere](docs/CONTENT_PRINCIPLES.md)
+- [Izvori za edukativne sadržaje](docs/LEARNING_SOURCES_2026.md)
+- [Metodologija simulacije lokalnog proračuna](docs/BUDGET_MODEL_2026.md)
+- [Transparentnost uporabe umjetne inteligencije](docs/AI_TRANSPARENCY.md)
+
+## Lokalni razvoj i provjere
 
 Za brzi lokalni prikaz statičke aplikacije:
 
