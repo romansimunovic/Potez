@@ -4,7 +4,30 @@
   const views=Array.from(document.querySelectorAll('[data-app-view]'));
   const homeView=document.querySelector('[data-app-view="home"]');
   const routeLinks=Array.from(document.querySelectorAll('[data-app-route]'));
+  const mobileMenu=document.getElementById('mobileMenu');
+  const mobileMenuSummary=mobileMenu?.querySelector('summary');
+  const mobileMenuBackdrop=mobileMenu?.querySelector('.mobile-menu-backdrop');
   if(!views.length||!homeView)return;
+  function syncMobileMenu(){
+    if(!mobileMenu)return;
+    if(mobileMenuSummary)mobileMenuSummary.setAttribute('aria-expanded',String(mobileMenu.open));
+    document.body.classList.toggle('menu-open',mobileMenu.open);
+  }
+  function closeMobileMenu(restoreFocus=false){
+    if(!mobileMenu||!mobileMenu.open)return;
+    mobileMenu.open=false;
+    syncMobileMenu();
+    if(restoreFocus)mobileMenuSummary?.focus();
+  }
+  mobileMenu?.addEventListener('toggle',syncMobileMenu);
+  mobileMenuBackdrop?.addEventListener('click',()=>closeMobileMenu(true));
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&mobileMenu?.open){
+      event.preventDefault();
+      closeMobileMenu(true);
+    }
+  });
+  syncMobileMenu();
   function viewForTarget(target){return target?.closest?.('[data-app-view]')||(target?.id==='top'?homeView:null);}
   function updateActiveNavigation(view){
     const activeRoute=view?.dataset.appView||'home';
@@ -36,6 +59,7 @@
     const view=viewForTarget(target)||(id==='top'?homeView:null);
     if(!view||!target)return;
     event.preventDefault();
+    if(link.closest('#mobileMenu'))closeMobileMenu();
     const nextHash='#'+encodeURIComponent(id);
     if(window.location.hash!==nextHash)window.history.pushState(null,'',nextHash);
     showView(view,target,true);
