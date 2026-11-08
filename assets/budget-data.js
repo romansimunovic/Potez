@@ -231,6 +231,29 @@ window.POTEZ_BUDGET_DATA = {
         }
       }
     },
+    belisce: {
+      label: 'Belišće',
+      selectionLabel: 'Odaberi prikaz',
+      districts: {
+        'pocetni-plan': {
+          label: 'Početni usvojeni plan · prije II. izmjena',
+          year: 2026,
+          total: 31641383.40,
+          envelopeLabel: 'Ukupno po odjelima',
+          scopeNote: 'Organizacijska klasifikacija · početni plan 2026.',
+          intro: 'Ovo je početni plan po upravnim odjelima. II. izmjene objavljene kasnije tijekom 2026. nisu uključene.',
+          source: 'https://belisce.hr/wp-content/uploads/2026/01/Vodic-za-gradane-Proracun-u-malom-Grada-Belisca-za-2026.-godinu.pdf',
+          sourceLabel: 'Proračun u malom Belišća · 2026.',
+          items: [
+            { name: 'Ured gradonačelnika', amount: 1647912, detail: 'Ured gradonačelnika i tajništvo grada' },
+            { name: 'Financije i otplata zajmova', amount: 17150400, detail: 'Uključuje 16.775.000 € planiranih povrata zajmova' },
+            { name: 'Komunalne djelatnosti', amount: 1897600, detail: 'Komunalna infrastruktura, imovina i uređenje naselja' },
+            { name: 'Društvene djelatnosti', amount: 4864330.40, detail: 'Vrtić, školstvo, socijalna skrb, sport, kultura i civilno društvo' },
+            { name: 'Prostorno planiranje i gospodarstvo', amount: 6081141, detail: 'Prostorno planiranje, gospodarstvo, okoliš i EU projekti' }
+          ]
+        }
+      }
+    },
     virovitica: {
       label: 'Virovitica',
       selectionLabel: 'Odaberi prikaz',
@@ -259,6 +282,5 @@ window.POTEZ_BUDGET_DATA = {
   upcoming: [
     { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Službeni arhiv sadrži proračun i izmjene za 2026.; utvrđivanje posljednje važeće tablice i obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
     { id: 'požega', label: 'Požega', note: 'I. izmjene objavljene 26. 6. 2026.; službene XLS tablice treba obraditi', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
-    { id: 'belisce', label: 'Belišće', note: 'II. izmjene i izvješće izvršenja do 30. 9. 2026.; veliki PDF treba obraditi', source: 'https://belisce.hr/proracun/' },
     { id: 'djakovo', label: 'Đakovo', note: 'II. rebalans i obrazloženje za 2026. objavljeni; potrebno izdvojiti važeće funkcijske iznose', source: 'https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html' }
   ]};
