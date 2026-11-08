@@ -254,6 +254,30 @@ window.POTEZ_BUDGET_DATA = {
         }
       }
     },
+    djakovo: {
+      label: 'Đakovo',
+      selectionLabel: 'Odaberi prikaz',
+      districts: {
+        'funkcijska-klasifikacija': {
+          label: 'Gradski proračun · odabrane funkcije',
+          year: 2026,
+          total: 47574000,
+          envelopeLabel: 'Zbroj odabranih funkcija',
+          scopeNote: 'Funkcijska klasifikacija · II. rebalans 2026.',
+          intro: 'Prikazan je II. rebalans. Šest odabranih funkcija čini 47.574.000 € od ukupno 51.549.000 € funkcijskih rashoda.',
+          source: 'https://www.djakovo.hr/index.php/component/phocadownload/category/49-proracun.html?download=3573:2-rebalans-proracuna-grada-dakova-za-2026-godinu',
+          sourceLabel: 'II. rebalans proračuna 2026. · službeni PDF',
+          items: [
+            { name: 'Promet i gospodarstvo', amount: 9384000, detail: 'Funkcija 04 · ekonomski poslovi' },
+            { name: 'Zaštita okoliša', amount: 1863000, detail: 'Funkcija 05 · zaštita okoliša' },
+            { name: 'Stanovanje i zajednica', amount: 23826000, detail: 'Funkcija 06 · stanovanje i unapređenje zajednice' },
+            { name: 'Sport i kultura', amount: 6258000, detail: 'Funkcija 08 · rekreacija, kultura i religija' },
+            { name: 'Obrazovanje', amount: 4780000, detail: 'Funkcija 09 · obrazovanje' },
+            { name: 'Socijalna zaštita', amount: 1463000, detail: 'Funkcija 10 · socijalna zaštita' }
+          ]
+        }
+      }
+    },
     virovitica: {
       label: 'Virovitica',
       selectionLabel: 'Odaberi prikaz',
@@ -282,5 +306,4 @@ window.POTEZ_BUDGET_DATA = {
   upcoming: [
     { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Službeni arhiv sadrži proračun i izmjene za 2026.; utvrđivanje posljednje važeće tablice i obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
     { id: 'požega', label: 'Požega', note: 'I. izmjene objavljene 26. 6. 2026.; službene XLS tablice treba obraditi', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
-    { id: 'djakovo', label: 'Đakovo', note: 'II. rebalans i obrazloženje za 2026. objavljeni; potrebno izdvojiti važeće funkcijske iznose', source: 'https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html' }
   ]};
