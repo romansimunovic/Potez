@@ -12,12 +12,13 @@ require('./assets/budget-data.js');
 const cities = window.POTEZ_BUDGET_DATA.cities;
 for (const [cityKey, city] of Object.entries(cities)) {
   for (const [districtKey, district] of Object.entries(city.districts)) {
-    const sum = district.items.reduce((total, item) => total + item.amount, 0);
+    const sumCents = district.items.reduce((total, item) => total + Math.round(item.amount * 100), 0);
+    const expectedCents = Math.round(district.total * 100);
     if (cityKey === "valpovo" && districtKey === "funkcijska-klasifikacija" && Math.abs(district.total - 14375354.05) > 0.001) {
       throw new Error("Valpovo selected functions subtotal changed unexpectedly");
     }
-    if (sum !== district.total) {
-      throw new Error(cityKey + '/' + districtKey + ': category total ' + sum + ' does not match programme total ' + district.total);
+    if (sumCents !== expectedCents) {
+      throw new Error(cityKey + '/' + districtKey + ': category total ' + (sumCents / 100) + ' does not match programme total ' + district.total);
     }
   }
 }
@@ -142,7 +143,7 @@ data = Path("assets/budget-data.js").read_text(encoding="utf-8")
 for token in ("tvrda", "novi-grad", "gornji-grad", "donji-grad", "93729", "99492"):
     assert token in data, token
 assert "100.000 €" not in html and "data-budget-slider" in Path("assets/app.js").read_text(encoding="utf-8")
-assert all(token in html for token in ("Slavonski Brod", "Slatina", "Vukovar", "Virovitica", "Valpovo", "Zagreb", "Nova Gradiška"))
+assert all(token in html for token in ("Slavonski Brod", "Slatina", "Vukovar", "Virovitica", "Valpovo", "Zagreb", "Vinkovci", "Nova Gradiška"))
 assert "Proračunska igra prikazuje odabrane iznose iz službenih planova" in Path("uvjeti.html").read_text(encoding="utf-8")
 assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.js").read_text(encoding="utf-8")
 assert "razlika manja od 5% ili 5.000 €" in Path("assets/civic.js").read_text(encoding="utf-8")
