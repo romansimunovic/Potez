@@ -158,15 +158,38 @@ window.POTEZ_BUDGET_DATA = {
           ]
         }
       }
-    }
+    },
+    virovitica: {
+      label: 'Virovitica',
+      selectionLabel: 'Odaberi prikaz',
+      districts: {
+        'funkcijska-klasifikacija': {
+          label: 'Gradski proračun · odabrane funkcije',
+          year: 2026,
+          total: 73329364,
+          envelopeLabel: 'Zbroj odabranih funkcija',
+          scopeNote: 'Odabrane funkcije · II. rebalans 2026.',
+          intro: 'Rasporedi sredstva među gradskim uslugama i usporedi svoj izbor s planom.',
+          source: 'https://www.virovitica.hr/wp-content/uploads/2026/06/II.-Izmjene-i-dopune-Proracuna-Grada-Virovitice-za-2026.-godinu.pdf',
+          sourceLabel: 'II. izmjene i dopune · 25. 6. 2026.',
+          items: [
+            { name: 'Promet i gospodarstvo', amount: 287037, detail: 'Funkcija 04 · ekonomski poslovi' },
+            { name: 'Zaštita okoliša', amount: 1256680, detail: 'Funkcija 05 · zaštita okoliša' },
+            { name: 'Stanovanje i zajednica', amount: 24709265, detail: 'Funkcija 06 · stanovanje i komunalne usluge' },
+            { name: 'Sport i kultura', amount: 4487170, detail: 'Funkcija 08 · rekreacija i kultura' },
+            { name: 'Obrazovanje', amount: 42206512, detail: 'Funkcija 09 · obrazovanje' },
+            { name: 'Socijalna zaštita', amount: 382700, detail: 'Funkcija 10 · socijalna zaštita' }
+          ]
+        }
+      }
+    },
   },
   upcoming: [
-    { id: 'zagreb', label: 'Zagreb', note: 'Izmjene proračuna objavljene 16. 10. 2026.; obrada tablice', source: 'https://www.zagreb.hr/proracun/113894' },
-    { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Potrebna obrada usvojenog proračuna i posebnog dijela', source: 'https://novagradiska.hr/news/6-sjednica-gradskog-vijeca-3/' },
+    { id: 'zagreb', label: 'Zagreb', note: 'Rebalans donesen 16. 9. 2026.; obrada službenih tablica', source: 'https://www.zagreb.hr/proracun/113894' },
+    { id: 'nova-gradiska', label: 'Nova Gradiška', note: 'Rebalans donesen 14. 8. 2026.; obrada kategorija', source: 'https://novagradiska.hr/wp-file-download-search/' },
     { id: 'vinkovci', label: 'Vinkovci', note: 'I. izmjene za 2026. objavljene 27. 5. 2026.; obrada tablica', source: 'https://vinkovci.hr/dokumenti/proracun' },
     { id: 'požega', label: 'Požega', note: 'I. izmjene i dopune objavljene 26. 6. 2026.; obrada tablica', source: 'https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine' },
-    { id: 'virovitica', label: 'Virovitica', note: 'II. izmjene i polugodišnje izvršenje 2026.; obrada tablica', source: 'https://www.virovitica.hr/proracun-grada-virovitice/' },
     { id: 'valpovo', label: 'Valpovo', note: 'I. izmjene i dopune za 2026.; obrada tablica', source: 'https://valpovo.hr/proracun/' },
     { id: 'belisce', label: 'Belišće', note: 'II. izmjene i izvješće za treće tromjesečje 2026.; obrada tablica', source: 'https://belisce.hr/proracun/' },
-    { id: 'djakovo', label: 'Đakovo', note: 'Rebalansi za 2026. objavljeni; obrada tablica', source: 'https://www.djakovo.hr/index.php/grad/sluzbena-obiljezja/item/2910-proracun-grada-dakova.html' }
+    { id: 'djakovo', label: 'Đakovo', note: 'I. rebalans 2026.; obrada funkcijskih iznosa', source: 'https://www.djakovo.hr/index.php/grad/sluzbena-obiljezja/item/2910-proracun-grada-dakova.html' }
   ]};
