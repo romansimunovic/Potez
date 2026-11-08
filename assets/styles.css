@@ -1498,3 +1498,6 @@ body.reward-celebration .passport-rank { animation: potez-reward-rank .48s ease-
 @keyframes potez-feedback-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:650px){.resource-feature-grid{grid-template-columns:1fr}.resource-feature{min-height:0;padding:17px}}
 @media(prefers-reduced-motion:reduce){.app-view:not([hidden]),.daily-feedback{animation:none!important}.daily-case,.daily-choice,.budget-line,.link-card,.resource-feature,.home-step-card,.daily-actions .btn{transition:none!important}.daily-choice:active,.link-card:active,.resource-feature:active,.home-step-card:active{transform:none}}
+
+.daily-source{display:block;padding-top:8px;border-top:1px solid var(--line);color:var(--muted);font-size:.72rem;line-height:1.45}
+.daily-source a{font-weight:800;text-underline-offset:3px}
