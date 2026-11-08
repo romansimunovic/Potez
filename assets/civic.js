@@ -341,7 +341,7 @@
     const shuffle=(arr,initial)=>{const out=arr.slice();let s=initial>>>0;for(let i=out.length-1;i>0;i--){s=(Math.imul(s,1664525)+1013904223)>>>0;const j=s%(i+1);[out[i],out[j]]=[out[j],out[i]];}return out;};
     const hash=str=>{let h=2166136261;for(let i=0;i<str.length;i++)h=Math.imul(h^str.charCodeAt(i),16777619);return h>>>0;};
     if(saved.dailyRunStamp!==today||!Array.isArray(saved.dailyRunOrder)||saved.dailyRunOrder.length!==dailyQuestions.length){saved.dailyRunStamp=today;saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed);saved.dailyRunIndex=0;saved.dailyCompletedIds=[];saved.dailyChoiceById={};try{localStorage.setItem(STORE,JSON.stringify(saved));}catch{}}
-    const order=saved.dailyRunOrder, completed=Array.isArray(saved.dailyCompletedIds)?saved.dailyCompletedIds:[];
+    let order=saved.dailyRunOrder, completed=Array.isArray(saved.dailyCompletedIds)?saved.dailyCompletedIds:[];
     let index=Math.max(0,Math.min(Number(saved.dailyRunIndex)||0,order.length)),item=null,options=[],answered=false;
     date.textContent=new Intl.DateTimeFormat('hr-HR',{dateStyle:'full'}).format(new Date());
     function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved));}catch{}window.dispatchEvent(new CustomEvent('potez:progress'));}
@@ -351,6 +351,20 @@
     function feedbackFor(option,earned){const h=document.createElement('strong');h.className='daily-feedback-title';h.textContent=option.best?'Dobar smjer.':'Ovaj potez nosi rizik.';const ex=document.createElement('p');ex.textContent=option.feedback;const l=document.createElement('span');l.className='daily-outcome-label';l.textContent='Ishod';const out=document.createElement('p');out.textContent=item.outcome;const take=document.createElement('p');take.className='daily-takeaway';take.textContent=item.takeaway;const xp=document.createElement('small');xp.textContent=earned?'+3 XP':'Bodovi su već osvojeni';const nodes=[h,ex,l,out,take];if(item.sourceUrl){const source=document.createElement('small');source.className='daily-source';source.textContent='Izvor: '+item.source+' ';const link=document.createElement('a');link.href=item.sourceUrl;link.target='_blank';link.rel='noopener';link.textContent='Istraži ↗';source.appendChild(link);nodes.push(source);}nodes.push(xp);feedback.replaceChildren(...nodes);next.textContent=index+1===order.length?'Završi rutu →':'Sljedeća situacija →';next.hidden=false;next.onclick=()=>{saved.dailyRunIndex=index+1;persist();render();};share.hidden=false;share.onclick=()=>shareText('POTEZ izazov: '+item.title+'\n'+item.takeaway+'\nOdigraj i ti: https://potez.pages.dev/#igraj');}
     function render(){index=Math.max(0,Math.min(Number(saved.dailyRunIndex)||0,order.length));progress();if(index>=order.length){complete();return;}item=dailyQuestions[order[index]];options=shuffle(item.options,hash(today+':'+order[index]));answered=false;choices.replaceChildren();feedback.replaceChildren();next.hidden=true;share.hidden=true;label.textContent=item.label;title.textContent=item.title;story.textContent=item.story;q.textContent=item.question;options.forEach((option,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='daily-choice';btn.dataset.letter=String.fromCharCode(65+i);btn.textContent=option.text;btn.addEventListener('click',()=>{if(answered)return;answered=true;const earned=!completed.includes(item.title);choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(i===j){el.classList.add('chosen');if(!option.best)el.classList.add('wrong');}});if(earned){completed.push(item.title);saved.dailyCompletedIds=completed;saved.dailyChoiceById=saved.dailyChoiceById||{};saved.dailyChoiceById[item.title]=option.text;saved.xp=Math.max(0,Number(saved.xp)||0)+3;persist();window.POTEZ_FEEDBACK?.success();}progress();feedbackFor(option,earned);notify(earned?'+3 XP':'Već riješeno.');});choices.appendChild(btn);});const previous=(saved.dailyChoiceById||{})[item.title];if(previous){const chosen=options.findIndex(o=>o.text===previous);if(chosen>=0){answered=true;choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(j===chosen){el.classList.add('chosen');if(!options[j].best)el.classList.add('wrong');}});feedbackFor(options[chosen],false);}}}
     render();
+    window.addEventListener('potez:reset', () => {
+      saved = readSaved();
+      if(saved.dailyRunStamp!==today||!Array.isArray(saved.dailyRunOrder)||saved.dailyRunOrder.length!==dailyQuestions.length){
+        saved.dailyRunStamp=today;
+        saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed);
+        saved.dailyRunIndex=0;
+        saved.dailyCompletedIds=[];
+        saved.dailyChoiceById={};
+        try{localStorage.setItem(STORE,JSON.stringify(saved));}catch{}
+      }
+      order=saved.dailyRunOrder;
+      completed=Array.isArray(saved.dailyCompletedIds)?saved.dailyCompletedIds:[];
+      render();
+    });
   }
 
   const currentBudget = () => Array.from(document.querySelectorAll('[data-budget-slider]')).map(input => Number(input.dataset.amount || 0));
@@ -509,7 +523,7 @@
   renderPassport();
   renderDailyQuestion();
   renderDuelStatus();
-  window.addEventListener('potez:progress', renderPassport);
+  window.addEventListener('potez:progress', () => { renderPassport(); renderDuelStatus(); });
   window.addEventListener('potez:budget-context', renderDuelStatus);
   window.addEventListener('storage', (event) => {
     if (!event.key || event.key === STORE || event.key === DUEL_STORE) {
