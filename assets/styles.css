@@ -2120,3 +2120,10 @@ html[data-theme="dark"] .learning-filter[aria-pressed="true"]{background:#c8f169
 html[data-theme="dark"] .learning-action{background:#293d2d;color:#eff8e7}
 html[data-theme="dark"] .learning-award:disabled,html[data-theme="dark"] .daily-fact-award:disabled{background:#293d2d;color:#c8f169;border-color:#526158}
 html[data-theme="dark"] .passport-more>summary,html[data-theme="dark"] .learning-guides>summary{color:#f7f4ec}
+
+.learning-stat-details{margin:4px 0 20px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface)}
+.learning-stat-details>summary{padding:12px 16px;cursor:pointer;color:var(--text);font-size:.84rem;font-weight:820}
+.learning-stat-details[open]>summary{border-bottom:1px solid var(--line)}
+.learning-stat-details .stat-strip{border:0;margin:0;padding:14px 16px}
+html[data-theme="dark"] .learning-stat-details{background:#151e1a;border-color:#526158}
+html[data-theme="dark"] .learning-stat-details>summary{color:#f7f4ec}
