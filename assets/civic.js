@@ -380,7 +380,7 @@
         ? 'Izbor A je spremljen. Sada neka igrač B promijeni raspodjelu i spremi svoj izbor.'
         : hasB
           ? 'Izbor B je spremljen. Spremite još raspodjelu igrača A.'
-          : 'Još nema spremljenih izbora za ovu gradsku četvrt.';
+          : 'Još nema spremljenih izbora za ovaj scenarij.';
     const shareResult = $('#shareBudgetResult');
     if (shareResult) shareResult.disabled = !(hasA && hasB);
   }
