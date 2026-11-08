@@ -85,7 +85,7 @@
     $('#budgetContextSubtitle').textContent='Program prioriteta · '+district.label;
     $('#budgetEnvelope').textContent=euro(district.total);
     $('#budgetDataTitle').textContent='Stvarni planirani iznosi · '+district.year;
-    $('#budgetDataIntro').textContent='Početne vrijednosti preuzete su iz usvojenog programa za '+district.label+'. Možeš promijeniti raspodjelu i usporediti vlastite prioritete s odlukom vijeća četvrti.';
+    $('#budgetDataIntro').textContent='Ovo nije cijeli gradski proračun. Početne vrijednosti preuzete su iz usvojenog programa za '+district.label+'. Promijeni raspodjelu i usporedi vlastite prioritete s odlukom vijeća četvrti.';
     $('#budgetProgramLink').href=district.source;
     $('#budgetProgramLink').textContent=district.sourceLabel+' ↗';
     const image=$('#budgetCityImage');
@@ -100,7 +100,7 @@
       return '<div class="budget-line" data-budget-line>'+
         '<label data-budget-name for="'+id+'">'+item.name+'</label>'+
         '<span class="amount" id="v'+(index+1)+'">'+euro(item.amount)+'</span>'+
-        '<small class="budget-line-detail">'+item.detail+'</small>'+
+        '<small class="budget-line-detail">'+item.detail+' · Usvojeno: '+euro(item.amount)+'</small>'+
         '<input id="'+id+'" data-budget-slider type="range" min="0" max="'+district.total+'" step="100" value="'+item.amount+'" aria-label="'+item.name+'; početni službeni iznos '+euro(item.amount)+'">'+
       '</div>';
     }).join('');
