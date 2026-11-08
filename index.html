@@ -48,10 +48,10 @@
         <span>Izbornik</span>
       </summary>
       <button class="mobile-menu-backdrop" type="button" aria-label="Zatvori izbornik"></button>
-      <div class="mobile-menu-panel" id="mobileMenuPanel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle">
+      <div class="mobile-menu-panel" id="mobileMenuPanel" role="dialog" aria-modal="true" aria-label="Glavni izbornik">
         <div class="mobile-menu-heading">
 
-          <strong id="mobileMenuTitle">Što te zanima?</strong>
+          
           <button class="mobile-menu-close" type="button" aria-label="Zatvori izbornik"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
 
         </div>
@@ -91,11 +91,11 @@
     <details class="accessibility-menu" id="accessibilityMenu">
       <summary aria-label="Otvori postavke pristupačnosti"><span aria-hidden="true">◐</span> Pristupačnost</summary>
       <div class="accessibility-panel" aria-label="Postavke prikaza">
-        <div class="accessibility-panel-heading"><strong>Prilagodi prikaz</strong><span>Postavke se čuvaju na ovom uređaju</span></div>
-        <section class="accessibility-control" aria-labelledby="themeLabel"><div><strong id="themeLabel">Izgled</strong><small>Odaberi svijetli ili tamni prikaz</small></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section>
-        <section class="accessibility-control" aria-labelledby="fontLabel"><div><strong id="fontLabel">Veličina teksta</strong><small id="fontScaleValue">100 %</small></div><div class="accessibility-actions"><button type="button" data-font-step="-1" aria-label="Smanji tekst">A−</button><button type="button" data-font-step="1" aria-label="Povećaj tekst">A+</button></div></section>
-        <section class="accessibility-control" aria-labelledby="contrastLabel"><div><strong id="contrastLabel">Visoki kontrast</strong><small>Izraženije razlike teksta i pozadine</small></div><button type="button" class="accessibility-toggle" data-setting="contrast" aria-pressed="false">Isključeno</button></section>
-        <section class="accessibility-control" aria-labelledby="motionLabel"><div><strong id="motionLabel">Smanji animacije</strong><small>Manje kretanja i prijelaza</small></div><button type="button" class="accessibility-toggle" data-setting="motion" aria-pressed="false">Isključeno</button></section>
+        <div class="accessibility-panel-heading"><strong>Prilagodi prikaz</strong></div>
+        <section class="accessibility-control" aria-labelledby="themeLabel"><div><strong id="themeLabel">Izgled</strong></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section>
+        <section class="accessibility-control" aria-labelledby="fontLabel"><div><strong id="fontLabel">Veličina teksta</strong><span id="fontScaleValue">100 %</span></div><div class="accessibility-actions"><button type="button" data-font-step="-1" aria-label="Smanji tekst">A−</button><button type="button" data-font-step="1" aria-label="Povećaj tekst">A+</button></div></section>
+        <section class="accessibility-control" aria-labelledby="contrastLabel"><div><strong id="contrastLabel">Visoki kontrast</strong></div><button type="button" class="accessibility-toggle" data-setting="contrast" aria-pressed="false">Isključeno</button></section>
+        <section class="accessibility-control" aria-labelledby="motionLabel"><div><strong id="motionLabel">Smanji animacije</strong></div><button type="button" class="accessibility-toggle" data-setting="motion" aria-pressed="false">Isključeno</button></section>
         <button type="button" class="accessibility-reset" id="resetAccessibility">Vrati početne postavke</button>
       </div>
     </details>
@@ -413,10 +413,7 @@
         <div class="passport-stat"><strong id="passportBadgesCount">0</strong><span>osvojenih znački</span></div>
         <div class="passport-stat"><strong id="passportTopics">0</strong><span>istraženih tema</span></div>
       </div>
-      <div class="passport-badge-panel">
-
-        <div class="passport-badges" id="passportBadges" aria-live="polite"></div>
-      </div>
+      <div class="passport-badges" id="passportBadges" aria-live="polite"></div>
       <div class="passport-path" id="passportPath" aria-label="Put kroz izazove"></div>
     </div>
   </details>
