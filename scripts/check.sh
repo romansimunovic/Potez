@@ -153,6 +153,12 @@ assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
 assert "potez-pilot-v22" in sw
+
+assert "Proračunski izazov koristi službene gradske planove" not in html
+assert "edukativni model s jasno navedenim pretpostavkama" in html
+headers = Path("_headers").read_text(encoding="utf-8")
+assert "https://challenges.cloudflare.com" not in headers
+assert "script-src 'self';" in headers and "frame-src 'none';" in headers
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
 assert "budgetCityImage" not in app
 assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.js").read_text(encoding="utf-8")
