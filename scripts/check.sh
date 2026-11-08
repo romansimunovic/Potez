@@ -3,7 +3,6 @@ set -euo pipefail
 node --check assets/rewards.js
 node --check assets/app.js
 node --check assets/budget-data.js
-node --check assets/budget-data.js
 node --check assets/civic.js
 node --check assets/accessibility.js
 node --check sw.js
@@ -115,6 +114,11 @@ for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "nova-gradiska", 
 assert "budgetDistrictLabel" in html and "budgetEnvelopeLabel" in html
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
 assert "budgetCityImage" not in Path("assets/app.js").read_text(encoding="utf-8")
+assert "Nema niza ni kazne ako preskočiš dan" not in html
+assert "Misija se mijenja jednom tjedno" not in html
+assert "nema javne ljestvice ni korisničkog profila" not in html
+assert "Tvoj POTEZ · spremljen samo ovdje" not in html
+assert "Povratne informacije · bez računa" not in html
 assert 'HAKOM' in html and 'članak 33.' in html
 assert "Stvarni problemi, konkretni putevi" in html
 assert "🏠" in html and "🧠" in html and "🎮" in html and "✊" in html and "🧰" in html
