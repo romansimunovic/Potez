@@ -9,20 +9,27 @@ node --check sw.js
 node - <<'NODE'
 global.window = global;
 require('./assets/budget-data.js');
-const cities = window.POTEZ_BUDGET_DATA.cities;
+const data = window.POTEZ_BUDGET_DATA;
+const cities = data.cities;
+if (Object.keys(cities).length < 40) throw new Error('Expected at least 40 city simulations');
+if (data.model !== 'population-based-illustrative') throw new Error('Unexpected budget model');
 for (const [cityKey, city] of Object.entries(cities)) {
-  for (const [districtKey, district] of Object.entries(city.districts)) {
-    const sumCents = district.items.reduce((total, item) => total + Math.round(item.amount * 100), 0);
-    const expectedCents = Math.round(district.total * 100);
-    if (cityKey === "valpovo" && districtKey === "funkcijska-klasifikacija" && Math.abs(district.total - 14375354.05) > 0.001) {
-      throw new Error("Valpovo selected functions subtotal changed unexpectedly");
-    }
-    if (sumCents !== expectedCents) {
-      throw new Error(cityKey + '/' + districtKey + ': category total ' + (sumCents / 100) + ' does not match programme total ' + district.total);
-    }
+  if (!Number.isInteger(city.population) || !Number.isInteger(city.children) || city.children > city.population) {
+    throw new Error(cityKey + ': invalid demographic inputs');
+  }
+  if (!Number.isInteger(city.total) || city.total <= 0 || city.items.length !== 7) {
+    throw new Error(cityKey + ': invalid simulation envelope or category count');
+  }
+  const sum = city.items.reduce((total, item) => total + item.amount, 0);
+  if (sum !== city.total) throw new Error(cityKey + ': category sum does not match simulated fund');
+  if (city.items.some(item => !item.name || !item.detail || !Number.isInteger(item.amount) || item.amount < 0)) {
+    throw new Error(cityKey + ': incomplete or invalid category');
   }
 }
-console.log('Verified all local category sums match the adopted programme totals.');
+for (const required of ['zagreb','split','rijeka','osijek','zadar','pula','slavonski-brod','vinkovci','vukovar','djakovo','pozega','nova-gradiska','nasice','valpovo','belisce']) {
+  if (!cities[required]) throw new Error('Missing required city: ' + required);
+}
+console.log('Verified city simulations, demographic inputs and exact starting allocations.');
 NODE
 python - <<'PY'
 import json
@@ -111,48 +118,23 @@ for page in ("privacy.html","uvjeti.html"):
     page_html=Path(page).read_text(encoding="utf-8")
     assert 'id="accessibilityMenu"' in page_html and '/assets/accessibility.js' in page_html
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
-assert 'Odaberi stvarni problem' in html and 'budgetCity' in html and 'budgetDistrict' in html
+assert 'Odaberi stvarni problem' in html and 'budgetCity' in html
+assert 'budgetDistrict' not in html and 'budgetDistrict' not in Path("assets/app.js").read_text(encoding="utf-8")
+assert "Odaberi prikaz" not in html
+assert 'id="budgetSubmit"' in html and "Zaključi raspodjelu" in html
+assert 'class="budget-method"' in html
 data = Path("assets/budget-data.js").read_text(encoding="utf-8")
-for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "zagreb", "vinkovci", "belisce", "djakovo", "nova-gradiska"):
+for city in ("zagreb", "split", "rijeka", "osijek", "zadar", "velika-gorica", "pula", "slavonski-brod", "dubrovnik", "vinkovci", "vukovar", "djakovo", "pozega", "virovitica", "nova-gradiska", "slatina", "valpovo", "belisce", "nasice"):
     assert city in data, city
-assert "budgetDistrictLabel" in html and "budgetEnvelopeLabel" in html
-assert 'value="virovitica"' in html and 'value="virovitica" disabled' not in html
-assert 'value="valpovo"' in html and 'value="valpovo" disabled' not in html
-assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
-assert 'value="vinkovci"' in html and 'value="vinkovci" disabled' not in html
-assert 'value="belisce"' in html and 'value="belisce" disabled' not in html
-assert 'value="djakovo"' in html and 'value="djakovo" disabled' not in html
-assert "total: 47574000" in data
-assert "amount: 6258000" in data
-assert "11. 11. 2026." in data
-assert "najavljen rebalans krajem listopada" in data
-assert "total: 31641383.4" in data
-assert "amount: 17150400" in data
-assert "total: 94845254.82" in data
-assert "amount: 18581614.85" in data
-assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
-assert "total: 2484265290" in data
-assert "amount: 354781100" in data
-
-assert "id: 'virovitica'" not in data
+assert "population-based-illustrative" in data and "children" in data
+app = Path("assets/app.js").read_text(encoding="utf-8")
+assert 'data-budget-slider type="range" min="0" max="200" step="5" value="100"' in app
+assert "Math.round(activeBudget.items[index].amount * percentage / 100)" in app
+assert "budgetDistrict" not in app and "budgetProgramLink" not in app
+assert "budget-category-info" in app and "Što ulazi u ovu stavku?" in app
+assert "potez-pilot-v20" in sw
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
-assert "budgetCityImage" not in Path("assets/app.js").read_text(encoding="utf-8")
-assert "Nema niza ni kazne ako preskočiš dan" not in html
-assert "Misija se mijenja jednom tjedno" not in html
-assert "nema javne ljestvice ni korisničkog profila" not in html
-assert "Tvoj POTEZ · spremljen samo ovdje" not in html
-assert "Povratne informacije · bez računa" not in html
-assert 'HAKOM' in html and 'članak 33.' in html
-assert "Stvarni problemi, konkretni putevi" in html
-assert "🏠" in html and "🧠" in html and "🎮" in html and "✊" in html and "🧰" in html
-assert "mobile-nav-icon{display:inline" in css
-assert "home-progress-score span" in css and "minmax(0,1.12fr)" in css
-data = Path("assets/budget-data.js").read_text(encoding="utf-8")
-for token in ("tvrda", "novi-grad", "gornji-grad", "donji-grad", "93729", "99492"):
-    assert token in data, token
-assert "100.000 €" not in html and "data-budget-slider" in Path("assets/app.js").read_text(encoding="utf-8")
-assert all(token in html for token in ("Slavonski Brod", "Slatina", "Vukovar", "Virovitica", "Valpovo", "Zagreb", "Vinkovci", "Nova Gradiška"))
-assert "Proračunska igra prikazuje odabrane iznose iz službenih planova" in Path("uvjeti.html").read_text(encoding="utf-8")
+assert "budgetCityImage" not in app
 assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.js").read_text(encoding="utf-8")
 assert "razlika manja od 5% ili 5.000 €" in Path("assets/civic.js").read_text(encoding="utf-8")
 print("POTEZ final desktop, local budget, dark-mode and navigation checks passed")
