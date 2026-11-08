@@ -14,15 +14,19 @@ Projekt je zamišljen kao jednostavna ulazna točka u građansko sudjelovanje �
 
 ## Što POTEZ omogućuje?
 
-Aplikacija je organizirana u pet odredišta:
+Aplikacija je organizirana u pet jasno odvojenih područja. Na mobitelu se otvaraju kroz bočni izbornik, a na računalu kroz gornju navigaciju:
 
-- **Početna** — kratko objašnjenje projekta i put prema prvom izazovu.
-- **Uči** — tematske kartice prema interesu, zanimljivost dana s izvorom, kvizovi, provjera tvrdnji i mapa institucija i nadležnosti.
-- **Igraj** — lokalna građanska putovnica, XP razine, značke, dnevne i tjedne misije te simulacija javnog proračuna.
-- **Djeluj** — praktični vodič od problema do prvog koraka.
-- **Alati** — poveznice na javne resurse, primjeri dobre prakse, gotov okvir radionice za škole i udruge te informacije o pilotu.
+- **Početna** — kratko predstavljanje POTEZA i pregled sadržaja.
+- **Uči** — kratke tematske kartice, zanimljivost dana, kvizovi i izvori.
+- **Isprobaj** — situacijske igre, simulacija javnog proračuna i osobni napredak.
+- **U praksi** — pregled institucija, nadležnosti i službenih informacija.
+- **Resursi** — odabrane poveznice, materijali za radionice i primjeri iz prakse.
 
 Sadržaj je namijenjen prvenstveno mladima, ali ga mogu koristiti svi koji žele razumljivije pratiti javne odluke i građansko sudjelovanje.
+
+## Sučelje i pristupačnost
+
+Sučelje koristi progresivno otkrivanje sadržaja: tematske kartice, praktični vodiči i resursi prikazuju sažetak, a dodatna objašnjenja otvaraju se na zahtjev. Mobilna navigacija koristi bočni izbornik i SVG ikone kako bi ostala dosljedna na različitim uređajima. Korisnik može prilagoditi veličinu teksta, kontrast, temu prikaza i animacije.
 
 ## Autorstvo i transparentnost uporabe AI-ja
 
