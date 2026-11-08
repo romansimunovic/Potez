@@ -159,7 +159,7 @@
       intro: 'Korupcija uključuje i rizike poput sukoba interesa, pogodovanja i netransparentne nabave.',
       question: 'Zašto su javni kriteriji i obrazloženja važni?',
       insight: 'Strategija RH 2021.–2030. obuhvaća transparentnost, sukob interesa i javnu nabavu. Akcijski plan 2025.–2027. donesen je u svibnju 2025.',
-      action: 'Kad čuješ za javni natječaj ili odluku, potraži kriterije, zapisnik, obrazloženje i način prijave nepravilnosti. Razlikuj sumnju, prijavu, istragu i pravomoćnu presudu.',
+      action: 'Provjeri kriterije, zapisnik i obrazloženje. Razlikuj sumnju, prijavu, istragu i presudu.',
       sourceTitle: 'Narodne novine — Strategija sprječavanja korupcije 2021.–2030. i Akcijski plan 2025.–2027.',
       sourceUrl: 'https://narodne-novine.nn.hr/clanci/sluzbeni/2025_05_84_1115.html',
       sourceNote: 'Službeni akcijski plan; strateške mjere nisu dokaz pojedinačnog slučaja.'
