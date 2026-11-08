@@ -18,6 +18,7 @@
 <script src="/assets/accessibility.js" defer></script>
 <script src="/assets/navigation.js" defer></script>
 <script src="/assets/rewards.js" defer></script>
+<script src="/assets/budget-data.js" defer></script>
 <script src="/assets/app.js" defer></script>
 <script src="/assets/civic.js" defer></script>
 <title>POTEZ — politika prevedena na tvoj život</title>
@@ -335,35 +336,65 @@
       </div>
     </section>
 <section class="section" id="budzet">
-      <div class="section-head">
-        <div><div class="section-kicker"><span class="number">02</span> Novac nije apstraktan</div><h2>Ti si gradonačelnik na 5 minuta</h2></div>
-        <p class="section-intro">Zamisli da gradska četvrt dobije 100.000 € za dodatni participativni fond. Kako bi ih rasporedio/la između sigurnosti, prostora za mlade, prijevoza, kulture i podrške?</p>
-      </div>
-      <div class="panel yellow">
-        <div class="scenario scenario-city"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Osijek_VP01.jpg?width=1200" alt="Pogled na osječku Tvrđu s mosta preko Drave" loading="lazy" decoding="async"><span><strong>OSJEK · 2026.</strong><small>Edukativna simulacija</small></span></div>
-        <div class="sim-wrap">
-          <div>
-            <div class="budget-line"><label for="b1">Sigurniji put do škole i pješački prijelazi</label><span class="amount" id="v1">25.000 €</span><input id="b1" type="range" min="0" max="60000" step="5000" value="25000" /></div>
-            <div class="budget-line"><label for="b2">Prostor za mlade i oprema</label><span class="amount" id="v2">20.000 €</span><input id="b2" type="range" min="0" max="60000" step="5000" value="20000" /></div>
-            <div class="budget-line"><label for="b3">Bolje autobusne veze</label><span class="amount" id="v3">25.000 €</span><input id="b3" type="range" min="0" max="60000" step="5000" value="25000" /></div>
-            <div class="budget-line"><label for="b4">Kultura, sport i besplatne aktivnosti</label><span class="amount" id="v4">15.000 €</span><input id="b4" type="range" min="0" max="60000" step="5000" value="15000" /></div>
-            <div class="budget-line"><label for="b5">Podrška mentalnom zdravlju mladih</label><span class="amount" id="v5">15.000 €</span><input id="b5" type="range" min="0" max="60000" step="5000" value="15000" /></div>
-          </div>
-          <aside class="budget-total">
-            <div class="mini-tag" style="background:#35483d;color:#d9efbf">Raspoloživo</div>
-            <div class="big">100.000 €</div>
-            <p>Ukupno si rasporedio/la:</p>
-            <div class="big" id="budgetSpent">100.000 €</div>
-            <div class="progress"><span id="budgetBar" style="width:100%"></span></div>
-            <p id="budgetStatus">Budžet je točno raspoređen. Nema viška — nema manjka</p>
-            <button class="btn btn-green" id="budgetSubmit">Zaključi raspodjelu ↗</button>
-            <button class="reset" id="budgetReset" style="color:#d0dbd3">Vrati početne iznose</button>
-            <div id="budgetResult" style="display:none;margin-top:13px;border-top:1px solid #425248;padding-top:12px;font-size:.8rem;color:#e3eee5" aria-live="polite"></div>
-          </aside>
-        </div>
-        <p class="small-note">Važno: 100.000 € je izmišljeni iznos za igru, a ne izdvajanje Grada Osijeka. Teme i područja javne potrošnje oslanjaju se na strukturu službenog Proračuna Grada Osijeka za 2026. i projekcije 2027.–2028. Stvarni gradski proračun obuhvaća mnogo više programa, zakonskih obveza i izvora financiranja. Izvor podloge: <a href="https://data.gov.hr/ckan/dataset/972-proracun-6" target="_blank" rel="noopener">Grad Osijek, Proračun za 2026. – otvoreni skup podataka</a> · <a href="https://www.osijek.hr/gradska-uprava/gradski-uredi-odjeli-i-sluzbe/upravni-odjel-za-financije-i-fondove-eu/odsjek-za-proracun/proracunski-dokumenti/" target="_blank" rel="noopener">službeni proračunski dokumenti</a>. Ovo nije rekonstrukcija stvarnih iznosa niti tvrdnja o stvarnim prioritetima Grada</p>
-      </div>
-    </section>
+  <div class="section-head">
+    <div>
+      <div class="section-kicker"><span class="number">02</span> Javni novac u praksi</div>
+      <h2>Ti si gradonačelnik/ica na 5 minuta</h2>
+    </div>
+    <p class="section-intro">Odaberi grad i gradsku četvrt. Rasporedi stvarni iznos iz usvojenog programa za 2026. i vidi što se događa kada promijeniš prioritete.</p>
+  </div>
+  <div class="panel yellow budget-simulation">
+    <div class="scenario scenario-city" id="budgetScenarioHeader">
+      <img id="budgetCityImage" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Osijek_VP01.jpg" alt="Pogled na osječku Tvrđu s mosta preko Drave" loading="lazy" decoding="async">
+      <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><small id="budgetContextSubtitle">Program prioriteta · GČ Tvrđa</small></span>
+    </div>
+    <div class="budget-location-selectors">
+      <label for="budgetCity">Odaberi grad
+        <select id="budgetCity">
+          <option value="osijek" selected>Osijek</option>
+          <optgroup label="Podaci se pripremaju">
+            <option value="zagreb" disabled>Zagreb</option>
+            <option value="rijeka" disabled>Rijeka</option>
+            <option value="split" disabled>Split</option>
+          </optgroup>
+        </select>
+      </label>
+      <label for="budgetDistrict">Odaberi gradsku četvrt
+        <select id="budgetDistrict">
+          <option value="tvrda" selected>Tvrđa</option>
+          <option value="novi-grad">Novi grad</option>
+          <option value="gornji-grad">Gornji grad</option>
+          <option value="donji-grad">Donji grad</option>
+        </select>
+      </label>
+    </div>
+    <div class="budget-data-intro">
+      <strong id="budgetDataTitle">Stvarni planirani iznosi · 2026.</strong>
+      <p id="budgetDataIntro">Početne vrijednosti preuzete su iz usvojenog Programa prioriteta Gradske četvrti Tvrđa. Promijeni ih i složi vlastiti scenarij.</p>
+    </div>
+    <div class="sim-wrap">
+      <div id="budgetSliders" class="budget-sliders" aria-label="Raspodjela sredstava po kategorijama"></div>
+      <aside class="budget-total">
+        <div class="mini-tag">Ukupan iznos iz programa</div>
+        <div class="big" id="budgetEnvelope">93.729 €</div>
+        <p>Trenutno raspoređeno</p>
+        <div class="big" id="budgetSpent">93.729 €</div>
+        <div class="progress"><span id="budgetBar" style="width:100%"></span></div>
+        <p id="budgetRemaining" class="budget-remaining" aria-live="polite">Preostalo: 0 €</p>
+        <p id="budgetStatus" role="status" aria-live="polite">Raspodjela odgovara ukupnom iznosu programa.</p>
+        <button class="btn btn-green" id="budgetSubmit" type="button">Zaključi svoj scenarij ↗</button>
+        <button class="reset" id="budgetReset" type="button">Vrati usvojene iznose</button>
+        <div id="budgetResult" class="budget-result" hidden aria-live="polite"></div>
+      </aside>
+    </div>
+    <p class="small-note budget-footnote">Ovo je edukativna simulacija. Službeni program je usvojeni plan prioriteta; tvoja izmjena ne mijenja stvarni proračun niti predstavlja prijedlog koji je Grad prihvatio. Početni iznosi pokazuju službeno planiranu raspodjelu.</p>
+    <div class="budget-sources">
+      <a id="budgetProgramLink" href="https://www.osijek.hr/wp-content/uploads/2026/04/Program-Prioriteta-za-odrzavanje-i-poboljsanje-komunalne-infrastrukture-GC-Tvrda-za-2026.pdf" target="_blank" rel="noopener">Otvori usvojeni program za odabranu četvrt ↗</a>
+      <a href="https://www.osijek.hr/gradska-uprava/gradski-uredi-odjeli-i-sluzbe/upravni-odjel-za-financije-i-fondove-eu/odsjek-za-proracun/proracunski-dokumenti/" target="_blank" rel="noopener">Svi proračunski dokumenti Grada Osijeka ↗</a>
+      <a id="budgetImageCredit" href="https://commons.wikimedia.org/wiki/File:Osijek_VP01.jpg" target="_blank" rel="noopener">Fotografija: Vid Pogacnik · Wikimedia Commons · CC0 1.0 ↗</a>
+    </div>
+  </div>
+</section>
 <section class="section" id="usporedi" aria-labelledby="duelTitle">
       <div class="section-head">
         <div><div class="section-kicker"><span class="number">02+</span> Igraj s nekim</div><h2 id="duelTitle">Dva pogleda. Isti javni novac</h2></div>
