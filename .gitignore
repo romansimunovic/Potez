@@ -65,4 +65,26 @@ coverage/
 # Local tooling
 .vercel/
 .netlify/
-    
+
+# Python tooling and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.venv/
+venv/
+ENV/
+.coverage
+.coverage.*
+htmlcov/
+
+# Frontend tooling and test artifacts
+.vite/
+.turbo/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+playwright-report/
+test-results/
