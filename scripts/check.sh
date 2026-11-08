@@ -239,6 +239,8 @@ assert "potez:reset" in app and "potez:reset" in civic
 assert "lesson-" in civic and "passportTopics" in civic
 assert "parentDetails.open=true" in navigation
 assert ".innerHTML" not in learning
+assert "syncTopicProgress" in learning and "syncDailyFactProgress" in learning
+assert "renderTopics();\n    renderDailyFact();" not in learning
 assert "fetch(" not in learning and "fetch(" not in data
 assert "localStorage" in learning and "POTEZ_PROGRESS" in learning
 assert "kategorije u izborniku tema" in privacy
