@@ -20,7 +20,7 @@ Aplikacija je organizirana u pet odredišta:
 - **Uči** — kvizovi, provjera tvrdnji i mapa institucija i nadležnosti.
 - **Igraj** — građanska putovnica, XP, značke, dnevne situacijske misije, tjedne misije i simulacija javnog proračuna.
 - **Djeluj** — praktični vodič od problema do prvog koraka.
-- **Alati** — poveznice na javne resurse, primjeri dobre prakse i informacije o pilotu.
+- **Alati** — poveznice na javne resurse, primjeri dobre prakse, gotov okvir radionice za škole i udruge te informacije o pilotu.
 
 Sadržaj je namijenjen prvenstveno mladima, ali ga mogu koristiti svi koji žele razumljivije pratiti javne odluke i građansko sudjelovanje.
 
