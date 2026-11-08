@@ -90,6 +90,9 @@
 
     $('#budgetContextTitle').textContent = city.label.toLocaleUpperCase('hr-HR') + ' · ' + city.year;
     $('#budgetEnvelope').textContent = euro(city.total);
+    const number = value => new Intl.NumberFormat('hr-HR').format(value);
+    $('#budgetPopulationMeta').textContent = number(city.population) + ' stanovnika prema Popisu 2021. · ' +
+      number(city.children) + ' djece predškolske dobi i učenika I.–IV. razreda. To nije ukupan broj mladih od 15 do 29 godina.';
 
     sliderHost.innerHTML = city.items.map((item, index) => {
       const id = 'budget-' + item.id;
