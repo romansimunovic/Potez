@@ -1,43 +1,119 @@
 const JSON_HEADERS = {
   'Content-Type': 'application/json; charset=utf-8',
-  'Cache-Control': 'no-store, max-age=0'
+  'Cache-Control': 'no-store, max-age=0',
+  'X-Content-Type-Options': 'nosniff'
 };
+
+const MAX_BODY_BYTES = 5000;
+const EXPECTED_TURNSTILE_ACTION = 'feedback';
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), { status, headers: JSON_HEADERS });
 }
 
+async function readBoundedBody(request) {
+  if (!request.body) return '';
+  const reader = request.body.getReader();
+  const chunks = [];
+  let total = 0;
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > MAX_BODY_BYTES) {
+        await reader.cancel().catch(() => {});
+        return null;
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+
+  const bytes = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+}
+
+function getExpectedOrigin(value) {
+  if (typeof value !== 'string' || !value.trim()) return null;
+  try {
+    const url = new URL(value.trim());
+    const isLocal = ['localhost', '127.0.0.1'].includes(url.hostname);
+    if ((!isLocal && url.protocol !== 'https:') ||
+        (isLocal && !['http:', 'https:'].includes(url.protocol)) ||
+        url.pathname !== '/' || url.search || url.hash || url.username || url.password) {
+      return null;
+    }
+    return url.origin;
+  } catch {
+    return null;
+  }
+}
+
 export async function onRequestPost({ request, env }) {
   const requestUrl = new URL(request.url);
-  const origin = request.headers.get('Origin');
-  const allowedOrigin = (env.APP_ORIGIN || requestUrl.origin).replace(/\/$/, '');
+  const expectedOrigin = getExpectedOrigin(env.APP_ORIGIN);
+  if (!expectedOrigin) return json({ error: 'Obrazac još nije konfiguriran.' }, 503);
 
-  if (!origin || origin.replace(/\/$/, '') !== allowedOrigin || requestUrl.origin !== allowedOrigin) {
+  const origin = request.headers.get('Origin');
+  if (origin !== expectedOrigin || requestUrl.origin !== expectedOrigin) {
     return json({ error: 'Zahtjev nije dopušten.' }, 403);
   }
 
   const contentType = request.headers.get('Content-Type') || '';
-  if (!contentType.toLowerCase().includes('application/json')) {
+  if (!/^application\/json(?:\s*;|$)/i.test(contentType)) {
     return json({ error: 'Očekuje se JSON zahtjev.' }, 415);
   }
 
-  const declaredLength = Number(request.headers.get('Content-Length') || 0);
-  if (declaredLength > 5000) return json({ error: 'Poruka je prevelika.' }, 413);
+  const declaredLength = request.headers.get('Content-Length');
+  if (declaredLength !== null) {
+    if (!/^\d+$/.test(declaredLength)) return json({ error: 'Neispravna veličina zahtjeva.' }, 400);
+    if (Number(declaredLength) > MAX_BODY_BYTES) return json({ error: 'Poruka je prevelika.' }, 413);
+  }
 
-  if (!env.SUPABASE_URL || !env.SUPABASE_API_KEY || !env.TURNSTILE_SECRET_KEY) {
+  if (!env.SUPABASE_URL ||
+      typeof env.SUPABASE_SECRET_KEY !== 'string' ||
+      !env.SUPABASE_SECRET_KEY.startsWith('sb_secret_') ||
+      !env.TURNSTILE_SECRET_KEY) {
     return json({ error: 'Obrazac još nije konfiguriran.' }, 503);
   }
 
+  let supabaseUrl;
+  try {
+    const parsed = new URL(env.SUPABASE_URL);
+    if (parsed.protocol !== 'https:' || parsed.pathname !== '/' || parsed.search || parsed.hash) {
+      return json({ error: 'Konfiguracija baze nije valjana.' }, 503);
+    }
+    supabaseUrl = parsed.origin;
+  } catch {
+    return json({ error: 'Konfiguracija baze nije valjana.' }, 503);
+  }
+
+  let raw;
+  try {
+    raw = await readBoundedBody(request);
+  } catch {
+    return json({ error: 'Neispravno kodirana poruka.' }, 400);
+  }
+  if (raw === null) return json({ error: 'Poruka je prevelika.' }, 413);
+
   let payload;
   try {
-    const raw = await request.text();
-    if (raw.length > 5000) return json({ error: 'Poruka je prevelika.' }, 413);
     payload = JSON.parse(raw);
   } catch {
     return json({ error: 'Neispravan format poruke.' }, 400);
   }
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+    return json({ error: 'Neispravan format poruke.' }, 400);
+  }
 
-  // Honeypot: real users should leave this field empty.
   if (typeof payload.website === 'string' && payload.website.trim()) {
     return json({ ok: true }, 200);
   }
@@ -65,8 +141,9 @@ export async function onRequestPost({ request, env }) {
     return json({ error: 'Sigurnosna provjera nije dovršena.' }, 400);
   }
 
-  // Verify Turnstile server-side. Do not trust a browser-provided success flag.
   let captcha;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
   try {
     const verificationBody = new URLSearchParams({
       secret: env.TURNSTILE_SECRET_KEY,
@@ -75,27 +152,31 @@ export async function onRequestPost({ request, env }) {
     const verificationResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: verificationBody
+      body: verificationBody,
+      signal: controller.signal
     });
     if (!verificationResponse.ok) return json({ error: 'Sigurnosnu provjeru nije moguće potvrditi.' }, 502);
     captcha = await verificationResponse.json();
   } catch {
     return json({ error: 'Sigurnosnu provjeru trenutačno nije moguće potvrditi.' }, 502);
+  } finally {
+    clearTimeout(timeoutId);
   }
 
-  if (!captcha.success || captcha.hostname !== requestUrl.hostname) {
+  if (!captcha ||
+      captcha.success !== true ||
+      captcha.hostname !== requestUrl.hostname ||
+      captcha.action !== EXPECTED_TURNSTILE_ACTION) {
     return json({ error: 'Sigurnosna provjera nije prošla. Pokušaj ponovno.' }, 403);
   }
 
-  // The anon key is intentionally used with a strict INSERT-only RLS policy.
-  // Never put a Supabase service-role key in the browser or this function.
-  const supabaseUrl = env.SUPABASE_URL.replace(/\/$/, '');
+  // Elevated key; server-side only. SQL restricts service_role to feedback INSERT columns.
   let dbResponse;
   try {
-    dbResponse = await fetch(`${supabaseUrl}/rest/v1/feedback`, {
+    dbResponse = await fetch(supabaseUrl + '/rest/v1/feedback', {
       method: 'POST',
       headers: {
-        apikey: env.SUPABASE_API_KEY,
+        apikey: env.SUPABASE_SECRET_KEY,
         'Content-Type': 'application/json',
         Prefer: 'return=minimal'
       },
@@ -111,7 +192,6 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (!dbResponse.ok) {
-    // Log only status, not the submitted message or secrets.
     console.error('POTEZ feedback database error:', dbResponse.status);
     return json({ error: 'Poruku trenutačno nije moguće spremiti. Pokušaj ponovno kasnije.' }, 502);
   }
