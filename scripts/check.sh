@@ -2,6 +2,7 @@
 set -euo pipefail
 node --check assets/app.js
 node --input-type=module --check < functions/api/feedback.js
+node --test tests/feedback.test.mjs
 python - <<'PY'
 import json
 from html.parser import HTMLParser
@@ -17,6 +18,7 @@ for filename in ("index.html", "privacy.html"):
     print(f"HTML parsed: {filename}")
 
 json.loads(Path("manifest.webmanifest").read_text(encoding="utf-8"))
-print("Manifest JSON parsed")
+json.loads(Path("_routes.json").read_text(encoding="utf-8"))
+print("Manifest and Pages routes JSON parsed")
 PY
-printf 'POTEZ static checks passed.\n'
+printf 'POTEZ static and API checks passed.\\n'
