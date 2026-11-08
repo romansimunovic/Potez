@@ -87,7 +87,7 @@ window.POTEZ_BUDGET_DATA = {
         'odabrani-programi': {
           label: 'Gradski programi i ulaganja',
           year: 2026,
-          total: 44901378,
+          total: 44897378,
           envelopeLabel: 'Zbroj prikazanih programa',
           scopeNote: 'Odabrani programi i ulaganja · 2026.',
           intro: 'Odabrani su programi koji izravno oblikuju školu, kvart, stanovanje, sport i okoliš.',
