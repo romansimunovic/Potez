@@ -74,6 +74,19 @@
       sourceNote: 'Službeni opis uloge i razina savjeta mladih.'
     },
     {
+      id: 'national-youth-programme',
+      category: 'sudjelovanje',
+      label: 'Politike za mlade',
+      title: 'Što je Nacionalni program za mlade?',
+      intro: 'Nije samo popis dobrih ideja. To je vremenski određen dokument kojim država postavlja ciljeve, mjere i odgovornosti u politici za mlade.',
+      question: 'Možeš li dokument iz razdoblja 2023.–2025. automatski koristiti kao važeći program u 2026.?',
+      insight: 'Vlada RH donijela je Nacionalni program za mlade za razdoblje 2023.–2025. 7. lipnja 2023. To razdoblje je završilo. Dokument je koristan za razumijevanje tadašnjih ciljeva, ali ga ne treba predstavljati kao aktualni program za 2026. bez provjere novijih službenih odluka.',
+      action: 'U dokumentu pronađi cilj, mjeru, nositelja i rok. Zatim provjeri na službenoj stranici Ministarstva koji se noviji dokumenti, izvješća i pozivi primjenjuju danas.',
+      sourceTitle: 'Narodne novine — Odluka o donošenju Nacionalnog programa za mlade 2023.–2025.',
+      sourceUrl: 'https://narodne-novine.nn.hr/clanci/sluzbeni/2023_06_61_1018.html',
+      sourceNote: 'Dokument se odnosi na razdoblje 2023.–2025.; ne navoditi ga kao aktualni program nakon isteka razdoblja.'
+    },
+    {
       id: 'participation-data',
       category: 'sudjelovanje',
       label: 'Istraživanja',
@@ -158,6 +171,7 @@
     { title: 'Volontiranje je jedan od oblika sudjelovanja', text: '44,7 % ispitanih učenika završnih razreda srednjih škola u istraživanju IDIZ-a iz 2026. navelo je da je volontiralo.', note: 'Podatak se odnosi na učenike u tom istraživanju, ne na sve mlade.', source: 'IDIZ · PKM 2026.', url: 'https://www.idi.hr/hr/obavijesti/lista-obavijesti/predstavljeni-rezultati-istrazivanja-provedenog-u-sklopu-projekta-politicka-kompetencija-mladih-na-pragu-odraslosti-pkm' },
     { title: 'Solidarnost ima više oblika', text: 'U istom istraživanju 63,1 % učenika završnih razreda navelo je da je doniralo financijsku ili materijalnu pomoć.', note: 'Doniranje nije automatski politička participacija, ali jest oblik društvenog angažmana.', source: 'IDIZ · PKM 2026.', url: 'https://www.idi.hr/hr/obavijesti/lista-obavijesti/predstavljeni-rezultati-istrazivanja-provedenog-u-sklopu-projekta-politicka-kompetencija-mladih-na-pragu-odraslosti-pkm' },
     { title: 'Prosvjed je samo jedan način sudjelovanja', text: '11,1 % učenika u istraživanju IDIZ-a iz 2026. izjavilo je da je sudjelovalo u prosvjedu.', note: 'Nizak udio u jednoj vrsti aktivnosti ne govori sam po sebi da su mladi općenito apatični.', source: 'IDIZ · PKM 2026.', url: 'https://www.idi.hr/hr/obavijesti/lista-obavijesti/predstavljeni-rezultati-istrazivanja-provedenog-u-sklopu-projekta-politicka-kompetencija-mladih-na-pragu-odraslosti-pkm' },
+    { title: 'Program za mlade ima rok i nositelje', text: 'Vlada RH donijela je Nacionalni program za mlade za razdoblje 2023.–2025. u lipnju 2023.', note: 'U studenome 2026. taj je vremenski okvir završio: dokument je povijesna referenca, a aktualne mjere treba provjeriti u novijim službenim dokumentima.', source: 'Narodne novine · Nacionalni program za mlade 2023.–2025.', url: 'https://narodne-novine.nn.hr/clanci/sluzbeni/2023_06_61_1018.html' },
     { title: 'Savjet mladih je savjetodavno tijelo', text: 'U Hrvatskoj postoje općinski i gradski, županijski i nacionalni savjeti mladih.', note: 'Oni omogućuju mladima sudjelovanje u procesu odlučivanja, ali sami nisu zamjena za izabrana tijela.', source: 'Ministarstvo demografije i useljeništva', url: 'https://mdu.gov.hr/istaknute-teme/mladi-4064/savjeti-mladih-4069/4069' },
     { title: 'Školski obrok ima više odgovornih aktera', text: 'Osnovne škole organiziraju prehranu učenika prema propisanim normativima; Vlada može donositi godišnje odluke o financiranju ili sufinanciranju.', note: 'Razlikuj organizaciju prehrane, propisivanje standarda i financiranje.', source: 'gov.hr · Prehrana i prijevoz učenika', url: 'https://gov.hr/hr/prehrana-i-prijevoz-ucenika/1008' },
     { title: 'Kretanje nije samo organizirani sport', text: 'HZJZ navodi da se udio građana koji gotovo svakodnevno provode tjelesnu aktivnost izvan sporta povećao s 11 % (2022.) na 24 % (2026.).', note: 'Hrvatski uzorak imao je 1.007 ispitanika; pokazatelj se odnosi na građane, ne samo mlade.', source: 'HZJZ · Eurobarometar 574 (2026.)', url: 'https://www.hzjz.hr/aktualnosti/posebni-eurobarometar-574-2026-godine-sport-i-tjelesna-aktivnost/' },
