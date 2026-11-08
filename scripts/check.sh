@@ -132,7 +132,7 @@ assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in 
 assert 'Odaberi temu' in html and 'budgetCity' in html
 assert 'budgetDistrict' not in html and 'budgetDistrict' not in Path("assets/app.js").read_text(encoding="utf-8")
 assert "Odaberi prikaz" not in html
-assert 'id="budgetSubmit"' in html and "Zaključi raspodjelu" in html
+assert 'id="budgetSubmit"' in html and "Prikaži rezultat" in html
 assert 'class="budget-method"' in html
 assert 'id="budgetPopulationMeta"' in html
 assert "budgetPopulationMeta" in Path("assets/app.js").read_text(encoding="utf-8")
