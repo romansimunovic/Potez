@@ -70,7 +70,7 @@ Do not add political-preference profiling, location tracking, or accounts merely
 
 ## Civic journey and gamification
 
-The civic passport turns existing learning activities into a visible skills path:
+The civic passport turns existing learning activities into a visible skills path. A one-minute daily civic question rotates locally by date and rewards an attempt without streak pressure or penalties for missed days:
 understanding context, checking claims, weighing public priorities, and finding a
 real participation route. XP and badges reward completing learning tasks; they
 do not score political opinions, party preferences, or the perceived worth of
