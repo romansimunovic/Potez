@@ -277,6 +277,14 @@ assert 'aria-label="Glavni izbornik"' in html and 'mobileMenuTitle' not in html
 for route in ('home', 'learn', 'play', 'act', 'tools'):
     assert html.count(f'data-app-route="{route}"') == 2, route
 assert 'passport-badge-panel' not in html
+for page in ("index.html", "privacy.html", "uvjeti.html"):
+    page_html = Path(page).read_text(encoding="utf-8")
+    assert "<small" not in page_html, page
+    assert 'class="section-kicker"' not in page_html, page
+    assert 'brand-sub' not in page_html, page
+    assert "otvoreni pilot" not in page_html.lower(), page
+assert "Bez računa" not in Path("privacy.html").read_text(encoding="utf-8")
+assert "registracija" not in Path("uvjeti.html").read_text(encoding="utf-8").lower()
 assert "body{padding-bottom:0!important}" in css
 print("Verified learning UI, local-only progress, compact passport, SEO metadata, sitemap and source documentation.")
 PY
