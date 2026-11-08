@@ -6,6 +6,20 @@ node --check assets/budget-data.js
 node --check assets/civic.js
 node --check assets/accessibility.js
 node --check sw.js
+node - <<'NODE'
+global.window = global;
+require('./assets/budget-data.js');
+const cities = window.POTEZ_BUDGET_DATA.cities;
+for (const [cityKey, city] of Object.entries(cities)) {
+  for (const [districtKey, district] of Object.entries(city.districts)) {
+    const sum = district.items.reduce((total, item) => total + item.amount, 0);
+    if (sum !== district.total) {
+      throw new Error(cityKey + '/' + districtKey + ': category total ' + sum + ' does not match programme total ' + district.total);
+    }
+  }
+}
+console.log('Verified all local category sums match the adopted programme totals.');
+NODE
 python - <<'PY'
 import json
 from collections import Counter
@@ -95,6 +109,7 @@ for page in ("privacy.html","uvjeti.html"):
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
 assert 'Odaberi stvarni problem' in html and 'budgetCity' in html and 'budgetDistrict' in html
 assert 'Osijek_VP01.jpg' in Path('assets/budget-data.js').read_text(encoding='utf-8')
+assert 'upload.wikimedia.org/wikipedia/commons/3/35/Osijek_VP01.jpg' in Path('assets/budget-data.js').read_text(encoding='utf-8')
 assert 'HAKOM' in html and 'članak 33.' in html
 assert "Stvarni problemi, konkretni putevi" in html
 assert "🏠" in html and "🧠" in html and "🎮" in html and "✊" in html and "🧰" in html
