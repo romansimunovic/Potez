@@ -121,7 +121,7 @@ assert "'/assets/accessibility.js'" in sw and "potez-pilot-v23" in sw and "'/ass
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
 assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
 assert "localStorage.removeItem('potez-budget-duel-v2')" in app_reset
-assert not Path(".env.example").exists()
+assert not Path(".env").exists() and not Path(".dev.vars").exists()
 security = Path("SECURITY.md").read_text(encoding="utf-8")
 assert "ne sadrži Pages Functions" in security
 assert "Supabase konfiguraciju" in security
