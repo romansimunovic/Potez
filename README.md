@@ -67,3 +67,22 @@ For local Pages Functions, use the Cloudflare Pages local development workflow a
 ## Privacy by design
 
 Do not add political-preference profiling, location tracking, or accounts merely to support the educational modules. If new data collection is introduced, document its purpose, legal basis, minimization, retention period, access controls and deletion procedure before launch.
+
+## Civic journey and gamification
+
+The civic passport turns existing learning activities into a visible skills path. A one-minute daily civic question rotates locally by date and rewards an attempt without streak pressure or penalties for missed days:
+understanding context, checking claims, weighing public priorities, and finding a
+real participation route. XP and badges reward completing learning tasks; they
+do not score political opinions, party preferences, or the perceived worth of
+a person's real-world civic activity. There are no daily streak penalties,
+public rankings, accounts, or political profiles.
+
+The two-player budget comparison is a local pass-and-play exercise on one device.
+Its saved allocations stay in that browser and are not sent to a server. Sharing
+buttons share only a generic invitation or the player's own progress summary.
+
+Do not present sample personas or invented aggregate percentages as real player
+results. A future cross-device community board would require a separate opt-in
+data design, transparent purpose and retention rules, abuse prevention, and
+minimum aggregation thresholds before launch. Prefer aggregated learning
+patterns over public individual profiles or location/political-interest ranking.
