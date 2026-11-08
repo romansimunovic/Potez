@@ -17,6 +17,11 @@ Ovaj registar služi uredničkoj provjeri podataka u proračunskom izazovu POTEZ
 | Zagreb | Početni usvojeni proračun 2026.; funkcijska tablica iz službenog PDF-a | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 2.484.265.290 EUR. Ovo je početni plan prije naknadnih izmjena; službena XLS funkcijska tablica uz izmjene još nije obrađena |
 | Vinkovci | Proračun u malom 2026. s funkcijskom klasifikacijom početnog plana | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 94.845.254,82 EUR. Ovo je početni plan prije I. izmjena od 27. 5. 2026.; ne predstavlja rebalans |
 | Belišće | Usvojeni početni proračun 2026. i službeni vodič po upravnim odjelima | Pet upravnih odjela; zbroj 31.641.383,40 EUR, cijeli početni rashodni plan. Ovo je organizacijska, a ne funkcijska klasifikacija; II. izmjene nisu uključene |
+| Đakovo | II. rebalans proračuna 2026. i funkcijska klasifikacija | Funkcije 04, 05, 06, 08, 09 i 10; zbroj 47.574.000 EUR od ukupno 51.549.000 EUR funkcijskih rashoda. Nisu ukupni rashodi i izdaci od 52.550.000 EUR |
+
+## Napomena o Đakovu
+
+U igru je uključen **II. rebalans proračuna Grada Đakova za 2026.**, a ne početni plan ili I. rebalans. Funkcije 04, 05, 06, 08, 09 i 10 iznose ukupno 47.574.000 EUR. Sve funkcije zajedno iznose 51.549.000 EUR. Ukupni rashodi i izdaci iznose 52.550.000 EUR, jer obuhvaćaju i financijske izdatke izvan funkcijske klasifikacije. Zato se 47.574.000 EUR prikazuje kao zbroj odabranih funkcija, a ne kao cjelokupni proračun. Službeni PDF II. rebalansa: https://www.djakovo.hr/index.php/component/phocadownload/category/49-proracun.html?download=3573:2-rebalans-proracuna-grada-dakova-za-2026-godinu ; službena arhiva: https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html.
 
 ## Napomena o Belišću
 
@@ -41,7 +46,6 @@ Službena stranica Grada Valpova objavljuje plan proračuna za 2026. i I. izmjen
 | Nova Gradiška | Službeni arhiv s kategorijama proračuna, izmjena i dopuna te izvještaja o izvršenju za 2026. | Utvrditi posljednju važeću odluku i preuzeti posebni dio/funkcijsku klasifikaciju; ne koristiti starije projekcije za 2026. | https://novagradiska.hr/wp-file-download-search/ |
 | Požega | I. izmjene i dopune 2026., objavljene 26. 6. 2026.; tablice u XLS formatu | Obraditi važeći XLS i obrazloženje; uskladiti stavke s odabranim funkcijama/programima | https://pozega.hr/proracun/proracun-grada-pozege-za-razdoblje-2026-2028-godine |
 | Virovitica | II. izmjene i dopune 2026. | Aktivno; izvorni PDF povezan u scenariju | https://www.virovitica.hr/proracun-grada-virovitice/ |
-| Đakovo | II. rebalans proračuna za 2026. i pripadajuće obrazloženje | Izdvojiti tablice iz II. rebalansa; ne koristiti I. rebalans ili početni plan kao aktualnu osnovu | https://djakovo.hr/index.php/grad/statut-grada-dakova/category/49-proracun.html |
 
 ## Provjere prije aktivacije
 
@@ -53,4 +57,4 @@ Službena stranica Grada Valpova objavljuje plan proračuna za 2026. i I. izmjen
 6. U sučelju jasno navesti „zbroj odabranih funkcija/programa” i da klizači mijenjaju samo edukativni scenarij.
 7. Zadržati službenu poveznicu izravno uz scenarij.
 
-**Status 8. 11. 2026.:** Aktivni su Osijek, Slavonski Brod, Slatina, Vukovar, Virovitica, Valpovo, Zagreb, Vinkovci i Belišće. Zagreb, Vinkovci i Belišće koriste jasno označene početne usvojene planove prije naknadnih izmjena. Nova Gradiška, Požega i Đakovo ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
+**Status 8. 11. 2026.:** Aktivni su Osijek, Slavonski Brod, Slatina, Vukovar, Virovitica, Valpovo, Zagreb, Vinkovci, Belišće i Đakovo. Zagreb, Vinkovci i Belišće koriste jasno označene početne usvojene planove prije naknadnih izmjena; Đakovo koristi II. rebalans. Nova Gradiška i Požega ostaju izvan igre dok se njihove posljednje važeće tablice ne izvuku i ne provjere.
