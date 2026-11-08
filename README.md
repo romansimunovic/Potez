@@ -69,8 +69,8 @@ Aplikacija ne koristi vlastitu analitiku, oglašivačke kolačiće ni piksele za
 Stranica se poslužuje putem Cloudflare Pages. Pružatelj hostinga može obrađivati tehničke podatke mrežnih zahtjeva radi isporuke i zaštite usluge, u skladu sa svojim pravilima. Detalji su u [obavijesti o privatnosti](privacy.html).
 
 **Dokumentacija:**
-- [Obavijest o privatnosti](/privacy)
-- [Uvjeti korištenja](/uvjeti)
+- [Obavijest o privatnosti](/privacy.html)
+- [Uvjeti korištenja](/uvjeti.html)
 
 ## Dijeljenje i gamifikacija
 
