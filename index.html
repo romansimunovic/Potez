@@ -58,7 +58,173 @@
         <nav class="mobile-menu-links" aria-label="Glavna navigacija na mobitelu">
           <a href="#top" data-app-route="home">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9.5V21h14V9.5M9 21v-7h6v7"/></svg>
-            <span><strong>Početna</strong></summary>
+            <span><strong>Početna</strong></span>
+          </a>
+          <a href="#ucenje" data-app-route="learn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM4 18.5A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 11h8"/></svg>
+            <span><strong>Uči</strong></span>
+          </a>
+          <a href="#igraj" data-app-route="play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h10a4 4 0 0 1 4 4v7a3 3 0 0 1-5 2l-2-2h-4l-2 2a3 3 0 0 1-5-2V9a4 4 0 0 1 4-4Z"/><path d="M8 9v5M5.5 11.5h5M16 10h.01M18.5 13h.01"/></svg>
+            <span><strong>Isprobaj</strong></span>
+          </a>
+          <a href="#djeluj" data-app-route="act">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/><path d="m16 15 2 2 3-4"/></svg>
+            <span><strong>U praksi</strong></span>
+          </a>
+          <a href="#alati" data-app-route="tools">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6.5a4.5 4.5 0 0 0-5.8 5.8L3 17.5 6.5 21l5.2-5.2A4.5 4.5 0 0 0 17.5 10L14 13.5 10.5 10 14 6.5Z"/><path d="m15 4 5 5"/></svg>
+            <span><strong>Resursi</strong></span>
+          </a>
+        </nav>
+        
+      </div>
+    </details>
+    <a href="#top" class="brand" aria-label="Potez početna">potez<span class="brand-dot"></span></a>
+    <nav class="nav" aria-label="Glavna navigacija">
+      <a href="#top" data-app-route="home">Početna</a>
+      <a href="#ucenje" data-app-route="learn">Uči</a>
+      <a href="#igraj" data-app-route="play">Isprobaj</a>
+      <a href="#djeluj" data-app-route="act">U praksi</a>
+      <a href="#alati" data-app-route="tools">Resursi</a>
+    </nav>
+    <details class="accessibility-menu" id="accessibilityMenu">
+      <summary aria-label="Otvori postavke pristupačnosti"><span aria-hidden="true">◐</span> Pristupačnost</summary>
+      <div class="accessibility-panel" aria-label="Postavke prikaza">
+        <div class="accessibility-panel-heading"><strong>Prilagodi prikaz</strong><span>Postavke se čuvaju na ovom uređaju</span></div>
+        <section class="accessibility-control" aria-labelledby="themeLabel"><div><strong id="themeLabel">Izgled</strong><small>Odaberi svijetli ili tamni prikaz</small></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section>
+        <section class="accessibility-control" aria-labelledby="fontLabel"><div><strong id="fontLabel">Veličina teksta</strong><small id="fontScaleValue">100 %</small></div><div class="accessibility-actions"><button type="button" data-font-step="-1" aria-label="Smanji tekst">A−</button><button type="button" data-font-step="1" aria-label="Povećaj tekst">A+</button></div></section>
+        <section class="accessibility-control" aria-labelledby="contrastLabel"><div><strong id="contrastLabel">Visoki kontrast</strong><small>Izraženije razlike teksta i pozadine</small></div><button type="button" class="accessibility-toggle" data-setting="contrast" aria-pressed="false">Isključeno</button></section>
+        <section class="accessibility-control" aria-labelledby="motionLabel"><div><strong id="motionLabel">Smanji animacije</strong><small>Manje kretanja i prijelaza</small></div><button type="button" class="accessibility-toggle" data-setting="motion" aria-pressed="false">Isključeno</button></section>
+        <button type="button" class="accessibility-reset" id="resetAccessibility">Vrati početne postavke</button>
+      </div>
+    </details>
+  </header>
+
+  <main id="top" tabindex="-1" class="app-main">
+<section class="app-view app-home" data-app-view="home" id="view-home">
+<section class="hero">
+      <div>
+        
+        <h1>Razumij odluke koje <span class="highlight">utječu na tebe</span></h1>
+        <p class="hero-copy">Škola, prijevoz, stanovanje, javni novac i društvene mreže. Saznaj tko odlučuje, kako nastaju pravila i gdje pronaći pouzdane informacije.</p>
+        <div class="actions"><a class="btn btn-dark" href="#ucenje">Istraži teme <span aria-hidden="true">↗</span></a><a class="btn btn-light" href="#djeluj">Pogledaj kako sustav funkcionira</a></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustracija mladih koji zajedno oblikuju svoj grad">
+        
+        <svg viewBox="0 0 560 390" role="img" aria-hidden="true">
+          <path d="M38 287 Q135 250 232 281 T520 270" fill="none" stroke="#17211d" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 10"/>
+          <rect x="73" y="151" width="126" height="154" rx="10" fill="#fffefa" stroke="#17211d" stroke-width="5"/>
+          <path d="M93 151 V113 H180 V151" fill="#b6a3ff" stroke="#17211d" stroke-width="5"/>
+          <path d="M108 185h23v26h-23zM148 185h23v26h-23zM108 237h23v26h-23zM148 237h23v26h-23z" fill="#9edcff" stroke="#17211d" stroke-width="3"/>
+          <path d="M61 151h150" stroke="#17211d" stroke-width="7" stroke-linecap="round"/>
+          <path d="M266 287V190l55-50 57 50v97" fill="#c8f169" stroke="#17211d" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M285 207h23v26h-23zM333 207h23v26h-23z" fill="#fffefa" stroke="#17211d" stroke-width="3"/>
+          <rect x="306" y="242" width="30" height="45" rx="3" fill="#ff765f" stroke="#17211d" stroke-width="3"/>
+          <path d="M249 287h150" stroke="#17211d" stroke-width="7" stroke-linecap="round"/>
+          <path d="M412 290v-73m0 0q-27-21-10-42 27 2 10 42m0-17q29-23 42-3-7 24-42 24" fill="#65a85c" stroke="#17211d" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M420 291h-18" stroke="#17211d" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="246" cy="94" r="29" fill="#ff765f" stroke="#17211d" stroke-width="4"/>
+          <path d="M236 80l38 14-38 14z" fill="#fffefa" stroke="#17211d" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M279 87l26-9m-23 23 32 3m-37-31 16-20" stroke="#17211d" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="430" cy="112" r="34" fill="#fffefa" stroke="#17211d" stroke-width="4"/>
+          <path d="M414 114q16-22 32 0m-26 12q10 9 20 0" fill="none" stroke="#17211d" stroke-width="4" stroke-linecap="round"/>
+          <path d="M452 144l18 16" stroke="#17211d" stroke-width="4" stroke-linecap="round"/>
+          <path d="M88 328q0-28 25-28t25 28v18H88z" fill="#b6a3ff" stroke="#17211d" stroke-width="4"/>
+          <circle cx="113" cy="289" r="19" fill="#f1c09a" stroke="#17211d" stroke-width="4"/>
+          <path d="M92 286q4-27 28-23 17 5 13 23-18-8-41 0" fill="#17211d"/>
+          <path d="M152 347q0-33 28-33t28 33v12h-56z" fill="#ff765f" stroke="#17211d" stroke-width="4"/>
+          <circle cx="180" cy="300" r="19" fill="#8c5b45" stroke="#17211d" stroke-width="4"/>
+          <path d="M162 296q4-26 27-21 10 3 12 17-19-6-39 4" fill="#17211d"/>
+          <path d="M462 335q0-31 28-31t28 31v18h-56z" fill="#9edcff" stroke="#17211d" stroke-width="4"/>
+          <circle cx="490" cy="290" r="19" fill="#c78f67" stroke="#17211d" stroke-width="4"/>
+          <path d="M471 285q8-27 29-19 11 5 10 20-15-8-39-1" fill="#17211d"/>
+          <path d="M35 77l15-8 7 16-15 8zM505 213l14-16 12 14-14 16z" fill="#fffefa" stroke="#17211d" stroke-width="3"/>
+          <path d="M44 110l4 17m-12-5 16-7m441-76 8 17m-18-1 18-7" stroke="#17211d" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        
+      </div>
+    </section>
+
+    <section class="home-guide" aria-labelledby="homeGuideTitle">
+      <div class="home-guide-heading">
+        
+        <h2 id="homeGuideTitle">Od svakodnevnog pitanja do razumijevanja sustava</h2>
+        <p>Tri jednostavna načina za istraživanje tema koje utječu na naš život.</p>
+      </div>
+      <div class="home-step-grid">
+        <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">01</span><strong>Razumij</strong><span>Tko odlučuje o prijevozu, školi i kvartu?</span><span class="home-step-link">Upoznaj sustav ↗</span></a>
+        <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">02</span><strong>Provjeri</strong><span>Je li objava činjenica, mišljenje ili neprovjerena tvrdnja?</span><span class="home-step-link">Provjeri kako informacije funkcioniraju ↗</span></a>
+        <a class="home-step-card" href="#djeluj"><span class="home-step-icon" aria-hidden="true">03</span><strong>Upoznaj sustav</strong><span>Koje institucije odlučuju i gdje su dostupni dokumenti?</span><span class="home-step-link">Pogledaj u praksi ↗</span></a>
+      </div>
+    </section>
+    <section class="home-progress" aria-label="Tvoj lokalni napredak">
+      <div><h3 id="homeProgressTitle">Tvoj napredak počinje ovdje</h3><p id="homeProgressDescription">Nastavi gdje si stao/la ili isprobaj novu situaciju.</p></div>
+      <div class="home-progress-score"><strong id="homeXp">0 XP</strong></div>
+      <a class="btn btn-light" href="#igraj">Isprobaj izazove ↗</a>
+    </section>
+
+</section>
+<section class="app-view" data-app-view="learn" id="ucenje" hidden>
+<header class="view-intro"><div><h1>Teme iz svakodnevnog života</h1><p>Kratka objašnjenja, stvarni primjeri i izvori. Odaberi ono što te zanima.</p></div></header>
+<section class="section learning-daily-section" aria-label="Činjenica dana">
+  <div id="dailyFact" class="daily-fact-card" aria-live="polite">
+    
+    <h2>Činjenica s izvorom. Jedan novi kut gledanja.</h2>
+    <p class="daily-fact-text">Svakog dana izdvajamo jedan podatak iz istraživanja ili službenog dokumenta.</p>
+  </div>
+</section>
+<section class="section learning-explorer" id="odaberi-temu" aria-labelledby="learningExplorerTitle">
+  <div class="section-head">
+    <div><h2 id="learningExplorerTitle">Što želiš bolje razumjeti?</h2></div>
+    <p class="section-intro">Od škole i prijevoza do algoritama i javnog novca. Svaka tema ima kratko objašnjenje i izvor.</p>
+  </div>
+  <div class="learning-explorer-toolbar">
+    <div id="learningFilters" class="learning-filters" role="group" aria-label="Filtriraj teme"></div>
+    
+  </div>
+  <div id="learningTopics" class="learning-grid" aria-live="polite"></div>
+  <button type="button" id="learningShowMore" class="btn btn-light learning-show-more" hidden>Prikaži sve teme</button>
+  
+</section>
+<details class="learning-guides" id="teme">
+  <summary><strong>Prijevoz, prehrana i podrška u školi</strong></summary>
+<section class="section issue-paths" id="practicalIssuePaths" aria-labelledby="issuePathsTitle">
+  <div class="section-head">
+    <div><h2 id="issuePathsTitle">Primjeri iz svakodnevnog života</h2></div>
+    <p class="section-intro">Ovi vodiči pokazuju koje informacije prikupiti, koje institucije mogu biti nadležne i gdje pronaći službene upute.</p>
+  </div>
+  <div class="issue-path-grid">
+    <article class="issue-path-card issue-transport">
+      <h3>Vlak kasni ili je linija ukinuta</h3>
+      <p>Kako dokumentirati problem s HŽ-om i kome poslati prigovor</p>
+      
+      <a class="btn btn-dark" href="#tema-hz">Istraži put →</a>
+    </article>
+    <article class="issue-path-card issue-food">
+      <h3>Obrok u školi nije dostupan ili odgovarajući</h3>
+      <p>Razlikuj osnovnu i srednju školu, financiranje i odgovornost škole</p>
+      
+      <a class="btn btn-dark" href="#tema-obroci">Istraži put →</a>
+    </article>
+    <article class="issue-path-card issue-learning">
+      <h3>Trebaš pomoć, a instrukcije su preskupe</h3>
+      <p>Koja podrška postoji u školi prije nego što platiš privatne instrukcije</p>
+      
+      <a class="btn btn-dark" href="#tema-ucenje">Istraži put →</a>
+    </article>
+    <article class="issue-path-card issue-voice">
+      <h3>Pravilo ne funkcionira za učenike</h3>
+      <p>Od pritužbe do prijedloga koji vijeće učenika može zastupati</p>
+      
+      <a class="btn btn-dark" href="#tema-pravila">Istraži put →</a>
+    </article>
+  </div>
+  <p class="issue-path-note">Ovo su vodiči za snalaženje, ne automatska obećanja da će institucija riješiti svaki slučaj. Nadležnost i postupak provjeri u izvornim dokumentima</p>
+</section>
+<section class="section issue-detail-section" aria-label="Detaljniji vodiči">
+  <details class="issue-guide-card" id="tema-hz">
+    <summary><strong>Vlak kasni ili je otkazan</strong></summary>
     <div class="issue-guide-content">
       <p>Zabilježi osnovne podatke o putovanju i koristi službeni postupak prijevoznika.</p>
       <ol class="issue-steps">
