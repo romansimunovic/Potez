@@ -112,11 +112,15 @@ for page in ("privacy.html","uvjeti.html"):
 assert 'id="teme"' in html and 'id="tema-hz"' in html and 'id="tema-obroci"' in html and 'id="tema-ucenje"' in html
 assert 'Odaberi stvarni problem' in html and 'budgetCity' in html and 'budgetDistrict' in html
 data = Path("assets/budget-data.js").read_text(encoding="utf-8")
-for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "nova-gradiska", "zagreb"):
+for city in ("osijek", "slavonski-brod", "slatina", "vukovar", "virovitica", "valpovo", "zagreb", "nova-gradiska"):
     assert city in data, city
 assert "budgetDistrictLabel" in html and "budgetEnvelopeLabel" in html
 assert 'value="virovitica"' in html and 'value="virovitica" disabled' not in html
 assert 'value="valpovo"' in html and 'value="valpovo" disabled' not in html
+assert 'value="zagreb"' in html and 'value="zagreb" disabled' not in html
+assert abs(cities["zagreb"]["pocetni-plan"]["total"] - 2484265290) < 0.001
+assert cities["zagreb"]["pocetni-plan"]["items"][0]["amount"] == 354781100
+
 assert "id: 'virovitica'" not in data
 assert "budgetCityImage" not in html and "budgetImageCredit" not in html
 assert "budgetCityImage" not in Path("assets/app.js").read_text(encoding="utf-8")
