@@ -74,7 +74,7 @@ Stranica se poslužuje putem Cloudflare Pages. Pružatelj hostinga može obrađi
 
 ## Dijeljenje i gamifikacija
 
-XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Nema javnih ljestvica, održavanja nizova ni kazne za propušten dan.
+XP i značke nagrađuju dovršetak edukativnih zadataka, a ne političke stavove ili stvarni društveni utjecaj. Nema javnih ljestvica, održavanja nizova ni kazne za propušten dan. Dnevna misija koristi kratke situacijske scenarije o javnim odlukama, integritetu, informacijama i poštenom sudjelovanju. Svaki izbor dobiva posljedicu i objašnjenje; bodovi nagrađuju pokušaj, a ne slaganje s političkim stajalištem.
 
 Kratki zvuk nagrade generira se u pregledniku nakon korisničke radnje. Ne učitava se audio datoteka. Zvuk se može isključiti prekidačem; postavka ostaje lokalna.
 
