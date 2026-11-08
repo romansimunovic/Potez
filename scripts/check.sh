@@ -123,6 +123,8 @@ assert 'budgetDistrict' not in html and 'budgetDistrict' not in Path("assets/app
 assert "Odaberi prikaz" not in html
 assert 'id="budgetSubmit"' in html and "Zaključi raspodjelu" in html
 assert 'class="budget-method"' in html
+assert 'id="budgetPopulationMeta"' in html
+assert "budgetPopulationMeta" in Path("assets/app.js").read_text(encoding="utf-8")
 data = Path("assets/budget-data.js").read_text(encoding="utf-8")
 for city in ("zagreb", "split", "rijeka", "osijek", "zadar", "velika-gorica", "pula", "slavonski-brod", "dubrovnik", "vinkovci", "vukovar", "djakovo", "pozega", "virovitica", "nova-gradiska", "slatina", "valpovo", "belisce", "nasice"):
     assert city in data, city
