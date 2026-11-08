@@ -7,6 +7,7 @@
   const mobileMenu=document.getElementById('mobileMenu');
   const mobileMenuSummary=mobileMenu?.querySelector('summary');
   const mobileMenuBackdrop=mobileMenu?.querySelector('.mobile-menu-backdrop');
+  const mobileMenuClose=mobileMenu?.querySelector('.mobile-menu-close');
   const mobileMenuPanel=mobileMenu?.querySelector('.mobile-menu-panel');
   if(!views.length||!homeView)return;
   function syncMobileMenu(){
@@ -25,6 +26,7 @@
     if(mobileMenu.open)mobileMenuPanel?.querySelector('a')?.focus();
   });
   mobileMenuBackdrop?.addEventListener('click',()=>closeMobileMenu(true));
+  mobileMenuClose?.addEventListener('click',()=>closeMobileMenu(true));
   document.addEventListener('keydown',event=>{
     if(!mobileMenu?.open)return;
     if(event.key==='Escape'){
