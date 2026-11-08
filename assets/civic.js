@@ -229,6 +229,8 @@
         : hasB
           ? 'Izbor B je spremljen. Spremite još raspodjelu igrača A.'
           : 'Još nema spremljenih izbora. Prvo spremite raspodjelu igrača A.';
+    const shareResult = $('#shareBudgetResult');
+    if (shareResult) shareResult.disabled = !(hasA && hasB);
   }
 
   function saveBudget(slot) {
@@ -290,6 +292,32 @@
         notify('Usporedba je obrisana.');
       } catch {
         notify('Usporedbu nije moguće obrisati u ovom pregledniku.');
+      }
+    });
+  }
+
+  const shareBudgetResult = $('#shareBudgetResult');
+  if (shareBudgetResult) {
+    shareBudgetResult.addEventListener('click', async () => {
+      const saved = readDuel();
+      if (!Array.isArray(saved.a) || !Array.isArray(saved.b)) {
+        notify('Najprije spremite oba izbora.');
+        return;
+      }
+      const summary = categoryNames.map((name, index) =>
+        name + ': A ' + formatEuro(saved.a[index]) + ' / B ' + formatEuro(saved.b[index])
+      );
+      const message = 'Naša POTEZ usporedba prioriteta za 100.000 €:\n' + summary.join('\n') +
+        '\n\nNije natjecanje — razgovarali smo o tome kome odluke koriste. https://potez.pages.dev/#budzet';
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: 'POTEZ — usporedba prioriteta', text: message, url: 'https://potez.pages.dev/#budzet' });
+        } else {
+          await copyText(message);
+          notify('Usporedba je kopirana. Podijeli je s ekipom.');
+        }
+      } catch (error) {
+        if (error && error.name !== 'AbortError') notify('Usporedbu nije moguće podijeliti.');
       }
     });
   }
