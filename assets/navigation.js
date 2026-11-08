@@ -64,6 +64,7 @@
     }
   }
   function routeFromHash(scroll){
+    if(mobileMenu?.open)closeMobileMenu(true);
     const id=decodeURIComponent(window.location.hash.slice(1));
     const target=id?document.getElementById(id):null;
     showView(viewForTarget(target)||homeView,target||homeView,Boolean(scroll));
@@ -76,7 +77,7 @@
     const view=viewForTarget(target)||(id==='top'?homeView:null);
     if(!view||!target)return;
     event.preventDefault();
-    if(link.closest('#mobileMenu'))closeMobileMenu();
+    if(link.closest('#mobileMenu'))closeMobileMenu(true);
     const nextHash='#'+encodeURIComponent(id);
     if(window.location.hash!==nextHash)window.history.pushState(null,'',nextHash);
     showView(view,target,true);
