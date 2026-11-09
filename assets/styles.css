@@ -2382,3 +2382,84 @@ html[data-theme="dark"] .action-depth-note{color:#c7d3ca!important}
   font-weight:900;
   line-height:1.2;
 }
+
+/* Home hero typography: improve measure, rhythm and CTA separation. */
+.app-home .hero h1{
+  max-width:14ch;
+  margin:0 0 22px;
+  font-size:clamp(3rem,4.65vw,4.75rem);
+  font-weight:900;
+  line-height:1.1;
+  letter-spacing:-.042em;
+  text-wrap:balance;
+  overflow-wrap:normal;
+}
+.app-home .hero h1 .highlight{
+  white-space:normal;
+}
+.app-home .hero-copy{
+  max-width:54ch;
+  margin:0;
+  font-size:clamp(1.04rem,1.22vw,1.14rem);
+  line-height:1.68;
+  letter-spacing:-.008em;
+}
+.app-home .hero .actions{
+  align-items:stretch;
+  gap:12px;
+  margin-top:28px;
+}
+.app-home .hero .actions .btn{
+  min-height:52px;
+  padding:13px 19px;
+  font-size:.9rem;
+  font-weight:850;
+  line-height:1.35;
+  letter-spacing:-.008em;
+}
+@media(max-width:1100px) and (min-width:761px){
+  .app-home .hero h1{
+    max-width:15ch;
+    font-size:clamp(2.65rem,4.25vw,3.8rem);
+    line-height:1.1;
+    letter-spacing:-.038em;
+  }
+  .app-home .hero-copy{font-size:1rem;line-height:1.65}
+  .app-home .hero .actions{gap:10px;margin-top:24px}
+  .app-home .hero .actions .btn{padding-inline:15px;font-size:.84rem}
+}
+@media(max-width:760px){
+  .app-home .hero{gap:18px;padding-block:38px 28px}
+  .app-home .hero h1{
+    max-width:17ch;
+    margin-bottom:17px;
+    font-size:clamp(2.45rem,7.2vw,3.35rem);
+    line-height:1.12;
+    letter-spacing:-.035em;
+  }
+  .app-home .hero-copy{
+    max-width:52ch;
+    font-size:1rem;
+    line-height:1.62;
+    letter-spacing:0;
+  }
+  .app-home .hero .actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    margin-top:22px;
+  }
+  .app-home .hero .actions .btn{
+    width:100%;
+    min-height:50px;
+    padding:12px 16px;
+    font-size:.9rem;
+  }
+}
+@media(max-width:360px){
+  .app-home .hero h1{font-size:2.35rem;line-height:1.13}
+  .app-home .hero .actions .btn{font-size:.86rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .app-home .hero .actions .btn{transition:none}
+}
