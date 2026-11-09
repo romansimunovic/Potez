@@ -232,7 +232,7 @@ for token in ('name="description"', 'name="keywords"', 'name="author"',
               'https://potez.pages.dev/og-image.png'):
     assert token in html, token
 assert 'content="12' not in html or '12 tema' in html
-assert 'potez-pilot-v23' in sw
+assert 'potez-pilot-v24' in sw
 assert "'/assets/learning-data.js'" in sw and "'/assets/learning.js'" in sw
 assert "awardLesson" in app and "claimDailyFact" in app
 assert "saved.dailyFactStamp===stamp" in app
