@@ -116,7 +116,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v23" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v24" in sw and "'/assets/budget-data.js'" in sw
 
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
 assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
@@ -155,7 +155,7 @@ assert "data-budget-name for=" in app
 assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v23" in sw
+assert "potez-pilot-v24" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "Ovo nije službeni gradski proračun." in html
@@ -291,3 +291,25 @@ print("Verified learning UI, local-only progress, compact passport, SEO metadata
 PY
 
 printf 'POTEZ learning, privacy, SEO and documentation checks passed.\\n'
+
+
+python - <<'PY'
+from pathlib import Path
+
+html = Path("index.html").read_text(encoding="utf-8")
+navigation = Path("assets/navigation.js").read_text(encoding="utf-8")
+css = Path("assets/styles.css").read_text(encoding="utf-8")
+sw = Path("sw.js").read_text(encoding="utf-8")
+
+assert 'class="home-educator-promo"' in html
+assert 'href="#nastavnici"' in html
+assert 'id="nastavnici"' in html
+assert 'aria-labelledby="facilitatorTitle"' in html
+assert html.count('class="facilitator-card"') == 5
+assert "50–55 minuta" in html
+assert 'focusTarget.focus({preventScroll:true})' in navigation
+assert "dataset.motion==='reduce'" in navigation
+assert ".home-educator-promo" in css
+assert "potez-pilot-v24" in sw
+print("POTEZ educator pathway and route accessibility checks passed.")
+PY
