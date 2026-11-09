@@ -1,6 +1,6 @@
 # POTEZ — izvori za tematske kartice i zanimljivosti (2026.)
 
-**Datum uredničke provjere:** 8. studenoga 2026.  
+**Datum uredničke provjere:** 10. studenoga 2026.  
 **Namjena:** javni registar izvora za sadržaj u `assets/learning-data.js`.  
 **Pravilo:** poveznica u dokumentu ne znači da izvor podupire svaku moguću interpretaciju teme. U kartici se mora navesti opseg podatka, a datum i status izvora ponovno provjeriti prije većeg godišnjeg izdanja.
 
@@ -100,3 +100,27 @@
 4. Dnevna zanimljivost je rotacija unaprijed urednički provjerenih podataka, a ne automatsko generiranje nove tvrdnje svaki dan.
 5. Nakon provjere ažurirati ovaj dokument i polje izvora u `assets/learning-data.js`; ako je izvor nevažeći ili nedostupan, sakriti povezanu tvrdnju dok se ne pronađe vjerodostojna zamjena.
 6. Zadnja provjera u ovoj verziji: 8. studenoga 2026.
+
+
+## Lokalna samouprava i komunalne odluke
+
+### Zakon o lokalnoj i područnoj (regionalnoj) samoupravi — građansko sudjelovanje
+
+- Službeni tekst izmjena: https://narodne-novine.nn.hr/clanci/sluzbeni/full/2020_12_144_2762.html
+- Relevantne odredbe: članci 24.b i 25. uređuju zborove građana i građanske prijedloge predstavničkom tijelu.
+- Primjena: vijeće mjesnog odbora može sazvati zbor građana; mišljenje zbora obvezuje mjesni odbor, a savjetodavno je za gradsko/općinsko vijeće i gradonačelnika/načelnika. Prijedlog koji podrži najmanje 10 % ukupnog broja birača jedinice obvezuje predstavničko tijelo na raspravu i odgovor u roku od tri mjeseca.
+- Ograničenje: 10 % je prag za posebnu zakonsku obvezu rasprave, a ne uvjet da bi građanin uopće poslao običnu prijavu ili prijedlog. Provjeriti statut i lokalne postupke prije navođenja konkretnog kanala ili ovlasti.
+
+### Zakon o lokalnoj i područnoj (regionalnoj) samoupravi — mjesna samouprava
+
+- Službeni pročišćeni tekst: https://narodne-novine.nn.hr/clanci/sluzbeni/2013_02_19_323.html
+- Relevantne odredbe: članci 57.–61.c uređuju osnivanje, djelokrug, ovlasti i tijela mjesnih odbora.
+- Primjena: mjesni odbor je oblik neposrednog sudjelovanja građana u lokalnim poslovima svakodnevnog utjecaja. Statut grada/općine uređuje njegove ovlasti i postupke; može mu povjeriti pojedine poslove. Vijeće mjesnog odbora donosi vlastiti program rada i financijski plan.
+- Ograničenje: lokalni statut i kasnije izmjene mjerodavni su za konkretan grad/općinu. Ne prikazivati mjesni odbor kao tijelo koje samostalno donosi gradski proračun ili odlučuje o svim ulaganjima.
+
+### Zakon o komunalnom gospodarstvu — godišnji programi
+
+- Službeni tekst: https://narodne-novine.nn.hr/clanci/sluzbeni/2018_07_68_1393.html
+- Relevantne odredbe: članci 72.–74. uređuju program održavanja komunalne infrastrukture; članci o programu građenja uređuju planiranje novih zahvata.
+- Primjena: predstavničko tijelo donosi godišnji program održavanja istodobno s proračunom; program obuhvaća opseg poslova, procijenjene troškove i izvore financiranja. Gradonačelnik/načelnik podnosi izvješće o izvršenju programa.
+- Ograničenje: uvrštavanje prijedloga u raspravu ne znači automatsko financiranje ili izvedbu. Za pojedini zahvat mogu biti potrebni projektiranje, riješeni imovinsko-pravni odnosi, dozvole i dodatna sredstva.

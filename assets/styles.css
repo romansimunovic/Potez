@@ -47,7 +47,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Segoe UI Variable", "Aptos", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -2462,4 +2462,194 @@ html[data-theme="dark"] .action-depth-note{color:#c7d3ca!important}
 }
 @media(prefers-reduced-motion:reduce){
   .app-home .hero .actions .btn{transition:none}
+}
+
+
+/* POTEZ readability pass — keep foregrounds explicit on every card surface. */
+a.path-card,
+a.link-card,
+a.resource-feature,
+a.home-step-card,
+a.issue-path-card,
+.facilitator-card {
+  color: var(--ink);
+}
+a.path-card:hover,
+a.path-card:focus-visible,
+a.link-card:hover,
+a.link-card:focus-visible,
+a.resource-feature:hover,
+a.resource-feature:focus-visible,
+a.home-step-card:hover,
+a.home-step-card:focus-visible,
+a.issue-path-card:hover,
+a.issue-path-card:focus-visible {
+  color: var(--ink);
+}
+.link-card strong,
+.resource-feature strong,
+.home-step-card strong,
+.path-card strong,
+.issue-path-card h3,
+.facilitator-card h3 {
+  color: var(--ink);
+}
+.link-card span:not(.emoji),
+.resource-feature > span:not(.mini-tag),
+.home-step-card > span:not(.home-step-icon),
+.path-card span,
+.issue-path-card p,
+.facilitator-card p {
+  color: var(--muted);
+}
+.link-card .go,
+.resource-feature b,
+.home-step-card .home-step-link,
+.path-card .path-state {
+  color: var(--green-deep);
+}
+.resource-links a:hover,
+.resource-links a:focus-visible {
+  background: var(--green);
+  color: #17211d !important;
+  border-color: #91ad56;
+  text-decoration-thickness: 2px;
+}
+html[data-theme="dark"] .link-card .go,
+html[data-theme="dark"] .resource-feature b,
+html[data-theme="dark"] .home-step-card .home-step-link,
+html[data-theme="dark"] .path-card .path-state {
+  color: var(--green-deep);
+}
+
+/* Practical neighborhood guide. */
+.neighborhood-guide { padding-top: clamp(32px, 5vw, 64px); }
+.neighborhood-guide h3 { line-height: 1.2; }
+.neighborhood-kicker {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.neighborhood-start {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, .8fr);
+  gap: 18px;
+  margin: 20px 0 34px;
+}
+.neighborhood-start-main,
+.neighborhood-start-aside,
+.neighborhood-decision-note,
+.neighborhood-fact,
+.neighborhood-template {
+  min-width: 0;
+  padding: clamp(20px, 2.4vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.neighborhood-start-main h3 { margin: 0 0 14px; font-size: clamp(1.45rem, 2.4vw, 2rem); }
+.neighborhood-start-main p { max-width: 70ch; margin: 0 0 10px; color: var(--muted); line-height: 1.65; }
+.neighborhood-start-main p:last-child { margin-bottom: 0; }
+.neighborhood-start-aside { background: var(--green-soft); }
+.neighborhood-start-aside > strong { display: block; margin-bottom: 8px; }
+.neighborhood-start-aside ol { margin: 0 0 12px; padding-left: 21px; line-height: 1.65; }
+.neighborhood-start-aside p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+.neighborhood-process { margin: 30px 0; }
+.neighborhood-process-heading h3 { margin: 0 0 17px; font-size: clamp(1.4rem, 2.3vw, 1.9rem); }
+.neighborhood-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; margin: 0; padding: 0; list-style: none; }
+.neighborhood-step {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.neighborhood-step-number {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--green-soft);
+  color: var(--green-deep);
+  font-size: .8rem;
+  font-weight: 900;
+}
+.neighborhood-step h4 { margin: 2px 0 7px; color: var(--ink); font-size: 1.02rem; line-height: 1.3; }
+.neighborhood-step p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.62; }
+.neighborhood-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin: 28px 0; }
+.neighborhood-fact { padding: 21px; }
+.neighborhood-fact h3 { margin: 0 0 10px; color: var(--ink); font-size: 1.14rem; }
+.neighborhood-fact p { margin: 0 0 10px; color: var(--muted); font-size: .88rem; line-height: 1.62; }
+.neighborhood-fact p:last-child { margin-bottom: 0; }
+.neighborhood-decision-note { margin: 22px 0; background: var(--yellow-soft); }
+.neighborhood-decision-note > strong { display: block; margin-bottom: 8px; }
+.neighborhood-decision-note p { margin: 0; color: var(--ink); line-height: 1.65; }
+.neighborhood-template { margin: 20px 0; padding: 0; overflow: hidden; }
+.neighborhood-template > summary {
+  display: flex;
+  align-items: center;
+  min-height: 58px;
+  padding: 17px 21px;
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 800;
+}
+.neighborhood-template > summary::marker { color: var(--green-deep); }
+.neighborhood-template-body { padding: 0 21px 21px; }
+.neighborhood-template-body > p:first-child { color: var(--muted); font-size: .9rem; }
+.neighborhood-template pre {
+  overflow-x: auto;
+  margin: 12px 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font: .86rem/1.65 "Segoe UI Variable", "Aptos", "Segoe UI", system-ui, sans-serif;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.neighborhood-template-note { margin: 10px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
+.neighborhood-sources { display: grid; grid-template-columns: minmax(210px, .7fr) minmax(0, 1.3fr); gap: 20px; align-items: start; margin: 28px 0 14px; }
+.neighborhood-sources h3 { margin: 0; font-size: 1.2rem; }
+.neighborhood-source-links { display: grid; gap: 9px; }
+.neighborhood-source-links a { color: var(--green-deep); font-size: .9rem; font-weight: 750; line-height: 1.5; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.neighborhood-scope-note { margin: 20px 0 0; padding: 16px 18px; border-left: 4px solid var(--green-deep); background: var(--surface); color: var(--muted); font-size: .86rem; line-height: 1.6; }
+.neighborhood-scope-note strong { color: var(--ink); }
+html[data-contrast="high"] .neighborhood-start-main,
+html[data-contrast="high"] .neighborhood-start-aside,
+html[data-contrast="high"] .neighborhood-step,
+html[data-contrast="high"] .neighborhood-fact,
+html[data-contrast="high"] .neighborhood-decision-note,
+html[data-contrast="high"] .neighborhood-template,
+html[data-contrast="high"] .neighborhood-scope-note {
+  border: 2px solid currentColor;
+}
+html[data-theme="dark"] .neighborhood-start-aside { background: #203329; }
+html[data-theme="dark"] .neighborhood-decision-note { background: #3b321d; }
+html[data-theme="dark"] .neighborhood-step-number { background: #263b22; color: #d9f2b3; }
+html[data-theme="dark"] .neighborhood-source-links a { color: #d9f2b3; }
+@media (max-width: 900px) {
+  .neighborhood-facts { grid-template-columns: 1fr; }
+  .neighborhood-sources { grid-template-columns: 1fr; gap: 10px; }
+}
+@media (max-width: 680px) {
+  .neighborhood-start,
+  .neighborhood-steps { grid-template-columns: 1fr; }
+  .neighborhood-guide { padding-top: 26px; }
+  .neighborhood-step { padding: 17px; }
+  .neighborhood-fact { padding: 19px; }
+  .neighborhood-template > summary { padding: 16px 18px; }
+  .neighborhood-template-body { padding: 0 18px 18px; }
+  .neighborhood-template pre { padding: 14px; font-size: .8rem; }
 }

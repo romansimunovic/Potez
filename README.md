@@ -19,7 +19,7 @@ Aplikacija je organizirana u pet jasno odvojenih područja. Na mobitelu se otvar
 - **Početna** — kratko predstavljanje POTEZA i pregled sadržaja.
 - **Uči** — kratke tematske kartice, zanimljivost dana, kvizovi i izvori.
 - **Isprobaj** — situacijske igre, simulacija javnog proračuna i osobni napredak.
-- **U praksi** — pregled institucija, nadležnosti i službenih informacija.
+- **U praksi** — pregled institucija i nadležnosti te praktični vodič od komunalne prijave i prijedloga u kvartu do mjesnog odbora, godišnjih programa i gradskog proračuna.
 - **Resursi** — odabrane poveznice, materijali za radionice i primjeri iz prakse.
 
 Sadržaj je namijenjen prvenstveno mladima, ali ga mogu koristiti svi koji žele razumljivije pratiti javne odluke i građansko sudjelovanje.
@@ -90,7 +90,7 @@ Dijeljenje napretka pokreće se samo kada korisnik pritisne gumb. Koristi se izv
 
 Proračunski izazov je edukativna simulacija, ne službeni gradski proračun niti prognoza potrošnje. Model obuhvaća 42 grada, koristi Popis 2021. i jasno označava vlastite troškovne pretpostavke. Potpuna demografska osnova, formula, raspodjela, izvori i ograničenja nalaze se u [metodologiji simulacije lokalnog proračuna](docs/BUDGET_MODEL_2026.md).
 
-## Dokumentacija projekta
+## Granica sadržaja\n\nPOTEZ daje sažet nacionalni okvir i praktične sljedeće korake; ne pokušava biti enciklopedija ili imenik lokalnih procedura. Konkretne ovlasti mjesnih odbora, kontakti, obrasci i rokovi ovise o važećem statutu i odlukama grada/općine. Uredničko pravilo ograničavanja opsega nalazi se u [uredničkim načelima](docs/CONTENT_PRINCIPLES.md).\n\n## Dokumentacija projekta
 
 - [Urednička načela i standardi provjere](docs/CONTENT_PRINCIPLES.md)
 - [Izvori za edukativne sadržaje](docs/LEARNING_SOURCES_2026.md)
