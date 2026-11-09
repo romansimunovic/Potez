@@ -345,7 +345,7 @@ checks = (
     "Zbor građana",
     "10 % ukupnog broja birača",
     "tri mjeseca",
-    "Program održavanja komunalne infrastrukture",
+    "program održavanja komunalne infrastrukture",
     "Program građenja komunalne infrastrukture",
 )
 for token in checks:
