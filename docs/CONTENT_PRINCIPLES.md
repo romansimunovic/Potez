@@ -64,3 +64,15 @@ Ne obećavati da prijava, peticija ili komentar nužno mijenjaju odluku.
 - Ako se objavljuje AI-generirani ili izmijenjeni tekst o pitanju od javnog interesa bez ljudske provjere ili uredničkog nadzora, zasebno procijeniti obvezu označavanja iz članka 50. stavka 4. AI Acta.
 - Ako se u aplikaciju uvede AI sustav koji izravno komunicira s korisnicima, prije uporabe osigurati jasnu obavijest da korisnik komunicira s AI sustavom te ponovno procijeniti privatnost, sigurnost i primjenjive propise.
 - Svaka nova AI funkcionalnost zahtijeva zasebnu procjenu svrhe, podataka, rizika, odgovornosti i obavijesti korisnicima; ova izjava nije zamjena za pravnu procjenu.
+
+
+## Granica opsega i praktična vrijednost
+
+POTEZ nije enciklopedija javne uprave niti imenik svih lokalnih procedura. Sadržaj ima prednost kada odgovara na konkretno pitanje, objašnjava tko je nadležan, pokazuje izvediv sljedeći korak i vodi do jednog do tri provjerena izvora.
+
+- Tematska kartica ili vodič treba dati kratak odgovor, praktičan korak i primarni izvor; dodatni kontekst otvara se na zahtjev.
+- Ne dodavati svaku povezanu instituciju, propis ili iznimku ako ne mijenja razumijevanje ili postupanje korisnika.
+- Nacionalni okvir može se prikazati zajednički. Specifične lokalne ovlasti, obrasci, kontakti i rokovi objavljuju se samo kada su provjereni prema važećem statutu, lokalnim odlukama i službenim stranicama konkretne jedinice.
+- Kada lokalni postupak nije provjeren, jasno uputiti korisnika na službeni izvor umjesto popunjavanja praznina pretpostavkama.
+- Svaki vodič treba jasno označiti što ne pokriva i kada treba provjeriti aktualni lokalni propis.
+- Prije dodavanja nove teme procijeniti može li postojeća kartica ili vodič odgovoriti na isto pitanje. Širina sadržaja ne smije potisnuti čitljivost i mogućnost stvarnog djelovanja.
