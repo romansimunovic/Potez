@@ -48,7 +48,16 @@
     const activeRoute=view?.dataset.appView||'home';
     routeLinks.forEach(link=>{if(link.dataset.appRoute===activeRoute)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
   }
-  function showView(view,target,scroll){
+  function focusDestination(destination,view){
+    let focusTarget=destination===view?(view.querySelector('h1')||view):destination;
+    if(focusTarget?.matches?.('details'))focusTarget=focusTarget.querySelector('summary')||focusTarget;
+    else if(focusTarget?.matches?.('section,article'))focusTarget=focusTarget.querySelector('h2,h3,h4')||focusTarget;
+    if(!focusTarget)return;
+    const nativelyFocusable=focusTarget.matches('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),summary,[tabindex]');
+    if(!nativelyFocusable)focusTarget.setAttribute('tabindex','-1');
+    focusTarget.focus({preventScroll:true});
+  }
+  function showView(view,target,scroll,moveFocus=false){
     if(!view)view=homeView;
     let ancestor=target;
     while(ancestor){
@@ -59,15 +68,17 @@
     updateActiveNavigation(view);
     if(scroll){
       const destination=target&&target!==view?target:view;
-      if(destination===homeView||destination.id==='top')window.scrollTo({top:0,behavior:'auto'});
-      else destination.scrollIntoView({behavior:'auto',block:'start'});
+      const behavior=document.documentElement.dataset.motion==='reduce'?'auto':'smooth';
+      if(destination===homeView||destination.id==='top')window.scrollTo({top:0,behavior});
+      else destination.scrollIntoView({behavior,block:'start'});
+      if(moveFocus)focusDestination(destination,view);
     }
   }
-  function routeFromHash(scroll){
+  function routeFromHash(scroll,moveFocus=false){
     if(mobileMenu?.open)closeMobileMenu(true);
     const id=decodeURIComponent(window.location.hash.slice(1));
     const target=id?document.getElementById(id):null;
-    showView(viewForTarget(target)||homeView,target||homeView,Boolean(scroll));
+    showView(viewForTarget(target)||homeView,target||homeView,Boolean(scroll),Boolean(moveFocus));
   }
   document.addEventListener('click',event=>{
     const link=event.target.closest('a[href^="#"]');
@@ -80,10 +91,10 @@
     if(link.closest('#mobileMenu'))closeMobileMenu(true);
     const nextHash='#'+encodeURIComponent(id);
     if(window.location.hash!==nextHash)window.history.pushState(null,'',nextHash);
-    showView(view,target,true);
+    showView(view,target,true,true);
   });
-  window.addEventListener('popstate',()=>routeFromHash(true));
-  window.addEventListener('hashchange',()=>routeFromHash(true));
+  window.addEventListener('popstate',()=>routeFromHash(true,true));
+  window.addEventListener('hashchange',()=>routeFromHash(true,true));
   function updateHomeProgress(){
     const score=document.getElementById('homeXp');
     const title=document.getElementById('homeProgressTitle');
