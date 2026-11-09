@@ -97,7 +97,7 @@ python - <<'PY'
 from pathlib import Path
 html = Path("index.html").read_text(encoding="utf-8")
 css = Path("assets/styles.css").read_text(encoding="utf-8")
-assert 'class="tool-disclosure"' in html and 'tool-workshop-list' in html
+assert 'class="tool-disclosure"' in html and 'class="facilitator-kit"' in html
 assert 'id="mobileMenu"' in html and 'mobile-menu-panel' in Path("assets/styles.css").read_text(encoding="utf-8")
 assert 'mobile-nav-icon' not in html and '<nav class="mobile-nav"' not in html
 assert 'class="issue-guide-card"' in html
