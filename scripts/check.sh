@@ -116,7 +116,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v24" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v25" in sw and "'/assets/budget-data.js'" in sw
 
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
 assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
@@ -155,7 +155,7 @@ assert "data-budget-name for=" in app
 assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v24" in sw
+assert "potez-pilot-v25" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "Ovo nije službeni gradski proračun." in html
@@ -232,7 +232,7 @@ for token in ('name="description"', 'name="keywords"', 'name="author"',
               'https://potez.pages.dev/og-image.png'):
     assert token in html, token
 assert 'content="12' not in html or '12 tema' in html
-assert 'potez-pilot-v24' in sw
+assert 'potez-pilot-v25' in sw
 assert "'/assets/learning-data.js'" in sw and "'/assets/learning.js'" in sw
 assert "awardLesson" in app and "claimDailyFact" in app
 assert "saved.dailyFactStamp===stamp" in app
@@ -310,6 +310,24 @@ assert "50–55 minuta" in html
 assert 'focusTarget.focus({preventScroll:true})' in navigation
 assert "dataset.motion==='reduce'" in navigation
 assert ".home-educator-promo" in css
-assert "potez-pilot-v24" in sw
+assert "potez-pilot-v25" in sw
 print("POTEZ educator pathway and route accessibility checks passed.")
+PY
+
+
+python - <<'PY'
+from pathlib import Path
+
+html = Path("index.html").read_text(encoding="utf-8")
+css = Path("assets/styles.css").read_text(encoding="utf-8")
+sw = Path("sw.js").read_text(encoding="utf-8")
+
+assert 'class="hero"' in html and 'class="hero-copy"' in html
+assert ".app-home .hero h1" in css
+assert "text-wrap:balance" in css
+assert "line-height:1.1" in css and "letter-spacing:-.042em" in css
+assert ".app-home .hero .actions" in css
+assert "grid-template-columns:1fr" in css
+assert "potez-pilot-v25" in sw
+print("POTEZ homepage typography, CTA spacing and cache checks passed.")
 PY
