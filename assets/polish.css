@@ -1,0 +1,49 @@
+/* POTEZ UX polish — loaded after styles.css. Self-hosted fonts: no third-party requests. */
+@font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:swap;src:url(/assets/fonts/figtree-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:swap;src:url(/assets/fonts/figtree-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/bricolage-grotesque-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--font-body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--font-display:"Bricolage Grotesque","Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--ease-out:cubic-bezier(.2,.75,.25,1);--t-fast:.15s;--t-base:.22s;--lift:translateY(-3px);--section-space:clamp(4rem,7vw,6.5rem);--card-pad:clamp(20px,2.2vw,28px);--grid-gap:clamp(14px,1.6vw,20px)}
+body{font-family:var(--font-body);line-height:1.65;font-optical-sizing:auto;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+:root :is(h1,h2,h3,h4){font-family:var(--font-display);text-wrap:balance}
+:root :is(h1,h2){font-weight:800;line-height:1.1}
+:root :is(h3,h4){font-weight:700;line-height:1.22}
+.hero h1{font-size:clamp(3rem,5.6vw,5rem);line-height:1.06;letter-spacing:-.035em}
+.brand{font-family:var(--font-display);font-weight:800}
+.stat strong,.passport-stat strong,.budget-total strong{font-family:var(--font-display);font-weight:800;font-variant-numeric:tabular-nums}
+.btn{font-weight:700;letter-spacing:.005em}.nav a{font-size:.9rem;font-weight:600}.choice,.daily-choice{font-weight:600}.number,.home-step-icon{font-weight:800}
+.eyebrow,.section-kicker,.art-label,.sticker,.brand-sub,.neighborhood-kicker,.daily-fact-kicker,.daily-case-top,.daily-outcome-label,.learning-topic-label,.learning-source-caption,.field label{font-weight:700;letter-spacing:.1em}
+.link-card strong,.resource-feature strong,.home-step-card strong,.path-card strong{font-weight:700;letter-spacing:-.01em}
+.accessibility-menu>summary .accessibility-icon{width:16px;height:16px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stat small,.daily-source,.field-hint,.fake-meta,.link-card .go,.form-status{font-size:.8125rem}
+.section-head{margin-bottom:clamp(28px,4vw,44px)}
+.panel,.link-card,.home-step-card,.resource-feature,.path-card,.level-card,.europe-case,.issue-path-card,.facilitator-card{padding:var(--card-pad)}
+.link-grid,.home-step-grid,.resource-feature-grid,.facilitator-grid,.neighborhood-steps,.neighborhood-facts,.stat-strip{gap:var(--grid-gap)}
+.actions{gap:12px;margin-top:28px}
+.btn,.nav a,.path-card,.link-card,.resource-feature,.home-step-card,.issue-path-card,.choice,.daily-choice,.resource-links a{transition:transform var(--t-base) var(--ease-out),box-shadow var(--t-base) var(--ease-out),border-color var(--t-fast) ease,background-color var(--t-fast) ease,color var(--t-fast) ease}
+.facilitator-card:hover{transform:none;box-shadow:none}
+@media (hover:hover) and (pointer:fine){
+.nav a:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.path-card:hover,.link-card:hover,.resource-feature:hover,.home-step-card:hover,.issue-path-card:hover{transform:var(--lift);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--green-deep) 38%,var(--line))}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(23,33,29,.14)}
+.btn-dark:hover:not(:disabled){background:#2d3b34}.btn-green:hover:not(:disabled){background:#d9f685}
+.btn-light:hover:not(:disabled){border-color:var(--ink);background:var(--paper)}
+.choice:hover:not(:disabled),.daily-choice:hover:not(:disabled){border-color:var(--green-deep);background:color-mix(in srgb,var(--green) 22%,var(--surface))}
+.resource-links a:hover{background:var(--green);color:#17211d!important;border-color:#91ad56;text-decoration-thickness:2px}
+}
+.btn:active:not(:disabled){transform:scale(.98);box-shadow:none}
+.nav a[aria-current="page"]{background:var(--green-soft);color:var(--ink);font-weight:700;text-decoration:none;box-shadow:inset 0 0 0 1px var(--line)}
+.path-card:focus-visible,.link-card:focus-visible,.resource-feature:focus-visible,.home-step-card:focus-visible,.issue-path-card:focus-visible{transform:var(--lift)}
+@media (hover:none){
+.btn:hover:not(:disabled){transform:none;box-shadow:none}
+.nav a:hover{background:transparent}
+.path-card:hover,.link-card:hover,.home-step-card:hover,.issue-path-card:hover{transform:none;box-shadow:none;border-color:var(--line)}
+.resource-feature:hover{transform:none;box-shadow:var(--shadow-sm);border-color:var(--line)}
+.choice:hover:not(:disabled),.daily-choice:hover:not(:disabled){border-color:var(--line);background:var(--surface)}
+.resource-links a:hover{background:transparent;color:inherit;border-color:var(--line)}
+}
+@media (max-width:600px){.stat-strip{grid-template-columns:1fr;gap:10px}.stat{min-height:0}.stat span{font-size:.875rem}.stat small{font-size:.8125rem}.section-head{margin-bottom:24px}}
+@media (prefers-reduced-motion:reduce){
+.btn,.nav a,.path-card,.link-card,.resource-feature,.home-step-card,.issue-path-card,.choice,.daily-choice,.resource-links a{transition:none}
+.path-card:hover,.link-card:hover,.resource-feature:hover,.home-step-card:hover,.issue-path-card:hover,.path-card:focus-visible,.link-card:focus-visible,.resource-feature:focus-visible,.home-step-card:focus-visible,.issue-path-card:focus-visible,.btn:hover:not(:disabled){transform:none}
+}
