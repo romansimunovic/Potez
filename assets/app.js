@@ -50,7 +50,7 @@
     $('#quizQuestion').textContent=q.q;$('#quizProgressLabel').textContent='Pitanje '+(qi+1)+' / '+qs.length;$('#quizProgress').style.width=((qi+1)/qs.length*100)+'%';$('#quizScore').textContent=score+' / '+qs.length+' točno';$('#quizFeedback').className='feedback';$('#quizFeedback').textContent='';$('#quizNext').style.display='none';$('#quizRestart').style.display='none';
     const box=$('#quizChoices');box.replaceChildren();quizOptions.forEach((option,i)=>{const b=document.createElement('button');b.className='choice';b.type='button';const label=document.createElement('span');label.textContent=option.text;const key=document.createElement('span');key.className='key';key.textContent=String.fromCharCode(65+i);b.append(label,key);b.addEventListener('click',()=>answerQuiz(i));box.appendChild(b)});answered=false;
   }
-  function answerQuiz(i){if(answered)return;answered=true;const q=qs[qi];const correct=Boolean(quizOptions[i]?.correct);const buttons=$('#quizChoices .choice');buttons.forEach((b,j)=>{b.disabled=true;if(quizOptions[j]?.correct)b.classList.add('correct');if(j===i&&!quizOptions[j]?.correct)b.classList.add('wrong')});if(correct)score++;$('#quizScore').textContent=score+' / '+qs.length+' točno';const f=$('#quizFeedback');f.innerHTML='<strong>'+(correct?'Točno.':'Nije točno. Objašnjenje je u nastavku.')+'</strong>'+q.why;f.classList.add('show');if(qi<qs.length-1){$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Sljedeće pitanje →'}else{$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Završi izazov';}}
+  function answerQuiz(i){if(answered)return;answered=true;const q=qs[qi];const correct=Boolean(quizOptions[i]?.correct);const buttons=$('#quizChoices .choice');buttons.forEach((b,j)=>{b.disabled=true;if(quizOptions[j]?.correct)b.classList.add('correct');if(j===i&&!quizOptions[j]?.correct)b.classList.add('wrong')});if(correct)score++;$('#quizScore').textContent=score+' / '+qs.length+' točno';const f=$('#quizFeedback');f.innerHTML='<strong>'+(correct?'Točno.':'Nije točno. Objašnjenje je u nastavku.')+'</strong>'+q.why;f.classList.add('show');if(qi<qs.length-1){$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Sljedeće pitanje →'}else{$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Dovršetak izazova';}}
   $('#quizNext').addEventListener('click',()=>{if(qi<qs.length-1){qi++;renderQuiz()}else{award('quizDone',15,'istraživački izazov');$('#quizNext').style.display='none';$('#quizRestart').style.display='inline-flex';$('#quizFeedback').innerHTML+='<br><strong>Rezultat: '+score+'/4.</strong> Najvažniji dio nije rezultat nego kontekst: ovo je uzorak učenika završnih razreda, a ne svih mladih.';}});
   $('#quizRestart').addEventListener('click',()=>{qi=0;score=0;renderQuiz()});renderQuiz();
 
@@ -265,7 +265,7 @@
     complete.id='actionComplete';
     complete.type='button';
     complete.disabled=Boolean(saved.actionDone);
-    complete.textContent=saved.actionDone?'Tema pregledana ✓':'Označi kao pregledano · +5 XP';
+    complete.textContent=saved.actionDone?'Tema pregledana ✓':'Označavanje kao pregledano · +5 XP';
     complete.addEventListener('click',()=>{
       if(saved.actionDone)return;
       award('actionDone',5,'pregledana tema');

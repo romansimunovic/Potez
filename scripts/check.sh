@@ -116,7 +116,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "prefers-color-scheme: dark" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v28" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v29" in sw and "'/assets/budget-data.js'" in sw
 
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
 assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
@@ -144,6 +144,16 @@ assert 'href="/assets/polish.css"' in Path("uvjeti.html").read_text(encoding="ut
 assert 'class="budget-method"' in html
 assert 'id="budgetPopulationMeta"' in html
 assert "budgetPopulationMeta" in Path("assets/app.js").read_text(encoding="utf-8")
+assert "Saznaj više ↗" not in html
+assert "Ponovi izazov" not in html
+assert "Prilagodi prikaz" not in html
+assert "Završi izazov" not in Path("assets/app.js").read_text(encoding="utf-8")
+assert "Provjeri izvor, kontekst i raspoložive dokaze." not in Path("assets/app.js").read_text(encoding="utf-8")
+assert "Provjeri statut, kućni red" not in Path("assets/learning-data.js").read_text(encoding="utf-8")
+assert "Potraži odluku nadležnog tijela" not in Path("assets/app.js").read_text(encoding="utf-8")
+assert "Saznaj više ↗" not in Path("assets/civic.js").read_text(encoding="utf-8")
+assert Path("docs/STYLE_GUIDE.md").is_file()
+
 data = Path("assets/budget-data.js").read_text(encoding="utf-8")
 for city in ("zagreb", "split", "rijeka", "osijek", "zadar", "velika-gorica", "pula", "slavonski-brod", "dubrovnik", "vinkovci", "vukovar", "djakovo", "pozega", "virovitica", "nova-gradiska", "slatina", "valpovo", "belisce", "nasice"):
     assert city in data, city
@@ -163,7 +173,7 @@ assert "data-budget-name for=" in app
 assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v28" in sw
+assert "potez-pilot-v29" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "Ovo nije službeni gradski proračun." in html
@@ -240,7 +250,7 @@ for token in ('name="description"', 'name="keywords"', 'name="author"',
               'https://potez.pages.dev/og-image.png'):
     assert token in html, token
 assert 'content="12' not in html or '12 tema' in html
-assert 'potez-pilot-v28' in sw
+assert 'potez-pilot-v29' in sw
 assert "'/assets/learning-data.js'" in sw and "'/assets/learning.js'" in sw
 assert "awardLesson" in app and "claimDailyFact" in app
 assert "saved.dailyFactStamp===stamp" in app
@@ -318,7 +328,7 @@ assert "50–55 minuta" in html
 assert 'focusTarget.focus({preventScroll:true})' in navigation
 assert "dataset.motion==='reduce'" in navigation
 assert ".home-educator-promo" in css
-assert "potez-pilot-v28" in sw
+assert "potez-pilot-v29" in sw
 print("POTEZ educator pathway and route accessibility checks passed.")
 PY
 
@@ -336,7 +346,7 @@ assert "text-wrap:balance" in css
 assert "line-height:1.1" in css and "letter-spacing:-.042em" in css
 assert ".app-home .hero .actions" in css
 assert "grid-template-columns:1fr" in css
-assert "potez-pilot-v28" in sw
+assert "potez-pilot-v29" in sw
 print("POTEZ homepage typography, CTA spacing and cache checks passed.")
 PY
 
@@ -372,7 +382,7 @@ for font in (
     "bricolage-grotesque-latin-ext-wght-normal.woff2",
 ):
     assert Path("assets/fonts", font).is_file(), font
-assert "potez-pilot-v28" in sw
+assert "potez-pilot-v29" in sw
 assert "font-family: Inter," not in css
 assert 'href="https://narodne-novine.nn.hr/clanci/sluzbeni/full/2020_12_144_2762.html"' in html
 assert 'href="https://narodne-novine.nn.hr/clanci/sluzbeni/2018_07_68_1393.html"' in html

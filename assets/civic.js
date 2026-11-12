@@ -202,7 +202,7 @@
     {
       label: 'Javni natječaj · poštena pravila',
       title: 'Tko dobiva ugovor za novi skate-park?',
-      story: 'Tvoja ekipa godinama traži siguran prostor za skejtanje. Grad napokon objavljuje natječaj za uređenje skate-parka. U dokumentima primijetiš da je osoba povezana s jednim ponuditeljem sudjelovala u povjerenstvu. Ne znaš je li to prijavljeno ni kako je ponuda ocijenjena.',
+      story: 'Skupina mladih godinama traži siguran prostor za skejtanje. Grad objavljuje natječaj za uređenje skate-parka. U dokumentima se vidi da je osoba povezana s jednim ponuditeljem sudjelovala u povjerenstvu. Nije jasno je li sukob interesa prijavljen ni kako je ponuda ocijenjena.',
       question: 'Koji je postupak najprimjereniji?',
       options: [
         { text: 'Zamoliti poznanika da pogura ponudu.', best: false, feedback: 'Poznanstvo nije kriterij. Pritisak narušava jednaka pravila i može ugroziti postupak.' },
@@ -215,7 +215,7 @@
     {
       label: 'Javni poziv · ista pravila za sve',
       title: 'Zašto je drugi projekt dobio više bodova?',
-      story: 'Prijavili ste ideju za mali glazbeni festival na gradski natječaj za mlade. Rezultati su objavljeni, ali ne razumiješ zašto je drugi projekt dobio više bodova. U objavi nema detaljnog obrazloženja.',
+      story: 'Ideja za mali glazbeni festival prijavljena je na gradski natječaj za mlade. Rezultati su objavljeni, ali nije jasno zašto je drugi projekt dobio više bodova. U objavi nema detaljnog obrazloženja.',
       question: 'Kako možeš provjeriti je li odluka bila poštena?',
       options: [
         { text: 'Tražiti objavljene kriterije, svoje bodovanje i obrazloženje odluke.', best: true, feedback: 'Usporedba unaprijed objavljenih kriterija i bodovanja; prema potrebi i zahtjev za obrazloženjem.' },
@@ -265,9 +265,9 @@
       takeaway: 'Pravedna odluka ima jasne kriterije i obrazloženje.'
     },
     {
-      label: 'Javno savjetovanje · tvoj komentar',
+      label: 'Javno savjetovanje · komentar',
       title: 'Nova autobusna linija ne odgovara učenicima.',
-      story: 'Grad objavi prijedlog izmjene voznog reda i otvori javno savjetovanje. Nova linija prolazi blizu škole, ali polazi deset minuta prije završetka nastave. Imaš nekoliko dana za komentar.',
+      story: 'Grad objavljuje prijedlog izmjene voznog reda i otvara javno savjetovanje. Nova linija prolazi blizu škole, ali polazi deset minuta prije završetka nastave. Za komentar je dostupno nekoliko dana.',
       question: 'Koji komentar ima najveću šansu da bude koristan?',
       options: [
         { text: '„Ovo je glupost, napravite nešto normalno.”', best: false, feedback: 'Uvreda ne daje tijelu podatak na temelju kojeg može promijeniti prijedlog.' },
@@ -280,7 +280,7 @@
     {
       label: 'Javna informacija · pristup dokumentu',
       title: 'Obećali su obnovu igrališta. Gdje je zapelo?',
-      story: 'Prije pola godine objavljeno je da će igralište biti obnovljeno. Radovi nisu počeli, a na mrežama se šire nagađanja. Ne znaš je li problem u novcu, natječaju ili dozvoli.',
+      story: 'Prije pola godine objavljeno je da će igralište biti obnovljeno. Radovi nisu počeli, a na mrežama se šire nagađanja. Nije jasno je li problem u novcu, natječaju ili dozvoli.',
       question: 'Što treba provjeriti prije zaključka?',
       options: [
         { text: 'Zatražiti postojeće dokumente: odluku, ugovor, rokove i status radova.', best: true, feedback: 'Potrebno je zatražiti odluku, ugovor i rokove te utvrditi tko je odgovoran za provedbu.' },
@@ -345,9 +345,9 @@
     let index=Math.max(0,Math.min(Number(saved.dailyRunIndex)||0,order.length)),item=null,options=[],answered=false;
     function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved));}catch{}window.dispatchEvent(new CustomEvent('potez:progress'));}
     function progress(){bar.style.width=(completed.length/dailyQuestions.length*100)+'%';progressLabel.textContent=completed.length+' / '+dailyQuestions.length+' izazova';}
-    function shareText(message){if(navigator.share){navigator.share({title:'POTEZ — izazov',text:message}).catch(e=>{if(e&&e.name!=='AbortError')notify('Dijeljenje nije dostupno.');});return;}const t=document.createElement('textarea');t.value=message;document.body.appendChild(t);t.select();try{document.execCommand('copy');notify('Tekst je kopiran. Podijeli ga s ekipom.');}catch{notify('Kopiranje nije dostupno.');}t.remove();}
+    function shareText(message){if(navigator.share){navigator.share({title:'POTEZ — izazov',text:message}).catch(e=>{if(e&&e.name!=='AbortError')notify('Dijeljenje nije dostupno.');});return;}const t=document.createElement('textarea');t.value=message;document.body.appendChild(t);t.select();try{document.execCommand('copy');notify('Tekst je kopiran i spreman za dijeljenje.');}catch{notify('Kopiranje nije dostupno.');}t.remove();}
     function complete(){title.textContent='Sve su situacije obrađene.';story.textContent='Sada je jasnije gdje pronaći izvor, kako postaviti pitanje i kome se obratiti.';q.textContent='Što dalje?';choices.replaceChildren();const p=document.createElement('p');p.textContent='Sve su situacije pregledane. Dostupni su ponovni prolazak i dijeljenje.';feedback.replaceChildren(p);next.textContent='Ponovno pokretanje situacija ↻';next.hidden=false;next.onclick=()=>{saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed^(Date.now()%65535));saved.dailyRunIndex=0;persist();render();};share.hidden=false;share.onclick=()=>shareText('Pregledao/la sam POTEZ — '+dailyQuestions.length+' kratkih situacija o javnim odlukama i građanskom sudjelovanju. Pogledaj i ti: https://potez.pages.dev/#igraj');progress();}
-    function feedbackFor(option,earned){const h=document.createElement('strong');h.className='daily-feedback-title';h.textContent=option.best?'To je dobro potkrijepljen odgovor.':'Ovaj odgovor zanemaruje važan dio postupka.';const ex=document.createElement('p');ex.textContent=option.feedback;const out=document.createElement('p');out.textContent=item.outcome;const take=document.createElement('p');take.className='daily-takeaway';take.textContent=item.takeaway;const xp=document.createElement('p');xp.className='daily-feedback-xp';xp.textContent=earned?'+3 XP':'Bodovi su već osvojeni';const nodes=[h,ex,out,take];if(item.sourceUrl){const source=document.createElement('p');source.className='daily-source';source.textContent='Izvor: '+item.source+' ';const link=document.createElement('a');link.href=item.sourceUrl;link.target='_blank';link.rel='noopener';link.textContent='Izvor ↗';source.appendChild(link);nodes.push(source);}nodes.push(xp);feedback.replaceChildren(...nodes);next.textContent=index+1===order.length?'Završi rutu →':'Sljedeća situacija →';next.hidden=false;next.onclick=()=>{saved.dailyRunIndex=index+1;persist();render();};share.hidden=false;share.onclick=()=>shareText('POTEZ izazov: '+item.title+'\n'+item.takeaway+'\nOdigraj i ti: https://potez.pages.dev/#igraj');}
+    function feedbackFor(option,earned){const h=document.createElement('strong');h.className='daily-feedback-title';h.textContent=option.best?'To je dobro potkrijepljen odgovor.':'Ovaj odgovor zanemaruje važan dio postupka.';const ex=document.createElement('p');ex.textContent=option.feedback;const out=document.createElement('p');out.textContent=item.outcome;const take=document.createElement('p');take.className='daily-takeaway';take.textContent=item.takeaway;const xp=document.createElement('p');xp.className='daily-feedback-xp';xp.textContent=earned?'+3 XP':'Bodovi su već osvojeni';const nodes=[h,ex,out,take];if(item.sourceUrl){const source=document.createElement('p');source.className='daily-source';source.textContent='Izvor: '+item.source+' ';const link=document.createElement('a');link.href=item.sourceUrl;link.target='_blank';link.rel='noopener';link.textContent='Izvor ↗';source.appendChild(link);nodes.push(source);}nodes.push(xp);feedback.replaceChildren(...nodes);next.textContent=index+1===order.length?'Kraj rute →':'Sljedeća situacija →';next.hidden=false;next.onclick=()=>{saved.dailyRunIndex=index+1;persist();render();};share.hidden=false;share.onclick=()=>shareText('POTEZ izazov: '+item.title+'\n'+item.takeaway+'\nOdigraj i ti: https://potez.pages.dev/#igraj');}
     function render(){index=Math.max(0,Math.min(Number(saved.dailyRunIndex)||0,order.length));progress();if(index>=order.length){complete();return;}item=dailyQuestions[order[index]];options=shuffle(item.options,hash(today+':'+order[index]));answered=false;choices.replaceChildren();feedback.replaceChildren();next.hidden=true;share.hidden=true;title.textContent=item.title;story.textContent=item.story;q.textContent=item.question;options.forEach((option,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='daily-choice';btn.dataset.letter=String.fromCharCode(65+i);btn.textContent=option.text;btn.addEventListener('click',()=>{if(answered)return;answered=true;const earned=!completed.includes(item.title);choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(i===j){el.classList.add('chosen');if(!option.best)el.classList.add('wrong');}});if(earned){completed.push(item.title);saved.dailyCompletedIds=completed;saved.dailyChoiceById=saved.dailyChoiceById||{};saved.dailyChoiceById[item.title]=option.text;saved.xp=Math.max(0,Number(saved.xp)||0)+3;persist();window.POTEZ_FEEDBACK?.success();}progress();feedbackFor(option,earned);notify(earned?'+3 XP':'Već riješeno.');});choices.appendChild(btn);});const previous=(saved.dailyChoiceById||{})[item.title];if(previous){const chosen=options.findIndex(o=>o.text===previous);if(chosen>=0){answered=true;choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(j===chosen){el.classList.add('chosen');if(!options[j].best)el.classList.add('wrong');}});feedbackFor(options[chosen],false);}}}
     render();
     window.addEventListener('potez:reset', () => {
