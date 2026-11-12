@@ -104,7 +104,7 @@
     try{saved=JSON.parse(window.localStorage.getItem(STORAGE_KEY)||'{}')||{};}catch{}
     const xp=Math.max(0,Number(saved.xp)||0);
     score.textContent=xp+' XP';
-    if(xp>0){title.textContent='Već si istražio/la dio sadržaja.';description.textContent='Skupio/la si '+xp+' XP. Nastavi istraživati teme i izazove koji te zanimaju.';}
+    if(xp>0){title.textContent='Dio sadržaja već je pregledan.';description.textContent='Ostvareno je '+xp+' XP. Dostupne su i druge teme i izazovi.';}
     else{title.textContent='Tvoj put počinje jednim pitanjem.';description.textContent='Kratki izazovi omogućuju praćenje napretka bez otvaranja korisničkog računa.';}
   }
   window.addEventListener('potez:progress',updateHomeProgress);
