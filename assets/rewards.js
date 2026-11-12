@@ -15,7 +15,7 @@
     if (!button) return;
     button.setAttribute('aria-pressed', String(soundEnabled));
     button.textContent = soundEnabled ? '♪ Zvuk: uključen' : '♪ Zvuk: isključen';
-    button.title = soundEnabled ? 'Isključi kratki zvuk nagrade' : 'Uključi kratki zvuk nagrade';
+    button.title = soundEnabled ? 'Isključivanje zvuka nagrade' : 'Uključivanje zvuka nagrade';
   }
 
   function savePreference() {

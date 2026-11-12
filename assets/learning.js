@@ -51,7 +51,7 @@
 
     const details = document.createElement('details');
     details.className = 'learning-card-details';
-    const summary = el('summary', '', 'Pogledaj objašnjenje');
+    const summary = el('summary', '', 'Objašnjenje');
     details.append(summary);
 
     const question = el('p', 'learning-question', topic.question);

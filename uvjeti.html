@@ -9,16 +9,21 @@
   <title>Uvjeti korištenja — POTEZ</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="preload" href="/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/figtree-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/polish.css" />
   <script src="/assets/accessibility.js" defer></script>
 </head>
 <body class="legal-page">
-  <a class="skip-link" href="#content">Preskoči na sadržaj</a>
+  <a class="skip-link" href="#content">Prijelaz na glavni sadržaj</a>
   <div class="shell">
     <header class="topline">
       <a href="/" class="brand" aria-label="POTEZ početna">potez<span class="brand-dot"></span></a>
       <nav class="nav" aria-label="Navigacija"><a href="/">Početna</a><a href="/privacy.html">Privatnost</a></nav>
-      <details class="accessibility-menu" id="accessibilityMenu"><summary aria-label="Otvori postavke pristupačnosti">◐ Pristupačnost</summary><div class="accessibility-panel" aria-label="Postavke prikaza"><div class="accessibility-panel-heading"><strong>Prilagodi prikaz</strong></div><section class="accessibility-control"><div><strong>Izgled</strong></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section><section class="accessibility-control"><div><strong>Veličina teksta</strong><span id="fontScaleValue">100 %</span></div><div class="accessibility-actions"><button type="button" data-font-step="-1" aria-label="Smanji tekst">A−</button><button type="button" data-font-step="1" aria-label="Povećaj tekst">A+</button></div></section><section class="accessibility-control"><div><strong>Visoki kontrast</strong></div><button type="button" class="accessibility-toggle" data-setting="contrast" aria-pressed="false">Isključeno</button></section><section class="accessibility-control"><div><strong>Smanji animacije</strong></div><button type="button" class="accessibility-toggle" data-setting="motion" aria-pressed="false">Isključeno</button></section><button type="button" class="accessibility-reset" id="resetAccessibility">Vrati početne postavke</button></div></details>
+      <details class="accessibility-menu" id="accessibilityMenu"><summary aria-label="Postavke pristupačnosti"><svg class="accessibility-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 0 0-18Z" fill="currentColor" stroke="none"/></svg> Pristupačnost</summary><div class="accessibility-panel" aria-label="Postavke prikaza"><div class="accessibility-panel-heading"><strong>Postavke prikaza</strong></div><section class="accessibility-control"><div><strong>Izgled</strong></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section><section class="accessibility-control"><div><strong>Veličina teksta</strong><span id="fontScaleValue">100 %</span></div><div class="accessibility-actions"><button type="button" data-font-step="-1" aria-label="Smanjenje veličine teksta">A−</button><button type="button" data-font-step="1" aria-label="Povećanje veličine teksta">A+</button></div></section><section class="accessibility-control"><div><strong>Visoki kontrast</strong></div><button type="button" class="accessibility-toggle" data-setting="contrast" aria-pressed="false">Isključeno</button></section><section class="accessibility-control"><div><strong>Smanjene animacije</strong></div><button type="button" class="accessibility-toggle" data-setting="motion" aria-pressed="false">Isključeno</button></section><button type="button" class="accessibility-reset" id="resetAccessibility">Vraćanje na početne postavke</button></div></details>
     </header>
     <main id="content" class="legal-content" tabindex="-1">
 
@@ -35,23 +40,23 @@
       <section class="legal-panel">
         <h2>2. Za što je platforma namijenjena?</h2>
         <p>POTEZ služi informiranju i učenju: objašnjava razine odlučivanja, potiče provjeru izvora, koristi edukativne kvizove i simulacije te upućuje na javne alate i inicijative.</p>
-        <p>Sadržaj je opće informativne i edukativne naravi. Nije pravni, financijski, porezni, stručni ni službeni institucionalni savjet. Za postupanje u konkretnom slučaju provjeri aktualne propise i obrati se nadležnoj instituciji ili kvalificiranom stručnjaku.</p>
+        <p>Sadržaj je opće informativne i edukativne naravi. Nije pravni, financijski, porezni, stručni ni službeni institucionalni savjet. Za postupanje u konkretnom slučaju potrebno je provjeriti aktualne propise te se obratiti nadležnoj instituciji ili kvalificiranom stručnjaku.</p>
       </section>
 
       <section class="legal-panel">
         <h2>3. Točnost, izvori i ograničenja</h2>
-        <p>Autor nastoji navesti izvore i jasno označiti simulacije, ilustrativne primjere i opseg podataka. Ipak, propisi, nadležnosti, javni podaci i vanjske poveznice mogu se promijeniti. Provjeri datum, izvorni dokument i nadležno tijelo prije nego što na temelju sadržaja doneseš odluku.</p>
-        <p>Proračunska igra prikazuje edukativnu simulaciju raspodjele javnog novca na temelju demografskih pokazatelja i jasno označenih modelskih pretpostavki. Iznosi nisu službeni proračuni gradova. XP, razine i značke služe praćenju dovršenih edukativnih zadataka; ne predstavljaju ocjenu tvojih političkih stavova niti mjere stvarni društveni utjecaj.</p>
+        <p>Autor nastoji navesti izvore i jasno označiti simulacije, ilustrativne primjere i opseg podataka. Ipak, propisi, nadležnosti, javni podaci i vanjske poveznice mogu se promijeniti. Prije donošenja odluke potrebno je provjeriti datum, izvorni dokument i nadležno tijelo.</p>
+        <p>Proračunska igra prikazuje edukativnu simulaciju raspodjele javnog novca na temelju demografskih pokazatelja i jasno označenih modelskih pretpostavki. Iznosi nisu službeni proračuni gradova. XP, razine i značke služe praćenju dovršenih edukativnih zadataka; ne predstavljaju ocjenu političkih stavova korisnika niti mjere stvarni društveni utjecaj.</p>
       </section>
 
       <section class="legal-panel">
-        <h2>4. Kako koristiti POTEZ?</h2>
+        <h2>4. Pravila korištenja</h2>
         <ul>
-          <li>Koristi sadržaj za osobno učenje, raspravu i građansko informiranje.</li>
-          <li>Provjeri izvor i kontekst prije nego što informaciju preneseš drugima.</li>
-          <li>Nemoj pokušavati ometati rad stranice, zaobilaziti sigurnosne mjere ili slati automatizirane zahtjeve koji opterećuju uslugu.</li>
-          <li>Nemoj koristiti poveznice ili alate za uznemiravanje, prijetnje, diskriminaciju ili objavu tuđih osobnih podataka.</li>
-          <li>Ako dijeliš svoj napredak, sam/a odlučuješ što ćeš poslati i kome.</li>
+          <li>Sadržaj je namijenjen osobnom učenju, raspravi i građanskom informiranju.</li>
+          <li>Prije dijeljenja informacije preporučuje se provjeriti njezin izvor i kontekst.</li>
+          <li>Nije dopušteno ometati rad stranice, zaobilaziti sigurnosne mjere ili slati automatizirane zahtjeve koji opterećuju uslugu.</li>
+          <li>Poveznice i alate nije dopušteno koristiti za uznemiravanje, prijetnje, diskriminaciju ili objavu tuđih osobnih podataka.</li>
+          <li>Dijeljenje napretka ostaje pod kontrolom korisnika, koji samostalno odlučuje što će poslati i kome.</li>
         </ul>
       </section>
 
@@ -63,13 +68,13 @@
       <section class="legal-panel">
         <h2>6. Autorska prava i vanjski sadržaji</h2>
         <p>Autorstvo i urednička odgovornost za koncept, strukturu, tekstove i vizualni identitet POTEZA pripadaju Romanu Šimunoviću, osim ondje gdje je izričito naveden drugi izvor ili nositelj prava. Nazivi, logotipi, istraživanja, citirani podaci i vanjski materijali pripadaju svojim autorima i nositeljima prava.</p>
-        <p>Javna dostupnost repozitorija na GitHubu sama po sebi ne znači da je za sav sadržaj dodijeljena otvorena licencija. Za dopuštenje ponovne objave ili komercijalne uporabe sadržaja koji pripada projektu potrebno je prethodno zatražiti dopuštenje. Uvjeti izvornog materijala trećih strana ostaju na snazi.</p>
+        <p>Javna dostupnost repozitorija na GitHubu sama po sebi ne znači da je za sav sadržaj dodijeljena otvorena licencija. Za ponovnu objavu ili komercijalnu uporabu sadržaja koji pripada projektu potrebno je prethodno ishoditi dopuštenje. Uvjeti izvornog materijala trećih strana ostaju na snazi.</p>
       </section>
 
       <section class="legal-panel">
         <h2>7. Vanjske poveznice i dijeljenje</h2>
         <p>POTEZ upućuje na vanjske stranice i alate. Autor ne upravlja njihovim sadržajem, dostupnošću, sigurnošću ni pravilima privatnosti. Otvaranjem takve poveznice primjenjuju se uvjeti i pravila pružatelja te usluge.</p>
-        <p>Dijeljenje napretka koristi ugrađene mogućnosti preglednika ili uređaja. POTEZ ne određuje aplikaciju ili osobu kojoj ćeš sadržaj poslati.</p>
+        <p>Dijeljenje napretka koristi ugrađene mogućnosti preglednika ili uređaja. Korisnik samostalno odabire aplikaciju i primatelja.</p>
       </section>
 
       <section class="legal-panel">
@@ -80,7 +85,7 @@
 
       <section class="legal-panel legal-note">
         <h2>9. Kontakt i prijava problema</h2>
-        <p>Autor projekta: Roman Šimunović. Opće prijedloge i tehničke greške možeš prijaviti putem <a href="https://github.com/romansimunovic/Potez/issues" target="_blank" rel="noopener">javnih GitHub Issues</a>. Nemoj ondje unositi osobne podatke ili privatnu korespondenciju. Za obradu tehničkih podataka hostinga pogledaj <a href="/privacy.html">obavijest o privatnosti</a>.</p>
+        <p>Autor projekta: Roman Šimunović. Opći prijedlozi i tehničke greške mogu se prijaviti putem <a href="https://github.com/romansimunovic/Potez/issues" target="_blank" rel="noopener">javnih GitHub Issues</a>. U javne prijave ne treba unositi osobne podatke ni privatnu korespondenciju. Informacije o tehničkim podacima hostinga nalaze se u <a href="/privacy.html">obavijesti o privatnosti</a>.</p>
       </section>
 
       <p class="legal-back"><a href="/">← Povratak na POTEZ</a> · <a href="/privacy.html">Privatnost</a></p>
