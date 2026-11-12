@@ -17,10 +17,10 @@
   ];
 
   const mainMissions = [
-    { key: 'quizDone', title: 'Razumi podatke', desc: 'Poveži istraživačke nalaze s uzorkom i kontekstom.', href: '#izazov', badge: 'Čitač podataka', points: 15 },
-    { key: 'factDone', title: 'Provjeri informaciju', desc: 'Razlikuj činjenicu, mišljenje i nepotvrđenu tvrdnju.', href: '#provjera', badge: 'Tragač za dokazima', points: 10 },
-    { key: 'budgetDone', title: 'Razmotri javne prioritete', desc: 'Usporedi potrebe, troškove i posljedice raspodjele.', href: '#budzet', badge: 'Čuvar javnog novca', points: 15 },
-    { key: 'actionDone', title: 'Upoznaj nadležnosti', desc: 'Poveži temu s institucijama, dokumentima i službenim informacijama.', href: '#akcija', badge: 'Poznavatelj sustava', points: 5 }
+    { key: 'quizDone', title: 'Razumijevanje podataka', desc: 'Poveži istraživačke nalaze s uzorkom i kontekstom.', href: '#izazov', badge: 'Čitač podataka', points: 15 },
+    { key: 'factDone', title: 'Provjera informacija', desc: 'Razlikovanje činjenica, mišljenja i nepotvrđenih tvrdnji.', href: '#provjera', badge: 'Tragač za dokazima', points: 10 },
+    { key: 'budgetDone', title: 'Javni prioriteti', desc: 'Usporedba potreba, troškova i posljedica raspodjele.', href: '#budzet', badge: 'Čuvar javnog novca', points: 15 },
+    { key: 'actionDone', title: 'Nadležnosti', desc: 'Povezivanje tema s institucijama, dokumentima i službenim informacijama.', href: '#akcija', badge: 'Poznavatelj sustava', points: 5 }
   ];
 
   const weeklyTasks = [
@@ -88,7 +88,7 @@
     } else {
       fill.style.width = '100%';
       track.setAttribute('aria-valuenow', '100');
-      next.textContent = 'Dosegnuta najviša razina. Nastavi istraživati i dijeliti znanje.';
+      next.textContent = 'Dosegnuta je najviša razina. Dostupno je daljnje istraživanje i dijeljenje znanja.';
     }
 
     const completed = mainMissions.filter((mission) => Boolean(saved[mission.key])).length;
@@ -183,7 +183,7 @@
       const xp = Math.max(0, Number(saved.xp) || 0);
       const rank = xpRanks.reduce((current, item) => xp >= item.min ? item : current, xpRanks[0]);
       const completed = mainMissions.filter((mission) => Boolean(saved[mission.key])).length;
-      const message = 'Moj POTEZ napredak: ' + rank.title + ', ' + xp + ' XP i ' + completed + '/4 glavna izazova. Isprobaj i ti — politika se tiče svakodnevnih odluka: https://potez.pages.dev/';
+      const message = 'Moj POTEZ napredak: ' + rank.title + ', ' + xp + ' XP i ' + completed + '/4 glavna izazova. POTEZ je dostupan na https://potez.pages.dev/';
       try {
         if (navigator.share) {
           await navigator.share({ title: 'Moj POTEZ napredak', text: message, url: 'https://potez.pages.dev/' });
@@ -192,7 +192,7 @@
           notify('Poziv je kopiran i spreman za dijeljenje.');
         }
       } catch (error) {
-        if (error && error.name !== 'AbortError') notify('Dijeljenje nije uspjelo. Pokušaj ponovo.');
+        if (error && error.name !== 'AbortError') notify('Dijeljenje nije uspjelo. Molimo, pokušaj ponovno.');
       }
     });
   }
@@ -207,7 +207,7 @@
       options: [
         { text: 'Zamoliti poznanika da pogura ponudu.', best: false, feedback: 'Poznanstvo nije kriterij. Pritisak narušava jednaka pravila i može ugroziti postupak.' },
         { text: 'Zatražiti kriterije, zapisnik bodovanja i obrazloženu odluku.', best: true, feedback: 'Potrebno je zatražiti kriterije, bodovanje i obrazloženje te provjeriti je li mogući sukob interesa prijavljen i riješen.' },
-        { text: 'Objaviti ime osobe i odmah je proglasiti lopovom.', best: false, feedback: 'Povezanost nije dokaz korupcije. Traži dokumente i ne objavljuj optužbe bez dokaza.' }
+        { text: 'Objaviti ime osobe i odmah je proglasiti lopovom.', best: false, feedback: 'Povezanost nije dokaz korupcije. Potrebno je provjeriti dokumente i izbjegavati optužbe bez dokaza.' }
       ],
       outcome: 'Objavljeni kriteriji i provjeren sukob interesa daju svima jednaka pravila i obrazloženu odluku.',
       takeaway: 'Jasna pravila čuvaju projekt od pogodovanja.'
@@ -223,7 +223,7 @@
         { text: 'Zaključiti da je natječaj namješten i odustati od svega.', best: false, feedback: 'Najprije je potrebno usporediti kriterije i dokumente te provjeriti razliku u bodovima.' }
       ],
       outcome: 'Organizator objavljuje obrazloženje i bodovanje. Svi prijavitelji dobivaju isti okvir.',
-      takeaway: 'Traži jednaka pravila i obrazloženje, ne poznanstva.'
+      takeaway: 'Jednaka pravila i obrazloženje važniji su od poznanstava.'
     },
     {
       label: 'Grupna poruka · provjera prije dijeljenja',
@@ -288,7 +288,7 @@
         { text: 'Nazvati izvođača i ponuditi novac da radove završi ranije.', best: false, feedback: 'Drži se ugovora i službenog nadzora. Privatni dogovor ne rješava problem.' }
       ],
       outcome: 'Dokumenti pokažu kašnjenje opreme. Grad objavi novi rok, a nadležno tijelo prati ugovor.',
-      takeaway: 'Prati dokumente, rokove i odgovornost.'
+      takeaway: 'Važno je pratiti dokumente, rokove i odgovornost.'
     }
     ,
     {
@@ -316,7 +316,7 @@
         { text: 'Dokazano je da je svaki javni natječaj korumpiran.', best: false, feedback: 'Percepcija korupcije nije dokaz protiv svake institucije ili natječaja.' },
         { text: 'Ako ljudi ne vjeruju institucijama, nema smisla tražiti dokumente.', best: false, feedback: 'Dokumenti i nadzor omogućuju provjeru odluka. Nepovjerenje ne zamjenjuje dokaz.' }
       ],
-      outcome: 'Odvoji činjenice od pretpostavki. Sačuvaj dokumente i provjeri postupak.',
+      outcome: 'Važno je odvojiti činjenice od pretpostavki, sačuvati dokumente i provjeriti postupak.',
       takeaway: 'Percepcija govori o povjerenju; nepravilnost dokazuju činjenice.',
       source: 'Budak i Škrinjarić (2024), Hrvatska i komparativna javna uprava, 24(1), 147–182.',
       sourceUrl: 'https://hrcak.srce.hr/316552'
@@ -346,7 +346,7 @@
     function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved));}catch{}window.dispatchEvent(new CustomEvent('potez:progress'));}
     function progress(){bar.style.width=(completed.length/dailyQuestions.length*100)+'%';progressLabel.textContent=completed.length+' / '+dailyQuestions.length+' izazova';}
     function shareText(message){if(navigator.share){navigator.share({title:'POTEZ — izazov',text:message}).catch(e=>{if(e&&e.name!=='AbortError')notify('Dijeljenje nije dostupno.');});return;}const t=document.createElement('textarea');t.value=message;document.body.appendChild(t);t.select();try{document.execCommand('copy');notify('Tekst je kopiran. Podijeli ga s ekipom.');}catch{notify('Kopiranje nije dostupno.');}t.remove();}
-    function complete(){title.textContent='Sve situacije su riješene.';story.textContent='Sad znaš gdje tražiti izvor, kako postaviti pitanje i kome se obratiti.';q.textContent='Što dalje?';choices.replaceChildren();const p=document.createElement('p');p.textContent='Pregledao/la si sve situacije. Možeš ih ponoviti ili podijeliti s drugima.';feedback.replaceChildren(p);next.textContent='Ponovi situacije ↻';next.hidden=false;next.onclick=()=>{saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed^(Date.now()%65535));saved.dailyRunIndex=0;persist();render();};share.hidden=false;share.onclick=()=>shareText('Pregledao/la sam POTEZ — '+dailyQuestions.length+' kratkih situacija o javnim odlukama i građanskom sudjelovanju. Pogledaj i ti: https://potez.pages.dev/#igraj');progress();}
+    function complete(){title.textContent='Sve su situacije obrađene.';story.textContent='Sada je jasnije gdje pronaći izvor, kako postaviti pitanje i kome se obratiti.';q.textContent='Što dalje?';choices.replaceChildren();const p=document.createElement('p');p.textContent='Sve su situacije pregledane. Dostupni su ponovni prolazak i dijeljenje.';feedback.replaceChildren(p);next.textContent='Ponovi situacije ↻';next.hidden=false;next.onclick=()=>{saved.dailyRunOrder=shuffle(dailyQuestions.map((_,i)=>i),seed^(Date.now()%65535));saved.dailyRunIndex=0;persist();render();};share.hidden=false;share.onclick=()=>shareText('Pregledao/la sam POTEZ — '+dailyQuestions.length+' kratkih situacija o javnim odlukama i građanskom sudjelovanju. Pogledaj i ti: https://potez.pages.dev/#igraj');progress();}
     function feedbackFor(option,earned){const h=document.createElement('strong');h.className='daily-feedback-title';h.textContent=option.best?'To je dobro potkrijepljen odgovor.':'Ovaj odgovor zanemaruje važan dio postupka.';const ex=document.createElement('p');ex.textContent=option.feedback;const out=document.createElement('p');out.textContent=item.outcome;const take=document.createElement('p');take.className='daily-takeaway';take.textContent=item.takeaway;const xp=document.createElement('p');xp.className='daily-feedback-xp';xp.textContent=earned?'+3 XP':'Bodovi su već osvojeni';const nodes=[h,ex,out,take];if(item.sourceUrl){const source=document.createElement('p');source.className='daily-source';source.textContent='Izvor: '+item.source+' ';const link=document.createElement('a');link.href=item.sourceUrl;link.target='_blank';link.rel='noopener';link.textContent='Istraži ↗';source.appendChild(link);nodes.push(source);}nodes.push(xp);feedback.replaceChildren(...nodes);next.textContent=index+1===order.length?'Završi rutu →':'Sljedeća situacija →';next.hidden=false;next.onclick=()=>{saved.dailyRunIndex=index+1;persist();render();};share.hidden=false;share.onclick=()=>shareText('POTEZ izazov: '+item.title+'\n'+item.takeaway+'\nOdigraj i ti: https://potez.pages.dev/#igraj');}
     function render(){index=Math.max(0,Math.min(Number(saved.dailyRunIndex)||0,order.length));progress();if(index>=order.length){complete();return;}item=dailyQuestions[order[index]];options=shuffle(item.options,hash(today+':'+order[index]));answered=false;choices.replaceChildren();feedback.replaceChildren();next.hidden=true;share.hidden=true;title.textContent=item.title;story.textContent=item.story;q.textContent=item.question;options.forEach((option,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='daily-choice';btn.dataset.letter=String.fromCharCode(65+i);btn.textContent=option.text;btn.addEventListener('click',()=>{if(answered)return;answered=true;const earned=!completed.includes(item.title);choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(i===j){el.classList.add('chosen');if(!option.best)el.classList.add('wrong');}});if(earned){completed.push(item.title);saved.dailyCompletedIds=completed;saved.dailyChoiceById=saved.dailyChoiceById||{};saved.dailyChoiceById[item.title]=option.text;saved.xp=Math.max(0,Number(saved.xp)||0)+3;persist();window.POTEZ_FEEDBACK?.success();}progress();feedbackFor(option,earned);notify(earned?'+3 XP':'Već riješeno.');});choices.appendChild(btn);});const previous=(saved.dailyChoiceById||{})[item.title];if(previous){const chosen=options.findIndex(o=>o.text===previous);if(chosen>=0){answered=true;choices.querySelectorAll('button').forEach((el,j)=>{el.disabled=true;if(options[j].best)el.classList.add('correct');if(j===chosen){el.classList.add('chosen');if(!options[j].best)el.classList.add('wrong');}});feedbackFor(options[chosen],false);}}}
     render();
@@ -505,7 +505,7 @@
   const shareDuel = $('#shareBudgetChallenge');
   if (shareDuel) {
     shareDuel.addEventListener('click', async () => {
-      const message = 'POTEZ simulacija: promjena simuliranih iznosa za ' + budgetLabel() + ', pa mi pošalji svoj izbor. Usporedit ćemo prioritete i argumente. https://potez.pages.dev/#budzet';
+      const message = 'POTEZ simulacija: promjena simuliranih iznosa za ' + budgetLabel() + '. Slijedi usporedba prioriteta i argumenata. https://potez.pages.dev/#budzet';
       try {
         if (navigator.share) {
           await navigator.share({ title: 'POTEZ — izazov javnog budžeta', text: message, url: 'https://potez.pages.dev/#budzet' });
