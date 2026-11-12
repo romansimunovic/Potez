@@ -105,7 +105,7 @@
     const xp=Math.max(0,Number(saved.xp)||0);
     score.textContent=xp+' XP';
     if(xp>0){title.textContent='Već si istražio/la dio sadržaja.';description.textContent='Skupio/la si '+xp+' XP. Nastavi istraživati teme i izazove koji te zanimaju.';}
-    else{title.textContent='Tvoj put počinje jednim pitanjem.';description.textContent='Isprobaj kratki izazov i prati vlastiti napredak. Ne trebaš otvarati račun.';}
+    else{title.textContent='Tvoj put počinje jednim pitanjem.';description.textContent='Kratki izazovi omogućuju praćenje napretka bez otvaranja korisničkog računa.';}
   }
   window.addEventListener('potez:progress',updateHomeProgress);
   window.addEventListener('storage',updateHomeProgress);

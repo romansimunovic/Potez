@@ -7,7 +7,7 @@
   const DUEL_STORE = 'potez-budget-duel-v2';
   const $ = (selector, root = document) => root.querySelector(selector);
   const xpRanks = [
-    { min: 0, title: 'Radoznalac', description: 'Kreni od jednog pitanja. Svaki izazov otvara novu vještinu.' },
+    { min: 0, title: 'Radoznalac', description: 'Jedno dobro pitanje otvara prostor za novu vještinu.' },
     { min: 10, title: 'Istraživač', description: 'Već povezuješ informacije i širu sliku.' },
     { min: 25, title: 'Provjeravatelj', description: 'Pitaš tko nešto tvrdi, na temelju čega i što još nedostaje.' },
     { min: 45, title: 'Poznavatelj sustava', description: 'Razumiješ tko odlučuje, tko plaća i tko provodi odluku.' },
@@ -24,10 +24,10 @@
   ];
 
   const weeklyTasks = [
-    { title: 'Prati jednu javnu odluku', href: '#resursi' },
-    { title: 'Provjeri izvor jedne tvrdnje', href: '#provjera' },
-    { title: 'Pronađi tko je nadležan za problem', href: '#razine' },
-    { title: 'Usporedi dva javna prioriteta', href: '#budzet' }
+    { title: 'Praćenje jedne javne odluke', href: '#resursi' },
+    { title: 'Provjera izvora jedne tvrdnje', href: '#provjera' },
+    { title: 'Utvrđivanje nadležnosti za odabrani problem', href: '#razine' },
+    { title: 'Usporedba dvaju javnih prioriteta', href: '#budzet' }
   ];
 
   function readSaved() {
@@ -137,7 +137,7 @@
         detail.textContent = mission.desc;
         const state = document.createElement('span');
         state.className = 'path-state';
-        state.textContent = done ? 'Pregledano ✓' : 'Pogledaj temu →';
+        state.textContent = done ? 'Pregledano ✓' : 'Pregled teme →';
         card.append(step, heading, detail, state);
         path.appendChild(card);
       });
@@ -148,12 +148,12 @@
       const weeklyStep = document.createElement('span');
       weeklyStep.textContent = 'TJEDNI PREGLED · 8 XP';
       const weeklyHeading = document.createElement('strong');
-      weeklyHeading.textContent = 'Istraži izvor izvan POTEZA';
+      weeklyHeading.textContent = 'Tjedni izvor izvan POTEZA';
       const weeklyDetail = document.createElement('span');
-      weeklyDetail.textContent = 'Otvori javni dokument, usporedi podatke ili pogledaj kako institucija objašnjava svoju odluku.';
+      weeklyDetail.textContent = 'Javni dokumenti, usporedba podataka i obrazloženja odluka institucija.';
       const weeklyState = document.createElement('span');
       weeklyState.className = 'path-state';
-      weeklyState.textContent = weekDone ? 'Pregledano ✓' : 'Pogledaj tjedni izvor →';
+      weeklyState.textContent = weekDone ? 'Pregledano ✓' : 'Pregled tjednog izvora →';
       weekly.append(weeklyStep, weeklyHeading, weeklyDetail, weeklyState);
       path.appendChild(weekly);
     }
@@ -189,10 +189,10 @@
           await navigator.share({ title: 'Moj POTEZ napredak', text: message, url: 'https://potez.pages.dev/' });
         } else {
           await copyText(message);
-          notify('Poziv je kopiran. Pošalji ga nekome.');
+          notify('Poziv je kopiran i spreman za dijeljenje.');
         }
       } catch (error) {
-        if (error && error.name !== 'AbortError') notify('Dijeljenje nije uspjelo. Pokušaj ponovno.');
+        if (error && error.name !== 'AbortError') notify('Dijeljenje nije uspjelo. Pokušaj ponovo.');
       }
     });
   }
@@ -206,7 +206,7 @@
       question: 'Koji je postupak najprimjereniji?',
       options: [
         { text: 'Zamoliti poznanika da pogura ponudu.', best: false, feedback: 'Poznanstvo nije kriterij. Pritisak narušava jednaka pravila i može ugroziti postupak.' },
-        { text: 'Zatražiti kriterije, zapisnik bodovanja i obrazloženu odluku.', best: true, feedback: 'Zatraži kriterije, bodovanje i obrazloženje. Provjeri je li mogući sukob interesa prijavljen i riješen.' },
+        { text: 'Zatražiti kriterije, zapisnik bodovanja i obrazloženu odluku.', best: true, feedback: 'Potrebno je zatražiti kriterije, bodovanje i obrazloženje te provjeriti je li mogući sukob interesa prijavljen i riješen.' },
         { text: 'Objaviti ime osobe i odmah je proglasiti lopovom.', best: false, feedback: 'Povezanost nije dokaz korupcije. Traži dokumente i ne objavljuj optužbe bez dokaza.' }
       ],
       outcome: 'Objavljeni kriteriji i provjeren sukob interesa daju svima jednaka pravila i obrazloženu odluku.',
@@ -218,22 +218,22 @@
       story: 'Prijavili ste ideju za mali glazbeni festival na gradski natječaj za mlade. Rezultati su objavljeni, ali ne razumiješ zašto je drugi projekt dobio više bodova. U objavi nema detaljnog obrazloženja.',
       question: 'Kako možeš provjeriti je li odluka bila poštena?',
       options: [
-        { text: 'Tražiti objavljene kriterije, svoje bodovanje i obrazloženje odluke.', best: true, feedback: 'Usporedi unaprijed objavljene kriterije s bodovanjem. Zatraži obrazloženje ako nešto nije jasno.' },
+        { text: 'Tražiti objavljene kriterije, svoje bodovanje i obrazloženje odluke.', best: true, feedback: 'Usporedba unaprijed objavljenih kriterija i bodovanja; prema potrebi i zahtjev za obrazloženjem.' },
         { text: 'Ponuditi članu komisije uslugu ili poklon da idući put dobijete više bodova.', best: false, feedback: 'Poklon ili usluga ocjenjivaču znači pogodovanje. Ne pokušavaj utjecati privatnim koristima.' },
-        { text: 'Zaključiti da je natječaj namješten i odustati od svega.', best: false, feedback: 'Prvo usporedi kriterije i dokumente. Razliku u bodovima provjeri prije zaključka.' }
+        { text: 'Zaključiti da je natječaj namješten i odustati od svega.', best: false, feedback: 'Najprije je potrebno usporediti kriterije i dokumente te provjeriti razliku u bodovima.' }
       ],
       outcome: 'Organizator objavljuje obrazloženje i bodovanje. Svi prijavitelji dobivaju isti okvir.',
       takeaway: 'Traži jednaka pravila i obrazloženje, ne poznanstva.'
     },
     {
-      label: 'Grupni chat · provjeri prije dijeljenja',
+      label: 'Grupna poruka · provjera prije dijeljenja',
       title: 'Ukida li se od ponedjeljka učenički prijevoz?',
       story: 'U razrednoj grupi netko pošalje screenshot s dramatičnom porukom: „Od ponedjeljka nema više besplatnog prijevoza!” Nema datuma, poveznice ni naziva institucije. Svi počinju paničariti.',
       question: 'Koji odgovor najviše pomaže ekipi?',
       options: [
         { text: 'Proslijediti screenshot svim razredima da budu spremni.', best: false, feedback: 'Screenshot može biti star ili izrezan. Zaustavi dijeljenje dok ne pronađeš izvor.' },
-        { text: 'Pronaći izvornu odluku i provjeriti datum i nadležno tijelo.', best: true, feedback: 'Provjeri službenu obavijest, datum i na koga se odnosi. Bez izvora je tvrdnja nepotvrđena — ne automatski lažna.' },
-        { text: 'Napisati da je vijest lažna jer nema poveznice.', best: false, feedback: 'Nedostatak poveznice nije dokaz da je tvrdnja lažna. Provjeri izvor i datum.' }
+        { text: 'Pronaći izvornu odluku i provjeriti datum i nadležno tijelo.', best: true, feedback: 'Potrebno je provjeriti službenu obavijest, datum i na koga se odnosi. Bez izvora tvrdnja ostaje nepotvrđena, ali nije automatski lažna.' },
+        { text: 'Napisati da je vijest lažna jer nema poveznice.', best: false, feedback: 'Nedostatak poveznice nije dokaz da je tvrdnja lažna; važni su izvor i datum.' }
       ],
       outcome: 'Obavijest pokaže da se promjena odnosi na jednu liniju i počinje kasnije. Razred dijeli provjerenu informaciju.',
       takeaway: 'Prvo izvor i kontekst. Tek onda dijeljenje.'
@@ -244,7 +244,7 @@
       story: 'U školi se promijenio raspored korištenja zajedničkog prostora. Učenici se žale da nemaju gdje boraviti tijekom odmora. Objave na društvenim mrežama skupile su reakcije, ali pravilo ostaje isto.',
       question: 'Kako od pritužbe napraviti prijedlog na koji škola može odgovoriti?',
       options: [
-        { text: 'Okupiti učenike, prikupiti konkretne primjere i predložiti rješenje vijeću učenika.', best: true, feedback: 'Prikupi primjere, predloži izvedivu promjenu i uputi je vijeću učenika.' },
+        { text: 'Okupiti učenike, prikupiti konkretne primjere i predložiti rješenje vijeću učenika.', best: true, feedback: 'Konkretni primjeri, izvediva promjena i prijedlog upućen vijeću učenika čine primjeren postupak.' },
         { text: 'Objaviti imena nastavnika i prozivati ih u komentarima.', best: false, feedback: 'Javno prozivanje može povrijediti osobe i zatvoriti razgovor. Kritiziraj pravilo, ne pojedince.' },
         { text: 'Čekati da netko drugi pokrene stvar.', best: false, feedback: 'Nekoliko konkretnih primjera i izvediv prijedlog bolji su od čekanja.' }
       ],
@@ -258,7 +258,7 @@
       question: 'Što čini prijedlog odgovornim i uvjerljivim?',
       options: [
         { text: 'Odabrati ono što je najpopularnije na društvenim mrežama.', best: false, feedback: 'Popularnost ne pokazuje trošak, broj korisnika ni održavanje.' },
-        { text: 'Usporediti potrebe, broj korisnika, trošak, pristupačnost i održavanje.', best: true, feedback: 'Usporedi potrebe, trošak, broj korisnika i održavanje. Pitaj se tko bi mogao ostati izostavljen.' },
+        { text: 'Usporediti potrebe, broj korisnika, trošak, pristupačnost i održavanje.', best: true, feedback: 'Usporedba potreba, troška, broja korisnika i održavanja pomaže prepoznati tko bi mogao ostati izostavljen.' },
         { text: 'Tražiti da se novac podijeli između prijateljskih ekipa.', best: false, feedback: 'Javni novac raspoređuje se prema potrebama i unaprijed poznatim kriterijima.' }
       ],
       outcome: 'Grad obrazlaže izbor: dio novca ide rasvjeti i opremi, a prostor za probe traži dodatni izvor.',
@@ -271,19 +271,19 @@
       question: 'Koji komentar ima najveću šansu da bude koristan?',
       options: [
         { text: '„Ovo je glupost, napravite nešto normalno.”', best: false, feedback: 'Uvreda ne daje tijelu podatak na temelju kojeg može promijeniti prijedlog.' },
-        { text: 'Navesti vrijeme završetka nastave, postojeći vozni red i predložiti polazak 15 minuta kasnije.', best: true, feedback: 'Navedi kraj nastave, postojeći polazak i konkretno vrijeme koje bi riješilo problem.' },
-        { text: 'Poslati isti komentar više puta s različitih profila.', best: false, feedback: 'Više kopija ne jača argument. Pošalji jedan obrazložen komentar.' }
+        { text: 'Navesti vrijeme završetka nastave, postojeći vozni red i predložiti polazak 15 minuta kasnije.', best: true, feedback: 'Za kvalitetan komentar važni su kraj nastave, postojeći polazak i konkretno predloženo vrijeme.' },
+        { text: 'Poslati isti komentar više puta s različitih profila.', best: false, feedback: 'Više kopija ne jača argument; važniji je jedan obrazložen komentar.' }
       ],
       outcome: 'Polazak se pomiče, a broj putnika prati se sljedećih mjesec dana.',
       takeaway: 'Savjetovanje traži argumente i izvedive prijedloge.'
     },
     {
-      label: 'Javna informacija · pronađi dokument',
+      label: 'Javna informacija · pristup dokumentu',
       title: 'Obećali su obnovu igrališta. Gdje je zapelo?',
       story: 'Prije pola godine objavljeno je da će igralište biti obnovljeno. Radovi nisu počeli, a na mrežama se šire nagađanja. Ne znaš je li problem u novcu, natječaju ili dozvoli.',
       question: 'Što treba provjeriti prije zaključka?',
       options: [
-        { text: 'Zatražiti postojeće dokumente: odluku, ugovor, rokove i status radova.', best: true, feedback: 'Zatraži odluku, ugovor i rokove. Provjeri tko je odgovoran za provedbu.' },
+        { text: 'Zatražiti postojeće dokumente: odluku, ugovor, rokove i status radova.', best: true, feedback: 'Potrebno je zatražiti odluku, ugovor i rokove te utvrditi tko je odgovoran za provedbu.' },
         { text: 'Objaviti da je novac ukraden jer radovi kasne.', best: false, feedback: 'Kašnjenje nije dokaz krađe. Provjeri ugovor, plaćanja i status radova.' },
         { text: 'Nazvati izvođača i ponuditi novac da radove završi ranije.', best: false, feedback: 'Drži se ugovora i službenog nadzora. Privatni dogovor ne rješava problem.' }
       ],
@@ -396,7 +396,7 @@
     const hasA = sameContext && Array.isArray(saved.a) && saved.a.length === count;
     const hasB = sameContext && Array.isArray(saved.b) && saved.b.length === count;
     status.textContent = hasA && hasB
-      ? 'Oba izbora su spremljena. Usporedite razlike — ne tražite pobjednika.'
+      ? 'Oba su izbora spremljena. Važna je usporedba razlika, a ne traženje pobjednika.'
       : hasA
         ? 'Izbor A je spremljen. Sada neka igrač B promijeni raspodjelu i spremi svoj izbor.'
         : hasB
@@ -505,7 +505,7 @@
   const shareDuel = $('#shareBudgetChallenge');
   if (shareDuel) {
     shareDuel.addEventListener('click', async () => {
-      const message = 'Isprobaj POTEZ simulaciju: promijeni simulirane iznose za ' + budgetLabel() + ', pa mi pošalji svoj izbor. Usporedit ćemo prioritete i argumente. https://potez.pages.dev/#budzet';
+      const message = 'POTEZ simulacija: promjena simuliranih iznosa za ' + budgetLabel() + ', pa mi pošalji svoj izbor. Usporedit ćemo prioritete i argumente. https://potez.pages.dev/#budzet';
       try {
         if (navigator.share) {
           await navigator.share({ title: 'POTEZ — izazov javnog budžeta', text: message, url: 'https://potez.pages.dev/#budzet' });
