@@ -231,7 +231,7 @@
       story: 'U razrednoj grupi netko pošalje screenshot s dramatičnom porukom: „Od ponedjeljka nema više besplatnog prijevoza!” Nema datuma, poveznice ni naziva institucije. Svi počinju paničariti.',
       question: 'Koji odgovor najviše pomaže ekipi?',
       options: [
-        { text: 'Proslijediti screenshot svim razredima da budu spremni.', best: false, feedback: 'Screenshot može biti star ili izrezan. Zaustavi dijeljenje dok ne pronađeš izvor.' },
+        { text: 'Proslijediti screenshot svim razredima da budu spremni.', best: false, feedback: 'Screenshot može biti star ili izrezan. Dijeljenje je potrebno zaustaviti dok se ne utvrdi izvor.' },
         { text: 'Pronaći izvornu odluku i provjeriti datum i nadležno tijelo.', best: true, feedback: 'Potrebno je provjeriti službenu obavijest, datum i na koga se odnosi. Bez izvora tvrdnja ostaje nepotvrđena, ali nije automatski lažna.' },
         { text: 'Napisati da je vijest lažna jer nema poveznice.', best: false, feedback: 'Nedostatak poveznice nije dokaz da je tvrdnja lažna; važni su izvor i datum.' }
       ],
@@ -245,7 +245,7 @@
       question: 'Kako od pritužbe napraviti prijedlog na koji škola može odgovoriti?',
       options: [
         { text: 'Okupiti učenike, prikupiti konkretne primjere i predložiti rješenje vijeću učenika.', best: true, feedback: 'Konkretni primjeri, izvediva promjena i prijedlog upućen vijeću učenika čine primjeren postupak.' },
-        { text: 'Objaviti imena nastavnika i prozivati ih u komentarima.', best: false, feedback: 'Javno prozivanje može povrijediti osobe i zatvoriti razgovor. Kritiziraj pravilo, ne pojedince.' },
+        { text: 'Objaviti imena nastavnika i prozivati ih u komentarima.', best: false, feedback: 'Javno prozivanje može povrijediti osobe i zatvoriti razgovor. Kritika je usmjerena na pravilo, a ne na pojedince.' },
         { text: 'Čekati da netko drugi pokrene stvar.', best: false, feedback: 'Konkretni primjeri i izvediv prijedlog korisniji su od pasivnog čekanja.' }
       ],
       outcome: 'Vijeće učenika iznosi prijedlog upravi. Dogovaraju se probno rješenje i rok provjere.',
@@ -284,7 +284,7 @@
       question: 'Što treba provjeriti prije zaključka?',
       options: [
         { text: 'Zatražiti postojeće dokumente: odluku, ugovor, rokove i status radova.', best: true, feedback: 'Potrebno je zatražiti odluku, ugovor i rokove te utvrditi tko je odgovoran za provedbu.' },
-        { text: 'Objaviti da je novac ukraden jer radovi kasne.', best: false, feedback: 'Kašnjenje nije dokaz krađe. Provjeri ugovor, plaćanja i status radova.' },
+        { text: 'Objaviti da je novac ukraden jer radovi kasne.', best: false, feedback: 'Kašnjenje nije dokaz krađe. Ugovor, plaćanja i status radova potrebno je provjeriti.' },
         { text: 'Nazvati izvođača i ponuditi novac da radove završi ranije.', best: false, feedback: 'Postupanje treba temeljiti na ugovoru i službenom nadzoru. Privatni dogovor ne rješava problem.' }
       ],
       outcome: 'Dokumenti pokažu kašnjenje opreme. Grad objavi novi rok, a nadležno tijelo prati ugovor.',
