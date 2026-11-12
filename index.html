@@ -26,7 +26,12 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
+<link rel="preload" href="/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/figtree-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/assets/styles.css" />
+<link rel="stylesheet" href="/assets/polish.css" />
 <script src="/assets/accessibility.js" defer></script>
 <script src="/assets/navigation.js" defer></script>
 <script src="/assets/rewards.js" defer></script>
@@ -89,7 +94,7 @@
       <a href="#alati" data-app-route="tools">Resursi</a>
     </nav>
     <details class="accessibility-menu" id="accessibilityMenu">
-      <summary aria-label="Otvori postavke pristupačnosti"><span aria-hidden="true">◐</span> Pristupačnost</summary>
+      <summary aria-label="Otvori postavke pristupačnosti"><svg class="accessibility-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 0 0-18Z" fill="currentColor" stroke="none"/></svg> Pristupačnost</summary>
       <div class="accessibility-panel" aria-label="Postavke prikaza">
         <div class="accessibility-panel-heading"><strong>Prilagodi prikaz</strong></div>
         <section class="accessibility-control" aria-labelledby="themeLabel"><div><strong id="themeLabel">Izgled</strong></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button><button type="button" data-theme-choice="system" aria-pressed="false">Uređaj</button></div></section>
@@ -108,7 +113,7 @@
 
         <h1>Razumij odluke koje <span class="highlight">utječu na tebe</span></h1>
         <p class="hero-copy">Škola, prijevoz, stanovanje, javni novac i društvene mreže. Saznaj tko odlučuje, kako nastaju pravila i gdje pronaći pouzdane informacije.</p>
-        <div class="actions"><a class="btn btn-dark" href="#ucenje">Istraži teme <span aria-hidden="true">↗</span></a><a class="btn btn-light" href="#djeluj">Pogledaj kako sustav funkcionira</a></div>
+        <div class="actions"><a class="btn btn-dark" href="#ucenje">Istraži teme <span aria-hidden="true">→</span></a><a class="btn btn-light" href="#djeluj">Pogledaj kako sustav funkcionira</a></div>
       </div>
       <div class="hero-art" aria-label="Ilustracija mladih koji zajedno oblikuju svoj grad">
 
@@ -153,15 +158,15 @@
         <p>Tri jednostavna načina za istraživanje tema koje utječu na naš život.</p>
       </div>
       <div class="home-step-grid">
-        <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">01</span><strong>Razumij</strong><span>Tko odlučuje o prijevozu, školi i kvartu?</span><span class="home-step-link">Upoznaj sustav ↗</span></a>
-        <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">02</span><strong>Provjeri</strong><span>Je li objava činjenica, mišljenje ili neprovjerena tvrdnja?</span><span class="home-step-link">Provjeri kako informacije funkcioniraju ↗</span></a>
-        <a class="home-step-card" href="#djeluj"><span class="home-step-icon" aria-hidden="true">03</span><strong>Upoznaj sustav</strong><span>Koje institucije odlučuju i gdje su dostupni dokumenti?</span><span class="home-step-link">Pogledaj u praksi ↗</span></a>
+        <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">01</span><strong>Razumij</strong><span>Tko odlučuje o prijevozu, školi i kvartu?</span><span class="home-step-link">Upoznaj sustav →</span></a>
+        <a class="home-step-card" href="#ucenje"><span class="home-step-icon" aria-hidden="true">02</span><strong>Provjeri</strong><span>Je li objava činjenica, mišljenje ili neprovjerena tvrdnja?</span><span class="home-step-link">Provjeri kako informacije funkcioniraju →</span></a>
+        <a class="home-step-card" href="#djeluj"><span class="home-step-icon" aria-hidden="true">03</span><strong>Upoznaj sustav</strong><span>Koje institucije odlučuju i gdje su dostupni dokumenti?</span><span class="home-step-link">Pogledaj u praksi →</span></a>
       </div>
     </section>
     <section class="home-progress" aria-label="Tvoj lokalni napredak">
       <div><h3 id="homeProgressTitle">Tvoj napredak počinje ovdje</h3><p id="homeProgressDescription">Nastavi gdje si stao/la ili isprobaj novu situaciju.</p></div>
       <div class="home-progress-score"><strong id="homeXp">0 XP</strong></div>
-      <a class="btn btn-light" href="#igraj">Isprobaj izazove ↗</a>
+      <a class="btn btn-light" href="#igraj">Isprobaj izazove →</a>
     </section>
 
 
@@ -171,7 +176,7 @@
     <h2 id="homeEducatorTitle">Planiraš radionicu o građanskoj ili medijskoj pismenosti?</h2>
     <p>Pronađi gotov okvir za 50–55 minuta rada: od pitanja iz svakodnevice do provjere informacija i razumijevanja javnih odluka.</p>
   </div>
-  <a class="btn btn-dark" href="#nastavnici">Otvori vodič za radionicu <span aria-hidden="true">↗</span></a>
+  <a class="btn btn-dark" href="#nastavnici">Otvori vodič za radionicu <span aria-hidden="true">→</span></a>
 </section>
 
 </section>
