@@ -85,7 +85,7 @@
       guide.href = topic.target;
       footer.append(guide);
     }
-    const award = el('button', 'learning-award', 'Pročitano · +4 XP');
+    const award = el('button', 'learning-award', 'Zabilježi naučeno · +4 XP');
     award.type = 'button';
     const key = 'lesson-' + topic.id;
     const done = Boolean(readProgress()[key]);
