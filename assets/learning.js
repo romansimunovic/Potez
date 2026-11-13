@@ -120,14 +120,20 @@
     return String(value || '')
       .toLocaleLowerCase('hr')
       .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/\s+/g, ' ')
+      .replace(/[\\u0300-\\u036f]/g, '')
+      .replace(/\\s+/g, ' ')
       .trim();
   }
 
   function renderFilters() {
     if (!filters) return;
-    filters.replaceChildren();
+    // Update in place after first render so activating a filter never drops keyboard focus.
+    if (filters.childElementCount) {
+      filters.querySelectorAll('[data-filter]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.filter === activeCategory));
+      });
+      return;
+    }
     categories.forEach(category => {
       const count = category.id === 'sve'
         ? content.topics.length
@@ -166,7 +172,8 @@
           return normalizeSearch(searchable).includes(query);
         })
       : categoryTopics;
-    const visible = showAll ? selected : selected.slice(0, INITIAL_VISIBLE_TOPICS);
+    // A search should reveal every matching result; the six-card limit is for browsing.
+    const visible = showAll || query ? selected : selected.slice(0, INITIAL_VISIBLE_TOPICS);
     root.replaceChildren();
     visible.forEach(topic => root.append(buildCard(topic)));
 
@@ -185,7 +192,7 @@
 
     if (moreButton) {
       const remaining = selected.length - visible.length;
-      moreButton.hidden = remaining <= 0;
+      moreButton.hidden = query || remaining <= 0;
       moreButton.textContent = showAll ? 'Prikaži manje tema' : `Prikaži još ${remaining} tema`;
       moreButton.setAttribute('aria-expanded', String(showAll));
     }
@@ -209,15 +216,6 @@
       renderTopics();
       searchInput?.focus();
     });
-  }
-
-  if (moreButton) {
-      const canExpand = selected.length > 4;
-      moreButton.hidden = !canExpand;
-      moreButton.textContent = showAll ? 'Prikaži manje tema' : 'Prikaži sve teme';
-      moreButton.setAttribute('aria-expanded', String(showAll));
-    }
-    if (!selected.length) root.append(el('p', 'learning-empty', 'U ovoj kategoriji trenutačno nema tema.'));
   }
 
   if (moreButton) {
