@@ -408,7 +408,7 @@ for token in (
     'id="learningResultCount"',
     'id="learningReset"',
     'aria-label="Filtriranje tema prema području"',
-    'class="learning-view-intro"',
+    'class="view-intro learning-view-intro"',
 ):
     assert token in html, token
 
