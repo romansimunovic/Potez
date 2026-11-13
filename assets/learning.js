@@ -16,7 +16,12 @@
   ];
   const filters = document.getElementById('learningFilters');
   const moreButton = document.getElementById('learningShowMore');
+  const searchInput = document.getElementById('learningSearch');
+  const resultCount = document.getElementById('learningResultCount');
+  const resetButton = document.getElementById('learningReset');
+  const INITIAL_VISIBLE_TOPICS = 6;
   let activeCategory = 'sve';
+  let searchQuery = '';
   let showAll = false;
 
   function el(tag, className, value) {
@@ -46,12 +51,17 @@
     card.dataset.category = topic.category;
     card.dataset.topicId = topic.id;
 
+    const categoryName = categories.find(category => category.id === topic.category)?.label || 'Tema';
+    const cardTop = el('div', 'learning-card-top');
+    cardTop.append(el('span', 'learning-topic-label', topic.label || categoryName));
+    cardTop.append(el('span', 'learning-category-label', categoryName));
+    card.append(cardTop);
     card.append(el('h3', '', topic.title));
     card.append(el('p', 'learning-card-intro', topic.intro));
 
     const details = document.createElement('details');
     details.className = 'learning-card-details';
-    const summary = el('summary', '', 'Objašnjenje');
+    const summary = el('summary', '', 'Pročitaj objašnjenje');
     details.append(summary);
 
     const question = el('p', 'learning-question', topic.question);
@@ -75,7 +85,7 @@
       guide.href = topic.target;
       footer.append(guide);
     }
-    const award = el('button', 'learning-award', 'Pročitano · +4 XP');
+    const award = el('button', 'learning-award', 'Zabilježi naučeno · +4 XP');
     award.type = 'button';
     const key = 'lesson-' + topic.id;
     const done = Boolean(readProgress()[key]);
@@ -106,14 +116,36 @@
     }
   }
 
+  function normalizeSearch(value) {
+    return String(value || '')
+      .toLocaleLowerCase('hr')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
   function renderFilters() {
     if (!filters) return;
-    filters.replaceChildren();
+    // Update in place after first render so activating a filter never drops keyboard focus.
+    if (filters.childElementCount) {
+      filters.querySelectorAll('[data-filter]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.filter === activeCategory));
+      });
+      return;
+    }
     categories.forEach(category => {
-      const button = el('button', 'learning-filter', category.label);
+      const count = category.id === 'sve'
+        ? content.topics.length
+        : content.topics.filter(topic => topic.category === category.id).length;
+      const button = el('button', 'learning-filter', '');
       button.type = 'button';
       button.dataset.filter = category.id;
       button.setAttribute('aria-pressed', String(category.id === activeCategory));
+      button.append(el('span', 'learning-filter-label', category.label));
+      const countLabel = el('span', 'learning-filter-count', String(count));
+      countLabel.setAttribute('aria-hidden', 'true');
+      button.append(countLabel);
       button.addEventListener('click', () => {
         activeCategory = category.id;
         showAll = false;
@@ -125,19 +157,65 @@
   }
 
   function renderTopics() {
-    const selected = activeCategory === 'sve'
+    const categoryTopics = activeCategory === 'sve'
       ? content.topics
       : content.topics.filter(topic => topic.category === activeCategory);
-    const visible = showAll ? selected : selected.slice(0, 4);
+    const query = normalizeSearch(searchQuery);
+    const selected = query
+      ? categoryTopics.filter(topic => {
+          const categoryName = categories.find(category => category.id === topic.category)?.label || '';
+          const searchable = [
+            topic.label, topic.title, topic.intro, topic.question,
+            topic.insight, topic.action, topic.sourceTitle, topic.sourceNote,
+            categoryName
+          ].join(' ');
+          return normalizeSearch(searchable).includes(query);
+        })
+      : categoryTopics;
+    // A search should reveal every matching result; the six-card limit is for browsing.
+    const visible = showAll || query ? selected : selected.slice(0, INITIAL_VISIBLE_TOPICS);
     root.replaceChildren();
     visible.forEach(topic => root.append(buildCard(topic)));
+
+    if (!selected.length) {
+      const empty = el('div', 'learning-empty');
+      empty.append(el('p', '', 'Nema rezultata za odabrani pojam ili područje. Pokušaj drukčiji izraz ili poništi filtre.'));
+      root.append(empty);
+    }
+
+    if (resultCount) {
+      resultCount.textContent = query || activeCategory !== 'sve'
+        ? `Rezultati: ${selected.length} od ${content.topics.length} tema`
+        : `Prikazano ${visible.length} od ${content.topics.length} tema`;
+    }
+    if (resetButton) resetButton.hidden = !query && activeCategory === 'sve';
+
     if (moreButton) {
-      const canExpand = selected.length > 4;
-      moreButton.hidden = !canExpand;
-      moreButton.textContent = showAll ? 'Prikaži manje tema' : 'Prikaži sve teme';
+      const remaining = selected.length - visible.length;
+      moreButton.hidden = query || remaining <= 0;
+      moreButton.textContent = showAll ? 'Prikaži manje tema' : `Prikaži još ${remaining} tema`;
       moreButton.setAttribute('aria-expanded', String(showAll));
     }
-    if (!selected.length) root.append(el('p', 'learning-empty', 'U ovoj kategoriji trenutačno nema tema.'));
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      searchQuery = searchInput.value;
+      showAll = false;
+      renderTopics();
+    });
+  }
+
+  if (resetButton) {
+    resetButton.addEventListener('click', () => {
+      activeCategory = 'sve';
+      searchQuery = '';
+      showAll = false;
+      if (searchInput) searchInput.value = '';
+      renderFilters();
+      renderTopics();
+      searchInput?.focus();
+    });
   }
 
   if (moreButton) {
@@ -187,6 +265,14 @@
     const fact = content.facts[dailyFactIndex(today)];
     factRoot.replaceChildren();
 
+    const header = el('div', 'daily-fact-header');
+    header.append(el('span', 'daily-fact-kicker', 'Zanimljivost dana'));
+    header.append(el('span', 'daily-fact-date', new Intl.DateTimeFormat('hr-HR', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }).format(today)));
+    factRoot.append(header);
     factRoot.append(el('h2', '', fact.title));
     factRoot.append(el('p', 'daily-fact-text', fact.text));
     factRoot.append(el('p', 'daily-fact-note', fact.note));

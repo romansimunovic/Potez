@@ -180,28 +180,48 @@
 
 </section>
 <section class="app-view" data-app-view="learn" id="ucenje" hidden>
-<header class="view-intro"><div><h1>Teme iz svakodnevnog života</h1></div></header>
-<section class="section learning-daily-section" aria-label="Činjenica dana">
+<header class="view-intro learning-view-intro">
+  <div>
+    <span class="learning-intro-kicker">UČENJE · TEME I IZVORI</span>
+    <h1>Teme iz svakodnevnog života</h1>
+    <p>Odaberi temu, pročitaj kratko objašnjenje, a zatim otvori dodatni kontekst, izvor i mogući sljedeći korak.</p>
+  </div>
+  <span class="learning-intro-note">12 tema · izvor uz svaku temu</span>
+</header>
+
+<section class="section learning-explorer" id="odaberi-temu" aria-labelledby="learningExplorerTitle">
+  <div class="section-head">
+    <div>
+      <h2 id="learningExplorerTitle">Što želiš bolje razumjeti?</h2>
+      <p class="section-intro">Pretraži teme ili odaberi područje. Svaka kartica vodi od kratkog sažetka do objašnjenja i izvora.</p>
+    </div>
+  </div>
+  <div class="learning-explorer-tools">
+    <div class="learning-search-field">
+      <label for="learningSearch">Pretraži teme</label>
+      <input id="learningSearch" type="search" name="learningSearch" placeholder="npr. škola, algoritmi, javni novac" autocomplete="off" spellcheck="false" aria-controls="learningTopics" aria-describedby="learningSearchHint learningResultCount">
+      <p class="learning-search-hint" id="learningSearchHint">Možeš pretraživati i bez kvačica, primjerice „skola”.</p>
+    </div>
+    <div class="learning-explorer-toolbar">
+      <div id="learningFilters" class="learning-filters" role="group" aria-label="Filtriranje tema prema području"></div>
+      <div class="learning-results-row">
+        <p id="learningResultCount" class="learning-count" aria-live="polite">Prikazano 6 od 12 tema</p>
+        <button type="button" id="learningReset" class="learning-reset" hidden>Poništi filtre</button>
+      </div>
+    </div>
+  </div>
+  <div id="learningTopics" class="learning-grid" aria-live="polite"></div>
+  <button type="button" id="learningShowMore" class="btn btn-light learning-show-more" aria-controls="learningTopics" aria-expanded="false" hidden>Prikaži još tema</button>
+</section>
+<section class="section learning-daily-section" aria-label="Zanimljivost dana">
   <div id="dailyFact" class="daily-fact-card" aria-live="polite">
 
     <h2>Činjenica s izvorom. Jedan novi kut gledanja.</h2>
     <p class="daily-fact-text">Svakog dana izdvajamo jedan podatak iz istraživanja ili službenog dokumenta.</p>
   </div>
 </section>
-<section class="section learning-explorer" id="odaberi-temu" aria-labelledby="learningExplorerTitle">
-  <div class="section-head">
-    <div><h2 id="learningExplorerTitle">Što želiš bolje razumjeti?</h2></div>
-  </div>
-  <div class="learning-explorer-toolbar">
-    <div id="learningFilters" class="learning-filters" role="group" aria-label="Filtri tema"></div>
-
-  </div>
-  <div id="learningTopics" class="learning-grid" aria-live="polite"></div>
-  <button type="button" id="learningShowMore" class="btn btn-light learning-show-more" hidden>Prikaži sve teme</button>
-
-</section>
 <details class="learning-guides" id="teme">
-  <summary><strong>Prijevoz, prehrana i podrška u školi</strong></summary>
+  <summary><strong>Praktični vodiči za konkretne situacije</strong><span>Prijevoz, školska prehrana i podrška · 4 primjera</span></summary>
 <section class="section issue-paths" id="practicalIssuePaths" aria-labelledby="issuePathsTitle">
   <div class="section-head">
     <div><h2 id="issuePathsTitle">Primjeri iz svakodnevnog života</h2></div>
