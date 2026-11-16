@@ -2,7 +2,7 @@
   const $ = (s,root=document)=>root.querySelector(s);
   const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
   const STORE='potez-demo-v1';
-  let saved={xp:0,quizDone:false,factDone:false,budgetDone:false,actionDone:false};
+  let saved={xp:0,factDone:false,budgetDone:false,actionDone:false};
   try{saved={...saved,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch(e){}
   function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved))}catch(e){} updateActionXp();window.dispatchEvent(new CustomEvent('potez:progress'))}
   function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2400)}
@@ -34,25 +34,6 @@
   ];
   function getWeekStamp(){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+4-(d.getDay()||7));const y=d.getFullYear();const start=new Date(y,0,1);const w=Math.ceil((((d-start)/86400000)+1)/7);return y+'-'+String(w).padStart(2,'0')}
   function renderWeekly(){const stamp=getWeekStamp();const index=(Number(stamp.slice(-2))-1)%weeklyMissions.length;const m=weeklyMissions[index];$('#weeklyTitle').textContent=m.title;$('#weeklyDescription').textContent=m.desc;$('#weeklyLink').href=m.url;$('#weeklyLink').textContent=m.label+' ↗';const done=saved.weeklyDoneKey===stamp;$('#weeklyDone').textContent=done?'Pročitano ✓':'Pročitao/la sam +8 XP';$('#weeklyDone').disabled=done;$('#weeklyDone').style.opacity=done?'.65':'1';$('#weeklyDone').addEventListener('click',()=>{if(saved.weeklyDoneKey===stamp)return;saved.weeklyDoneKey=stamp;saved.xp=(saved.xp||0)+8;persist();window.POTEZ_FEEDBACK?.success();renderWeekly();toast('+8 XP · tjedni pregled')},{once:true})}
-
-  // Research quiz: precise population and source scope are repeated in the feedback.
-  const qs=[
-    {q:'Koliki je udio učenika završnih razreda srednjih škola u Hrvatskoj koji su volontirali?',a:['18,4 %','44,7 %','71,2 %'],correct:1,why:'44,7 % učenika završnih razreda navelo je volontiranje. To je jedan oblik angažmana, ali ne opisuje sve mlade.'},
-    {q:'Koliki je udio učenika donirao financijsku ili materijalnu pomoć?',a:['13,1 %','36,8 %','63,1 %'],correct:2,why:'63,1 % navelo je doniranje pomoći. Doniranje je oblik solidarnosti, ali nije isto što i političko sudjelovanje.'},
-    {q:'Koliki je udio učenika potpisao peticiju?',a:['28,1 %','48,8 %','52,6 %'],correct:0,why:'Peticiju je potpisalo 28,1 % učenika. Još 50,2 % reklo je da bi to moglo učiniti; namjera i ponašanje nisu isto.'},
-    {q:'Koliki je udio učenika sudjelovao u prosvjedu?',a:['11,1 %','31,1 %','48,8 %'],correct:0,why:'11,1 % učenika sudjelovalo je u prosvjedu. Prosvjed je samo jedan od različitih oblika sudjelovanja.'}
-  ];
-  let qi=0,score=0,answered=false,quizOptions=[];
-  function renderQuiz(){
-    const q=qs[qi];
-    quizOptions=q.a.map((text,index)=>({text,correct:index===q.correct}));
-    for(let i=quizOptions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[quizOptions[i],quizOptions[j]]=[quizOptions[j],quizOptions[i]];}
-    $('#quizQuestion').textContent=q.q;$('#quizProgressLabel').textContent='Pitanje '+(qi+1)+' / '+qs.length;$('#quizProgress').style.width=((qi+1)/qs.length*100)+'%';$('#quizScore').textContent=score+' / '+qs.length+' točno';$('#quizFeedback').className='feedback';$('#quizFeedback').textContent='';$('#quizNext').style.display='none';$('#quizRestart').style.display='none';
-    const box=$('#quizChoices');box.replaceChildren();quizOptions.forEach((option,i)=>{const b=document.createElement('button');b.className='choice';b.type='button';const label=document.createElement('span');label.textContent=option.text;const key=document.createElement('span');key.className='key';key.textContent=String.fromCharCode(65+i);b.append(label,key);b.addEventListener('click',()=>answerQuiz(i));box.appendChild(b)});answered=false;
-  }
-  function answerQuiz(i){if(answered)return;answered=true;const q=qs[qi];const correct=Boolean(quizOptions[i]?.correct);const buttons=$('#quizChoices .choice');buttons.forEach((b,j)=>{b.disabled=true;if(quizOptions[j]?.correct)b.classList.add('correct');if(j===i&&!quizOptions[j]?.correct)b.classList.add('wrong')});if(correct)score++;$('#quizScore').textContent=score+' / '+qs.length+' točno';const f=$('#quizFeedback');f.innerHTML='<strong>'+(correct?'Točno.':'Nije točno. Objašnjenje je u nastavku.')+'</strong>'+q.why;f.classList.add('show');if(qi<qs.length-1){$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Sljedeće pitanje →'}else{$('#quizNext').style.display='inline-flex';$('#quizNext').textContent='Dovršetak izazova';}}
-  $('#quizNext').addEventListener('click',()=>{if(qi<qs.length-1){qi++;renderQuiz()}else{award('quizDone',15,'istraživački izazov');$('#quizNext').style.display='none';$('#quizRestart').style.display='inline-flex';$('#quizFeedback').innerHTML+='<br><strong>Rezultat: '+score+'/4.</strong> Najvažniji dio nije rezultat nego kontekst: ovo je uzorak učenika završnih razreda, a ne svih mladih.';}});
-  $('#quizRestart').addEventListener('click',()=>{qi=0;score=0;renderQuiz()});renderQuiz();
 
   // Budget challenge: an educational city-budget simulation, scaled to local population.
   const budgetData = window.POTEZ_BUDGET_DATA;
