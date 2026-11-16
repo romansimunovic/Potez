@@ -185,8 +185,10 @@ assert "potez-pilot-v32" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "Ovo nije službeni gradski proračun." in html
+app_quiz = Path("assets/app.js").read_text(encoding="utf-8")
 assert 'quizQuestion' not in app_quiz and 'quizChoices' not in app_quiz
 assert 'id="participationTitle"' in html
+assert 'id="passportCompleted">0/3' in html
 assert "potez-pilot-v32" in sw
 print("POTEZ educator pathway and route accessibility checks passed.")
 PY
