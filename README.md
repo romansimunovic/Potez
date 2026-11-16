@@ -24,6 +24,8 @@ Aplikacija je organizirana u pet jasno odvojenih područja. Na mobitelu se otvar
 
 Sadržaj je namijenjen prvenstveno mladima, ali ga mogu koristiti svi koji žele razumljivije pratiti javne odluke i građansko sudjelovanje.
 
+Platformu nastavnici, škole, knjižnice i udruge mogu besplatno uključiti u nastavu, radionice i neprofitne edukativne programe. U odjeljku „Resursi” nalazi se i vodič za radionicu te izbor materijala o građanskoj, medijskoj i AI pismenosti. Za zajedničku provedbu radionica, razvoj sadržaja ili evaluaciju moguće je dogovoriti zasebnu suradnju s autorom. Uvjeti korištenja pojašnjavaju što je dopušteno bez posebnog odobrenja, a za što je potrebno prethodno dopuštenje.
+
 ## Sučelje i pristupačnost
 
 Sučelje koristi progresivno otkrivanje sadržaja: tematske kartice, praktični vodiči i resursi prikazuju sažetak, a dodatna objašnjenja otvaraju se na zahtjev. Mobilna navigacija koristi bočni izbornik i SVG ikone kako bi ostala dosljedna na različitim uređajima. Korisnik može prilagoditi veličinu teksta, kontrast, temu prikaza i animacije.
@@ -100,6 +102,7 @@ POTEZ daje sažet nacionalni okvir i praktične sljedeće korake; ne pokušava b
 - [Izvori za edukativne sadržaje](docs/LEARNING_SOURCES_2026.md)
 - [Metodologija simulacije lokalnog proračuna](docs/BUDGET_MODEL_2026.md)
 - [Transparentnost uporabe umjetne inteligencije](docs/AI_TRANSPARENCY.md)
+- [Vodič za suradnju s POTEZOM](docs/PARTNERSHIP_GUIDE.md)
 
 ## Lokalni razvoj i provjere
 

@@ -119,7 +119,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "theme:'light'" in js and "settings.theme==='dark'?'dark':'light'" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v32" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v33" in sw and "'/assets/budget-data.js'" in sw
 
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
 assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
@@ -181,7 +181,7 @@ assert "data-budget-name for=" in app
 assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v32" in sw
+assert "potez-pilot-v33" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "Ovo nije službeni gradski proračun." in html
@@ -189,7 +189,7 @@ app_quiz = Path("assets/app.js").read_text(encoding="utf-8")
 assert 'quizQuestion' not in app_quiz and 'quizChoices' not in app_quiz
 assert 'id="participationTitle"' in html
 assert 'id="passportCompleted">0/3' in html
-assert "potez-pilot-v32" in sw
+assert "potez-pilot-v33" in sw
 print("POTEZ educator pathway and route accessibility checks passed.")
 PY
 
@@ -207,7 +207,7 @@ assert "text-wrap:balance" in css
 assert "line-height:1.1" in css and "letter-spacing:-.042em" in css
 assert ".app-home .hero .actions" in css
 assert "grid-template-columns:1fr" in css
-assert "potez-pilot-v32" in sw
+assert "potez-pilot-v33" in sw
 print("POTEZ homepage typography, CTA spacing and cache checks passed.")
 PY
 
@@ -243,7 +243,7 @@ for font in (
     "bricolage-grotesque-latin-ext-wght-normal.woff2",
 ):
     assert Path("assets/fonts", font).is_file(), font
-assert "potez-pilot-v32" in sw
+assert "potez-pilot-v33" in sw
 assert "font-family: Inter," not in css
 assert 'href="https://narodne-novine.nn.hr/clanci/sluzbeni/full/2020_12_144_2762.html"' in html
 assert 'href="https://narodne-novine.nn.hr/clanci/sluzbeni/2018_07_68_1393.html"' in html
@@ -287,6 +287,43 @@ for token in (
 ):
     assert token in polish, token
 
-assert "potez-pilot-v32" in sw
+assert "potez-pilot-v33" in sw
 print("POTEZ learning discovery, search, result states and responsive styles passed.")
+PY
+
+
+python - <<'PY'
+from pathlib import Path
+
+html = Path("index.html").read_text(encoding="utf-8")
+polish = Path("assets/polish.css").read_text(encoding="utf-8")
+navigation = Path("assets/navigation.js").read_text(encoding="utf-8")
+service_worker = Path("sw.js").read_text(encoding="utf-8")
+terms = Path("uvjeti.html").read_text(encoding="utf-8")
+
+for token in (
+    'class="facilitator-resources"',
+    'id="facilitatorResourcesTitle"',
+    "ALGOWATCH",
+    "AI Answers. You Decide.",
+    "Google NotebookLM",
+    "https://chatgpt.com/",
+    'class="facilitator-partnership"',
+    "Pročitaj okvir suradnje",
+):
+    assert token in html, token
+
+for token in (
+    "potez-pilot-v33",
+):
+    assert token in service_worker, token
+assert "potez-pilot-v32" not in service_worker
+assert ".mobile-menu{display:block;order:0;margin-left:0}" in polish
+assert "body.menu-open .topline{z-index:1003}" in polish
+assert "mobile-menuPanel" not in navigation
+assert "mobileMenuPanel?.querySelector('.mobile-menu-close')?.focus()" in navigation
+assert "window.innerWidth>1100" in navigation
+assert "mogu besplatno koristiti javno dostupnu platformu POTEZ" in terms
+assert "Ne daje automatsko pravo na kopiranje" in terms
+print("POTEZ educator resource library, partnership permission and mobile drawer checks passed.")
 PY
