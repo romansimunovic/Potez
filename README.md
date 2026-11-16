@@ -12,6 +12,22 @@ Projekt je zamišljen kao jednostavna ulazna točka u građansko sudjelovanje �
 
 ---
 
+## Osnivač, polazište i svrha
+
+POTEZ je osnovao i uređuje **Roman Šimunović**, magistar informacijskih tehnologija i magistar edukacije sociologije. Projekt proizlazi iz interesa za društvena pitanja, građansko sudjelovanje i obrazovanje te iz želje da se informacijske tehnologije iskoriste za njihovo jasnije, praktičnije i pristupačnije objašnjavanje.
+
+Polazište projekta jednostavno je: mladi trebaju imati razumljivo mjesto na kojem mogu povezati ono što se događa u njihovoj svakodnevici s javnim odlukama, institucijama i mogućnostima sudjelovanja. POTEZ zato spaja kratka objašnjenja, provjerljive izvore, interaktivne zadatke, kvizove i simulacije. Gamifikacija nije sama sebi svrha; koristi se kao način da se složene teme razlože na manje korake, potakne istraživanje i omogući učenje vlastitim tempom.
+
+Primarna publika su mladi, osobito učenici viših razreda osnovnih škola i srednjoškolci. Platforma je istodobno zamišljena kao praktičan resurs za nastavnike, stručne suradnike, škole, knjižnice, udruge, organizacije koje rade s mladima, istraživače i donositelje javnih politika. Cilj je podržati kvalitetniji rad s mladima, ali i otvoriti prostor u kojem mladi nisu samo primatelji informacija: mogu razumjeti mogućnosti djelovanja, oblikovati pitanja, sudjelovati u raspravama i doprinijeti zajednici.
+
+### Obrazovni kontekst i razlog za dodatni alat
+
+U Hrvatskoj je Građanski odgoj i obrazovanje propisan kao međupredmetna tema za osnovne i srednje škole, a ne kao zaseban obvezni predmet s jednakom satnicom u svim školama. Samo postojanje međupredmetnog kurikula ne jamči jednaku ni sustavnu provedbu. GONG-ova studija slučaja iz 2025. o Hrvatskoj, Rumunjskoj i Tiringiji opisuje izazove u hrvatskim strukovnim školama: ograničeno vrijeme, nedovoljnu osposobljenost dijela nastavnika, nedostatak smjernica i materijala te često minimalnu, fragmentiranu i simboličnu prisutnost građanskih tema u učionicama.
+
+Posebno je važan status predmeta Politika i gospodarstvo u trogodišnjim strukovnim programima. Odluka iz NN 10/2025. ne navodi PiG među zajedničkim općeobrazovnim predmetima za razinu 4.1., dok ga za razinu 4.2. predviđa u četvrtom razredu (1 sat tjedno, 32 sata godišnje). Ipak, općeobrazovni moduli, među njima i Politika i gospodarstvo, prema točki o modularnim kurikulima mogu se, ovisno o potrebama sektora, zanimanja i kvalifikacije, izvoditi kao obvezni, izborni ili fakultativni. GONG-ova studija iz 2025. upozorava da u trogodišnjim programima PiG više nije dio obveznog kurikula te da se njegovi sadržaji mogu nuditi kao izborni ili fakultativni modul, ovisno o odlukama škola/ravnatelja. U raspravi 30. rujna 2026. GONG je naveo da prva generacija učenika trogodišnjih strukovnih škola u školskoj godini 2026./2027. neće imati PiG kao obvezni predmet; mogućnost pohađanja modula nije isto što i univerzalno zajamčena nastava za sve učenike.
+
+To ne znači da se građanske teme ne obrađuju ni u jednoj školi, niti da međupredmetna tema ne postoji. Preciznije je reći da formalni kurikularni okvir ne jamči svim učenicima jednaku, kontinuiranu i sadržajno dostatnu priliku za političko i građansko obrazovanje. POTEZ odgovara kao dodatni, praktičan i otvoren resurs koji nadopunjuje školsku nastavu, ne zamjenjuje je.
+
 ## Što POTEZ omogućuje?
 
 Aplikacija je organizirana u pet jasno odvojenih područja. Na mobitelu se otvaraju kroz bočni izbornik, a na računalu kroz gornju navigaciju:
@@ -100,6 +116,7 @@ POTEZ daje sažet nacionalni okvir i praktične sljedeće korake; ne pokušava b
 
 - [Urednička načela i standardi provjere](docs/CONTENT_PRINCIPLES.md)
 - [Izvori za edukativne sadržaje](docs/LEARNING_SOURCES_2026.md)
+- [Obrazovni kontekst građanskog odgoja i obrazovanja u Hrvatskoj](docs/CIVIC_EDUCATION_CONTEXT_2026.md)
 - [Metodologija simulacije lokalnog proračuna](docs/BUDGET_MODEL_2026.md)
 - [Transparentnost uporabe umjetne inteligencije](docs/AI_TRANSPARENCY.md)
 - [Vodič za suradnju s POTEZOM](docs/PARTNERSHIP_GUIDE.md)
