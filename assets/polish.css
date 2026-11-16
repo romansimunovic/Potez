@@ -1247,3 +1247,63 @@ html[data-theme="dark"] .accessibility-panel .accessibility-reset{
   border-color:var(--accessibility-panel-border)!important;
 }
 html[data-theme="dark"] .btn-light{border-color:var(--control-border)!important}
+
+
+/* The dedicated high-contrast setting must also override component-specific color pairs. */
+html[data-contrast="high"]{
+  --budget-surface:#ffffff;
+  --budget-border:#000000;
+  --budget-text:#000000;
+  --budget-muted:#171717;
+  --budget-accent:#000000;
+  --budget-track:#ffffff;
+  --budget-fill:#000000;
+  --budget-button:#000000;
+  --budget-button-text:#ffffff;
+  --budget-button-border:#000000;
+  --budget-result-surface:#ffffff;
+  --budget-result-text:#000000;
+  --budget-positive-bg:#ffffff;
+  --budget-positive-text:#000000;
+  --budget-negative-bg:#ffffff;
+  --budget-negative-text:#000000;
+  --accessibility-panel-surface:#ffffff;
+  --accessibility-panel-text:#000000;
+  --accessibility-panel-muted:#171717;
+  --accessibility-panel-control:#ffffff;
+  --accessibility-panel-selected:#000000;
+  --accessibility-panel-selected-text:#ffffff;
+  --control-border:#000000;
+  --accessibility-panel-border:#000000;
+}
+html[data-theme="dark"][data-contrast="high"]{
+  --budget-surface:#080808;
+  --budget-border:#ffffff;
+  --budget-text:#ffffff;
+  --budget-muted:#ffffff;
+  --budget-accent:#ffed00;
+  --budget-track:#ffffff;
+  --budget-fill:#ffed00;
+  --budget-button:#ffed00;
+  --budget-button-text:#000000;
+  --budget-button-border:#ffed00;
+  --budget-result-surface:#080808;
+  --budget-result-text:#ffffff;
+  --budget-positive-bg:#080808;
+  --budget-positive-text:#ffffff;
+  --budget-negative-bg:#080808;
+  --budget-negative-text:#ffffff;
+  --accessibility-panel-surface:#080808;
+  --accessibility-panel-text:#ffffff;
+  --accessibility-panel-muted:#ffffff;
+  --accessibility-panel-control:#080808;
+  --accessibility-panel-selected:#ffffff;
+  --accessibility-panel-selected-text:#000000;
+  --control-border:#ffffff;
+  --accessibility-panel-border:#ffffff;
+}
+html[data-contrast="high"] .budget-total,
+html[data-contrast="high"] .budget-result,
+html[data-contrast="high"] .accessibility-panel{
+  box-shadow:none!important;
+}
