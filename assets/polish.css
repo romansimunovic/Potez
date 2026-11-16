@@ -614,3 +614,6 @@ html[data-theme="dark"] .home-step-icon{background:#34443a;color:#f0e8d7}
 @media(prefers-reduced-motion:reduce){
   .topline{backdrop-filter:none}
 }
+
+/* Font Awesome Free universal-access SVG is rendered locally; no remote icon font is loaded. */
+.accessibility-menu>summary .accessibility-icon{width:23px;height:23px;fill:currentColor;stroke:none}
