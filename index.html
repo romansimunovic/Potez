@@ -93,7 +93,7 @@
       <a href="#alati" data-app-route="tools">Resursi</a>
     </nav>
     <details class="accessibility-menu" id="accessibilityMenu">
-      <summary aria-label="Postavke prikaza i pristupačnosti" title="Postavke prikaza"><svg class="accessibility-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M4 8.5h16M12 7v5m0 0-4 8m4-8 4 8M7.5 8.5l2 4h5l2-4"/></svg></summary>
+      <summary aria-label="Postavke prikaza i pristupačnosti" title="Postavke prikaza"><svg class="accessibility-icon" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm161.5-86.1c-12.2-5.2-26.3 .4-31.5 12.6s.4 26.3 12.6 31.5l11.9 5.1c17.3 7.4 35.2 12.9 53.6 16.3l0 50.1c0 4.3-.7 8.6-2.1 12.6l-28.7 86.1c-4.2 12.6 2.6 26.2 15.2 30.4s26.2-2.6 30.4-15.2l24.4-73.2c1.3-3.8 4.8-6.4 8.8-6.4s7.6 2.6 8.8 6.4l24.4 73.2c4.2 12.6 17.8 19.4 30.4 15.2S339 397 334.8 384.4l-28.7-86.1c-1.4-4.1-2.1-8.3-2.1-12.6l0-50.1c18.4-3.5 36.3-8.9 53.6-16.3l11.9-5.1c12.2-5.2 17.8-19.3 12.6-31.5s-19.3-17.8-31.5-12.6L338.7 175c-26.1 11.2-54.2 17-82.7 17s-56.5-5.8-82.7-17l-11.9-5.1zM256 160a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg></summary>
       <div class="accessibility-panel" aria-label="Postavke prikaza">
         <div class="accessibility-panel-heading"><strong>Postavke prikaza</strong></div>
         <section class="accessibility-control" aria-labelledby="themeLabel"><div><strong id="themeLabel">Izgled</strong></div><div class="accessibility-actions"><button type="button" data-theme-choice="light" aria-pressed="true">Svijetli</button><button type="button" data-theme-choice="dark" aria-pressed="false">Tamni</button></div></section>
@@ -153,7 +153,7 @@
     <section class="home-guide" aria-labelledby="homeGuideTitle">
       <div class="home-guide-heading">
 
-        <h2 id="homeGuideTitle">Od svakodnevnog pitanja do razumijevanja sustava</h2>
+        <h2 id="homeGuideTitle">Od svakodnevnog pitanja do jasnijeg odgovora</h2>
         <p>Tri koraka za razumijevanje tema koje utječu na svakodnevni život.</p>
       </div>
       <div class="home-step-grid">
@@ -320,45 +320,33 @@
       <div class="stat"><strong>11,1 %</strong><span>učenika završnih razreda srednjih škola sudjelovalo je u prosvjedu (2026.)</span></div>
     </section>
 </details>
-<section class="section" id="izazov">
-      <div class="section-head">
-        <div><h2>Jesu li mladi stvarno apatični?</h2></div>
-        <p class="section-intro">Četiri brza pitanja iz istraživanja, provjeravamo što podaci zapravo govore</p>
-      </div>
-      <div class="grid-2">
-        <div class="panel mint">
-          <div class="progress-row"><span id="quizProgressLabel">Pitanje 1 / 4</span><span class="xp" id="quizScore">0 / 4 točno</span></div>
-          <div class="progress"><span id="quizProgress" style="width:25%"></span></div>
-
-          <div class="question" id="quizQuestion">Koliki je udio učenika završnih razreda srednjih škola u Hrvatskoj koji su volontirali?</div>
-          <div class="choices" id="quizChoices"></div>
-          <div class="feedback" id="quizFeedback" role="status" aria-live="polite"></div>
-          <div class="actions"><button class="btn btn-dark" id="quizNext" style="display:none">Sljedeće pitanje →</button><button class="reset" id="quizRestart" style="display:none">Ponovno pokretanje izazova</button></div>
-          <p class="small-note">Izvor: IDIZ, *Politička kompetencija učenika završnih razreda srednjih škola u RH – izvještaj za 2026.* Nacionalno reprezentativni uzorak N=1.285, istraživanje provedeno u ožujku i travnju 2026. Podaci se odnose na učenike završnih razreda, ne na sve mlade u Hrvatskoj</p>
-        </div>
-        <div class="panel dark">
-
-          <h3>„Politički aktivan” nije isto što i „član stranke”</h3>
-          <p>Politička i građanska participacija imaju različite oblike. Volontiranje i doniranje nisu automatski političko djelovanje, ali mogu biti dio šire građanske uključenosti. Peticije, bojkot i prosvjedi izravnije su usmjereni na društvene odluke</p>
-          <div class="pill-row"><span class="pill">volontiranje</span><span class="pill">doniranje</span><span class="pill">peticije</span><span class="pill">bojkot</span><span class="pill">prosvjedi</span><span class="pill">izbori</span></div>
-          <p style="margin-top:21px">Poanta nije tvrditi da je sve super. Poanta je mjeriti različite oblike djelovanja — i pitati zašto se neki oblici lakše događaju od drugih</p>
-          <a href="https://wwwadmin.idi.hr/uploads/Politicka_kompetencija_izvjestaj_final_c6e3cf164b.pdf" target="_blank" rel="noopener" class="btn btn-green">Cjelovito istraživanje ↗</a>
-        </div>
-      </div>
-    </section>
+<section class="section participation-explainer" id="izazov" aria-labelledby="participationTitle">
+  <div class="section-head">
+    <div><h2 id="participationTitle">Što znači sudjelovati u društvenim i političkim odlukama?</h2></div>
+    <p class="section-intro">Sudjelovanje nije rezervirano za izbore, stranke ili političke funkcije. Može početi od sasvim konkretnog problema u školi, kvartu ili gradu.</p>
+  </div>
+  <div class="participation-copy">
+    <p><strong>Politička participacija</strong> obuhvaća postupke kojima ljudi pokušavaju utjecati na javne odluke, vlast ili raspodjelu zajedničkih resursa. Može biti formalna, poput glasanja, ili neformalna, poput peticije, javnog zagovaranja i sudjelovanja u raspravi.</p>
+    <p><strong>Građansko sudjelovanje</strong> širi je pojam: uključuje i zajedničko rješavanje problema, volontiranje, solidarnost i brigu za zajednicu. Ti se oblici mogu preklapati, ali nisu svi automatski politički.</p>
+    <p><strong>Politička apatija</strong> obično označava slab interes ili povlačenje iz političkog života. Ipak, izostanak s izbora ili prosvjeda sam po sebi ne dokazuje apatiju: treba pogledati različite oblike djelovanja, prepreke sudjelovanju i kontekst.</p>
+  </div>
+  <div class="participation-examples" aria-label="Primjeri različitih oblika sudjelovanja">
+    <span>Glasanje i kandidiranje</span><span>Peticije i javna savjetovanja</span><span>Prosvjedi i kampanje</span><span>Praćenje javnih odluka</span><span>Volontiranje i inicijative</span>
+  </div>
+</section>
 <section class="section" id="provjera">
       <div class="section-head">
-        <div><h2>Objava ili navlakuša?</h2></div>
+        <div><h2>Provjeri prije dijeljenja</h2></div>
       </div>
       <div class="grid-2">
         <div class="panel coral">
 
           <div class="social-card">
-            <div class="social-top"><span class="avatar">?</span><span>kvart_info_24 <span style="color:#9aa39b;font-weight:600">· objava bez poveznice</span></span></div>
-            <blockquote>„OD PONEDJELJKA SE SVIM UČENICIMA UKIDA BESPLATAN PRIJEVOZ. MEDIJI ŠUTE.”</blockquote>
-            <div class="fake-meta">Snimka zaslona kruži grupama. Nema datuma dokumenta, autora ni poveznice na odluku</div>
+            <div class="social-top"><span class="avatar" aria-hidden="true">i</span><span>Primjer objave <span style="color:inherit;font-weight:600">· izmišljena situacija za vježbu</span></span></div>
+            <blockquote>„Od 1. rujna učenici će plaćati prijevoz. Odluka je već donesena.”</blockquote>
+            <div class="fake-meta">U objavi nema poveznice na odluku, datuma dokumenta ni podatka o tome koje se škole ili učenici spominju.</div>
           </div>
-          <div class="question" style="font-size:1.07rem">Kako bi najtočnije označio/la ovu objavu?</div>
+          <div class="question" style="font-size:1.07rem">Što zasad možeš zaključiti?</div>
           <div class="choices" id="factChoices">
             <button class="choice" data-answer="false">Provjerena činjenica <span class="key">A</span></button>
             <button class="choice" data-answer="opinion">Mišljenje <span class="key">B</span></button>
@@ -369,51 +357,19 @@
         </div>
         <div class="panel blue">
 
-          <h3>Umjesto pitanja „je li istina?”, korisnije je pitati „odakle znamo?”.</h3>
+          <h3>Prije zaključka provjeri četiri stvari.</h3>
           <div class="steps">
-            <div class="step"><b>01 / Odmak</b><strong>Bez brze reakcije</strong><span>Emocija nije dokaz, osobito kada objava potiče hitno dijeljenje.</span></div>
-            <div class="step"><b>02 / Izvor</b><strong>Autor i izvor</strong><span>Potrebno je provjeriti autora, datum, instituciju i izvornu objavu.</span></div>
-            <div class="step"><b>03 / Dokument</b><strong>Izvorni dokument</strong><span>Potražiti izvorni zakon, odluku, podatak ili cjelovitu snimku.</span></div>
-            <div class="step"><b>04 / Kontekst</b><strong>Usporedba izvora</strong><span>Potrebno je provjeriti je li brojka aktualna i odnosi li se na predmetnu tvrdnju.</span></div>
+            <div class="step"><b>01 · Tvrdnja</b><strong>Što se točno tvrdi?</strong><span>Odredi tko, što, kada i na koga se odluka navodno odnosi.</span></div>
+            <div class="step"><b>02 · Autor</b><strong>Tko to objavljuje?</strong><span>Provjeri autora, datum i poveznicu na izvornu objavu.</span></div>
+            <div class="step"><b>03 · Dokaz</b><strong>Postoji li dokument?</strong><span>Potraži odluku škole, grada ili prijevoznika, a ne samo snimku zaslona.</span></div>
+            <div class="step"><b>04 · Kontekst</b><strong>Potvrđuje li još koji izvor?</strong><span>Usporedi službenu objavu s neovisnim i aktualnim izvorima.</span></div>
           </div>
-          <p style="margin-top:19px">Nedostatak dokaza nije automatski dokaz da je tvrdnja lažna. U takvim slučajevima primjerenija je oznaka „nepotvrđeno”.</p>
+          <p style="margin-top:19px">Ako nema dovoljno dokaza, tvrdnju zasad označi kao nepotvrđenu. To nije isto što i dokaz da je lažna.</p>
           <div class="resource-links"><a href="https://tocnotako.hr/" target="_blank" rel="noopener">Točno tako ↗</a><a href="https://faktograf.hr/" target="_blank" rel="noopener">Faktograf ↗</a></div>
         </div>
       </div>
     </section>
-<section class="section" id="razine" aria-labelledby="levelsTitle">
-      <div class="section-head">
-        <div><h2 id="levelsTitle">Tko zapravo može nešto promijeniti?</h2></div>
-      </div>
-      <div class="levels-grid">
-        <article class="level-card">
-          <span class="level-number">01 · NAJBLIŽE TEBI</span><h3>Ustanova i zajednica</h3>
-          <p>Školska pravila, uvjeti na fakultetu, studentski standard, prostor u kvartu</p>
-          <strong>Prvi trag</strong><span>Vijeće učenika, studentski zbor, uprava ustanove, mjesni odbor ili lokalna inicijativa</span>
-        </article>
-        <article class="level-card">
-          <span class="level-number">02 · LOKALNO</span><h3>Grad ili općina</h3>
-          <p>Komunalni red, javni prostori, lokalni programi, dio prometa i gradski proračun</p>
-          <strong>Prvi trag</strong><span>Gradsko/općinsko vijeće, gradonačelnik/načelnik i upravni odjeli</span>
-        </article>
-        <article class="level-card">
-          <span class="level-number">03 · REGIONALNO</span><h3>Županija</h3>
-          <p>Regionalno planiranje i dio javnih usluga, primjerice osnivačke i upravljačke uloge u pojedinim školama ili zdravstvenim ustanovama</p>
-          <strong>Prvi trag</strong><span>Županijska skupština, župan i nadležni upravni odjeli</span>
-        </article>
-        <article class="level-card">
-          <span class="level-number">04 · NACIONALNO</span><h3>Država</h3>
-          <p>Zakoni, porezi, nacionalni standardi, državni proračun i politike ministarstava</p>
-          <strong>Prvi trag</strong><span>Hrvatski sabor, Vlada, ministarstva i javna savjetovanja</span>
-        </article>
-        <article class="level-card">
-          <span class="level-number">05 · EUROPSKO</span><h3>Europska unija</h3>
-          <p>Pravila i programi u područjima u kojima EU ima ovlasti, uz provedbu koja često uključuje države i lokalna tijela</p>
-          <strong>Prvi trag</strong><span>Europska komisija, Europski parlament i Vijeće EU-a</span>
-        </article>
-      </div>
-      <div class="jurisdiction-note"><strong>Važno:</strong> ovo nije jednostavna ljestvica u kojoj je za svaki problem nadležna samo jedna razina. Ovlasti ovise o zakonu, osnivaču, vlasništvu i vrsti usluge. Ključna su pitanja: tko donosi pravilo, tko osigurava novac i tko provodi odluku?</div>
-    </section>
+
 </section>
 <section class="app-view" data-app-view="play" id="igraj" hidden>
 <section class="section passport-section" id="putovnica" aria-labelledby="passportTitle">
@@ -437,7 +393,7 @@
     <summary>Značke, istražene teme i pregled napretka</summary>
     <div class="passport-more-content">
       <div class="passport-stat-grid">
-        <div class="passport-stat"><strong id="passportCompleted">0/4</strong><span>glavnih izazova</span></div>
+        <div class="passport-stat"><strong id="passportCompleted">0/3</strong><span>glavnih izazova</span></div>
         <div class="passport-stat"><strong id="passportBadgesCount">0</strong><span>osvojenih znački</span></div>
         <div class="passport-stat"><strong id="passportTopics">0</strong><span>istraženih tema</span></div>
       </div>
@@ -482,15 +438,16 @@
 
       <h2>Kako se raspoređuje gradski novac?</h2>
     </div>
-    <p class="section-intro">Simulacija prikazuje kako ograničeni javni novac stvara izbore i kompromise.</p>
+    <p class="section-intro">Istraži kako se ograničeni javni novac raspoređuje i zašto svaka promjena prioriteta ima posljedice.</p>
   </div>
   <div class="panel yellow budget-simulation">
     <div class="scenario scenario-city" id="budgetScenarioHeader">
       <span><strong id="budgetContextTitle">OSIJEK · 2026.</strong><span class="budget-context-note">Edukativna simulacija, ne stvarni proračun</span></span>
     </div>
     <div class="budget-game-intro">
-      <strong>Simulacija gradskog proračuna.</strong>
-      <p>Veći iznos za jednu stavku ostavlja manje prostora za druge. Pojedinosti su dostupne odabirom stavke.</p>
+      <strong>Tvoj zadatak: složi prijedlog raspodjele.</strong>
+      <ol class="budget-howto"><li>Odaberi grad i pogledaj početne iznose.</li><li>Pomakni klizače za područja koja želiš podržati.</li><li>Prati ukupni iznos: povećanje jedne stavke ostavlja manje prostora za druge.</li></ol>
+      <p class="budget-game-note">Ovo je pojednostavljena edukativna simulacija, a ne službeni proračun ni stvarni prijedlog grada.</p>
     </div>
     <label class="budget-city-picker" for="budgetCity">Odabir grada
       <select id="budgetCity">
@@ -571,17 +528,17 @@
 </section>
 <section class="section" id="usporedi" aria-labelledby="duelTitle">
       <div class="section-head">
-        <div><h2 id="duelTitle">Dva pogleda. Isti lokalni prioriteti</h2></div>
-        <p class="section-intro">Usporedba prioriteta važnija je od traženja „pobjednika”. Dobar razgovor počinje obrazlaganjem razloga i potreba.</p>
+        <div><h2 id="duelTitle">Usporedi dva prijedloga</h2></div>
+        <p class="section-intro">Spremite dvije raspodjele istog gradskog fonda pa usporedite koje potrebe svaki prijedlog stavlja u prvi plan.</p>
       </div>
       <div class="duel-layout">
         <div class="panel mint">
 
-          <h3>Kako igrati na jednom uređaju</h3>
+          <h3>Kako usporedba funkcionira</h3>
           <ol class="duel-steps">
-            <li>Igrač A odabere grad i scenarij, promijeni iznose i spremi svoj izbor</li>
-            <li>Predajte uređaj igraču B. Neka promijeni raspodjelu istog scenarija i spremi svoju</li>
-            <li>Pri usporedbi je važno razmotriti kome bi odluka pomogla, a čija bi potreba ostala po strani.</li>
+            <li>Prva osoba odabere grad, prilagodi iznose i spremi prijedlog A</li>
+            <li>Druga osoba prilagodi raspodjelu istog fonda i spremi prijedlog B</li>
+            <li>Usporedite kome svaki prijedlog daje prednost i koje potrebe ostaju slabije pokrivene.</li>
           </ol>
           <div class="duel-actions">
             <a class="btn btn-light" href="#budzet">Povratak na raspodjelu ↑</a>
@@ -603,6 +560,40 @@
 </section>
 <section class="app-view" data-app-view="act" id="djeluj" hidden>
 <header class="view-intro"><div><h1>Tko odlučuje i gdje pronaći informacije?</h1></div></header>
+<section class="section" id="razine" aria-labelledby="levelsTitle">
+      <div class="section-head">
+        <div><h2 id="levelsTitle">Tko je nadležan za problem koji želiš riješiti?</h2></div>
+      </div>
+      <p class="section-intro">Za svaki problem vrijedi provjeriti tri uloge: tko donosi odluku, tko osigurava novac i tko je provodi. Te uloge ne moraju pripadati istoj instituciji.</p>
+      <div class="levels-grid">
+        <article class="level-card">
+          <span class="level-number">01 · NAJBLIŽE TEBI</span><h3>Ustanova i zajednica</h3>
+          <p>Školska pravila, uvjeti na fakultetu, studentski standard, prostor u kvartu</p>
+          <strong>Prvi trag</strong><span>Vijeće učenika, studentski zbor, uprava ustanove, mjesni odbor ili lokalna inicijativa</span>
+        </article>
+        <article class="level-card">
+          <span class="level-number">02 · LOKALNO</span><h3>Grad ili općina</h3>
+          <p>Komunalni red, javni prostori, lokalni programi, dio prometa i gradski proračun</p>
+          <strong>Prvi trag</strong><span>Gradsko/općinsko vijeće, gradonačelnik/načelnik i upravni odjeli</span>
+        </article>
+        <article class="level-card">
+          <span class="level-number">03 · REGIONALNO</span><h3>Županija</h3>
+          <p>Regionalno planiranje i dio javnih usluga, primjerice osnivačke i upravljačke uloge u pojedinim školama ili zdravstvenim ustanovama</p>
+          <strong>Prvi trag</strong><span>Županijska skupština, župan i nadležni upravni odjeli</span>
+        </article>
+        <article class="level-card">
+          <span class="level-number">04 · NACIONALNO</span><h3>Država</h3>
+          <p>Zakoni, porezi, nacionalni standardi, državni proračun i politike ministarstava</p>
+          <strong>Prvi trag</strong><span>Hrvatski sabor, Vlada, ministarstva i javna savjetovanja</span>
+        </article>
+        <article class="level-card">
+          <span class="level-number">05 · EUROPSKO</span><h3>Europska unija</h3>
+          <p>Pravila i programi u područjima u kojima EU ima ovlasti, uz provedbu koja često uključuje države i lokalna tijela</p>
+          <strong>Prvi trag</strong><span>Europska komisija, Europski parlament i Vijeće EU-a</span>
+        </article>
+      </div>
+      <div class="jurisdiction-note"><strong>Važno:</strong> ovo nije jednostavna ljestvica u kojoj je za svaki problem nadležna samo jedna razina. Ovlasti ovise o zakonu, osnivaču, vlasništvu i vrsti usluge. Ključna su pitanja: tko donosi pravilo, tko osigurava novac i tko provodi odluku?</div>
+    </section>
 <section class="section" id="akcija">
       <div class="section-head">
         <div><h2>Odabir područja prema vlastitom interesu</h2></div>

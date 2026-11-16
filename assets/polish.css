@@ -511,3 +511,109 @@ html[data-theme="dark"] .accessibility-panel .accessibility-toggle[aria-pressed=
 @media(prefers-reduced-motion:reduce){
   .mobile-menu[open] .mobile-menu-panel{animation:none}
 }
+
+
+/* POTEZ editorial civic design: calmer surfaces, clearer hierarchy, persistent wayfinding. */
+:root{
+  --font-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-display:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --card-pad:clamp(20px,2.2vw,28px);
+}
+body{line-height:1.62}
+:where(h1,h2,h3,h4){letter-spacing:-.018em;font-weight:650}
+:where(h1,h2){line-height:1.16}
+:where(h3,h4){line-height:1.28;font-weight:650}
+.hero h1{font-size:clamp(2.6rem,4.8vw,4.4rem);letter-spacing:-.03em;line-height:1.08}
+.eyebrow,.section-kicker,.art-label,.sticker,.brand-sub,.neighborhood-kicker,.daily-fact-kicker,.daily-case-top,.daily-outcome-label,.learning-topic-label,.learning-source-caption{letter-spacing:.055em;font-weight:650}
+.topline{
+  position:sticky;top:0;z-index:80;
+  padding-block:10px;min-height:68px;
+  background:color-mix(in srgb,var(--paper) 94%,transparent);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+html{scroll-padding-top:88px}
+.app-view [id],.app-view section{scroll-margin-top:88px}
+.btn,.mobile-menu>summary,.accessibility-menu>summary,.mobile-menu-close,.accessibility-actions button,.accessibility-toggle,.accessibility-reset,.learning-filter,.learning-reset,.choice,.daily-choice{
+  border-radius:9px;
+}
+.btn{min-height:44px;padding:11px 17px;font-weight:650;letter-spacing:0;box-shadow:none}
+.btn-green{background:#315b3b!important;color:#fff!important;border:1px solid #315b3b!important}
+.btn-green:hover:not(:disabled){background:#264b30!important;color:#fff!important}
+.btn-dark{background:#27372f!important;color:#fff!important}
+.btn-light{background:var(--surface)!important;color:var(--ink)!important}
+.panel,.link-card,.home-step-card,.resource-feature,.path-card,.level-card,.europe-case,.issue-path-card,.facilitator-card,.budget-line,.daily-fact-card{
+  border-radius:14px;
+}
+.home-step-card{box-shadow:none}
+.home-step-icon{
+  border-radius:9px;background:#e8eadf;color:#344a38;
+  font-variant-numeric:tabular-nums;
+}
+.home-progress-score strong,.home-step-icon,.stat strong,.passport-stat strong,.budget-total .big{
+  color:var(--ink);
+}
+.accessibility-menu>summary .accessibility-icon{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.accessibility-menu>summary{border-radius:10px}
+.mobile-menu>summary{border-radius:10px}
+.accessibility-menu>summary:focus-visible,.mobile-menu>summary:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.participation-explainer{
+  padding:clamp(22px,3vw,36px);
+  border:1px solid var(--line);border-radius:14px;background:var(--surface);
+}
+.participation-copy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.2vw,28px)}
+.participation-copy p{margin:0;max-width:38ch;color:var(--text);line-height:1.7}
+.participation-examples{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.participation-examples span{padding:7px 11px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--text);font-size:.88rem}
+.budget-game-intro{padding:18px 20px;border-radius:11px;background:rgba(255,255,255,.48)}
+.budget-game-intro>strong{display:block;margin-bottom:8px;font-size:1.08rem}
+.budget-howto{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:10px 0 8px;padding-left:20px}
+.budget-howto li{padding-right:8px;color:var(--text)}
+.budget-game-note{margin:8px 0 0;color:#46554b;font-size:.9rem}
+.budget-total .btn-green{background:#315b3b!important;color:#fff!important}
+.budget-line .amount,.budget-total .big,.home-progress-score strong{font-variant-numeric:tabular-nums}
+.budget-line .budget-share{color:#526157}
+.daily-fact-card{padding:clamp(22px,3vw,34px);background:var(--surface);border:1px solid var(--line)}
+.daily-fact-text{max-width:68ch;line-height:1.7}
+html[data-theme="dark"] .home-step-icon{
+  background:#34443a!important;color:#f0e8d7!important;border:1px solid #65776a;
+}
+html[data-theme="dark"] .home-progress-score strong,
+html[data-theme="dark"] .home-step-card .home-step-icon,
+html[data-theme="dark"] .stat strong,
+html[data-theme="dark"] .passport-stat strong,
+html[data-theme="dark"] .budget-total .big{
+  color:#f0eadf!important;
+}
+html[data-theme="dark"] .btn-green,
+html[data-theme="dark"] .budget-total .btn-green{
+  background:#486b50!important;color:#fff!important;border-color:#77927a!important;
+}
+html[data-theme="dark"] .btn-green:hover:not(:disabled){background:#587b60!important;color:#fff!important}
+html[data-theme="dark"] .budget-game-note{color:#d0d9d0}
+html[data-theme="dark"] .budget-game-intro{background:#202b24}
+html[data-theme="dark"] .budget-line .budget-share{color:#d1dbd2}
+html[data-theme="dark"] .participation-explainer{background:#18221c;border-color:#4a5b4e}
+html[data-theme="dark"] .participation-copy p{color:#e0e6df}
+html[data-theme="dark"] .participation-examples span{background:#202b24;border-color:#4a5b4e;color:#e0e6df}
+html[data-theme="dark"] .home-step-icon{background:#34443a;color:#f0e8d7}
+@media(max-width:760px){
+  .topline{min-height:62px;padding-block:7px}
+  .participation-copy{grid-template-columns:1fr;gap:12px}
+  .participation-copy p{max-width:66ch}
+  .budget-howto{grid-template-columns:1fr;gap:5px}
+}
+@media(max-width:420px){
+  .shell{width:min(calc(100% - 28px),1280px)}
+  .topline{gap:8px}
+  .brand{font-size:1.55rem}
+  .mobile-menu>summary,.accessibility-menu>summary{width:42px;height:42px;min-height:42px}
+  .hero h1{font-size:clamp(2.25rem,10vw,3rem)}
+  .btn{padding:10px 13px}
+}
+@media(prefers-reduced-motion:reduce){
+  .topline{backdrop-filter:none}
+}
+
+/* Font Awesome Free universal-access SVG is rendered locally; no remote icon font is loaded. */
+.accessibility-menu>summary .accessibility-icon{width:23px;height:23px;fill:currentColor;stroke:none}

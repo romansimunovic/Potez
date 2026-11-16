@@ -17,7 +17,6 @@
   ];
 
   const mainMissions = [
-    { key: 'quizDone', title: 'Razumijevanje podataka', desc: 'Povezivanje istraživačkih nalaza s uzorkom i kontekstom.', href: '#izazov', badge: 'Čitač podataka', points: 15 },
     { key: 'factDone', title: 'Provjera informacija', desc: 'Razlikovanje činjenica, mišljenja i nepotvrđenih tvrdnji.', href: '#provjera', badge: 'Tragač za dokazima', points: 10 },
     { key: 'budgetDone', title: 'Javni prioriteti', desc: 'Usporedba potreba, troškova i posljedica raspodjele.', href: '#budzet', badge: 'Čuvar javnog novca', points: 15 },
     { key: 'actionDone', title: 'Nadležnosti', desc: 'Povezivanje tema s institucijama, dokumentima i službenim informacijama.', href: '#akcija', badge: 'Poznavatelj sustava', points: 5 }
@@ -31,7 +30,7 @@
   ];
 
   function readSaved() {
-    const defaults = { xp: 0, quizDone: false, factDone: false, budgetDone: false, actionDone: false };
+    const defaults = { xp: 0, factDone: false, budgetDone: false, actionDone: false };
     try {
       const value = JSON.parse(localStorage.getItem(STORE) || '{}');
       return value && typeof value === 'object' ? { ...defaults, ...value } : defaults;
@@ -96,7 +95,7 @@
     const badgeCount = $('#passportBadgesCount');
     const badges = $('#passportBadges');
     const path = $('#passportPath');
-    if (completedElement) completedElement.textContent = completed + '/4';
+    if (completedElement) completedElement.textContent = completed + '/3';
     const weekDone = saved.weeklyDoneKey === weekStamp();
     const learnedLessons = Object.keys(saved).filter((key) => key.startsWith('lesson-') && saved[key] === true).length;
     const topicCount = $('#passportTopics');
