@@ -119,7 +119,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "theme:'light'" in js and "settings.theme==='dark'?'dark':'light'" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v34" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v35" in sw and "'/assets/budget-data.js'" in sw
 
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
 assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
@@ -181,7 +181,7 @@ assert "data-budget-name for=" in app
 assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v34" in sw
+assert "potez-pilot-v35" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "Ovo nije službeni gradski proračun." in html
@@ -189,7 +189,7 @@ app_quiz = Path("assets/app.js").read_text(encoding="utf-8")
 assert 'quizQuestion' not in app_quiz and 'quizChoices' not in app_quiz
 assert 'id="participationTitle"' in html
 assert 'id="passportCompleted">0/3' in html
-assert "potez-pilot-v34" in sw
+assert "potez-pilot-v35" in sw
 print("POTEZ educator pathway and route accessibility checks passed.")
 PY
 
@@ -207,7 +207,7 @@ assert "text-wrap:balance" in css
 assert "line-height:1.1" in css and "letter-spacing:-.042em" in css
 assert ".app-home .hero .actions" in css
 assert "grid-template-columns:1fr" in css
-assert "potez-pilot-v34" in sw
+assert "potez-pilot-v35" in sw
 print("POTEZ homepage typography, CTA spacing and cache checks passed.")
 PY
 
@@ -243,7 +243,7 @@ for font in (
     "bricolage-grotesque-latin-ext-wght-normal.woff2",
 ):
     assert Path("assets/fonts", font).is_file(), font
-assert "potez-pilot-v34" in sw
+assert "potez-pilot-v35" in sw
 assert "font-family: Inter," not in css
 assert 'href="https://narodne-novine.nn.hr/clanci/sluzbeni/full/2020_12_144_2762.html"' in html
 assert 'href="https://narodne-novine.nn.hr/clanci/sluzbeni/2018_07_68_1393.html"' in html
@@ -287,7 +287,7 @@ for token in (
 ):
     assert token in polish, token
 
-assert "potez-pilot-v34" in sw
+assert "potez-pilot-v35" in sw
 print("POTEZ learning discovery, search, result states and responsive styles passed.")
 PY
 
@@ -314,7 +314,7 @@ for token in (
     assert token in html, token
 
 for token in (
-    "potez-pilot-v34",
+    "potez-pilot-v35",
 ):
     assert token in service_worker, token
 assert "potez-pilot-v32" not in service_worker
@@ -334,7 +334,7 @@ from pathlib import Path
 css = Path("assets/polish.css").read_text(encoding="utf-8")
 html = Path("index.html").read_text(encoding="utf-8")
 sw = Path("sw.js").read_text(encoding="utf-8")
-assert "potez-pilot-v34" in sw and "potez-pilot-v33" not in sw
+assert "potez-pilot-v35" in sw and "potez-pilot-v33" not in sw
 assert "grid-template-columns:minmax(0,1fr) auto auto" in css
 assert ".mobile-menu{grid-column:3;grid-row:1" in css
 assert ".brand{grid-column:1;grid-row:1" in css
@@ -363,4 +363,129 @@ for foreground, background in (
 
 print("POTEZ header placement, icon-only controls, theme tokens and WCAG AA contrast checks passed.")
 
+PY
+
+
+python - <<'PY'
+from pathlib import Path
+
+css = Path("assets/polish.css").read_text(encoding="utf-8")
+sw = Path("sw.js").read_text(encoding="utf-8")
+assert "potez-pilot-v35" in sw
+assert "POTEZ design-system completion: semantic scorecard colors" in css
+for token in (
+    "--budget-surface:", "--budget-text:", "--budget-muted:",
+    "--budget-positive-bg:", "--budget-negative-bg:",
+    "--accessibility-panel-surface:", "--accessibility-panel-selected:", "--control-border:", "--accessibility-panel-border:",
+    "Bricolage Grotesque", ".budget-total .btn-green",
+    ".budget-total .reset", ".budget-result", "potez-result-in",
+    "html[data-motion=\"reduce\"] .budget-result",
+    "prefers-reduced-motion:reduce",
+):
+    assert token in css, token
+
+def luminance(hex_color):
+    values = [int(hex_color[i:i+2], 16) / 255 for i in (1, 3, 5)]
+    linear = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in values]
+    return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2]
+
+def contrast(foreground, background):
+    light, dark = sorted((luminance(foreground), luminance(background)), reverse=True)
+    return (light + .05) / (dark + .05)
+
+# WCAG AA text pairs used by the permanent allocation summary and its result states.
+text_pairs = (
+    ("#18231d", "#edf4e8"), ("#46584a", "#edf4e8"),
+    ("#365a1e", "#edf4e8"), ("#ffffff", "#315b3b"),
+    ("#29372f", "#f7f9f4"), ("#274b29", "#deecd8"),
+    ("#8b3128", "#f9e8e4"),
+    ("#f3f6f1", "#1b2921"), ("#c4d0c7", "#1b2921"),
+    ("#c0df98", "#1b2921"), ("#e2eae3", "#24332a"),
+    ("#c0df98", "#263b2b"), ("#ffb6a8", "#402521"),
+    ("#14200f", "#d7f49d"),
+    ("#18231d", "#ffffff"), ("#526158", "#ffffff"),
+    ("#18231d", "#f0f2ed"), ("#172c3a", "#e5eef3"),
+    ("#f3f6f1", "#18221d"), ("#c4d0c7", "#18221d"),
+    ("#f3f6f1", "#222e27"), ("#e2eae3", "#253b44"),
+)
+for foreground, background in text_pairs:
+    ratio = contrast(foreground, background)
+    assert ratio >= 4.5, f"Text contrast {ratio:.2f}:1 for {foreground} on {background}"
+
+# Controls and boundaries that communicate component/state must remain distinguishable.
+ui_pairs = (
+    ("#768b78", "#edf4e8"), ("#768b78", "#f7f6f1"),
+    ("#65766a", "#1b2921"), ("#65766a", "#101613"),
+    ("#768b78", "#ffffff"), ("#768b78", "#f0f2ed"),
+    ("#768b78", "#18221d"), ("#768b78", "#222e27"),
+    ("#1558a6", "#edf4e8"), ("#a9d6ff", "#1b2921"),
+)
+for foreground, background in ui_pairs:
+    ratio = contrast(foreground, background)
+    assert ratio >= 3.0, f"UI/focus contrast {ratio:.2f}:1 for {foreground} on {background}"
+
+print("POTEZ budget summary, result states, theme popover and WCAG AA contrast regression checks passed.")
+PY
+
+
+python - <<'PY'
+from pathlib import Path
+css = Path("assets/polish.css").read_text(encoding="utf-8")
+for selector in (
+    'html[data-theme="dark"] .budget-total{',
+    'html[data-theme="dark"] .budget-total .budget-status{',
+    'html[data-theme="dark"] .budget-total .btn-green{',
+    'html[data-theme="dark"] .budget-result p{',
+    'html[data-theme="dark"] .accessibility-panel{',
+    'html[data-theme="dark"] .accessibility-panel *{',
+):
+    assert selector in css, selector
+assert 'Bricolage Grotesque' in css and 'var(--font-display)' in css
+assert 'html[data-motion="reduce"]{scroll-behavior:auto!important}' in css
+assert '@media(prefers-reduced-motion:reduce)' in css
+print("POTEZ explicit dark-theme cascade and reduced-motion safeguards passed.")
+PY
+
+
+python - <<'PY'
+from pathlib import Path
+css = Path("assets/polish.css").read_text(encoding="utf-8")
+assert "--control-border:#768b78" in css
+assert "--accessibility-panel-border:#768b78" in css
+assert ':where(select,textarea,input:not([type="range"]):not([type="checkbox"]))' in css
+assert ".btn-light{border-color:var(--control-border)!important}" in css
+assert ".accessibility-panel .accessibility-actions button" in css
+print("POTEZ control-boundary contrast tokens and selectors passed.")
+PY
+
+
+python - <<'PY'
+from pathlib import Path
+css = Path("assets/polish.css").read_text(encoding="utf-8")
+assert 'html[data-contrast="high"]{' in css
+assert 'html[data-theme="dark"][data-contrast="high"]{' in css
+for token in (
+    "--budget-surface:#ffffff", "--budget-text:#000000",
+    "--budget-button:#000000", "--accessibility-panel-surface:#ffffff",
+    "--control-border:#000000", "--budget-surface:#080808",
+    "--budget-text:#ffffff", "--budget-button:#ffed00",
+    "--accessibility-panel-surface:#080808", "--control-border:#ffffff",
+):
+    assert token in css, token
+
+def luminance(hex_color):
+    values = [int(hex_color[i:i+2], 16) / 255 for i in (1, 3, 5)]
+    linear = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in values]
+    return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2]
+def contrast(a, b):
+    light, dark = sorted((luminance(a), luminance(b)), reverse=True)
+    return (light + .05) / (dark + .05)
+
+for pair in (
+    ("#000000", "#ffffff"), ("#171717", "#ffffff"),
+    ("#ffffff", "#000000"), ("#000000", "#ffed00"),
+    ("#ffffff", "#080808"), ("#ffed00", "#080808"),
+):
+    assert contrast(*pair) >= 7, (pair, contrast(*pair))
+print("POTEZ high-contrast budget and accessibility surfaces passed.")
 PY

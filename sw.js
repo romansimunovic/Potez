@@ -1,4 +1,4 @@
-const CACHE_NAME = 'potez-pilot-v34';
+const CACHE_NAME = 'potez-pilot-v35';
 const APP_SHELL = [
   '/',
   '/index.html',
