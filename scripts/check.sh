@@ -342,5 +342,25 @@ assert "h1 .highlight::after{display:none!important}" in css
 assert "text-decoration-color:var(--accent-mark)" in css
 assert "html[data-theme=\"dark\"] .step span{color:#c4d0c7!important}" in css
 assert 'class="mobile-menu"' in html and 'class="brand"' in html
-print("POTEZ header placement, icon-only controls, theme tokens and contrast regression checks passed.")
+
+def luminance(hex_color):
+    values = [int(hex_color[i:i+2], 16) / 255 for i in (1, 3, 5)]
+    linear = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in values]
+    return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2]
+
+def contrast(foreground, background):
+    light, dark = sorted((luminance(foreground), luminance(background)), reverse=True)
+    return (light + .05) / (dark + .05)
+
+for foreground, background in (
+    ("#18231d", "#ffffff"), ("#526158", "#f7f6f1"),
+    ("#f3f6f1", "#101613"), ("#c4d0c7", "#18221d"),
+    ("#315f78", "#e5eef3"), ("#b8dce8", "#253b44"),
+    ("#b8dce8", "#222e27"), ("#c4d0c7", "#222e27"),
+    ("#14200f", "#d7f49d"), ("#101713", "#f3f6f1"),
+):
+    assert contrast(foreground, background) >= 4.5, (foreground, background, contrast(foreground, background))
+
+print("POTEZ header placement, icon-only controls, theme tokens and WCAG AA contrast checks passed.")
+
 PY
