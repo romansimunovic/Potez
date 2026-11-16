@@ -102,6 +102,7 @@ POTEZ daje sažet nacionalni okvir i praktične sljedeće korake; ne pokušava b
 - [Izvori za edukativne sadržaje](docs/LEARNING_SOURCES_2026.md)
 - [Metodologija simulacije lokalnog proračuna](docs/BUDGET_MODEL_2026.md)
 - [Transparentnost uporabe umjetne inteligencije](docs/AI_TRANSPARENCY.md)
+- [Vodič za suradnju s POTEZOM](docs/PARTNERSHIP_GUIDE.md)
 
 ## Lokalni razvoj i provjere
 
