@@ -81,6 +81,9 @@ privacy = Path("privacy.html").read_text(encoding="utf-8")
 civic = Path("assets/civic.js").read_text(encoding="utf-8")
 assert 'id="feedbackForm"' not in html
 assert 'id="dailyScenarioTitle"' in html and 'id="dailyScenarioText"' in html
+assert 'Što znači sudjelovati u društvenim i političkim odlukama?' in html
+assert 'Provjeri prije dijeljenja' in html
+assert 'Tko je nadležan za problem koji želiš riješiti?' in html
 assert "dailyRunOrder" in civic and "dailyCompletedIds" in civic
 assert 'id="dailyProgress"' in html and 'id="dailyNext"' in html and 'id="dailyShare"' in html
 assert not Path("functions").exists()
@@ -178,7 +181,7 @@ assert "data-budget-name for=" in app
 assert 'class="budget-category-label"' in app
 assert ".budget-total .big { white-space: nowrap" in css
 assert "@media (max-width:360px)" in css
-assert "potez-pilot-v31" in sw
+assert "potez-pilot-v32" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "Ovo nije službeni gradski proračun." in html
@@ -208,7 +211,7 @@ if (!content || !Array.isArray(content.topics) || !Array.isArray(content.facts))
   throw new Error('Learning content registry is missing');
 }
 if (content.topics.length !== 12) throw new Error('Expected 12 curated learning topics');
-if (content.facts.length !== 14) throw new Error('Expected 14 sourced daily facts');
+if (content.facts.length !== 22) throw new Error('Expected 22 sourced daily facts');
 const ids = content.topics.map(item => item.id);
 if (new Set(ids).size !== ids.length) throw new Error('Learning topic IDs must be unique');
 const categories = new Set(['svakodnevica', 'digitalno', 'sudjelovanje', 'odgovornost']);
