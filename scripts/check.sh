@@ -457,3 +457,35 @@ assert ".btn-light{border-color:var(--control-border)!important}" in css
 assert ".accessibility-panel .accessibility-actions button" in css
 print("POTEZ control-boundary contrast tokens and selectors passed.")
 PY
+
+
+python - <<'PY'
+from pathlib import Path
+css = Path("assets/polish.css").read_text(encoding="utf-8")
+assert 'html[data-contrast="high"]{' in css
+assert 'html[data-theme="dark"][data-contrast="high"]{' in css
+for token in (
+    "--budget-surface:#ffffff", "--budget-text:#000000",
+    "--budget-button:#000000", "--accessibility-panel-surface:#ffffff",
+    "--control-border:#000000", "--budget-surface:#080808",
+    "--budget-text:#ffffff", "--budget-button:#ffed00",
+    "--accessibility-panel-surface:#080808", "--control-border:#ffffff",
+):
+    assert token in css, token
+
+def luminance(hex_color):
+    values = [int(hex_color[i:i+2], 16) / 255 for i in (1, 3, 5)]
+    linear = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in values]
+    return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2]
+def contrast(a, b):
+    light, dark = sorted((luminance(a), luminance(b)), reverse=True)
+    return (light + .05) / (dark + .05)
+
+for pair in (
+    ("#000000", "#ffffff"), ("#171717", "#ffffff"),
+    ("#ffffff", "#000000"), ("#000000", "#ffed00"),
+    ("#ffffff", "#080808"), ("#ffed00", "#080808"),
+):
+    assert contrast(*pair) >= 7, (pair, contrast(*pair))
+print("POTEZ high-contrast budget and accessibility surfaces passed.")
+PY
