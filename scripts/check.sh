@@ -424,3 +424,22 @@ for foreground, background in ui_pairs:
 
 print("POTEZ budget summary, result states, theme popover and WCAG AA contrast regression checks passed.")
 PY
+
+
+python - <<'PY'
+from pathlib import Path
+css = Path("assets/polish.css").read_text(encoding="utf-8")
+for selector in (
+    'html[data-theme="dark"] .budget-total{',
+    'html[data-theme="dark"] .budget-total .budget-status{',
+    'html[data-theme="dark"] .budget-total .btn-green{',
+    'html[data-theme="dark"] .budget-result p{',
+    'html[data-theme="dark"] .accessibility-panel{',
+    'html[data-theme="dark"] .accessibility-panel *{',
+):
+    assert selector in css, selector
+assert 'Bricolage Grotesque' in css and 'var(--font-display)' in css
+assert 'html[data-motion="reduce"]{scroll-behavior:auto!important}' in css
+assert '@media(prefers-reduced-motion:reduce)' in css
+print("POTEZ explicit dark-theme cascade and reduced-motion safeguards passed.")
+PY
