@@ -376,7 +376,7 @@ assert "POTEZ design-system completion: semantic scorecard colors" in css
 for token in (
     "--budget-surface:", "--budget-text:", "--budget-muted:",
     "--budget-positive-bg:", "--budget-negative-bg:",
-    "--accessibility-panel-surface:", "--accessibility-panel-selected:",
+    "--accessibility-panel-surface:", "--accessibility-panel-selected:", "--control-border:", "--accessibility-panel-border:",
     "Bricolage Grotesque", ".budget-total .btn-green",
     ".budget-total .reset", ".budget-result", "potez-result-in",
     "html[data-motion=\"reduce\"] .budget-result",
@@ -416,6 +416,8 @@ for foreground, background in text_pairs:
 ui_pairs = (
     ("#768b78", "#edf4e8"), ("#768b78", "#f7f6f1"),
     ("#65766a", "#1b2921"), ("#65766a", "#101613"),
+    ("#768b78", "#ffffff"), ("#768b78", "#f0f2ed"),
+    ("#768b78", "#18221d"), ("#768b78", "#222e27"),
     ("#1558a6", "#edf4e8"), ("#a9d6ff", "#1b2921"),
 )
 for foreground, background in ui_pairs:
@@ -442,4 +444,16 @@ assert 'Bricolage Grotesque' in css and 'var(--font-display)' in css
 assert 'html[data-motion="reduce"]{scroll-behavior:auto!important}' in css
 assert '@media(prefers-reduced-motion:reduce)' in css
 print("POTEZ explicit dark-theme cascade and reduced-motion safeguards passed.")
+PY
+
+
+python - <<'PY'
+from pathlib import Path
+css = Path("assets/polish.css").read_text(encoding="utf-8")
+assert "--control-border:#768b78" in css
+assert "--accessibility-panel-border:#768b78" in css
+assert ':where(select,textarea,input:not([type="range"]):not([type="checkbox"]))' in css
+assert ".btn-light{border-color:var(--control-border)!important}" in css
+assert ".accessibility-panel .accessibility-actions button" in css
+print("POTEZ control-boundary contrast tokens and selectors passed.")
 PY
