@@ -2,12 +2,12 @@
 
 **Politika prevedena na tvoj život.**
 
-POTEZ je besplatna, mobilna pilot-platforma građanske pismenosti. Pomaže mladima razumjeti tko donosi javne odluke, kako provjeravati informacije i što mogu napraviti kada žele promijeniti nešto u svojoj školi, kvartu ili zajednici.
+POTEZ je besplatna, mobilna digitalna platforma građanske pismenosti. Pomaže mladima razumjeti tko donosi javne odluke, kako provjeravati informacije i što mogu napraviti kada žele promijeniti nešto u svojoj školi, kvartu ili zajednici.
 
 Projekt je zamišljen kao jednostavna ulazna točka u građansko sudjelovanje — bez registracije, prijave, političkog profiliranja, javnih ljestvica i nepotrebnog prikupljanja podataka.
 
 **Autor, urednik i voditelj projekta:** Roman Šimunović  
-**Javna pilot-verzija:** https://potez.pages.dev/  
+**Javna verzija:** https://potez.pages.dev/  
 **Repozitorij:** https://github.com/romansimunovic/Potez
 
 ---
@@ -62,7 +62,7 @@ Projekt koristi HTML, CSS i JavaScript bez velikog frontend frameworka. Osnovne 
 
 ### Namjerno bez backenda
 
-U javnoj beta-verziji ne postoje Cloudflare Pages Functions, API endpointi, Supabase baza ni obrazac za slanje poruka. Iz repozitorija su uklonjeni i pripremljeni server-side kod i migracija baze kako ne bi ostao neaktivan put za prikupljanje podataka.
+U javnoj verziji ne postoje Cloudflare Pages Functions, API endpointi, Supabase baza ni obrazac za slanje poruka. Iz repozitorija su uklonjeni i pripremljeni server-side kod i migracija baze kako ne bi ostao neaktivan put za prikupljanje podataka.
 
 Za opće prijedloge i prijavu tehničkih grešaka postoji javni GitHub Issues. To je vanjska platforma; ondje ne treba objavljivati osobne ni povjerljive podatke.
 
@@ -120,7 +120,7 @@ Za provjeru koda i granica privatnosti:
 bash scripts/check.sh
 ~~~
 
-Provjere obuhvaćaju sintaksu JavaScripta, HTML strukturu i interne poveznice, manifest, edukativne podatke te potvrdu da javni pilot nema server-side funkcije, bazu ni obrazac za prikupljanje poruka.
+Provjere obuhvaćaju sintaksu JavaScripta, HTML strukturu i interne poveznice, manifest, edukativne podatke te potvrdu da javna verzija nema server-side funkcije, bazu ni obrazac za prikupljanje poruka.
 
 ## Objavljivanje na Cloudflare Pages
 

@@ -1,9 +1,16 @@
 (function(){
   const $ = (s,root=document)=>root.querySelector(s);
   const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
-  const STORE='potez-demo-v1';
+  const STORE='potez-progress-v1';
+  const LEGACY_STORE='potez-demo-v1';
   let saved={xp:0,factDone:false,budgetDone:false,actionDone:false};
-  try{saved={...saved,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch(e){}
+  try{
+    const current=localStorage.getItem(STORE);
+    const legacy=current===null?localStorage.getItem(LEGACY_STORE):null;
+    saved={...saved,...JSON.parse(current??legacy??'{}')};
+    if(current===null&&legacy!==null)localStorage.setItem(STORE,JSON.stringify(saved));
+    localStorage.removeItem(LEGACY_STORE);
+  }catch(e){}
   function persist(){try{localStorage.setItem(STORE,JSON.stringify(saved))}catch(e){} updateActionXp();window.dispatchEvent(new CustomEvent('potez:progress'))}
   function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2400)}
   function award(flag,points,label){if(saved[flag]){toast('Ovaj izazov već je uračunat u tvoj napredak.');return false;}saved[flag]=true;saved.xp=(saved.xp||0)+points;persist();window.POTEZ_FEEDBACK?.success();toast('+'+points+' POTEZ bodova · '+label);return true;}
@@ -256,8 +263,6 @@
     output.append(heading,summary,details,complete);
   }
   $('#topicSelect').addEventListener('change',renderAction);$('#effortSelect').addEventListener('change',()=>{const t=$('#effortSelect').value;const msg=t==='quick'?'Sažetak: utvrđivanje službenog izvora i nadležnog tijela.':t==='medium'?'Detaljnije: usporedba dokumenata, pravila i dostupnih podataka.':'Za grupni razgovor: usporedba različitih izvora i perspektiva.';const p=$('#actionOutput').querySelector('.action-depth-note');if(p)p.textContent=msg+' Poveznice vode na vanjske izvore.'});
-  // Clear progress is intentionally local-only.
-  $('#clearProgress').addEventListener('click',()=>{if(confirm('Obrisati sav spremljeni napredak na ovom uređaju?')){saved={xp:0,quizDone:false,factDone:false,budgetDone:false,actionDone:false};try{localStorage.removeItem('potez-budget-duel-v1');localStorage.removeItem('potez-budget-duel-v2')}catch(e){}persist();window.dispatchEvent(new CustomEvent('potez:reset'));toast('Lokalni napredak je obrisan.')}});
   renderWeekly();
   updateActionXp();
 })();
