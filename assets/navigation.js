@@ -23,7 +23,7 @@
   }
   mobileMenu?.addEventListener('toggle',()=>{
     syncMobileMenu();
-    if(mobileMenu.open)mobileMenuPanel?.querySelector('a')?.focus();
+    if(mobileMenu.open)mobileMenuPanel?.querySelector('.mobile-menu-close')?.focus();
   });
   mobileMenuBackdrop?.addEventListener('click',()=>closeMobileMenu(true));
   mobileMenuClose?.addEventListener('click',()=>closeMobileMenu(true));
@@ -43,6 +43,7 @@
     }
   });
   syncMobileMenu();
+  window.addEventListener('resize',()=>{if(window.innerWidth>1100)closeMobileMenu(false);});
   function viewForTarget(target){return target?.closest?.('[data-app-view]')||(target?.id==='top'?homeView:null);}
   function updateActiveNavigation(view){
     const activeRoute=view?.dataset.appView||'home';
