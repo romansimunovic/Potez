@@ -1219,3 +1219,31 @@ html[data-theme="dark"] .accessibility-panel .accessibility-reset{
   background:transparent!important;
   color:var(--accent)!important;
 }
+
+
+/* Component boundaries must be visible against both the control surface and its surroundings. */
+:root{
+  --control-border:#768b78;
+  --accessibility-panel-border:#768b78;
+}
+html[data-theme="dark"]{
+  --control-border:#768b78;
+  --accessibility-panel-border:#768b78;
+}
+:where(select,textarea,input:not([type="range"]):not([type="checkbox"])){
+  border-color:var(--control-border)!important;
+}
+.btn-light{border-color:var(--control-border)!important}
+.accessibility-panel{border-color:var(--accessibility-panel-border)!important}
+.accessibility-panel .accessibility-actions button,
+.accessibility-panel .accessibility-toggle,
+.accessibility-panel .accessibility-reset{
+  border-color:var(--accessibility-panel-border)!important;
+}
+html[data-theme="dark"] .accessibility-panel,
+html[data-theme="dark"] .accessibility-panel .accessibility-actions button,
+html[data-theme="dark"] .accessibility-panel .accessibility-toggle,
+html[data-theme="dark"] .accessibility-panel .accessibility-reset{
+  border-color:var(--accessibility-panel-border)!important;
+}
+html[data-theme="dark"] .btn-light{border-color:var(--control-border)!important}
