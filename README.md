@@ -116,6 +116,7 @@ POTEZ daje sažet nacionalni okvir i praktične sljedeće korake; ne pokušava b
 
 - [Urednička načela i standardi provjere](docs/CONTENT_PRINCIPLES.md)
 - [Izvori za edukativne sadržaje](docs/LEARNING_SOURCES_2026.md)
+- [Obrazovni kontekst građanskog odgoja i obrazovanja u Hrvatskoj](docs/CIVIC_EDUCATION_CONTEXT_2026.md)
 - [Metodologija simulacije lokalnog proračuna](docs/BUDGET_MODEL_2026.md)
 - [Transparentnost uporabe umjetne inteligencije](docs/AI_TRANSPARENCY.md)
 - [Vodič za suradnju s POTEZOM](docs/PARTNERSHIP_GUIDE.md)
