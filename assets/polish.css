@@ -1307,3 +1307,82 @@ html[data-contrast="high"] .budget-result,
 html[data-contrast="high"] .accessibility-panel{
   box-shadow:none!important;
 }
+
+/* Legal pages use a compact inline header instead of the homepage's mobile drawer.
+   Keep the three legal links and the accessibility control on one stable row. */
+@media(max-width:1100px){
+  body.legal-page .topline{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:clamp(8px,2vw,16px);
+  }
+  body.legal-page .brand{
+    display:block;
+    order:0;
+    flex:0 0 auto;
+    margin:0;
+  }
+  body.legal-page .nav{
+    display:flex!important;
+    order:1;
+    flex:1 1 auto;
+    min-width:0;
+    justify-content:center;
+    flex-wrap:nowrap;
+    gap:2px;
+  }
+  body.legal-page .accessibility-menu{
+    display:block;
+    order:2;
+    flex:0 0 auto;
+    margin:0;
+  }
+  body.legal-page .accessibility-menu>summary{
+    display:grid;
+    place-items:center;
+    width:44px;
+    height:44px;
+    min-height:44px;
+    padding:0;
+    font-size:0;
+    white-space:nowrap;
+  }
+  body.legal-page .accessibility-menu>summary .accessibility-icon{
+    width:23px;
+    height:23px;
+  }
+}
+@media(max-width:760px){
+  body.legal-page .brand{display:none}
+  body.legal-page .topline{gap:8px}
+  body.legal-page .nav{
+    flex:1 1 auto;
+    justify-content:space-between;
+  }
+  body.legal-page .nav a{
+    min-width:0;
+    min-height:42px;
+    padding:7px 8px;
+    font-size:.82rem;
+    white-space:nowrap;
+  }
+  body.legal-page .accessibility-menu>summary{
+    width:42px;
+    height:42px;
+    min-height:42px;
+  }
+}
+@media(max-width:420px){
+  body.legal-page .nav a{
+    padding-inline:5px;
+    font-size:.75rem;
+  }
+  body.legal-page .topline{gap:6px}
+  body.legal-page .accessibility-menu>summary{
+    width:40px;
+    height:40px;
+    min-height:40px;
+  }
+}
