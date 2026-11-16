@@ -66,9 +66,9 @@ for filename in ("index.html", "privacy.html", "uvjeti.html"):
 
 json.loads(Path("manifest.webmanifest").read_text(encoding="utf-8"))
 if Path("functions").exists():
-    raise SystemExit("The public pilot must remain static; remove Pages Functions")
+    raise SystemExit("The public version must remain static; remove Pages Functions")
 if Path("supabase").exists():
-    raise SystemExit("The public pilot must not include an active database schema")
+    raise SystemExit("The public version must not include an active database schema")
 print("Manifest parsed; no server-side functions or database migrations are present")
 PY
 printf 'POTEZ static and privacy checks passed.\n'
@@ -95,7 +95,7 @@ assert "daily-run-progress" in html or "dailyProgress" in html
 assert "budgetCity" in html and "budgetProgramLink" not in html
 assert "prefers-reduced-motion:reduce" in Path("assets/styles.css").read_text(encoding="utf-8")
 assert not Path("_redirects").exists()
-print("POTEZ pilot UX/privacy checks passed")
+print("POTEZ public-version UX/privacy checks passed")
 PY
 
 python - <<'PY'
