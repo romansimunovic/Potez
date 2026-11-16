@@ -115,7 +115,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
     assert token in html, token
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
-assert "localStorage" in js and "prefers-color-scheme: dark" in js
+assert "localStorage" in js and "theme:'light'" in js and "settings.theme==='dark'?'dark':'light'" in js
 assert "'/assets/accessibility.js'" in sw and "potez-pilot-v31" in sw and "'/assets/budget-data.js'" in sw
 
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
