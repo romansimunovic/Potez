@@ -12,6 +12,22 @@ Projekt je zamišljen kao jednostavna ulazna točka u građansko sudjelovanje �
 
 ---
 
+## Osnivač, polazište i svrha
+
+POTEZ je osnovao i uređuje **Roman Šimunović**, magistar informacijskih tehnologija i magistar edukacije sociologije. Projekt proizlazi iz interesa za društvena pitanja, građansko sudjelovanje i obrazovanje te iz želje da se informacijske tehnologije iskoriste za njihovo jasnije, praktičnije i pristupačnije objašnjavanje.
+
+Polazište projekta jednostavno je: mladi trebaju imati razumljivo mjesto na kojem mogu povezati ono što se događa u njihovoj svakodnevici s javnim odlukama, institucijama i mogućnostima sudjelovanja. POTEZ zato spaja kratka objašnjenja, provjerljive izvore, interaktivne zadatke, kvizove i simulacije. Gamifikacija nije sama sebi svrha; koristi se kao način da se složene teme razlože na manje korake, potakne istraživanje i omogući učenje vlastitim tempom.
+
+Primarna publika su mladi, osobito učenici viših razreda osnovnih škola i srednjoškolci. Platforma je istodobno zamišljena kao praktičan resurs za nastavnike, stručne suradnike, škole, knjižnice, udruge, organizacije koje rade s mladima, istraživače i donositelje javnih politika. Cilj je podržati kvalitetniji rad s mladima, ali i otvoriti prostor u kojem mladi nisu samo primatelji informacija: mogu razumjeti mogućnosti djelovanja, oblikovati pitanja, sudjelovati u raspravama i doprinijeti zajednici.
+
+### Obrazovni kontekst i razlog za dodatni alat
+
+U Hrvatskoj je Građanski odgoj i obrazovanje propisan kao međupredmetna tema za osnovne i srednje škole, a ne kao jedinstven zaseban obvezni predmet s jednakom satnicom u svim školama. Kurikulum predviđa razvoj građanskog znanja, vještina i stavova te naglašava kritičko mišljenje, komunikaciju, sudjelovanje i iskustveno učenje. Budući da se tema ostvaruje međupredmetno, njezina konkretna obrada povezana je s predmetima, planiranjem škole i lokalnim okolnostima.
+
+Razlike su vidljive i u strukovnom obrazovanju. Odluka o kurikulu općeobrazovnih predmeta iz 2025. za kvalifikacije razine 4.1 ne uključuje Politiku i gospodarstvo u zajedničku predmetnu strukturu, dok ga za razinu 4.2 predviđa u četvrtom razredu, s jednim satom tjedno odnosno 32 sata godišnje. Primjena se uvodi postupno po generacijama i sektorima, počevši od prvih razreda obuhvaćenih sektora u školskoj godini 2025./2026. To nije dokaz da se građanske teme uopće ne obrađuju, nego pokazuje da ne postoji jednaka zasebna predmetna satnica za sve strukovne učenike.
+
+POTEZ odgovara na taj kontekst kao dopunski, otvoreni i praktični resurs. Ne zamjenjuje školsku nastavu, kurikulum ni nastavnika. Povezuje teme koje se obrađuju na različitim mjestima i daje učenicima priliku da ih istraže kroz primjere iz škole, lokalne zajednice i javnog života.
+
 ## Što POTEZ omogućuje?
 
 Aplikacija je organizirana u pet jasno odvojenih područja. Na mobitelu se otvaraju kroz bočni izbornik, a na računalu kroz gornju navigaciju:
