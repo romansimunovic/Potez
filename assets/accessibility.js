@@ -3,9 +3,9 @@
   const KEY='potez-accessibility-v1';
   const root=document.documentElement;
   const defaults={theme:'light',font:100,contrast:false,motion:false};
-  if(settings.theme!=='dark'&&settings.theme!=='light')settings.theme='light';
   let settings={...defaults};
   try{settings={...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{}
+  if(settings.theme!=='dark'&&settings.theme!=='light')settings.theme='light';
   const fontSteps=[100,110,120,130,140,150,160,170,180,190,200];
   const mediaMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
   const menu=document.getElementById('accessibilityMenu');
