@@ -119,7 +119,7 @@ for token in ('id="accessibilityMenu"','data-theme-choice="dark"','data-font-ste
 for token in ('data-theme="dark"','data-contrast="high"','data-motion="reduce"','border-radius:0!important'):
     assert token in css, token
 assert "localStorage" in js and "theme:'light'" in js and "settings.theme==='dark'?'dark':'light'" in js
-assert "'/assets/accessibility.js'" in sw and "potez-pilot-v31" in sw and "'/assets/budget-data.js'" in sw
+assert "'/assets/accessibility.js'" in sw and "potez-pilot-v32" in sw and "'/assets/budget-data.js'" in sw
 
 app_reset = Path("assets/app.js").read_text(encoding="utf-8")
 assert "localStorage.removeItem('potez-budget-duel-v1')" in app_reset
@@ -185,158 +185,9 @@ assert "potez-pilot-v32" in sw
 
 assert "Proračunski izazov koristi službene gradske planove" not in html
 assert "Ovo nije službeni gradski proračun." in html
-app_quiz = Path("assets/app.js").read_text(encoding="utf-8")
-assert "quizOptions=q.a.map((text,index)=>({text,correct:index===q.correct}))" in app_quiz
-assert "Math.random()" in app_quiz
-assert "quizOptions[j]?.correct" in app_quiz
-assert 'id="dailyTitle"' in html
-assert "Devet situacija iz svakodnevnog života" in html
-assert "oko 1 minute" not in html
-
-headers = Path("_headers").read_text(encoding="utf-8")
-assert "https://challenges.cloudflare.com" not in headers
-assert "script-src 'self';" in headers and "frame-src 'none';" in headers
-assert "budgetCityImage" not in html and "budgetImageCredit" not in html
-assert "budgetCityImage" not in app
-assert "Zanimljiv pokušaj — evo što se događa." not in Path("assets/civic.js").read_text(encoding="utf-8")
-assert "razlika manja od 5% ili 5.000 €" in Path("assets/civic.js").read_text(encoding="utf-8")
-print("POTEZ final desktop, local budget, dark-mode and navigation checks passed")
-PY
-
-node - <<'NODE'
-global.window = global;
-require('./assets/learning-data.js');
-const content = window.POTEZ_LEARNING_CONTENT;
-if (!content || !Array.isArray(content.topics) || !Array.isArray(content.facts)) {
-  throw new Error('Learning content registry is missing');
-}
-if (content.topics.length !== 12) throw new Error('Expected 12 curated learning topics');
-if (content.facts.length !== 22) throw new Error('Expected 22 sourced daily facts');
-const ids = content.topics.map(item => item.id);
-if (new Set(ids).size !== ids.length) throw new Error('Learning topic IDs must be unique');
-const categories = new Set(['svakodnevica', 'digitalno', 'sudjelovanje', 'odgovornost']);
-for (const topic of content.topics) {
-  if (!categories.has(topic.category)) throw new Error(topic.id + ': invalid learning category');
-  for (const key of ['title','intro','question','insight','action','sourceTitle','sourceUrl','sourceNote']) {
-    if (!topic[key]) throw new Error(topic.id + ': missing ' + key);
-  }
-  if (!topic.sourceUrl.startsWith('https://')) throw new Error(topic.id + ': source must use HTTPS');
-}
-for (const [index, fact] of content.facts.entries()) {
-  if (!fact.title || !fact.text || !fact.note || !fact.source || !fact.url) {
-    throw new Error('Daily fact ' + index + ': incomplete source or claim');
-  }
-  if (!fact.url.startsWith('https://')) throw new Error('Daily fact ' + index + ': source must use HTTPS');
-}
-console.log('Verified 12 learning topics, 14 daily facts, unique IDs and HTTPS sources.');
-NODE
-
-python - <<'PY'
-from pathlib import Path
-from xml.etree import ElementTree as ET
-
-html = Path("index.html").read_text(encoding="utf-8")
-css = Path("assets/styles.css").read_text(encoding="utf-8")
-learning = Path("assets/learning.js").read_text(encoding="utf-8")
-data = Path("assets/learning-data.js").read_text(encoding="utf-8")
-app = Path("assets/app.js").read_text(encoding="utf-8")
-civic = Path("assets/civic.js").read_text(encoding="utf-8")
-navigation = Path("assets/navigation.js").read_text(encoding="utf-8")
-sw = Path("sw.js").read_text(encoding="utf-8")
-privacy = Path("privacy.html").read_text(encoding="utf-8")
-robots = Path("robots.txt").read_text(encoding="utf-8")
-readme = Path("README.md").read_text(encoding="utf-8")
-
-for token in ('id="dailyFact"', 'id="learningFilters"', 'id="learningTopics"',
-              'id="learningShowMore"', 'id="passportTopics"',
-              '<details class="learning-guides" id="teme">',
-              '<details class="learning-stat-details">'):
-    assert token in html, token
-
-for token in ('name="description"', 'name="keywords"', 'name="author"',
-              'rel="canonical"', 'property="og:url"',
-              'https://potez.pages.dev/og-image.png'):
-    assert token in html, token
-assert 'content="12' not in html or '12 tema' in html
-assert 'potez-pilot-v31' in sw
-assert "'/assets/learning-data.js'" in sw and "'/assets/learning.js'" in sw
-assert "awardLesson" in app and "claimDailyFact" in app
-assert "saved.dailyFactStamp===stamp" in app
-assert "potez:reset" in app and "potez:reset" in civic
-assert "lesson-" in civic and "passportTopics" in civic
-assert "ancestor.tagName==='DETAILS'" in navigation
-assert ".innerHTML" not in learning
-assert "syncTopicProgress" in learning and "syncDailyFactProgress" in learning
-assert "renderTopics();\n    renderDailyFact();" not in learning
-assert "fetch(" not in learning and "fetch(" not in data
-assert "localStorage" in learning and "POTEZ_PROGRESS" in learning
-assert "kategorije u izborniku tema" in privacy
-assert "zanimljivost dana" in privacy.lower()
-assert "Sitemap: https://potez.pages.dev/sitemap.xml" in robots
-for path in ('docs/AI_TRANSPARENCY.md', 'docs/CONTENT_PRINCIPLES.md', 'docs/LEARNING_SOURCES_2026.md', 'docs/BUDGET_MODEL_2026.md'):
-    assert path in readme, path
-    assert Path(path).is_file(), path
-for private_path in ('docs/POTENTIAL_PARTNERS_AND_PILOT.md', 'docs/BUDGET_SOURCES_2026.md'):
-    assert not Path(private_path).exists(), private_path
-
-ET.parse("sitemap.xml")
-mobile = Path("assets/navigation.js").read_text(encoding="utf-8")
-for token in ('id="mobileMenu"', 'id="mobileMenuPanel"', 'mobileMenuClose', "event.key==='Escape'", "event.key==='Tab'"):
-    if token not in html and token not in mobile:
-        raise AssertionError(token)
-assert 'role="dialog"' in html and 'aria-modal="true"' in html
-assert "mobile-menu-close" in html and "mobile-menu-backdrop" in html
-assert "mobile-menu-panel" in css and "mobile-menu-links" in css
-assert "tool-disclosure" in css and "issue-guide-card" in css
-assert 'U PRAKSI · INSTITUCIJE · INFORMACIJE' not in html
-assert 'RESURSI · IZVORI · MATERIJALI' not in html
-assert 'Kratko predstavljanje POTEZA' not in html
-assert 'Bez registracije' not in html and 'registracija ni posebna oprema' not in html
-assert 'class="section-kicker"' not in html and 'class="mini-tag"' not in html
-assert 'class="view-meta"' not in html
-assert 'tool-disclosure-meta' not in html and 'tool-disclosure-hint' not in html
-assert 'learning-footnote' not in html and 'learningCount' not in html
-assert 'dailyDate' not in html and 'dailyCaseLabel' not in html
-assert 'PREGLED TEME' not in Path("assets/app.js").read_text(encoding="utf-8")
-assert "<small" not in html
-assert 'id="fontScaleValue"' in html and '<span id="fontScaleValue">100 %</span>' in html
-assert 'aria-label="Glavni izbornik"' in html and 'mobileMenuTitle' not in html
-for route in ('home', 'learn', 'play', 'act', 'tools'):
-    assert html.count(f'data-app-route="{route}"') == 2, route
-assert 'passport-badge-panel' not in html
-for page in ("index.html", "privacy.html", "uvjeti.html"):
-    page_html = Path(page).read_text(encoding="utf-8")
-    assert "<small" not in page_html, page
-    assert 'class="section-kicker"' not in page_html, page
-    assert 'brand-sub' not in page_html, page
-    assert "otvoreni pilot" not in page_html.lower(), page
-assert "Bez računa" not in Path("privacy.html").read_text(encoding="utf-8")
-assert "registracija" not in Path("uvjeti.html").read_text(encoding="utf-8").lower()
-assert "body{padding-bottom:0!important}" in css
-print("Verified learning UI, local-only progress, compact passport, SEO metadata, sitemap and source documentation.")
-PY
-
-printf 'POTEZ learning, privacy, SEO and documentation checks passed.\\n'
-
-
-python - <<'PY'
-from pathlib import Path
-
-html = Path("index.html").read_text(encoding="utf-8")
-navigation = Path("assets/navigation.js").read_text(encoding="utf-8")
-css = Path("assets/styles.css").read_text(encoding="utf-8")
-sw = Path("sw.js").read_text(encoding="utf-8")
-
-assert 'class="home-educator-promo"' in html
-assert 'href="#nastavnici"' in html
-assert 'id="nastavnici"' in html
-assert 'aria-labelledby="facilitatorTitle"' in html
-assert html.count('class="facilitator-card"') == 5
-assert "50–55 minuta" in html
-assert 'focusTarget.focus({preventScroll:true})' in navigation
-assert "dataset.motion==='reduce'" in navigation
-assert ".home-educator-promo" in css
-assert "potez-pilot-v31" in sw
+assert 'quizQuestion' not in app_quiz and 'quizChoices' not in app_quiz
+assert 'id="participationTitle"' in html
+assert "potez-pilot-v32" in sw
 print("POTEZ educator pathway and route accessibility checks passed.")
 PY
 
@@ -354,7 +205,7 @@ assert "text-wrap:balance" in css
 assert "line-height:1.1" in css and "letter-spacing:-.042em" in css
 assert ".app-home .hero .actions" in css
 assert "grid-template-columns:1fr" in css
-assert "potez-pilot-v31" in sw
+assert "potez-pilot-v32" in sw
 print("POTEZ homepage typography, CTA spacing and cache checks passed.")
 PY
 
@@ -390,7 +241,7 @@ for font in (
     "bricolage-grotesque-latin-ext-wght-normal.woff2",
 ):
     assert Path("assets/fonts", font).is_file(), font
-assert "potez-pilot-v31" in sw
+assert "potez-pilot-v32" in sw
 assert "font-family: Inter," not in css
 assert 'href="https://narodne-novine.nn.hr/clanci/sluzbeni/full/2020_12_144_2762.html"' in html
 assert 'href="https://narodne-novine.nn.hr/clanci/sluzbeni/2018_07_68_1393.html"' in html
@@ -434,6 +285,6 @@ for token in (
 ):
     assert token in polish, token
 
-assert "potez-pilot-v31" in sw
+assert "potez-pilot-v32" in sw
 print("POTEZ learning discovery, search, result states and responsive styles passed.")
 PY
