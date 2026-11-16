@@ -1159,3 +1159,63 @@ html[data-motion="reduce"] .accessibility-panel *{transition:none!important;anim
     animation:none!important;
   }
 }
+
+
+/* Keep the semantic theme overrides ahead of legacy, higher-specificity dark-mode rules. */
+html[data-theme="dark"] .budget-total{
+  background:var(--budget-surface)!important;
+  color:var(--budget-text)!important;
+  border-color:var(--budget-border)!important;
+}
+html[data-theme="dark"] .budget-total .big,
+html[data-theme="dark"] .budget-total .budget-spent-value{color:var(--budget-text)!important}
+html[data-theme="dark"] .budget-total .budget-spent-value{color:var(--budget-accent)!important}
+html[data-theme="dark"] .budget-total .budget-remaining{color:var(--budget-text)!important}
+html[data-theme="dark"] .budget-total .budget-status{color:var(--budget-positive-text)!important}
+html[data-theme="dark"] .budget-total .budget-status.is-over-budget{color:var(--budget-negative-text)!important}
+html[data-theme="dark"] .budget-total .btn-green{
+  background:var(--budget-button)!important;
+  color:var(--budget-button-text)!important;
+  border-color:var(--budget-button-border)!important;
+}
+html[data-theme="dark"] .budget-total .btn-green:disabled{
+  background:var(--surface-inset)!important;
+  color:var(--budget-muted)!important;
+  border-color:var(--budget-border)!important;
+}
+html[data-theme="dark"] .budget-total .reset{color:var(--budget-accent)!important}
+html[data-theme="dark"] .budget-result{
+  background:var(--budget-result-surface)!important;
+  color:var(--budget-result-text)!important;
+  border-color:var(--budget-border)!important;
+  border-left-color:var(--budget-accent)!important;
+}
+html[data-theme="dark"] .budget-result strong{color:var(--budget-accent)!important}
+html[data-theme="dark"] .budget-result p{color:var(--budget-result-text)!important}
+
+html[data-theme="dark"] .accessibility-panel{
+  background:var(--accessibility-panel-surface)!important;
+  color:var(--accessibility-panel-text)!important;
+  border-color:var(--line)!important;
+}
+html[data-theme="dark"] .accessibility-panel *{
+  color:var(--accessibility-panel-text)!important;
+  background-color:initial!important;
+}
+html[data-theme="dark"] .accessibility-panel .accessibility-actions button,
+html[data-theme="dark"] .accessibility-panel .accessibility-toggle,
+html[data-theme="dark"] .accessibility-panel .accessibility-reset{
+  background:var(--accessibility-panel-control)!important;
+  color:var(--accessibility-panel-text)!important;
+  border-color:var(--line)!important;
+}
+html[data-theme="dark"] .accessibility-panel .accessibility-actions button[aria-pressed="true"],
+html[data-theme="dark"] .accessibility-panel .accessibility-toggle[aria-pressed="true"]{
+  background:var(--accessibility-panel-selected)!important;
+  color:var(--accessibility-panel-selected-text)!important;
+  border-color:var(--accent)!important;
+}
+html[data-theme="dark"] .accessibility-panel .accessibility-reset{
+  background:transparent!important;
+  color:var(--accent)!important;
+}
