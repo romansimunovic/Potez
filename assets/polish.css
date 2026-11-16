@@ -692,6 +692,10 @@ html[data-theme="dark"] .home-step-icon{background:#34443a;color:#f0e8d7}
 .facilitator-partnership-options span{color:var(--muted);font-size:.79rem;line-height:1.5}
 .facilitator-partnership .facilitator-partnership-note{padding-top:11px;border-top:1px solid var(--line);font-size:.8rem}
 .facilitator-partnership .btn{justify-self:start}
+.facilitator-partnership-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.facilitator-partnership-links a{font-size:.82rem;font-weight:700;text-underline-offset:3px;color:var(--green-deep)}
+html[data-theme="dark"] .facilitator-partnership-links a{color:#c8f169}
+@media(max-width:650px){.facilitator-partnership-links{display:grid;gap:11px}}
 html[data-theme="dark"] .facilitator-resources{border-color:#526158}
 html[data-theme="dark"] .facilitator-resources-heading p,
 html[data-theme="dark"] .facilitator-resource-note,
